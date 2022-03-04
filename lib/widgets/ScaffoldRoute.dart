@@ -16,10 +16,8 @@ class ScaffoldRoute extends StatefulWidget {
 class _ScaffoldRouteState extends State<ScaffoldRoute> {
   int _selectedIndex = 1;
 
-  Player player = Player(id: 69420);
-  Media media2 =
-      Media.network('http://tx2play1.douyucdn.cn/live/20415rnWbjg6Ex1K.xs');
-
+  late Player player;
+  late Media media2;
   late VlcPlayerController _videoPlayerController;
 
   @override
@@ -34,6 +32,9 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
         options: VlcPlayerOptions(),
       );
     } else if(Platform.isWindows){
+      player = Player(id: 69420);
+      media2 =
+          Media.network('http://tx2play1.douyucdn.cn/live/20415rnWbjg6Ex1K.xs');
       player.open(
         media2,
         autoStart: true,
