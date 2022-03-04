@@ -36,6 +36,7 @@ dependencies:
 
 # 开源播放器
   flutter_vlc_player: ^7.0.1
+  dart_vlc: ^0.1.6
 #  # 路由
 #  fluro: ^1.7.8
 #  #网络请求

@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:dart_vlc/dart_vlc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:tvShow/routes/RouterTable.dart';
@@ -5,6 +8,9 @@ import 'package:tvShow/routes/RouterTable.dart';
 import 'widgets/ScaffoldRoute.dart';
 
 void main() {
+  if (Platform.isWindows) {
+    DartVLC.initialize();
+  }
   runApp(const MyApp());
 }
 
@@ -79,7 +85,6 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
