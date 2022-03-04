@@ -26,7 +26,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
 
     if (Platform.isAndroid || Platform.isIOS) {
       _videoPlayerController = VlcPlayerController.network(
-        'http://tx2play1.douyucdn.cn/live/20415rnWbjg6Ex1K.xs',
+        'https://al-pull2.hkatv.vip/live/hktv20210929.m3u8',
         hwAcc: HwAcc.full,
         autoPlay: true,
         options: VlcPlayerOptions(),
