@@ -86,3 +86,5 @@ lint/tmp/
 /.dart_tool/
 /.packages
 /.idea/
+/.flutter-plugins
+/.flutter-plugins-dependencies
