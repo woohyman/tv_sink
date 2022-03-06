@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:tvShow/routes/RouterTable.dart';
 
-import 'widgets/ScaffoldRoute.dart';
+import 'pages/ScaffoldRoute.dart';
 
 void main() {
   if (Platform.isWindows) {

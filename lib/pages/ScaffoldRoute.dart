@@ -4,7 +4,7 @@ import 'package:dart_vlc/dart_vlc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_vlc_player/flutter_vlc_player.dart';
 
-import 'SliderLeft.dart';
+import '../widgets/SliderLeft.dart';
 
 class ScaffoldRoute extends StatefulWidget {
   const ScaffoldRoute({Key? key}) : super(key: key);
@@ -31,7 +31,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
         autoPlay: true,
         options: VlcPlayerOptions(),
       );
-    } else if(Platform.isWindows){
+    } else if (Platform.isWindows) {
       player = Player(id: 69420);
       media2 =
           Media.network('http://tx2play1.douyucdn.cn/live/20415rnWbjg6Ex1K.xs');
@@ -49,7 +49,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
         aspectRatio: 16 / 9,
         placeholder: const Center(child: CircularProgressIndicator()),
       );
-    } else if(Platform.isWindows) {
+    } else if (Platform.isWindows) {
       return Video(
         player: player,
         height: 1920.0,
