@@ -4,6 +4,7 @@ import 'package:dart_vlc/dart_vlc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_vlc_player/flutter_vlc_player.dart';
 
+import '../widgets/PlayerWrapper.dart';
 import '../widgets/SliderLeft.dart';
 
 class ScaffoldRoute extends StatefulWidget {
@@ -18,20 +19,20 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
 
   late Player player;
   late Media media2;
-  late VlcPlayerController _videoPlayerController;
+
+  final videoSourceList1 = [
+    'http://112.25.48.68/live/program/live/nxws/1300000/mnf.m3u8',
+    'http://tx2play1.douyucdn.cn/live/20415rnWbjg6Ex1K.xs',
+    'http://39.134.115.163:8080/PLTV/88888910/224/3221225745/index.m3u8',
+    'http://39.134.66.66/PLTV/88888888/224/3221225613/index.m3u8'
+  ];
 
   @override
   void initState() {
     super.initState();
+    print("== initState ==");
 
-    if (Platform.isAndroid || Platform.isIOS) {
-      _videoPlayerController = VlcPlayerController.network(
-        'https://al-pull2.hkatv.vip/live/hktv20210929.m3u8',
-        hwAcc: HwAcc.full,
-        autoPlay: true,
-        options: VlcPlayerOptions(),
-      );
-    } else if (Platform.isWindows) {
+    if (Platform.isWindows) {
       player = Player(id: 69420);
       media2 =
           Media.network('http://tx2play1.douyucdn.cn/live/20415rnWbjg6Ex1K.xs');
@@ -42,13 +43,29 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
     }
   }
 
-  Widget? getWidgetByPlatForm() {
+  Widget? getWidgetByPlatForm(int index) {
     if (Platform.isAndroid || Platform.isIOS) {
-      return VlcPlayer(
-        controller: _videoPlayerController,
-        aspectRatio: 16 / 9,
-        placeholder: const Center(child: CircularProgressIndicator()),
-      );
+      print("index $index");
+      switch (index) {
+        case 0:
+          Widget divider1 = const Divider(
+            color: Colors.blue,
+          );
+          return ListView.separated(
+            itemCount: videoSourceList1.length,
+            itemBuilder: (BuildContext context, int index) {
+              return PlayerWrapper(videoSourceList1[index]);
+            },
+            separatorBuilder: (BuildContext context, int index) {
+              return divider1;
+            },
+          );
+        case 1:
+          return PlayerWrapper("http://tx2play1.douyucdn.cn/live/20415rnWbjg6Ex1K.xs");
+        case 2:
+          return PlayerWrapper("http://tx2play1.douyucdn.cn/live/20415rnWbjg6Ex1K.xs");
+      }
+
     } else if (Platform.isWindows) {
       return Video(
         player: player,
@@ -65,10 +82,10 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("电视汇"),
+        title: const Text(""),
       ),
       drawer: const SliderLeft(),
-      body: getWidgetByPlatForm(),
+      body: getWidgetByPlatForm(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '中文频道'),
