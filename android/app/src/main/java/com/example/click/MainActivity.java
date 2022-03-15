@@ -1,4 +1,4 @@
-package com.example.tvShow;
+package com.example.tvSink;
 
 import io.flutter.embedding.android.FlutterActivity;
 

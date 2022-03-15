@@ -4,8 +4,8 @@ import 'package:dart_vlc/dart_vlc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:provider/provider.dart';
-import 'package:tvShow/routes/RouterTable.dart';
-import 'package:tvShow/model/CommonData.dart';
+import 'package:tvSink/routes/RouterTable.dart';
+import 'package:tvSink/model/CommonData.dart';
 
 import 'pages/ScaffoldRoute.dart';
 
@@ -22,8 +22,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (_) => CommonData(),
+    return Provider<CommonData>(
+      lazy: false,
+      create: (ctx) => CommonData(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         onGenerateRoute: RouterTable.onGenerateRoute,
