@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vlc_player/flutter_vlc_player.dart';
+import 'package:provider/provider.dart';
+import 'package:tvShow/model/CommonData.dart';
 
 class PlayerWrapper extends StatefulWidget {
   late String dataSource;
   late VlcPlayerController _videoPlayerController;
 
-  PlayerWrapper(String dataSource, {Key? key}) : super(key: key){
+  PlayerWrapper(String dataSource, {Key? key}) : super(key: key) {
     this.dataSource = dataSource;
     var url = dataSource.toString();
     print(" PlayerWrapper ========================================> $url");
@@ -29,21 +31,26 @@ class _PlayerState extends State<PlayerWrapper> {
   bool _active = false;
   late VlcPlayerController _videoPlayerController;
 
-  void _handleTap() {
+  void _handleTap(CommonData commonData) {
     setState(() {
       _active = !_active;
       var url = _videoPlayerController.dataSource.toString();
-      if(_active){
+      if (_active) {
         print("暂停播放|地址 => $url");
         _videoPlayerController.stop();
-      }else{
+      } else {
+        commonData.setTvChannel(_videoPlayerController.dataSource);
         print("开始播放|地址 => $url");
         _videoPlayerController.play();
       }
     });
   }
 
-  Widget? getPlayerShow() {
+  Widget getPlayerShow(CommonData commonData) {
+    if (commonData.getTvChannel() != _videoPlayerController.dataSource) {
+      _videoPlayerController.stop();
+    }
+
     return VlcPlayer(
       controller: _videoPlayerController,
       aspectRatio: 16 / 9,
@@ -58,9 +65,11 @@ class _PlayerState extends State<PlayerWrapper> {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: _handleTap,
-      child: getPlayerShow(),
-    );
+    return Consumer<CommonData>(builder: (ctx, commonData, child) {
+      return InkWell(
+        onTap: () => {_handleTap(commonData)},
+        child: getPlayerShow(commonData),
+      );
+    });
   }
 }
