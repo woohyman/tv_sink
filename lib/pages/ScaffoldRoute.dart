@@ -101,6 +101,4 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
       _selectedIndex = index;
     });
   }
-
-  void _onAdd() {}
 }
