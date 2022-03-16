@@ -28,11 +28,10 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
     super.initState();
     if (Platform.isWindows) {
       player = Player(id: 69420);
-      media2 =
-          Media.network('http://tx2play1.douyucdn.cn/live/20415rnWbjg6Ex1K.xs');
+      media2 = Media.network('http://tx2play1.douyucdn.cn/live/20415rnWbjg6Ex1K.xs');
       player.open(
         media2,
-        autoStart: true,
+        autoStart: false,
       );
     }
   }
