@@ -1,9 +1,12 @@
 import 'dart:io';
 
 import 'package:dart_vlc/dart_vlc.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_vlc_player/flutter_vlc_player.dart';
+import 'package:provider/provider.dart';
 
+
+import '../model/bean/TvResource.dart';
 import '../widgets/PlayerWrapper.dart';
 import '../widgets/SliderLeft.dart';
 
@@ -20,18 +23,9 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
   late Player player;
   late Media media2;
 
-  final videoSourceList1 = [
-    'http://112.25.48.68/live/program/live/nxws/1300000/mnf.m3u8',
-    'http://tx2play1.douyucdn.cn/live/20415rnWbjg6Ex1K.xs',
-    'http://39.134.115.163:8080/PLTV/88888910/224/3221225745/index.m3u8',
-    'http://39.134.66.66/PLTV/88888888/224/3221225613/index.m3u8'
-  ];
-
   @override
   void initState() {
     super.initState();
-    print("== initState ==");
-
     if (Platform.isWindows) {
       player = Player(id: 69420);
       media2 =
@@ -43,29 +37,32 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
     }
   }
 
-  Widget? getWidgetByPlatForm(int index) {
+  Widget? getWidgetByPlatForm(int index, BuildContext context) {
     if (Platform.isAndroid || Platform.isIOS) {
-      print("index $index");
+      CommonData commonData = Provider.of<CommonData>(context, listen: true);
+      var _tvList = commonData.chineseTvLis;
       switch (index) {
         case 0:
-          Widget divider1 = const Divider(
+          _tvList = commonData.chineseTvLis;
+          break;
+        case 1:
+          _tvList = commonData.foreignTvLis;
+          break;
+        case 2:
+          _tvList = commonData.featuredTvLis;
+          break;
+      }
+      return ListView.separated(
+        itemCount: _tvList.length,
+        itemBuilder: (BuildContext context, int index) {
+          return PlayerWrapper(_tvList[index]);
+        },
+        separatorBuilder: (BuildContext context, int index) {
+          return const Divider(
             color: Colors.blue,
           );
-          return ListView.separated(
-            itemCount: videoSourceList1.length,
-            itemBuilder: (BuildContext context, int index) {
-              return PlayerWrapper(videoSourceList1[index]);
-            },
-            separatorBuilder: (BuildContext context, int index) {
-              return divider1;
-            },
-          );
-        case 1:
-          return PlayerWrapper("http://tx2play1.douyucdn.cn/live/20415rnWbjg6Ex1K.xs");
-        case 2:
-          return PlayerWrapper("http://tx2play1.douyucdn.cn/live/20415rnWbjg6Ex1K.xs");
-      }
-
+        },
+      );
     } else if (Platform.isWindows) {
       return Video(
         player: player,
@@ -76,6 +73,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
         showControls: false, // default
       );
     }
+    return null;
   }
 
   @override
@@ -85,7 +83,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
         title: const Text(""),
       ),
       drawer: const SliderLeft(),
-      body: getWidgetByPlatForm(_selectedIndex),
+      body: getWidgetByPlatForm(_selectedIndex, context),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '中文频道'),

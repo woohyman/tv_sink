@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_vlc_player/flutter_vlc_player.dart';
 import 'package:provider/provider.dart';
-import 'package:tvSink/model/CommonData.dart';
+import 'package:tvSink/model/bean/TvResource.dart';
 
 class PlayerWrapper extends StatefulWidget {
   late String dataSource;
