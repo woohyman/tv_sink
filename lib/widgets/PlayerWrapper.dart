@@ -23,7 +23,6 @@ class PlayerWrapper extends StatelessWidget {
         options: VlcPlayerOptions(),
       );
     }
-    _videoPlayerController.initialize();
     PlayControlManager.instance.controls[dataSource] = _videoPlayerController;
   }
 
