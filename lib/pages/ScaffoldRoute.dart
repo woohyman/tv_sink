@@ -4,7 +4,7 @@ import 'package:dart_vlc/dart_vlc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
+import 'package:tvSink/util/log.dart';
 
 import '../model/bean/TvResource.dart';
 import '../widgets/PlayerWrapper.dart';
@@ -20,15 +20,18 @@ class ScaffoldRoute extends StatefulWidget {
 class _ScaffoldRouteState extends State<ScaffoldRoute> {
   int _selectedIndex = 1;
 
+  PageController? _pageController;
   late Player player;
   late Media media2;
 
   @override
   void initState() {
     super.initState();
+    _pageController = PageController();
     if (Platform.isWindows) {
       player = Player(id: 69420);
-      media2 = Media.network('http://tx2play1.douyucdn.cn/live/20415rnWbjg6Ex1K.xs');
+      media2 =
+          Media.network('http://tx2play1.douyucdn.cn/live/20415rnWbjg6Ex1K.xs');
       player.open(
         media2,
         autoStart: false,
@@ -36,43 +39,31 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
     }
   }
 
-  Widget? getWidgetByPlatForm(int index, BuildContext context) {
-    if (Platform.isAndroid || Platform.isIOS) {
-      CommonData commonData = Provider.of<CommonData>(context, listen: true);
-      var _tvList = commonData.chineseTvLis;
-      switch (index) {
-        case 0:
-          _tvList = commonData.chineseTvLis;
-          break;
-        case 1:
-          _tvList = commonData.foreignTvLis;
-          break;
-        case 2:
-          _tvList = commonData.featuredTvLis;
-          break;
-      }
-      return ListView.separated(
-        itemCount: _tvList.length,
-        itemBuilder: (BuildContext context, int index) {
-          return PlayerWrapper(_tvList[index]);
-        },
-        separatorBuilder: (BuildContext context, int index) {
-          return const Divider(
-            color: Colors.blue,
-          );
-        },
-      );
-    } else if (Platform.isWindows) {
-      return Video(
-        player: player,
-        height: 1920.0,
-        width: 1080.0,
-        scale: 1.0,
-        // default
-        showControls: false, // default
-      );
+  Widget getWidgetByPlatForm(int index, BuildContext context) {
+    CommonData commonData = Provider.of<CommonData>(context, listen: true);
+    var _tvList = commonData.chineseTvLis;
+    switch (index) {
+      case 0:
+        _tvList = commonData.chineseTvLis;
+        break;
+      case 1:
+        _tvList = commonData.foreignTvLis;
+        break;
+      case 2:
+        _tvList = commonData.featuredTvLis;
+        break;
     }
-    return null;
+    return ListView.separated(
+      itemCount: _tvList.length,
+      itemBuilder: (BuildContext context, int index) {
+        return PlayerWrapper(_tvList[index]);
+      },
+      separatorBuilder: (BuildContext context, int index) {
+        return const Divider(
+          color: Colors.blue,
+        );
+      },
+    );
   }
 
   @override
@@ -82,7 +73,15 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
         title: const Text(""),
       ),
       drawer: const SliderLeft(),
-      body: getWidgetByPlatForm(_selectedIndex, context),
+      body: PageView(
+        controller: _pageController,
+        onPageChanged: _onItemTapped,
+        children: <Widget>[
+          getWidgetByPlatForm(0, context),
+          getWidgetByPlatForm(1, context),
+          getWidgetByPlatForm(2, context)
+        ],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '中文频道'),
@@ -97,6 +96,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
   }
 
   void _onItemTapped(int index) {
+    _pageController?.jumpToPage(index);
     setState(() {
       _selectedIndex = index;
     });
