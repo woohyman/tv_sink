@@ -24,12 +24,23 @@ class _PlayerWrapperState extends State<PlayerWrapper> {
   PlayingState _playingState = PlayingState.initializing;
 
   void _handleTap(CommonData commonData) {
-    if(_playingState == PlayingState.stopped){
-      PlayControlManager.instance
-          .playCurTv(_videoPlayerController.dataSource);
-    }else if(_playingState == PlayingState.playing){
-      _videoPlayerController.stop();
-    };
+    // commonData.setTvChannel(widget._dataSource);
+    if (_playingState == PlayingState.stopped) {
+      _videoPlayerController
+          .play()
+          .then((value) => logger.i("开始播放！！！"))
+          .catchError((e) {
+        logger.e("播放出错 " + e);
+      }, test: (_) => true);
+    } else if (_playingState == PlayingState.playing) {
+      _videoPlayerController
+          .stop()
+          .then((value) => logger.i("暂停播放！！！"))
+          .catchError((e) {
+        logger.e("暂停出错 " + e);
+      }, test: (_) => true);
+    }
+    ;
   }
 
   @override
@@ -49,8 +60,13 @@ class _PlayerWrapperState extends State<PlayerWrapper> {
         .setCurTvChannel(dataSource1, _videoPlayerController);
 
     _videoPlayerController.addListener(() {
-      if(_videoPlayerController.value.playingState == PlayingState.playing && _videoPlayerController.value.position.inMilliseconds <= 0){
-        logger.e("inMilliseconds => ${_videoPlayerController.value.position.inMilliseconds}");
+      // if(_videoPlayerController.value.playingState == PlayingState.playing){
+      //   logger.e("errorDescription => "+_videoPlayerController.value.errorDescription);
+      // }
+      if (_videoPlayerController.value.playingState == PlayingState.playing &&
+          _videoPlayerController.value.position.inMilliseconds <= 0) {
+        logger.e(
+            "inMilliseconds => ${_videoPlayerController.value.position.inMilliseconds}");
         return;
       }
       if (_playingState != _videoPlayerController.value.playingState) {
@@ -61,19 +77,58 @@ class _PlayerWrapperState extends State<PlayerWrapper> {
     super.initState();
   }
 
-  Widget getStateView() {
+  Widget getStateView(CommonData commonData) {
     logger.e("getStateView ===> $_playingState");
+    // if(commonData.getTvChannel() != widget._dataSource){
+    //   return Image.asset(
+    //     "images/icon_play.png",
+    //     width: 50,
+    //     height: 50,
+    //   );
+    // }
+
     switch (_playingState) {
       case PlayingState.initializing:
         return Text("");
       case PlayingState.initialized:
-        return Icon(Icons.play_circle_filled);
+        return Image.asset(
+          "images/icon_play.png",
+          width: 50,
+          height: 50,
+        );
       case PlayingState.stopped:
-        return Icon(Icons.play_circle_filled);
+        if (_videoPlayerController.value.hasError) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Image.asset(
+                "images/icon_play.png",
+                width: 50,
+                height: 50,
+              ),
+              Text("错误码：" + _videoPlayerController.value.errorDescription,
+                  style: TextStyle(color: Colors.red)),
+            ],
+          );
+        } else {
+          return Image.asset(
+            "images/icon_play.png",
+            width: 50,
+            height: 50,
+          );
+        }
       case PlayingState.paused:
-        return Icon(Icons.play_circle_filled);
+        return Image.asset(
+          "images/icon_play.png",
+          width: 50,
+          height: 50,
+        );
       case PlayingState.ended:
-        return Icon(Icons.play_circle_filled);
+        return Image.asset(
+          "images/icon_play.png",
+          width: 50,
+          height: 50,
+        );
       case PlayingState.buffering:
         return CircularProgressIndicator();
       case PlayingState.playing:
@@ -81,7 +136,11 @@ class _PlayerWrapperState extends State<PlayerWrapper> {
       case PlayingState.recording:
         return Text("");
       case PlayingState.error:
-        return Icon(Icons.play_circle_filled);
+        return Image.asset(
+          "images/icon_play.png",
+          width: 80,
+          height: 80,
+        );
     }
   }
 
@@ -113,7 +172,7 @@ class _PlayerWrapperState extends State<PlayerWrapper> {
                   ),
                 ],
               )),
-          getStateView(),
+          getStateView(commonData),
         ],
       );
     });
