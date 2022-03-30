@@ -152,9 +152,26 @@ class _PlayerWrapperState extends State<PlayerWrapper> {
     PlayControlManager.instance.removeChannel(widget._dataSource);
   }
 
+  String curDataSource = "";
+
   @override
   Widget build(BuildContext context) {
     return Consumer<CommonData>(builder: (ctx, commonData, child) {
+      if (curDataSource != commonData.getTvChannel()) {
+        curDataSource = commonData.getTvChannel();
+        logger.d("开始播放 ============> " + commonData.getTvChannel());
+        _videoPlayerController
+            .setMediaFromNetwork(
+              commonData.getTvChannel(),
+              hwAcc: HwAcc.full,
+              autoPlay: false,
+            )
+            .then((value) => {
+                  logger.d("实际地址 ============> " +
+                      _videoPlayerController.dataSource),
+                  _videoPlayerController.play()
+                });
+      }
       return Stack(
         alignment: Alignment.center,
         children: <Widget>[
@@ -163,7 +180,6 @@ class _PlayerWrapperState extends State<PlayerWrapper> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  Text(array[0] ?? ""),
                   VlcPlayer(
                     controller: _videoPlayerController,
                     aspectRatio: 16 / 9,

@@ -4,7 +4,6 @@ import 'package:dart_vlc/dart_vlc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tvSink/util/log.dart';
 
 import '../model/bean/TvResource.dart';
 import '../widgets/PlayerWrapper.dart';
@@ -53,16 +52,28 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
         _tvList = commonData.featuredTvLis;
         break;
     }
-    return ListView.separated(
-      itemCount: _tvList.length,
-      itemBuilder: (BuildContext context, int index) {
-        return PlayerWrapper(_tvList[index]);
-      },
-      separatorBuilder: (BuildContext context, int index) {
-        return const Divider(
-          color: Colors.blue,
-        );
-      },
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        PlayerWrapper(_tvList[0]),
+        Expanded(
+            child: ListView.separated(
+          itemCount: _tvList.length,
+          itemBuilder: (BuildContext context, int index) {
+            return Consumer<CommonData>(builder: (ctx, commonData, child){
+              return InkWell(
+                  onTap: () => {commonData.setTvChannel(_tvList[index].split(",")[1])},
+                  child: Text(_tvList[index].split(",")[0])
+              );
+            });
+          },
+          separatorBuilder: (BuildContext context, int index) {
+            return const Divider(
+              color: Colors.blue,
+            );
+          },
+        ))
+      ],
     );
   }
 
