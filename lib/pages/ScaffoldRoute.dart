@@ -77,7 +77,9 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
       drawer: const SliderLeft(),
       body: PageView(
         controller: _pageController,
-        onPageChanged: _onItemTapped,
+        onPageChanged: (index){
+          _onItemTapped(index,context);
+        },
         children: <Widget>[
           getWidgetByPlatForm(0, context),
           getWidgetByPlatForm(1, context),
@@ -92,12 +94,16 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
         ],
         currentIndex: _selectedIndex,
         fixedColor: Colors.blue,
-        onTap: _onItemTapped,
+        onTap: (index){
+          _onItemTapped(index,context);
+        },
       ),
     );
   }
 
-  void _onItemTapped(int index) {
+  void _onItemTapped(int index,BuildContext context) {
+    CommonData commonData = Provider.of<CommonData>(context, listen: false);
+    commonData.switchTab(index);
     _pageController?.jumpToPage(index);
     setState(() {
       _selectedIndex = index;

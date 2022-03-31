@@ -1,6 +1,5 @@
-import 'package:provider/provider.dart';
-
 import 'package:flutter/material.dart';
+import 'package:tvSink/util/log.dart';
 
 class CommonData with ChangeNotifier {
   final _chineseTvLis = [
@@ -982,21 +981,45 @@ class CommonData with ChangeNotifier {
   ];
 
   get featuredTvLis => _featuredTvLis;
+
   get foreignTvLis => _foreignTvLis;
+
   get chineseTvLis => _chineseTvLis;
 
-  String _tvChannel = "";
+  final _curPlayChannelMap = {};
   int _index = 0;
 
   int get index => _index;
 
+  void switchTab(int index) {
+    _index = index;
+    notifyListeners();
+  }
+
   void setTvChannel(String channel, int index) {
-    _tvChannel = channel;
+    _curPlayChannelMap[index] = channel;
     _index = index;
     notifyListeners();
   }
 
   String getTvChannel() {
-    return _tvChannel;
+    String defaultSource = _chineseTvLis[0];
+    switch (_index) {
+      case 0:
+        defaultSource = _chineseTvLis[0];
+        break;
+      case 1:
+        defaultSource = _foreignTvLis[0];
+        break;
+      case 2:
+        defaultSource = _featuredTvLis[0];
+        break;
+    }
+    List array = defaultSource.split(",");
+    String result = _curPlayChannelMap[_index] ??
+        (array.length > 1 ? array[1] : array[0]);
+    logger.e("result ==> "+result);
+    logger.e("_curPlayChannelMap[_index] ==> $_curPlayChannelMap");
+    return result;
   }
 }
