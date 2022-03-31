@@ -16,7 +16,7 @@ class ScaffoldRoute extends StatefulWidget {
 }
 
 class _ScaffoldRouteState extends State<ScaffoldRoute> {
-  int _selectedIndex = 1;
+  int _selectedIndex = 0;
   PageController? _pageController;
   @override
   void initState() {
@@ -90,7 +90,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '中文频道'),
           BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '外文频道'),
-          BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '精选频道'),
+          BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '收藏频道'),
         ],
         currentIndex: _selectedIndex,
         fixedColor: Colors.blue,

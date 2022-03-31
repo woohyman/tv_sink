@@ -967,10 +967,16 @@ class CommonData with ChangeNotifier {
   ];
 
   final _foreignTvLis = [
-    'https://live-k2301-kbp.1plus1.video/sport/smil:sport.smil/playlist.m3u8',
-    'http://123tv-mx1.flex-cdn.net/index.m3u8',
-    'https://simultv.s.llnwi.net/n4s4/2ANetwork/interlink.m3u8',
-    'https://sc.id-tv.kz/1hd.m3u8'
+    'ABCNewsLive1.us,https://abcnews-str"eams.akamaized.net/hls/live/2023560/abcnews1/master.m3u8',
+    'ABCNewsLive2.us,https://abcnews-str"eams.akamaized.net/hls/live/2023561/abcnews2/master.m3u8',
+    'ABCNewsLive3.us,https://abcnews-str"eams.akamaized.net/hls/live/2023562/abcnews3/master.m3u8',
+    'ABCNewsLive4.us,https://abcnews-str"eams.akamaized.net/hls/live/2023563/abcnews4/master.m3u8',
+    'ABCNewsLive5.us,https://abcnews-str"eams.akamaized.net/hls/live/2023564/abcnews5/master.m3u8',
+    'ABCNewsLive6.us,https://abcnews-str"eams.akamaized.net/hls/live/2023565/abcnews6/master.m3u8',
+    'ABCNewsLive7.us,https://abcnews-str"eams.akamaized.net/hls/live/2023566/abcnews7/master.m3u8',
+    'ABCNewsLive8.us,https://abcnews-str"eams.akamaized.net/hls/live/2023567/abcnews8/master.m3u8',
+    'ABCNewsLive9.us,https://abcnews-str"eams.akamaized.net/hls/live/2023568/abcnews9/master.m3u8',
+    'ABCNewsLive10.us,https://abcnews-streams.akamaized.net/hls/live/2023569/abcnews10/master.m3u8'
   ];
 
   final _featuredTvLis = [
@@ -1016,9 +1022,9 @@ class CommonData with ChangeNotifier {
         break;
     }
     List array = defaultSource.split(",");
-    String result = _curPlayChannelMap[_index] ??
-        (array.length > 1 ? array[1] : array[0]);
-    logger.e("result ==> "+result);
+    String result =
+        _curPlayChannelMap[_index] ?? (array.length > 1 ? array[1] : array[0]);
+    logger.e("result ==> " + result);
     logger.e("_curPlayChannelMap[_index] ==> $_curPlayChannelMap");
     return result;
   }
