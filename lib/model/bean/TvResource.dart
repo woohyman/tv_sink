@@ -986,9 +986,13 @@ class CommonData with ChangeNotifier {
   get chineseTvLis => _chineseTvLis;
 
   String _tvChannel = "";
+  int _index = 0;
 
-  void setTvChannel(String channel) {
+  int get index => _index;
+
+  void setTvChannel(String channel, int index) {
     _tvChannel = channel;
+    _index = index;
     notifyListeners();
   }
 

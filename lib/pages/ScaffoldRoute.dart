@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:dart_vlc/dart_vlc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -18,24 +17,11 @@ class ScaffoldRoute extends StatefulWidget {
 
 class _ScaffoldRouteState extends State<ScaffoldRoute> {
   int _selectedIndex = 1;
-
   PageController? _pageController;
-  late Player player;
-  late Media media2;
-
   @override
   void initState() {
     super.initState();
     _pageController = PageController();
-    if (Platform.isWindows) {
-      player = Player(id: 69420);
-      media2 =
-          Media.network('http://tx2play1.douyucdn.cn/live/20415rnWbjg6Ex1K.xs');
-      player.open(
-        media2,
-        autoStart: false,
-      );
-    }
   }
 
   Widget getWidgetByPlatForm(int index, BuildContext context) {
@@ -55,17 +41,22 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        PlayerWrapper(_tvList[0]),
+        PlayerWrapper(_tvList[0],index),
         Expanded(
             child: ListView.separated(
           itemCount: _tvList.length,
-          itemBuilder: (BuildContext context, int index) {
-            return Consumer<CommonData>(builder: (ctx, commonData, child){
-              return InkWell(
-                  onTap: () => {commonData.setTvChannel(_tvList[index].split(",")[1])},
-                  child: Text(_tvList[index].split(",")[0])
-              );
-            });
+          itemBuilder: (BuildContext context, int innerIndex) {
+            List array = _tvList[innerIndex].split(",");
+            String name = _tvList[innerIndex].split(",")[0];
+            String url = array.length > 1 ? _tvList[innerIndex].split(",")[1] : name;
+            return InkWell(
+                onTap: () => {commonData.setTvChannel(url,index)},
+                child: Text(
+                  name,
+                  style: commonData.getTvChannel() == url
+                      ? TextStyle(color: Colors.red, fontSize: 18)
+                      : TextStyle(color: Colors.black, fontSize: 14),
+                ));
           },
           separatorBuilder: (BuildContext context, int index) {
             return const Divider(

@@ -1,18 +1,12 @@
-import 'dart:io';
-
-import 'package:dart_vlc/dart_vlc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:provider/provider.dart';
-import 'package:tvSink/routes/RouterTable.dart';
 import 'package:tvSink/model/bean/TvResource.dart';
+import 'package:tvSink/routes/RouterTable.dart';
 
 import 'pages/ScaffoldRoute.dart';
 
 void main() {
-  if (Platform.isWindows) {
-    DartVLC.initialize();
-  }
   runApp(const MyApp());
 }
 
