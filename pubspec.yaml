@@ -36,12 +36,13 @@ dependencies:
 
 # 开源播放器
   fijkplayer: ^0.10.1
-
+  flutter_bugly: ^0.4.4
   logger: ^1.1.0
 #  # 路由
 #  fluro: ^1.7.8
-#  #网络请求
-#  dio: ^3.0.9
+  open_file: ^3.2.1
+  #网络请求
+  dio: ^4.0.6
 #  #请求缓存
 #  dio_http_cache: ^0.2.7
 #  #图片缓存
@@ -78,8 +79,8 @@ dependencies:
 #  flutter_rounded_date_picker: ^1.0.5
 #  #格式化时间
 #  date_format: ^1.0.8
-#  #获取手机上的文件，清除缓存使用的
-#  path_provider: ^1.6.11
+  #获取手机上的文件，清除缓存使用的
+  path_provider: ^2.0.9
 #  #获取app版本号
 #  package_info: ^0.4.1
 #  # 前往app设置
