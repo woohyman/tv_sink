@@ -89,7 +89,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '中文频道'),
-          BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '外文频道'),
+          BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '精选频道'),
           BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '收藏频道'),
         ],
         currentIndex: _selectedIndex,
