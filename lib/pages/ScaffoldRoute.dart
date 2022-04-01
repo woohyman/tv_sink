@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -18,6 +16,7 @@ class ScaffoldRoute extends StatefulWidget {
 class _ScaffoldRouteState extends State<ScaffoldRoute> {
   int _selectedIndex = 0;
   PageController? _pageController;
+
   @override
   void initState() {
     super.initState();
@@ -41,25 +40,31 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        PlayerWrapper(_tvList[0],index),
+        PlayerWrapper(_tvList[0], index),
         Expanded(
             child: ListView.separated(
+          // padding: EdgeInsets.only(left: 0, right: 0, top: 50, bottom: 50),
           itemCount: _tvList.length,
           itemBuilder: (BuildContext context, int innerIndex) {
             List array = _tvList[innerIndex].split(",");
             String name = _tvList[innerIndex].split(",")[0];
-            String url = array.length > 1 ? _tvList[innerIndex].split(",")[1] : name;
+            String url =
+                array.length > 1 ? _tvList[innerIndex].split(",")[1] : name;
             return InkWell(
-                onTap: () => {commonData.setTvChannel(url,index)},
-                child: Text(
-                  name,
-                  style: commonData.getTvChannel() == url
-                      ? TextStyle(color: Colors.red, fontSize: 18)
-                      : TextStyle(color: Colors.black, fontSize: 14),
+                onTap: () => {commonData.setTvChannel(url, index)},
+                child: Padding(
+                  child: Text(
+                    name,
+                    style: commonData.getTvChannel() == url
+                        ? TextStyle(color: Colors.red, fontSize: 18)
+                        : TextStyle(color: Colors.black, fontSize: 14),
+                  ),
+                  padding: EdgeInsets.only(left: 0, right: 0, top: 12, bottom: 12),
                 ));
           },
           separatorBuilder: (BuildContext context, int index) {
             return const Divider(
+              height: 2,
               color: Colors.blue,
             );
           },
@@ -77,8 +82,8 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
       drawer: const SliderLeft(),
       body: PageView(
         controller: _pageController,
-        onPageChanged: (index){
-          _onItemTapped(index,context);
+        onPageChanged: (index) {
+          _onItemTapped(index, context);
         },
         children: <Widget>[
           getWidgetByPlatForm(0, context),
@@ -94,14 +99,14 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
         ],
         currentIndex: _selectedIndex,
         fixedColor: Colors.blue,
-        onTap: (index){
-          _onItemTapped(index,context);
+        onTap: (index) {
+          _onItemTapped(index, context);
         },
       ),
     );
   }
 
-  void _onItemTapped(int index,BuildContext context) {
+  void _onItemTapped(int index, BuildContext context) {
     CommonData commonData = Provider.of<CommonData>(context, listen: false);
     commonData.switchTab(index);
     _pageController?.jumpToPage(index);
