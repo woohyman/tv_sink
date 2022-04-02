@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bugly/flutter_bugly.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
@@ -84,7 +85,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
   @override
   void initState() {
     super.initState();
-
+    FlutterNativeSplash.remove();
     FlutterBugly.init(
       androidAppId: "8c6adf8a82",
       customUpgrade: true, // 调用 Android 原生升级方式
