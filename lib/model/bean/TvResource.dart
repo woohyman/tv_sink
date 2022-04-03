@@ -1247,6 +1247,21 @@ class CommonData with ChangeNotifier {
 
   get chineseTvLis => _chineseTvLis;
 
+  bool iscotain(url){
+    logger.e("////////////////////////////// $url :::: $_featuredTvLis");
+    logger.e("////////////////////////////// ${_featuredTvLis.contains(iscotain)}");
+    return _featuredTvLis.contains(url);
+  }
+
+  void addcollect(String url){
+    if(_featuredTvLis.contains(url)) return;
+    _featuredTvLis.add(url);
+  }
+
+  void removeurl(String url){
+    _featuredTvLis.remove(url);
+  }
+
   final _curPlayChannelMap = {};
   int _index = 0;
 
