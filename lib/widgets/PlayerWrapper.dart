@@ -2,6 +2,7 @@ import 'package:fijkplayer/fijkplayer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tvSink/model/bean/TvResource.dart';
 import 'package:tvSink/util/log.dart';
 
@@ -23,6 +24,7 @@ class PlayerWrapper extends StatefulWidget {
 class _PlayerWrapperState extends State<PlayerWrapper> {
   final FijkPlayer _player = FijkPlayer();
   late List array;
+
 
   void _handleTap(CommonData commonData) {}
 
@@ -47,16 +49,22 @@ class _PlayerWrapperState extends State<PlayerWrapper> {
   );
 
   @override
+  void deactivate() {
+    logger.e("------------------------------------ ==> deactivate");
+    super.deactivate();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Consumer<CommonData>(builder: (ctx, commonData, child) {
-      logger.e("_dataSource ==> "+widget._dataSource);
-      logger.e("state ==> "+_player.value.state.name);
       if (widget._index != commonData.index) {
-
+        _player.pause();
       } else if (curDataSource != commonData.getTvChannel()) {
         curDataSource = commonData.getTvChannel();
         logger.i("开始播放资源 == "+curDataSource);
-        _player.reset().then((value) => _player.setDataSource(curDataSource, autoPlay: true).then((value) => _player.start()));
+        _player.reset().then((value) => _player.setDataSource(curDataSource, autoPlay: true).then((value) => {
+          _player.start()
+        }));
       }
       return Stack(
         alignment: Alignment.center,
@@ -71,6 +79,7 @@ class _PlayerWrapperState extends State<PlayerWrapper> {
                     height: 250,
                     fit: fill,
                     player: _player,
+                    fs: true,
                   ),
                 ],
               )),

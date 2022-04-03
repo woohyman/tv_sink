@@ -8,6 +8,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tvSink/pages/update_dialog.dart';
 import 'package:tvSink/util/log.dart';
 
@@ -85,6 +86,10 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
   @override
   void initState() {
     super.initState();
+    SharedPreferences.getInstance().then((value) => {
+      _preferences = value,
+    });
+
     FlutterNativeSplash.remove();
     FlutterBugly.init(
       androidAppId: "8c6adf8a82",
@@ -106,7 +111,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
 
     _pageController = PageController();
   }
-
+  SharedPreferences? _preferences;
   Widget getWidgetByPlatForm(int index, BuildContext context) {
     CommonData commonData = Provider.of<CommonData>(context, listen: true);
     var _tvList = commonData.chineseTvLis;
@@ -121,6 +126,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
         _tvList = commonData.featuredTvLis;
         break;
     }
+    List<String> _list = _preferences?.getStringList("xx")??[];
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -135,7 +141,11 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
             String url =
                 array.length > 1 ? _tvList[innerIndex].split(",")[1] : name;
             return InkWell(
-                onTap: () => {commonData.setTvChannel(url, index)},
+                onTap: () => {
+                  _list.add(_tvList[innerIndex]),
+                  _preferences?.setStringList("xx",_list),
+                  commonData.setTvChannel(url, index),
+                },
                 child: Padding(
                   child: Text(
                     name,

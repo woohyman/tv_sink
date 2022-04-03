@@ -1,11 +1,19 @@
 import 'package:flutter/cupertino.dart';
+import 'package:tvSink/pages/HistoryRoute.dart';
 
 import '../pages/SettingRoute.dart';
+import '../widgets/PlayerWrapper.dart';
+import '../widgets/PlayerWrapper1.dart';
 
 class RouterTable {
   static const String settingPath = 'profile_setting';
+  static const String historyPath = 'history_setting';
+  static const String playerPath = 'player_setting';
+
   static Map<String, WidgetBuilder> routeTables = {
-    settingPath: (context) => const SettingRoute()
+    settingPath: (context) => const SettingRoute(),
+    historyPath: (context) => HistoryRoute(),
+    playerPath: (context) => PlayerWrapper1(),
   };
 
   //路由拦截

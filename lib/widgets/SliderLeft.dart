@@ -41,7 +41,7 @@ class SliderLeft extends StatelessWidget {
                 )),
             Expanded(
               child: ListView(
-                children: const <Widget>[
+                children: <Widget>[
                   ListTile(
                     leading: Icon(Icons.settings),
                     title: Text('应用设置'),
@@ -49,6 +49,9 @@ class SliderLeft extends StatelessWidget {
                     //     .pushNamed(RouterTable.settingPath),
                   ),
                   ListTile(
+                    onTap: () => {
+                      Navigator.of(context).pushNamed(RouterTable.historyPath),
+                    },
                     leading: Icon(Icons.history),
                     title: Text('观看历史'),
                   ),
