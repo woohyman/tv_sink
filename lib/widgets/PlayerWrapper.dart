@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:fijkplayer/fijkplayer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -24,13 +27,63 @@ class PlayerWrapper extends StatefulWidget {
 class _PlayerWrapperState extends State<PlayerWrapper> {
   final FijkPlayer _player = FijkPlayer();
   late List array;
-
+  late StreamSubscription subscription;
+  ConnectivityResult _result = ConnectivityResult.none;
+  bool isNeedWifi = false;
 
   void _handleTap(CommonData commonData) {}
 
   @override
+  void activate() {
+    logger.e("================> 激活 ");
+    super.activate();
+  }
+
+  @override
+  void didUpdateWidget(covariant PlayerWrapper oldWidget) {
+    logger.e("================> 更新 ");
+    SharedPreferences.getInstance().then((preferences) => {
+          logger.e("================>更新 -------------- $isNeedWifi"),
+          if (isNeedWifi != !(preferences.getBool("11") ?? true))
+            {
+              isNeedWifi = !(preferences.getBool("11") ?? true),
+              setState(() => {_player.pause()})
+            }
+        });
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
   void initState() {
-    _player.addListener(() {});
+    logger.e("================> 初始化 ");
+    Connectivity().checkConnectivity().then((value) => {
+          setState(() => {
+                if (_result == ConnectivityResult.mobile) {_player.pause()},
+                SharedPreferences.getInstance().then((preferences) => {
+                      _result = value,
+                      logger.e("================> 初始化 --- $_result"),
+                      isNeedWifi = !(preferences.getBool("11") ?? true)
+                    })
+              })
+        });
+
+    subscription = Connectivity()
+        .onConnectivityChanged
+        .listen((ConnectivityResult result) {
+      setState(() => {
+            if (_result == ConnectivityResult.mobile) {_player.pause()},
+            _result = result,
+          });
+    });
+    _player.addListener(() {
+      if (_result == ConnectivityResult.mobile &&
+          _player.value.state == FijkState.started) {
+        SharedPreferences.getInstance().then((preferences) => {
+              logger.e("================> -------------- $isNeedWifi"),
+              if (isNeedWifi) setState(() => {_player.pause()})
+            });
+      }
+    });
     super.initState();
   }
 
@@ -38,6 +91,7 @@ class _PlayerWrapperState extends State<PlayerWrapper> {
   void dispose() async {
     super.dispose();
     await _player.release();
+    subscription.cancel();
   }
 
   String curDataSource = "";
@@ -56,15 +110,18 @@ class _PlayerWrapperState extends State<PlayerWrapper> {
 
   @override
   Widget build(BuildContext context) {
+    logger.e("================> $_result : $isNeedWifi");
     return Consumer<CommonData>(builder: (ctx, commonData, child) {
-      if (widget._index != commonData.index) {
+      if (_result == ConnectivityResult.mobile && isNeedWifi) {
+        _player.pause();
+      } else if (widget._index != commonData.index) {
         _player.pause();
       } else if (curDataSource != commonData.getTvChannel()) {
         curDataSource = commonData.getTvChannel();
-        logger.i("开始播放资源 == "+curDataSource);
-        _player.reset().then((value) => _player.setDataSource(curDataSource, autoPlay: true).then((value) => {
-          _player.start()
-        }));
+        logger.i("开始播放资源 == " + curDataSource);
+        _player.reset().then((value) => _player
+            .setDataSource(curDataSource, autoPlay: true)
+            .then((value) => {_player.start()}));
       }
       return Stack(
         alignment: Alignment.center,
@@ -84,6 +141,22 @@ class _PlayerWrapperState extends State<PlayerWrapper> {
                 ],
               )),
           // getStateView(commonData),
+          Visibility(
+            visible: _result == ConnectivityResult.mobile && isNeedWifi,
+            child: Container(
+              width: 200,
+              height: 100,
+              color: Colors.transparent,
+              child: Align(
+                child: Text(
+                  "数据流量下不能播放！请前往设置界面修改！",
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+          )
         ],
       );
     });

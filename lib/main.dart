@@ -1,3 +1,4 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bugly/flutter_bugly.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -14,7 +15,6 @@ void main() {
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   MobileAds.instance.initialize();
-
   FlutterBugly.postCatchedException(() {
     // 如果需要 ensureInitialized，请在这里运行。
     // WidgetsFlutterBinding.ensureInitialized();

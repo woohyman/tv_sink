@@ -81,8 +81,8 @@ class _SliderLeftState extends State<SliderLeft> {
                     ListTile(
                       leading: Icon(Icons.settings),
                       title: Text('应用设置'),
-                      // onTap: () => Navigator.of(context)
-                      //     .pushNamed(RouterTable.settingPath),
+                      onTap: () => Navigator.of(context)
+                          .pushNamed(RouterTable.appSettingPath),
                     ),
                     ListTile(
                       onTap: () => {

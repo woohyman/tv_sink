@@ -16,6 +16,7 @@ dependencies:
   flutter_native_splash: ^2.1.2+1
   share_plus: ^4.0.3
   google_mobile_ads: ^1.2.0
+  connectivity_plus: ^2.2.1
   # 开源播放器
   fijkplayer: ^0.10.1
   flutter_bugly: ^0.4.4
