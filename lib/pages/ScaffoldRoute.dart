@@ -12,6 +12,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tvSink/pages/update_dialog.dart';
 import 'package:tvSink/util/log.dart';
 
+import '../business/AppOpenAdManager.dart';
 import '../model/bean/TvResource.dart';
 import '../widgets/PlayerWrapper.dart';
 import '../widgets/SliderLeft.dart';
@@ -202,7 +203,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
       appBar: AppBar(
         title: const Text(""),
       ),
-      drawer: const SliderLeft(),
+      drawer: SliderLeft(),
       body: PageView(
         controller: _pageController,
         onPageChanged: (index) {

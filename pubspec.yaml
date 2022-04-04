@@ -14,53 +14,54 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   flutter_native_splash: ^2.1.2+1
-
-# 开源播放器
+  share_plus: ^4.0.3
+  google_mobile_ads: ^1.2.0
+  # 开源播放器
   fijkplayer: ^0.10.1
   flutter_bugly: ^0.4.4
   logger: ^1.1.0
-#  # 路由
-#  fluro: ^1.7.8
+  #  # 路由
+  #  fluro: ^1.7.8
   open_file: ^3.2.1
   #网络请求
   dio: ^4.0.6
-#  #请求缓存
-#  dio_http_cache: ^0.2.7
-#  #图片缓存
-#  cached_network_image: ^2.1.0+1
-#  #轮播图 - 插件暂未升级2.0
-#  flutter_swiper: ^1.1.6
-#  #数据存储
-#  shared_preferences: ^0.5.12+4
-#  #加载html标签
-#  flutter_html: ^0.11.1
-#  # 消息提示框
-#  flutter_svprogresshud: ^0.0.6
-#  fluttertoast: ^7.1.5
+  #  #请求缓存
+  #  dio_http_cache: ^0.2.7
+  #  #图片缓存
+  #  cached_network_image: ^2.1.0+1
+  #  #轮播图 - 插件暂未升级2.0
+  #  flutter_swiper: ^1.1.6
+  #  #数据存储
+  #  shared_preferences: ^0.5.12+4
+  #  #加载html标签
+  #  flutter_html: ^0.11.1
+  #  # 消息提示框
+  #  flutter_svprogresshud: ^0.0.6
+  #  fluttertoast: ^7.1.5
   shared_preferences: ^2.0.13
   flutter_easyloading: ^3.0.3
-#  #响应式编程
-#  rxdart: ^0.23.0
+  #  #响应式编程
+  #  rxdart: ^0.23.0
   #状态管理
   provider: ^6.0.1
-#  # 消息中心（事件发送和监听）
-#  event_bus: ^1.1.1
-#  #webView
-#  webview_flutter: ^1.0.7
-#  #调用底层的拨打电话、发送邮件、发送信息以及打开网址和打开第三方应用等等
-#  url_launcher: ^5.4.11
-#  #图片选择
-#  image_picker: ^0.6.7+4
-#  #音频播放
-#  # audioplayers: ^0.15.1
-#  build_runner: ^1.9.0
-#  json_serializable: ^3.3.0
-#  #屏幕适配工具
-#  flutter_screenutil: ^0.5.3
-#  #日期选择
-#  flutter_rounded_date_picker: ^1.0.5
-#  #格式化时间
-#  date_format: ^1.0.8
+  #  # 消息中心（事件发送和监听）
+  #  event_bus: ^1.1.1
+  #  #webView
+  #  webview_flutter: ^1.0.7
+  #  #调用底层的拨打电话、发送邮件、发送信息以及打开网址和打开第三方应用等等
+  #  url_launcher: ^5.4.11
+  #  #图片选择
+  #  image_picker: ^0.6.7+4
+  #  #音频播放
+  #  # audioplayers: ^0.15.1
+  #  build_runner: ^1.9.0
+  #  json_serializable: ^3.3.0
+  #  #屏幕适配工具
+  #  flutter_screenutil: ^0.5.3
+  #  #日期选择
+  #  flutter_rounded_date_picker: ^1.0.5
+  #  #格式化时间
+  #  date_format: ^1.0.8
   #获取手机上的文件，清除缓存使用的
   path_provider: ^2.0.9
 #  #获取app版本号
