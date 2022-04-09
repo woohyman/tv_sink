@@ -29,11 +29,6 @@ class _PlayerWrapperState extends State<PlayerWrapper1> {
       _preferences = value,
     });
 
-    _player.reset().then((value) => _player.setDataSource(ModalRoute.of(context)?.settings.arguments.toString()??"", autoPlay: true).then((value) => {
-      _player.start(),
-      _player.enterFullScreen()
-    }));
-
     _player.addListener(() {});
     super.initState();
   }
@@ -54,6 +49,12 @@ class _PlayerWrapperState extends State<PlayerWrapper1> {
   Widget build(BuildContext context) {
     CommonData commonData = Provider.of<CommonData>(context, listen: true);
     commonData.switchTab(-1);
+
+    String tvName = ModalRoute.of(context)?.settings.arguments.toString()??"";
+    _player.reset().then((value) => _player.setDataSource(commonData.getSourceByKey(tvName)??"", autoPlay: true).then((value) => {
+      _player.start(),
+      _player.enterFullScreen()
+    }));
 
     return Stack(
       alignment: Alignment.center,

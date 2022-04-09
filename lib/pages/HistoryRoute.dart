@@ -33,22 +33,15 @@ class _HistoryRouteState extends State<HistoryRoute> {
     List<String>? _list = _preferences?.getStringList("xx");
 
     return ListView.separated(itemBuilder: (BuildContext context, int innerIndex){
-      logger.i("_list ***********************> ${_list?[innerIndex]}");
-      List<String>? array = _list?[innerIndex].split(",");
-      String name = "";
-      String url = "";
-      if(array != null){
-        name = array[0];
-        url = array.length>1?array[1]:"";
-      }
+      logger.e("_list?[innerIndex] ==> ${_list?[innerIndex]}");
       return InkWell(
           onTap: () => {
-            commonData.setTvChannel(url, -1),
-            Navigator.of(context).pushNamed(RouterTable.playerPath,arguments: url),
+            commonData.setTvChannel(_list?[innerIndex]??"未知", -1),
+            Navigator.of(context).pushNamed(RouterTable.playerPath,arguments: _list?[innerIndex]),
           },
           child: Padding(
             child: Text(
-              name,
+              _list?[innerIndex]??"未知",
               style: TextStyle(color: Colors.black, fontSize: 14),
             ),
             padding: EdgeInsets.only(left: 0, right: 0, top: 12, bottom: 12),

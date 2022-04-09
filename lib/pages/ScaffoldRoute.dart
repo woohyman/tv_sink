@@ -130,35 +130,70 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
         _tvList = commonData.featuredTvLis;
         break;
     }
+
     List<String> _list = _preferences?.getStringList("xx") ?? [];
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        PlayerWrapper(_tvList[0], index),
+        PlayerWrapper(commonData.getDefaultSource(index), index),
         Expanded(
             child: ListView.separated(
           // padding: EdgeInsets.only(left: 0, right: 0, top: 50, bottom: 50),
           itemCount: _tvList.length,
           itemBuilder: (BuildContext context, int innerIndex) {
-            List array = _tvList[innerIndex].split(",");
-            String name = _tvList[innerIndex].split(",")[0];
-            String url =
-                array.length > 1 ? _tvList[innerIndex].split(",")[1] : name;
+            logger.e("getTvChannel ====> ${commonData.getTvName()}");
+            List<DropdownMenuItem<String>>? myItems = [];
+            commonData
+                .getSourceSet(index, innerIndex)
+                .toList()
+                .asMap()
+                .forEach((key, value) {
+              myItems.add(DropdownMenuItem<String>(
+                value: value,
+                child: Text("直播源${key + 1}"),
+              ));
+            });
+
             return InkWell(
                 onTap: () => {
-                      _list.add(_tvList[innerIndex]),
+                      _list.add(commonData.getBeanByIndex(index, innerIndex)),
                       _preferences?.setStringList("xx", _list),
-                      commonData.setTvChannel(url, index),
+                      commonData.setTvChannel(
+                          commonData.getBeanByIndex(index, innerIndex), index),
                     },
                 child: Padding(
                   child: Flex(
                     direction: Axis.horizontal,
                     children: <Widget>[
-                      Text(
-                        name,
-                        style: commonData.getTvChannel() == url
-                            ? TextStyle(color: Colors.red, fontSize: 18)
-                            : TextStyle(color: Colors.black, fontSize: 14),
+                      Expanded(
+                        flex: 1,
+                        child: Text(
+                          commonData.getBeanByIndex(index, innerIndex),
+                          style: commonData.getTvName() ==
+                                  commonData.getBeanByIndex(index, innerIndex)
+                              ? TextStyle(color: Colors.red, fontSize: 18)
+                              : TextStyle(color: Colors.black, fontSize: 14),
+                        ),
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: Visibility(
+                          visible: commonData
+                                  .getSourceSet(index, innerIndex)
+                                  .length >
+                              1,
+                          child: DropdownButton<String>(
+                            value: commonData.getLiveSource(commonData.getBeanByIndex(index, innerIndex))??commonData
+                                .getSourceSet(index, innerIndex)
+                                .first,
+                            onChanged: (value) {
+                              setState((){
+                                commonData.setLiveSource(commonData.getBeanByIndex(index, innerIndex), value);
+                              });
+                            },
+                            items: myItems,
+                          ),
+                        ),
                       ),
                       Expanded(
                         flex: 1,
