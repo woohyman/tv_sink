@@ -588,14 +588,14 @@ class CommonData with ChangeNotifier {
       "group-title": "News",
       "tvg-url": {"https://tv-trtworld.live.trt.com.tr/master.m3u8"}
     },
-    "TV": {
-      "tvg-id": "TVBRICSChinese.ru",
-      "tvg-country": "CN",
-      "tvg-language": "Chinese",
-      "tvg-logo": "https://i.imgur.com/vLpm8tN.png",
-      "group-title": "General",
-      "tvg-url": {"https://brics.bonus-tv.ru/cdn/brics/chinese/playlist.m3u8"}
-    },
+    // "TV": {
+    //   "tvg-id": "TVBRICSChinese.ru",
+    //   "tvg-country": "CN",
+    //   "tvg-language": "Chinese",
+    //   "tvg-logo": "https://i.imgur.com/vLpm8tN.png",
+    //   "group-title": "General",
+    //   "tvg-url": {"https://brics.bonus-tv.ru/cdn/brics/chinese/playlist.m3u8"}
+    // },
     "TVB明珠台": {
       "tvg-id": "",
       "tvg-country": "CN",
@@ -12397,6 +12397,8 @@ class CommonData with ChangeNotifier {
   }
 
   String getBeanByIndex(int tabIndex, int listIndex) {
+    logger.w("liveSource ==> $tabIndex : $listIndex");
+
     switch (tabIndex) {
       case 0:
         return _chineseTvLis.keys.elementAt(listIndex);
@@ -12410,7 +12412,9 @@ class CommonData with ChangeNotifier {
   }
 
   String? getSourceByKey(String tvName) {
-    if (_chineseTvLis.containsKey(tvName)) {
+    if(liveSource.containsKey(tvName)){
+      return liveSource[tvName];
+    }else if (_chineseTvLis.containsKey(tvName)) {
       return (_chineseTvLis[tvName]?["tvg-url"] as Set).first;
     } else if (_foreignTvLis.containsKey(tvName)) {
       return (_foreignTvLis[tvName]?["tvg-url"] as Set).first;
@@ -12459,10 +12463,13 @@ class CommonData with ChangeNotifier {
   }
 
   Set getSourceSet(int tabIndex, int listIndex) {
+    logger.w("liveSource ==> getSourceSet|$tabIndex : $listIndex");
+
     switch (tabIndex) {
       case 0:
         return _chineseTvLis.values.elementAt(listIndex)["tvg-url"] as Set;
       case 1:
+        logger.w("liveSource ==> getSourceSet : ${_foreignTvLis.values.elementAt(listIndex)["tvg-url"]}");
         return _foreignTvLis.values.elementAt(listIndex)["tvg-url"] as Set;
       case 2:
         return _featuredTvLis.values.elementAt(listIndex)["tvg-url"] as Set;
@@ -12489,8 +12496,18 @@ class CommonData with ChangeNotifier {
 
   final liveSource = {};
 
-  String? getLiveSource(String key,){
-    return liveSource[key];
+  String? getLiveSource(String key){
+    if(liveSource.containsKey(key)){
+      if("TV" == key){
+        logger.w("liveSource ==> ${liveSource[key]}");
+      }
+      return liveSource[key];
+    }else{
+      if("TV" == key){
+        logger.w("liveSource ==> ${getSourceByKey(key)}");
+      }
+      return getSourceByKey(key);
+    }
   }
 
   void setLiveSource(String key,String? value){
@@ -12516,7 +12533,9 @@ class CommonData with ChangeNotifier {
     }
 
     String tvName = _curPlayChannelMap[_index] ?? "";
-    if (_chineseTvLis.containsKey(tvName)) {
+    if(liveSource.containsKey(tvName)){
+      return liveSource[tvName];
+    }else if (_chineseTvLis.containsKey(tvName)) {
       return (_chineseTvLis[tvName]!["tvg-url"] as Set).first;
     } else if (_foreignTvLis.containsKey(tvName)) {
       return (_foreignTvLis[tvName]!["tvg-url"] as Set).first;

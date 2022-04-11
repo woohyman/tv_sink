@@ -143,9 +143,12 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
           itemBuilder: (BuildContext context, int innerIndex) {
             logger.e("getTvChannel ====> ${commonData.getTvName()}");
             List<DropdownMenuItem<String>>? myItems = [];
-            commonData
-                .getSourceSet(index, innerIndex)
-                .toList()
+            Set sets = commonData.getSourceSet(index, innerIndex);
+            if("TV" == commonData.getBeanByIndex(index, innerIndex)){
+              logger.w("liveSource ==> 222$sets");
+            }
+
+            sets.toList()
                 .asMap()
                 .forEach((key, value) {
               myItems.add(DropdownMenuItem<String>(
@@ -166,7 +169,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
                     direction: Axis.horizontal,
                     children: <Widget>[
                       Expanded(
-                        flex: 1,
+                        flex: 5,
                         child: Text(
                           commonData.getBeanByIndex(index, innerIndex),
                           style: commonData.getTvName() ==
@@ -176,16 +179,11 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
                         ),
                       ),
                       Expanded(
-                        flex: 1,
+                        flex: 3,
                         child: Visibility(
-                          visible: commonData
-                                  .getSourceSet(index, innerIndex)
-                                  .length >
-                              1,
+                          visible: commonData.getSourceSet(index, innerIndex).length >1,
                           child: DropdownButton<String>(
-                            value: commonData.getLiveSource(commonData.getBeanByIndex(index, innerIndex))??commonData
-                                .getSourceSet(index, innerIndex)
-                                .first,
+                            value: commonData.getLiveSource(commonData.getBeanByIndex(index, innerIndex)),
                             onChanged: (value) {
                               setState((){
                                 commonData.setLiveSource(commonData.getBeanByIndex(index, innerIndex), value);
@@ -198,18 +196,18 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
                       Expanded(
                         flex: 1,
                         child: Align(
-                          alignment: Alignment.centerRight,
+                          alignment: Alignment.center,
                           child: InkWell(
                             onTap: () => {
                               setState(() {
-                                if (commonData.iscotain(_tvList[innerIndex])) {
-                                  commonData.removeurl(_tvList[innerIndex]);
+                                if (commonData.iscotain(commonData.getBeanByIndex(index, innerIndex))) {
+                                  commonData.removeurl(commonData.getBeanByIndex(index, innerIndex));
                                 } else {
-                                  commonData.addcollect(_tvList[innerIndex]);
+                                  commonData.addcollect(commonData.getBeanByIndex(index, innerIndex));
                                 }
                               })
                             },
-                            child: commonData.iscotain(_tvList[innerIndex])
+                            child: commonData.iscotain(commonData.getBeanByIndex(index, innerIndex))
                                 ? Icon(Icons.favorite)
                                 : Icon(Icons.favorite_border),
                           ),

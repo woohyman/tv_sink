@@ -47,11 +47,14 @@ class _PlayerWrapperState extends State<PlayerWrapper1> {
 
   @override
   Widget build(BuildContext context) {
+    logger.i("build ==>");
     CommonData commonData = Provider.of<CommonData>(context, listen: true);
     commonData.switchTab(-1);
 
     String tvName = ModalRoute.of(context)?.settings.arguments.toString()??"";
-    _player.reset().then((value) => _player.setDataSource(commonData.getSourceByKey(tvName)??"", autoPlay: true).then((value) => {
+    String tvSource = commonData.getSourceByKey(tvName)??"";
+    logger.i("tvSource ==> $tvSource");
+    _player.reset().then((value) => _player.setDataSource(tvSource, autoPlay: true).then((value) => {
       _player.start(),
       _player.enterFullScreen()
     }));
