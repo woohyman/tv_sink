@@ -12436,6 +12436,18 @@ class CommonData with ChangeNotifier {
     notifyListeners();
   }
 
+  String getIconUrl(int tabIndex, int listIndex) {
+    switch (tabIndex) {
+      case 0:
+        return _chineseTvLis.values.elementAt(listIndex)["tvg-logo"].toString();
+      case 1:
+        return _foreignTvLis.values.elementAt(listIndex)["tvg-logo"].toString();
+      case 2:
+        return _featuredTvLis.values.elementAt(listIndex)["tvg-logo"].toString();
+    }
+    return "";
+  }
+
   void setTvChannel(String tvName, int index) {
     _curPlayChannelMap[index] = tvName;
     _index = index;

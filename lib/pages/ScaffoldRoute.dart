@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +10,7 @@ import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:transparent_image/transparent_image.dart';
 import 'package:tvSink/pages/update_dialog.dart';
 import 'package:tvSink/util/log.dart';
 
@@ -131,6 +133,34 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
         break;
     }
 
+    Widget getImageProviderByUrl(int index, int innerIndex) {
+      String url = commonData.getIconUrl(index, innerIndex);
+      if (index == 2) {
+        logger.e("名字 -》 " +
+            commonData.getBeanByIndex(index, innerIndex) +
+            " : " +
+            url);
+      }
+
+      if (url.isEmpty) {
+        return Image.asset(
+          "images/tv_dianshi.png",
+          width: 50.0,
+        );
+      } else {
+        return FadeInImage.assetNetwork(
+            imageErrorBuilder: (context, error, stackTrace) {
+              return Image.asset(
+                "images/tv_dianshi.png",
+                width: 50.0,
+              );
+            },
+            width: 50,
+            placeholder: "images/tv_dianshi.png",
+            image: url);
+      }
+    }
+
     List<String> _list = _preferences?.getStringList("xx") ?? [];
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -144,13 +174,11 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
             logger.e("getTvChannel ====> ${commonData.getTvName()}");
             List<DropdownMenuItem<String>>? myItems = [];
             Set sets = commonData.getSourceSet(index, innerIndex);
-            if("TV" == commonData.getBeanByIndex(index, innerIndex)){
+            if ("TV" == commonData.getBeanByIndex(index, innerIndex)) {
               logger.w("liveSource ==> 222$sets");
             }
 
-            sets.toList()
-                .asMap()
-                .forEach((key, value) {
+            sets.toList().asMap().forEach((key, value) {
               myItems.add(DropdownMenuItem<String>(
                 value: value,
                 child: Text("直播源${key + 1}"),
@@ -168,6 +196,13 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
                   child: Flex(
                     direction: Axis.horizontal,
                     children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 5),
+                        child: Expanded(
+                          flex: 1,
+                          child: getImageProviderByUrl(index, innerIndex),
+                        ),
+                      ),
                       Expanded(
                         flex: 5,
                         child: Text(
@@ -181,12 +216,19 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
                       Expanded(
                         flex: 3,
                         child: Visibility(
-                          visible: commonData.getSourceSet(index, innerIndex).length >1,
+                          visible: commonData
+                                  .getSourceSet(index, innerIndex)
+                                  .length >
+                              1,
                           child: DropdownButton<String>(
-                            value: commonData.getLiveSource(commonData.getBeanByIndex(index, innerIndex)),
+                            value: commonData.getLiveSource(
+                                commonData.getBeanByIndex(index, innerIndex)),
                             onChanged: (value) {
-                              setState((){
-                                commonData.setLiveSource(commonData.getBeanByIndex(index, innerIndex), value);
+                              setState(() {
+                                commonData.setLiveSource(
+                                    commonData.getBeanByIndex(
+                                        index, innerIndex),
+                                    value);
                               });
                             },
                             items: myItems,
@@ -200,14 +242,18 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
                           child: InkWell(
                             onTap: () => {
                               setState(() {
-                                if (commonData.iscotain(commonData.getBeanByIndex(index, innerIndex))) {
-                                  commonData.removeurl(commonData.getBeanByIndex(index, innerIndex));
+                                if (commonData.iscotain(commonData
+                                    .getBeanByIndex(index, innerIndex))) {
+                                  commonData.removeurl(commonData
+                                      .getBeanByIndex(index, innerIndex));
                                 } else {
-                                  commonData.addcollect(commonData.getBeanByIndex(index, innerIndex));
+                                  commonData.addcollect(commonData
+                                      .getBeanByIndex(index, innerIndex));
                                 }
                               })
                             },
-                            child: commonData.iscotain(commonData.getBeanByIndex(index, innerIndex))
+                            child: commonData.iscotain(commonData
+                                    .getBeanByIndex(index, innerIndex))
                                 ? Icon(Icons.favorite)
                                 : Icon(Icons.favorite_border),
                           ),
