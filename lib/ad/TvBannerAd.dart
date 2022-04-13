@@ -5,14 +5,13 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 class TvBannerAd extends BannerAd {
   TvBannerAd()
       : super(
-            size: TvAdSize(width: 1000, height: 50),
+            size: AdSize.largeBanner,
             adUnitId: 'ca-app-pub-3940256099942544/6300978111',
             listener: TvBannerAdListener(),
             request: TvAdRequest());
 
   Widget getBannerWidget() {
     return Container(
-      color: Colors.green,
       child: AdWidget(
         ad: this,
       ),
