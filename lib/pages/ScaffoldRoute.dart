@@ -13,6 +13,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tvSink/pages/update_dialog.dart';
 import 'package:tvSink/util/log.dart';
 
+import '../ad/TvBannerAd.dart';
 import '../model/bean/TvResource.dart';
 import '../widgets/PlayerWrapper.dart';
 import '../widgets/SliderLeft.dart';
@@ -29,6 +30,8 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
   PageController? _pageController;
   String _platformVersion = 'Unknown';
   GlobalKey<UpdateDialogState> _dialogKey = new GlobalKey();
+
+  final TvBannerAd myBanner = TvBannerAd();
 
   void _showUpdateDialog(String version, String url, bool isForceUpgrade) {
     showDialog(
@@ -112,18 +115,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
     });
 
     _pageController = PageController();
-
-    logger.e("Load ad banner");
-    myBanner
-        .load()
-        .then((value) => {
-      setState(() => {
-        logger.e("Load ad success"),
-      })
-    })
-        .catchError((error) {
-      logger.e("Load ad fail : $error");
-    });
+    myBanner.load().then((value) => {setState(() => {})});
   }
 
   SharedPreferences? _preferences;
@@ -294,26 +286,11 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
     );
   }
 
-  final BannerAd myBanner = BannerAd(
-    adUnitId: 'ca-app-pub-3940256099942544/6300978111',
-    size: AdSize(width: 1000,height: 50),
-    request: AdRequest(),
-    listener: BannerAdListener(),
-  );
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:
-        Container(
-          color: Colors.green,
-          child: AdWidget(
-            ad: myBanner,
-          ),
-          width: myBanner.size.width.toDouble(),
-          height: myBanner.size.height.toDouble(),
-        ),
+        title: myBanner.getBannerWidget(),
       ),
       drawer: SliderLeft(),
       body: PageView(

@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:tvSink/util/log.dart';
-import '../business/AppLifecycleReactor.dart';
-import '../business/AppOpenAdManager.dart';
+import 'package:tvSink/ad/TvBannerAd.dart';
+
 import '../routes/RouterTable.dart';
 
 class SliderLeft extends StatefulWidget {
@@ -16,27 +15,11 @@ class SliderLeft extends StatefulWidget {
 }
 
 class _SliderLeftState extends State<SliderLeft> {
-  final BannerAd myBanner = BannerAd(
-    adUnitId: 'ca-app-pub-3940256099942544/6300978111',
-    size: AdSize.largeBanner,
-    request: AdRequest(),
-    listener: BannerAdListener(),
-  );
+  final TvBannerAd myBanner = TvBannerAd();
 
   @override
   void initState() {
-    // AppOpenAdManager appOpenAdManager = AppOpenAdManager()..showAdIfAvailable();
-    // WidgetsBinding.instance?.addObserver(AppLifecycleReactor(appOpenAdManager: appOpenAdManager));
-    myBanner
-        .load()
-        .then((value) => {
-              setState(() => {
-                    logger.e("message ======>"),
-                  })
-            })
-        .catchError((error) {
-      logger.e("message $error");
-    });
+    myBanner.load().then((value) => {setState(() => {})});
     super.initState();
   }
 
@@ -83,11 +66,7 @@ class _SliderLeftState extends State<SliderLeft> {
             ),
             Container(
               alignment: Alignment.center,
-              child: AdWidget(
-                ad: myBanner,
-              ),
-              width: myBanner.size.width.toDouble(),
-              height: myBanner.size.height.toDouble(),
+              child: myBanner.getBannerWidget(),
             ),
           ],
         ),
