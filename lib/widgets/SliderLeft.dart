@@ -50,29 +50,6 @@ class _SliderLeftState extends State<SliderLeft> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-            // Padding(
-            //     padding: const EdgeInsets.only(top: 38.0),
-            //     child: InkWell(
-            //       onTap: () =>
-            //           Navigator.of(context).pushNamed(RouterTable.settingPath),
-            //       child: Row(
-            //         children: <Widget>[
-            //           Padding(
-            //             padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            //             child: ClipOval(
-            //               child: Image.asset(
-            //                 "images/icon_anonymous.png",
-            //                 width: 80,
-            //               ),
-            //             ),
-            //           ),
-            //           const Text(
-            //             "匿名用户",
-            //             style: TextStyle(fontWeight: FontWeight.bold),
-            //           )
-            //         ],
-            //       ),
-            //     )),
             Expanded(
               child: Padding(
                 padding: const EdgeInsets.only(top: 30.0),

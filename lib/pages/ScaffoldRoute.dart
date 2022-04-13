@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bugly/flutter_bugly.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
@@ -111,6 +112,18 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
     });
 
     _pageController = PageController();
+
+    logger.e("Load ad banner");
+    myBanner
+        .load()
+        .then((value) => {
+      setState(() => {
+        logger.e("Load ad success"),
+      })
+    })
+        .catchError((error) {
+      logger.e("Load ad fail : $error");
+    });
   }
 
   SharedPreferences? _preferences;
@@ -281,11 +294,26 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
     );
   }
 
+  final BannerAd myBanner = BannerAd(
+    adUnitId: 'ca-app-pub-3940256099942544/6300978111',
+    size: AdSize(width: 1000,height: 50),
+    request: AdRequest(),
+    listener: BannerAdListener(),
+  );
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(""),
+        title:
+        Container(
+          color: Colors.green,
+          child: AdWidget(
+            ad: myBanner,
+          ),
+          width: myBanner.size.width.toDouble(),
+          height: myBanner.size.height.toDouble(),
+        ),
       ),
       drawer: SliderLeft(),
       body: PageView(
