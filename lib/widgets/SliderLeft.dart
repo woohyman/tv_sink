@@ -47,7 +47,8 @@ class _SliderLeftState extends State<SliderLeft> {
                     ListTile(
                       onTap: () => {
                         Navigator.of(context)
-                            .pushNamed(RouterTable.historyPath),
+                            .popAndPushNamed(RouterTable.historyPath),
+
                       },
                       leading: Icon(Icons.history),
                       title: Text('观看历史'),

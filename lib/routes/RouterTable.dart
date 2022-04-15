@@ -2,21 +2,20 @@ import 'package:flutter/cupertino.dart';
 import 'package:tvSink/pages/HistoryRoute.dart';
 
 import '../pages/AppSettingRoute.dart';
+import '../pages/ScaffoldRoute.dart';
 import '../pages/SettingRoute.dart';
-import '../widgets/PlayerWrapper.dart';
-import '../widgets/PlayerWrapper1.dart';
 
 class RouterTable {
   static const String settingPath = 'profile_setting';
   static const String historyPath = 'history_setting';
-  static const String playerPath = 'player_setting';
+  static const String homePath = 'player_setting';
   static const String appSettingPath = 'setting_setting';
 
   static Map<String, WidgetBuilder> routeTables = {
     settingPath: (context) => const SettingRoute(),
     historyPath: (context) => HistoryRoute(),
-    playerPath: (context) => PlayerWrapper1(),
-    appSettingPath: (context) => AppSettingRoute(),
+    homePath: (context) => const ScaffoldRoute(),
+    appSettingPath: (context) => const AppSettingRoute(),
   };
 
   //路由拦截
@@ -25,10 +24,10 @@ class RouterTable {
       settings: settings,
       builder: (context) {
         String? name = settings.name;
-        try{
+        try {
           Widget widget = routeTables[name]!(context);
           return widget;
-        }catch(e){
+        } catch (e) {
           return const SettingRoute();
         }
       },

@@ -9,6 +9,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
+import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tvSink/pages/update_dialog.dart';
 import 'package:tvSink/util/log.dart';
@@ -26,7 +27,7 @@ class ScaffoldRoute extends StatefulWidget {
 }
 
 class _ScaffoldRouteState extends State<ScaffoldRoute> {
-  int _selectedIndex = 0;
+  final ValueNotifier<int> _selectedIndex = ValueNotifier<int>(0);
   PageController? _pageController;
   String _platformVersion = 'Unknown';
   GlobalKey<UpdateDialogState> _dialogKey = new GlobalKey();
@@ -91,6 +92,9 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
   @override
   void initState() {
     super.initState();
+
+    logger.e("+===========================================> initState");
+
     SharedPreferences.getInstance().then((value) => {
           _preferences = value,
         });
@@ -119,6 +123,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
   }
 
   SharedPreferences? _preferences;
+  final ItemScrollController _chineseController = ItemScrollController();
 
   Widget getWidgetByPlatForm(int index, BuildContext context) {
     CommonData commonData = Provider.of<CommonData>(context, listen: true);
@@ -137,17 +142,12 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
 
     Widget getImageProviderByUrl(int index, int innerIndex) {
       String url = commonData.getIconUrl(index, innerIndex);
-      if (index == 2) {
-        logger.e("名字 -》 " +
-            commonData.getBeanByIndex(index, innerIndex) +
-            " : " +
-            url);
-      }
 
       if (url.isEmpty) {
         return Image.asset(
           "images/tv_dianshi.png",
           width: 50.0,
+          height: 50.0,
         );
       } else {
         return FadeInImage.assetNetwork(
@@ -155,21 +155,25 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
               return Image.asset(
                 "images/tv_dianshi.png",
                 width: 50.0,
+                height: 50.0,
               );
             },
             width: 50,
+            height: 50.0,
             placeholder: "images/tv_dianshi.png",
             image: url);
       }
     }
 
     List<String> _list = _preferences?.getStringList("xx") ?? [];
+    List<String> _iconlist = _preferences?.getStringList("icon") ?? [];
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        PlayerWrapper(commonData.getDefaultSource(index), index),
         Expanded(
-            child: ListView.builder(
+            child: ScrollablePositionedList.builder(
+          itemScrollController: _chineseController,
           // padding: EdgeInsets.only(left: 0, right: 0, top: 50, bottom: 50),
           itemCount: _tvList.length,
           itemBuilder: (BuildContext context, int innerIndex) {
@@ -202,7 +206,9 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
               child: InkWell(
                   onTap: () => {
                         _list.add(commonData.getBeanByIndex(index, innerIndex)),
+                        _iconlist.add(commonData.getIconUrl(index, innerIndex)),
                         _preferences?.setStringList("xx", _list),
+                        _preferences?.setStringList("tvLogo", _list),
                         commonData.setTvChannel(
                             commonData.getBeanByIndex(index, innerIndex),
                             index),
@@ -287,44 +293,74 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
   }
 
   @override
+  void didChangeDependencies() {
+    // TODO: implement didChangeDependencies
+    super.didChangeDependencies();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    CommonData commonData = Provider.of<CommonData>(context, listen: true);
+    Position _position = commonData.getPositionByName();
+    try {
+      if(commonData.index < 0){
+        _selectedIndex.value = _position.tabIndex;
+        _chineseController.jumpTo(index: _position.listIndex);
+      }
+    } catch (err) {}
+
     return Scaffold(
-      appBar: AppBar(
-        title: myBanner.getBannerWidget(),
-      ),
-      drawer: SliderLeft(),
-      body: PageView(
-        controller: _pageController,
-        onPageChanged: (index) {
-          _onItemTapped(index, context);
-        },
-        children: <Widget>[
-          getWidgetByPlatForm(0, context),
-          getWidgetByPlatForm(1, context),
-          getWidgetByPlatForm(2, context)
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '中文频道'),
-          BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '精选频道'),
-          BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '收藏频道'),
-        ],
-        currentIndex: _selectedIndex,
-        fixedColor: Colors.blue,
-        onTap: (index) {
-          _onItemTapped(index, context);
-        },
-      ),
-    );
+        appBar: AppBar(
+          title: myBanner.getBannerWidget(),
+        ),
+        drawer: SliderLeft(),
+        body: Flex(
+          direction: Axis.vertical,
+          children: <Widget>[
+            Expanded(
+              flex: 1,
+              child: PlayerWrapper(),
+            ),
+            Expanded(
+              flex: 1,
+              child: PageView(
+                controller: _pageController,
+                onPageChanged: (index) {
+                  _onItemTapped(index, context);
+                },
+                children: <Widget>[
+                  getWidgetByPlatForm(0, context),
+                  getWidgetByPlatForm(1, context),
+                  getWidgetByPlatForm(2, context)
+                ],
+              ),
+            ),
+          ],
+        ),
+        bottomNavigationBar: ValueListenableBuilder<int>(
+          builder: (BuildContext context, int value, Widget? child) {
+            return BottomNavigationBar(
+              items: const <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.airplay), label: '中文频道'),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.airplay), label: '英文频道'),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.airplay), label: '收藏频道'),
+              ],
+              currentIndex: value,
+              fixedColor: Colors.blue,
+              onTap: (index) {
+                _onItemTapped(index, context);
+              },
+            );
+          },
+          valueListenable: _selectedIndex,
+        ));
   }
 
   void _onItemTapped(int index, BuildContext context) {
-    CommonData commonData = Provider.of<CommonData>(context, listen: false);
-    commonData.switchTab(index);
     _pageController?.jumpToPage(index);
-    setState(() {
-      _selectedIndex = index;
-    });
+    _selectedIndex.value = index;
   }
 }

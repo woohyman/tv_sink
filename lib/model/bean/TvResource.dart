@@ -1,3 +1,5 @@
+import 'dart:core';
+
 import 'package:flutter/material.dart';
 import 'package:tvSink/util/log.dart';
 
@@ -12411,10 +12413,20 @@ class CommonData with ChangeNotifier {
     }
   }
 
+  Position getPositionByName() {
+    String tvName = getTvName();
+    if (_chineseTvLis.containsKey(tvName)) {
+      return Position(0, _chineseTvLis.keys.toList().indexOf(tvName));
+    } else if (_foreignTvLis.containsKey(tvName)) {
+      return Position(1, _foreignTvLis.keys.toList().indexOf(tvName));
+    }
+    return Position(0, 0);
+  }
+
   String? getSourceByKey(String tvName) {
-    if(liveSource.containsKey(tvName)){
+    if (liveSource.containsKey(tvName)) {
       return liveSource[tvName];
-    }else if (_chineseTvLis.containsKey(tvName)) {
+    } else if (_chineseTvLis.containsKey(tvName)) {
       return (_chineseTvLis[tvName]?["tvg-url"] as Set).first;
     } else if (_foreignTvLis.containsKey(tvName)) {
       return (_foreignTvLis[tvName]?["tvg-url"] as Set).first;
@@ -12443,7 +12455,9 @@ class CommonData with ChangeNotifier {
       case 1:
         return _foreignTvLis.values.elementAt(listIndex)["tvg-logo"].toString();
       case 2:
-        return _featuredTvLis.values.elementAt(listIndex)["tvg-logo"].toString();
+        return _featuredTvLis.values
+            .elementAt(listIndex)["tvg-logo"]
+            .toString();
     }
     return "";
   }
@@ -12481,7 +12495,8 @@ class CommonData with ChangeNotifier {
       case 0:
         return _chineseTvLis.values.elementAt(listIndex)["tvg-url"] as Set;
       case 1:
-        logger.w("liveSource ==> getSourceSet : ${_foreignTvLis.values.elementAt(listIndex)["tvg-url"]}");
+        logger.w(
+            "liveSource ==> getSourceSet : ${_foreignTvLis.values.elementAt(listIndex)["tvg-url"]}");
         return _foreignTvLis.values.elementAt(listIndex)["tvg-url"] as Set;
       case 2:
         return _featuredTvLis.values.elementAt(listIndex)["tvg-url"] as Set;
@@ -12508,21 +12523,21 @@ class CommonData with ChangeNotifier {
 
   final liveSource = {};
 
-  String? getLiveSource(String key){
-    if(liveSource.containsKey(key)){
-      if("TV" == key){
+  String? getLiveSource(String key) {
+    if (liveSource.containsKey(key)) {
+      if ("TV" == key) {
         logger.w("liveSource ==> ${liveSource[key]}");
       }
       return liveSource[key];
-    }else{
-      if("TV" == key){
+    } else {
+      if ("TV" == key) {
         logger.w("liveSource ==> ${getSourceByKey(key)}");
       }
       return getSourceByKey(key);
     }
   }
 
-  void setLiveSource(String key,String? value){
+  void setLiveSource(String key, String? value) {
     liveSource[key] = value;
   }
 
@@ -12545,13 +12560,20 @@ class CommonData with ChangeNotifier {
     }
 
     String tvName = _curPlayChannelMap[_index] ?? "";
-    if(liveSource.containsKey(tvName)){
+    if (liveSource.containsKey(tvName)) {
       return liveSource[tvName];
-    }else if (_chineseTvLis.containsKey(tvName)) {
+    } else if (_chineseTvLis.containsKey(tvName)) {
       return (_chineseTvLis[tvName]!["tvg-url"] as Set).first;
     } else if (_foreignTvLis.containsKey(tvName)) {
       return (_foreignTvLis[tvName]!["tvg-url"] as Set).first;
     }
     return defaultSource;
   }
+}
+
+class Position {
+  int tabIndex = 0;
+  int listIndex = 0;
+
+  Position(this.tabIndex, this.listIndex);
 }

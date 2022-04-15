@@ -12,13 +12,7 @@ import 'package:tvSink/util/log.dart';
 import '../business/PlayControlManager.dart';
 
 class PlayerWrapper extends StatefulWidget {
-  late String _dataSource;
-  late int _index;
-
-  PlayerWrapper(String dataSource, int index, {Key? key}) : super(key: key) {
-    _dataSource = dataSource;
-    _index = index;
-  }
+  PlayerWrapper({Key? key}) : super(key: key) {}
 
   @override
   State<PlayerWrapper> createState() => _PlayerWrapperState();
@@ -47,7 +41,7 @@ class _PlayerWrapperState extends State<PlayerWrapper> {
           if (isNeedWifi != !(preferences.getBool("11") ?? true))
             {
               isNeedWifi = !(preferences.getBool("11") ?? true),
-              setState(() => {_player.pause()})
+              // setState(() => {_player.pause()})
             }
         });
     super.didUpdateWidget(oldWidget);
@@ -58,7 +52,7 @@ class _PlayerWrapperState extends State<PlayerWrapper> {
     logger.e("================> 初始化 ");
     Connectivity().checkConnectivity().then((value) => {
           setState(() => {
-                if (_result == ConnectivityResult.mobile) {_player.pause()},
+                // if (_result == ConnectivityResult.mobile) {_player.pause()},
                 SharedPreferences.getInstance().then((preferences) => {
                       _result = value,
                       logger.e("================> 初始化 --- $_result"),
@@ -71,7 +65,7 @@ class _PlayerWrapperState extends State<PlayerWrapper> {
         .onConnectivityChanged
         .listen((ConnectivityResult result) {
       setState(() => {
-            if (_result == ConnectivityResult.mobile) {_player.pause()},
+            // if (_result == ConnectivityResult.mobile) {_player.pause()},
             _result = result,
           });
     });
@@ -80,7 +74,7 @@ class _PlayerWrapperState extends State<PlayerWrapper> {
           _player.value.state == FijkState.started) {
         SharedPreferences.getInstance().then((preferences) => {
               logger.e("================> -------------- $isNeedWifi"),
-              if (isNeedWifi) setState(() => {_player.pause()})
+              // if (isNeedWifi) setState(() => {_player.pause()})
             });
       }
     });
@@ -104,25 +98,21 @@ class _PlayerWrapperState extends State<PlayerWrapper> {
 
   @override
   void deactivate() {
-    logger.e("------------------------------------ ==> deactivate");
     super.deactivate();
   }
 
   @override
   Widget build(BuildContext context) {
-    logger.e("================> $_result : $isNeedWifi");
+    logger.i("==== build ===");
     return Consumer<CommonData>(builder: (ctx, commonData, child) {
       if (_result == ConnectivityResult.mobile && isNeedWifi) {
-        _player.pause();
-      } else if (widget._index != commonData.index) {
-        _player.pause();
+        // _player.pause();
       } else if (curDataSource != commonData.getTvChannel()) {
         curDataSource = commonData.getTvChannel();
-        logger.i("开始播放资源 == " + curDataSource);
         _player.reset().then((value) => _player
             .setDataSource(curDataSource, autoPlay: true)
             .then((value) => {_player.start()}));
-      }
+      } else if (curDataSource.isEmpty) {}
       return Stack(
         alignment: Alignment.center,
         children: <Widget>[
