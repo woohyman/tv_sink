@@ -317,10 +317,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
         body: Flex(
           direction: Axis.vertical,
           children: <Widget>[
-            Expanded(
-              flex: 1,
-              child: PlayerWrapper(),
-            ),
+            PlayerWrapper(),
             Expanded(
               flex: 1,
               child: PageView(

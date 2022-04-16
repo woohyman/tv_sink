@@ -111,9 +111,9 @@ flutter:
     - file/
 
 flutter_native_splash:
-#  image: "images/img.png"
-#  color: "#42a5f5"
-#  branding_mode: bottomLeft
-  background_image : "images/startup.png"
+  branding: "images/splash_icon.png"
+  color: "#ffffff"
+  branding_mode: bottom
+#  background_image : "images/startup.png"
   ardroid: true
   ios: true
