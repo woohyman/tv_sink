@@ -106,13 +106,13 @@ class _PlayerWrapperState extends State<PlayerWrapper> {
     logger.i("==== build ===");
     return Consumer<CommonData>(builder: (ctx, commonData, child) {
       if (_result == ConnectivityResult.mobile && isNeedWifi) {
-        // _player.pause();
+        _player.pause();
       } else if (curDataSource != commonData.getTvChannel()) {
         curDataSource = commonData.getTvChannel();
         _player.reset().then((value) => _player
             .setDataSource(curDataSource, autoPlay: true)
             .then((value) => {_player.start()}));
-      } else if (curDataSource.isEmpty) {}
+      }
       return Stack(
         alignment: Alignment.center,
         children: <Widget>[
