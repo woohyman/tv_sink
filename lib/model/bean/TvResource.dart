@@ -5,59 +5,6 @@ import 'package:tvSink/util/log.dart';
 
 class CommonData with ChangeNotifier {
   final _chineseTvLis = {
-    "BBC": {
-      "tvg-id": "BBCNews.uk",
-      "tvg-country": "INT",
-      "tvg-language": "English",
-      "tvg-logo":
-          "https://raw.githubusercontent.com/Tapiosinn/tv-logos/master/countries/united-kingdom/bbc-news-uk.png",
-      "group-title": "News",
-      "tvg-url": {
-        "https://cdnuk001.broadcastcdn.net/KUK-BBCNEWSHD/index.m3u8",
-        "http://103.199.161.254/Content/bbcworld/Live/Channel(BBCworld)/index.m3u8"
-      }
-    },
-    "BesTV超级": {
-      "tvg-id": "",
-      "tvg-country": "CN",
-      "tvg-language": "",
-      "tvg-logo": "",
-      "group-title": "Undefined",
-      "tvg-url": {
-        "http://223.110.245.167/ott.js.chinamobile.com/PLTV/3/224/3221226942/index.m3u8"
-      }
-    },
-    "Bloomberg": {
-      "tvg-id": "BloombergTVAsia.us",
-      "tvg-country": "APAC;OCE;SAS",
-      "tvg-language": "English",
-      "tvg-logo":
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Bloomberg_Television_logo.svg/300px-Bloomberg_Television_logo.svg.png",
-      "group-title": "Business",
-      "tvg-url": {
-        "https://liveprodapnortheast.global.ssl.fastly.net/ap1/Channel-APTVqvs-AWS-tokyo-1/Source-APTVqvs-1000-1_live.m3u8",
-        "https://www.bloomberg.com/media-manifest/streams/asia-event.m3u8"
-      }
-    },
-    "Blue": {
-      "tvg-id": "",
-      "tvg-country": "CN",
-      "tvg-language": "",
-      "tvg-logo": "",
-      "group-title": "Undefined",
-      "tvg-url": {"http://210.210.155.35/dr9445/h/h16/02.m3u8"}
-    },
-    "CCTV+": {
-      "tvg-id": "CCTVPlus1.cn",
-      "tvg-country": "CN",
-      "tvg-language": "Chinese",
-      "tvg-logo": "",
-      "group-title": "Undefined",
-      "tvg-url": {
-        "https://cd-live-stream.news.cctvplus.com/live/smil:CHANNEL1.smil/playlist.m3u8",
-        "https://cd-live-stream.news.cctvplus.com/live/smil:CHANNEL2.smil/playlist.m3u8"
-      }
-    },
     "CCTV-1综合": {
       "tvg-id": "CCTV1.cn",
       "tvg-country": "CN",
@@ -5552,6 +5499,59 @@ class CommonData with ChangeNotifier {
   };
 
   final _foreignTvLis = {
+    "BBC": {
+      "tvg-id": "BBCNews.uk",
+      "tvg-country": "INT",
+      "tvg-language": "English",
+      "tvg-logo":
+      "https://raw.githubusercontent.com/Tapiosinn/tv-logos/master/countries/united-kingdom/bbc-news-uk.png",
+      "group-title": "News",
+      "tvg-url": {
+        "https://cdnuk001.broadcastcdn.net/KUK-BBCNEWSHD/index.m3u8",
+        "http://103.199.161.254/Content/bbcworld/Live/Channel(BBCworld)/index.m3u8"
+      }
+    },
+    "BesTV超级": {
+      "tvg-id": "",
+      "tvg-country": "CN",
+      "tvg-language": "",
+      "tvg-logo": "",
+      "group-title": "Undefined",
+      "tvg-url": {
+        "http://223.110.245.167/ott.js.chinamobile.com/PLTV/3/224/3221226942/index.m3u8"
+      }
+    },
+    "Bloomberg": {
+      "tvg-id": "BloombergTVAsia.us",
+      "tvg-country": "APAC;OCE;SAS",
+      "tvg-language": "English",
+      "tvg-logo":
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Bloomberg_Television_logo.svg/300px-Bloomberg_Television_logo.svg.png",
+      "group-title": "Business",
+      "tvg-url": {
+        "https://liveprodapnortheast.global.ssl.fastly.net/ap1/Channel-APTVqvs-AWS-tokyo-1/Source-APTVqvs-1000-1_live.m3u8",
+        "https://www.bloomberg.com/media-manifest/streams/asia-event.m3u8"
+      }
+    },
+    "Blue": {
+      "tvg-id": "",
+      "tvg-country": "CN",
+      "tvg-language": "",
+      "tvg-logo": "",
+      "group-title": "Undefined",
+      "tvg-url": {"http://210.210.155.35/dr9445/h/h16/02.m3u8"}
+    },
+    "CCTV+": {
+      "tvg-id": "CCTVPlus1.cn",
+      "tvg-country": "CN",
+      "tvg-language": "Chinese",
+      "tvg-logo": "",
+      "group-title": "Undefined",
+      "tvg-url": {
+        "https://cd-live-stream.news.cctvplus.com/live/smil:CHANNEL1.smil/playlist.m3u8",
+        "https://cd-live-stream.news.cctvplus.com/live/smil:CHANNEL2.smil/playlist.m3u8"
+      }
+    },
     "3ABN": {
       "tvg-id": "K17JIDT3.us",
       "tvg-country": "US",

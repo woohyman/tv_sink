@@ -32,6 +32,10 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
   String _platformVersion = 'Unknown';
   GlobalKey<UpdateDialogState> _dialogKey = new GlobalKey();
 
+  SharedPreferences? _preferences;
+  late final ItemScrollController _chineseController;
+  late final ItemScrollController _foreignController;
+
   final TvBannerAd myBanner = TvBannerAd();
 
   void _showUpdateDialog(String version, String url, bool isForceUpgrade) {
@@ -92,6 +96,8 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
   @override
   void initState() {
     super.initState();
+    _chineseController = ItemScrollController();
+    _foreignController = ItemScrollController();
 
     logger.e("+===========================================> initState");
 
@@ -122,9 +128,6 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
     myBanner.load().then((value) => {setState(() => {})});
   }
 
-  SharedPreferences? _preferences;
-  final ItemScrollController _chineseController = ItemScrollController();
-
   Widget getWidgetByPlatForm(int index, BuildContext context) {
     CommonData commonData = Provider.of<CommonData>(context, listen: true);
     var _tvList = commonData.chineseTvLis;
@@ -142,7 +145,6 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
 
     Widget getImageProviderByUrl(int index, int innerIndex) {
       String url = commonData.getIconUrl(index, innerIndex);
-
       if (url.isEmpty) {
         return Image.asset(
           "images/tv_dianshi.png",
@@ -165,6 +167,13 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
       }
     }
 
+    int _initTabIndex = 0;
+    Position _position = commonData.getPositionByName();
+
+    if (index == _position.tabIndex) {
+      _initTabIndex = _position.listIndex;
+    }
+
     List<String> _list = _preferences?.getStringList("xx") ?? [];
     List<String> _iconlist = _preferences?.getStringList("icon") ?? [];
 
@@ -173,8 +182,10 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
       children: [
         Expanded(
             child: ScrollablePositionedList.builder(
-          itemScrollController: _chineseController,
+          itemScrollController:
+              index == 0 ? _chineseController : _foreignController,
           // padding: EdgeInsets.only(left: 0, right: 0, top: 50, bottom: 50),
+          initialScrollIndex: _initTabIndex,
           itemCount: _tvList.length,
           itemBuilder: (BuildContext context, int innerIndex) {
             List<DropdownMenuItem<String>>? myItems = [];
@@ -294,7 +305,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
 
   @override
   void didChangeDependencies() {
-    // TODO: implement didChangeDependencies
+    logger.e("_position ==> didChangeDependencies");
     super.didChangeDependencies();
   }
 
@@ -303,11 +314,20 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
     CommonData commonData = Provider.of<CommonData>(context, listen: true);
     Position _position = commonData.getPositionByName();
     try {
-      if(commonData.index < 0){
+      logger.e(
+          "_position ==>${commonData.index} +> ${_position.tabIndex} : ${_position.listIndex}");
+      if (commonData.index < 0) {
         _selectedIndex.value = _position.tabIndex;
-        _chineseController.jumpTo(index: _position.listIndex);
+        _pageController?.jumpToPage(_position.tabIndex);
+        if (_pageController?.position == 0) {
+          if(_chineseController.isAttached) _chineseController.jumpTo(index: _position.listIndex);
+        } else {
+          if(_foreignController.isAttached) _foreignController.jumpTo(index: _position.listIndex);
+        }
       }
-    } catch (err) {}
+    } catch (err, stack) {
+      logger.e("_position ==>$err : $stack");
+    }
 
     return Scaffold(
         appBar: AppBar(
