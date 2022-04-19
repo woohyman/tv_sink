@@ -70,8 +70,7 @@ class _HistoryRouteState extends State<HistoryRoute> {
               child: InkWell(
                   onTap: () => {
                         commonData.setTvChannel(_list?[innerIndex] ?? "未知", -1),
-                        Navigator.of(context).pushNamedAndRemoveUntil(
-                            RouterTable.homePath, (route) => false,)
+                        Navigator.popUntil(context, ModalRoute.withName('/'))
                       },
                   child:    Padding(
                     padding: EdgeInsets.only(

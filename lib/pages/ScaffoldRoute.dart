@@ -33,9 +33,9 @@ ItemScrollController _foreignController = ItemScrollController();
 ItemScrollController? getScrollController(int _index) {
   if (_index == 0) {
     return _chineseController.isAttached ? null : _chineseController;
-  } else if(_index == 1) {
+  } else if (_index == 1) {
     return _foreignController.isAttached ? null : _foreignController;
-  }else{
+  } else {
     return null;
   }
 }
@@ -185,128 +185,136 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
 
     List<String> _list = _preferences?.getStringList("xx") ?? [];
     List<String> _iconlist = _preferences?.getStringList("icon") ?? [];
-    if(getScrollController(index) == null){
+    if (getScrollController(index) == null) {
       return Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Expanded(
               child: ScrollablePositionedList.builder(
-                addAutomaticKeepAlives: true,
-                // padding: EdgeInsets.only(left: 0, right: 0, top: 50, bottom: 50),
-                initialScrollIndex: _initTabIndex,
-                itemCount: _tvList.length,
-                itemBuilder: (BuildContext context, int innerIndex) {
-                  List<DropdownMenuItem<String>>? myItems = [];
-                  Set sets = commonData.getSourceSet(index, innerIndex);
-                  sets.toList().asMap().forEach((key, value) {
-                    myItems.add(DropdownMenuItem<String>(
-                      value: value,
-                      child: Text("直播源${key + 1}"),
-                    ));
-                  });
+            addAutomaticKeepAlives: true,
+            // padding: EdgeInsets.only(left: 0, right: 0, top: 50, bottom: 50),
+            initialScrollIndex: _initTabIndex,
+            itemCount: _tvList.length,
+            itemBuilder: (BuildContext context, int innerIndex) {
+              List<DropdownMenuItem<String>>? myItems = [];
+              Set sets = commonData.getSourceSet(index, innerIndex);
+              sets.toList().asMap().forEach((key, value) {
+                myItems.add(DropdownMenuItem<String>(
+                  value: value,
+                  child: Text("直播源${key + 1}"),
+                ));
+              });
 
-                  return Card(
-                    color: commonData.getTvName() ==
+              return Card(
+                color: commonData.getTvName() ==
                         commonData.getBeanByIndex(index, innerIndex)
-                        ? Colors.lightBlue.shade200
-                        : Colors.lightBlue.shade100,
-                    //z轴的高度，设置card的阴影
-                    elevation: commonData.getTvName() ==
+                    ? Colors.lightBlue.shade200
+                    : Colors.lightBlue.shade100,
+                //z轴的高度，设置card的阴影
+                elevation: commonData.getTvName() ==
                         commonData.getBeanByIndex(index, innerIndex)
-                        ? 20.0
-                        : 0.0,
-                    //设置shape，这里设置成了R角
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                    ),
-                    //对Widget截取的行为，比如这里 Clip.antiAlias 指抗锯齿
-                    clipBehavior: Clip.antiAlias,
-                    semanticContainer: false,
-                    child: InkWell(
-                        onTap: () => {
-                          _list.add(commonData.getBeanByIndex(index, innerIndex)),
-                          _iconlist.add(commonData.getIconUrl(index, innerIndex)),
-                          _preferences?.setStringList("xx", _list),
-                          _preferences?.setStringList("tvLogo", _list),
+                    ? 20.0
+                    : 0.0,
+                //设置shape，这里设置成了R角
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                ),
+                //对Widget截取的行为，比如这里 Clip.antiAlias 指抗锯齿
+                clipBehavior: Clip.antiAlias,
+                semanticContainer: false,
+                child: InkWell(
+                    onTap: () => {
+                          if (_list.last !=
+                              commonData.getBeanByIndex(index, innerIndex))
+                            {
+                              _list.add(
+                                  commonData.getBeanByIndex(index, innerIndex)),
+                              _iconlist.add(
+                                  commonData.getIconUrl(index, innerIndex)),
+                              _preferences?.setStringList("xx", _list),
+                              _preferences?.setStringList("tvLogo", _list),
+                            },
                           commonData.setTvChannel(
                               commonData.getBeanByIndex(index, innerIndex),
                               index),
                         },
-                        child: Padding(
-                          child: Flex(
-                            direction: Axis.horizontal,
-                            children: <Widget>[
-                              Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 5),
-                                child: Expanded(
-                                  flex: 1,
-                                  child: getImageProviderByUrl(index, innerIndex),
-                                ),
-                              ),
-                              Expanded(
-                                flex: 5,
-                                child: Text(
-                                  commonData.getBeanByIndex(index, innerIndex),
-                                  style: commonData.getTvName() ==
-                                      commonData.getBeanByIndex(index, innerIndex)
-                                      ? TextStyle(color: Colors.red, fontSize: 18)
-                                      : TextStyle(color: Colors.black, fontSize: 14),
-                                ),
-                              ),
-                              Expanded(
-                                flex: 3,
-                                child: Visibility(
-                                  visible: commonData
+                    child: Padding(
+                      child: Flex(
+                        direction: Axis.horizontal,
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 5),
+                            child: Expanded(
+                              flex: 1,
+                              child: getImageProviderByUrl(index, innerIndex),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 5,
+                            child: Text(
+                              commonData.getBeanByIndex(index, innerIndex),
+                              style: commonData.getTvName() ==
+                                      commonData.getBeanByIndex(
+                                          index, innerIndex)
+                                  ? TextStyle(color: Colors.red, fontSize: 18)
+                                  : TextStyle(
+                                      color: Colors.black, fontSize: 14),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 3,
+                            child: Visibility(
+                              visible: commonData
                                       .getSourceSet(index, innerIndex)
                                       .length >
-                                      1,
-                                  child: DropdownButton<String>(
-                                    value: commonData.getLiveSource(
-                                        commonData.getBeanByIndex(index, innerIndex)),
-                                    onChanged: (value) {
-                                      setState(() {
-                                        commonData.setLiveSource(
-                                            commonData.getBeanByIndex(
-                                                index, innerIndex),
-                                            value);
-                                      });
-                                    },
-                                    items: myItems,
-                                  ),
-                                ),
+                                  1,
+                              child: DropdownButton<String>(
+                                value: commonData.getLiveSource(commonData
+                                    .getBeanByIndex(index, innerIndex)),
+                                onChanged: (value) {
+                                  setState(() {
+                                    commonData.setLiveSource(
+                                        commonData.getBeanByIndex(
+                                            index, innerIndex),
+                                        value);
+                                  });
+                                },
+                                items: myItems,
                               ),
-                              Expanded(
-                                flex: 1,
-                                child: Align(
-                                  alignment: Alignment.center,
-                                  child: InkWell(
-                                    onTap: () => {
-                                      setState(() {
-                                        if (commonData.iscotain(commonData
-                                            .getBeanByIndex(index, innerIndex))) {
-                                          commonData.removeurl(commonData
-                                              .getBeanByIndex(index, innerIndex));
-                                        } else {
-                                          commonData.addcollect(commonData
-                                              .getBeanByIndex(index, innerIndex));
-                                        }
-                                      })
-                                    },
-                                    child: commonData.iscotain(commonData
-                                        .getBeanByIndex(index, innerIndex))
-                                        ? Icon(Icons.favorite)
-                                        : Icon(Icons.favorite_border),
-                                  ),
-                                ),
-                              ),
-                            ],
+                            ),
                           ),
-                          padding:
-                          EdgeInsets.only(left: 0, right: 0, top: 12, bottom: 12),
-                        )),
-                  );
-                },
-              ))
+                          Expanded(
+                            flex: 1,
+                            child: Align(
+                              alignment: Alignment.center,
+                              child: InkWell(
+                                onTap: () => {
+                                  setState(() {
+                                    if (commonData.iscotain(commonData
+                                        .getBeanByIndex(index, innerIndex))) {
+                                      commonData.removeurl(commonData
+                                          .getBeanByIndex(index, innerIndex));
+                                    } else {
+                                      commonData.addcollect(commonData
+                                          .getBeanByIndex(index, innerIndex));
+                                    }
+                                  })
+                                },
+                                child: commonData.iscotain(commonData
+                                        .getBeanByIndex(index, innerIndex))
+                                    ? Icon(Icons.favorite)
+                                    : Icon(Icons.favorite_border),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      padding: EdgeInsets.only(
+                          left: 0, right: 0, top: 12, bottom: 12),
+                    )),
+              );
+            },
+          ))
         ],
       );
     }

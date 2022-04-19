@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:tvSink/pages/HistoryRoute.dart';
 
 import '../pages/AppSettingRoute.dart';
@@ -20,11 +21,12 @@ class RouterTable {
 
   //路由拦截
   static Route onGenerateRoute<T extends Object>(RouteSettings settings) {
-    return CupertinoPageRoute<T>(
+    return MaterialPageRoute<T>(
       settings: settings,
       builder: (context) {
         String? name = settings.name;
         try {
+
           Widget widget = routeTables[name]!(context);
           return widget;
         } catch (e) {
