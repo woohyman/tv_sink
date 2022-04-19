@@ -26,12 +26,33 @@ class _HistoryRouteState extends State<HistoryRoute> {
     super.initState();
   }
 
+  Widget getImageProviderByUrl(String url) {
+    if (url.isEmpty) {
+      return Image.asset(
+        "images/tv_dianshi.png",
+        width: 50.0,
+        height: 50.0,
+      );
+    } else {
+      return FadeInImage.assetNetwork(
+          imageErrorBuilder: (context, error, stackTrace) {
+            return Image.asset(
+              "images/tv_dianshi.png",
+              width: 50.0,
+              height: 50.0,
+            );
+          },
+          width: 50.0,
+          height: 50.0,
+          placeholder: "images/tv_dianshi.png",
+          image: url);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     CommonData commonData = Provider.of<CommonData>(context, listen: true);
     List<String>? _list = _preferences?.getStringList("xx")!.reversed.toList();
-    List<String>? _logoList =
-        _preferences?.getStringList("xx")!.reversed.toList();
 
     return ListView.builder(
         itemBuilder: (BuildContext context, int innerIndex) {
@@ -52,26 +73,25 @@ class _HistoryRouteState extends State<HistoryRoute> {
                         Navigator.of(context).pushNamedAndRemoveUntil(
                             RouterTable.homePath, (route) => false,)
                       },
-                  child: Flex(
-                    direction: Axis.horizontal,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        child: Expanded(
-                          flex: 1,
-                          child: Icon(Icons.history_rounded,size: 30,),
-                        ),
-                      ),
-                      Padding(
-                        child: Text(
-                          _list?[innerIndex] ?? "未知",
-                          style: TextStyle(color: Colors.black, fontSize: 14),
-                        ),
-                        padding: EdgeInsets.only(
-                            left: 0, right: 0, top: 12, bottom: 12),
-                      )
-                    ],
-                  )));
+                  child:    Padding(
+                    padding: EdgeInsets.only(
+                        left: 10, right: 0, top: 12, bottom: 12),
+                    child: Flex(
+                      direction: Axis.horizontal,
+                      children: [
+                        getImageProviderByUrl(commonData.getIconUrlByTvName(_list?[innerIndex] ?? "未知")),
+                        Padding(
+                          child: Text(
+                            _list?[innerIndex] ?? "未知",
+                            style: TextStyle(color: Colors.black, fontSize: 14),
+                          ),
+                          padding: EdgeInsets.only(
+                              left: 0, right: 0, top: 12, bottom: 12),
+                        )
+                      ],
+                    ),
+                  ) 
+                  ));
         },
         itemCount: _list?.length ?? 0);
   }
