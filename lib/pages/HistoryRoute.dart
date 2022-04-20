@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../business/PlayControlManager.dart';
 import '../model/bean/TvResource.dart';
 import '../routes/RouterTable.dart';
 import '../util/log.dart';
@@ -17,12 +18,13 @@ class _HistoryRouteState extends State<HistoryRoute> {
 
   @override
   void initState() {
-    SharedPreferences.getInstance().then((value) => {
-          logger.i("SharedPreferences ***********************> $value"),
-          setState(() {
-            _preferences = value;
-          })
-        });
+    SharedPreferences.getInstance().then((value) =>
+    {
+      logger.i("SharedPreferences ***********************> $value"),
+      setState(() {
+        _preferences = value;
+      })
+    });
     super.initState();
   }
 
@@ -69,28 +71,30 @@ class _HistoryRouteState extends State<HistoryRoute> {
               semanticContainer: false,
               child: InkWell(
                   onTap: () => {
-                        commonData.setTvChannel(_list?[innerIndex] ?? "未知", -1),
-                        Navigator.popUntil(context, ModalRoute.withName('/'))
-                      },
-                  child:    Padding(
-                    padding: EdgeInsets.only(
-                        left: 10, right: 0, top: 12, bottom: 12),
-                    child: Flex(
-                      direction: Axis.horizontal,
-                      children: [
-                        getImageProviderByUrl(commonData.getIconUrlByTvName(_list?[innerIndex] ?? "未知")),
-                        Padding(
-                          child: Text(
-                            _list?[innerIndex] ?? "未知",
-                            style: TextStyle(color: Colors.black, fontSize: 14),
-                          ),
-                          padding: EdgeInsets.only(
-                              left: 0, right: 0, top: 12, bottom: 12),
-                        )
-                      ],
-                    ),
-                  ) 
-                  ));
+                    commonData.setTvChannel(_list?[innerIndex] ?? "未知", -1),
+                  PlayControlManager.instance.setResourceAndPlay(commonData.getLiveSource(_list?[innerIndex] ?? "未知")??"",-1),
+                  Navigator.popUntil(context, ModalRoute.withName('/'))
+              },
+              child: Padding(
+                padding: EdgeInsets.only(
+                    left: 10, right: 0, top: 12, bottom: 12),
+                child: Flex(
+                  direction: Axis.horizontal,
+                  children: [
+                    getImageProviderByUrl(commonData.getIconUrlByTvName(
+                        _list?[innerIndex] ?? "未知")),
+                    Padding(
+                      child: Text(
+                        _list?[innerIndex] ?? "未知",
+                        style: TextStyle(color: Colors.black, fontSize: 14),
+                      ),
+                      padding: EdgeInsets.only(
+                          left: 0, right: 0, top: 12, bottom: 12),
+                    )
+                  ],
+                ),
+              )
+          ));
         },
         itemCount: _list?.length ?? 0);
   }

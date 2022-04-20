@@ -14,6 +14,7 @@ import 'package:tvSink/pages/update_dialog.dart';
 import 'package:tvSink/util/log.dart';
 
 import '../ad/TvBannerAd.dart';
+import '../business/PlayControlManager.dart';
 import '../model/bean/TvResource.dart';
 import '../update/FlutterBuglyManager.dart';
 import '../widgets/KeepAliveTest.dart';
@@ -57,6 +58,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
   late FlutterBuglyManager _flutterBuglyManager;
 
   final TvBannerAd myBanner = TvBannerAd();
+  int _optType = 0;
 
   @override
   void initState() {
@@ -64,6 +66,13 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
 
     SharedPreferences.getInstance().then((value) => {
           _preferences = value,
+        });
+
+    PlayControlManager.instance.setPlayStateListener((int optType) => {
+          setState(() => {
+                logger.e("====> $_optType"),
+                _optType = optType,
+              })
         });
 
     FlutterNativeSplash.remove();
@@ -164,9 +173,14 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
                         _iconlist.add(commonData.getIconUrl(index, innerIndex)),
                         _preferences?.setStringList("xx", _list),
                         _preferences?.setStringList("tvLogo", _list),
-                        commonData.setTvChannel(
-                            commonData.getBeanByIndex(index, innerIndex),
-                            index),
+                        PlayControlManager.instance.setResourceAndPlay(
+                            commonData.getLiveSource(commonData.getBeanByIndex(
+                                    index, innerIndex)) ??
+                                "",
+                            1),
+                    commonData.setTvChannel(
+                        commonData.getBeanByIndex(index, innerIndex),
+                        index),
                       },
                   child: Padding(
                     child: Flex(
@@ -257,8 +271,10 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
   Widget build(BuildContext context) {
     CommonData commonData = Provider.of<CommonData>(context, listen: true);
     Position _position = commonData.getPositionByName();
+
+    logger.e("====> build ==== ${commonData.getTvName()}");
     try {
-      if (commonData.index < 0) {
+      if (_optType < 0) {
         _selectedIndex.value = _position.tabIndex;
         _pageController?.jumpToPage(_position.tabIndex);
         getScrollController2(_position.tabIndex)
@@ -327,7 +343,9 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
   }
 
   void _onItemTapped(int index, BuildContext context) {
-    _pageController?.jumpToPage(index);
-    _selectedIndex.value = index;
+    setState(() {
+      _pageController?.jumpToPage(index);
+      _selectedIndex.value = index;
+    });
   }
 }
