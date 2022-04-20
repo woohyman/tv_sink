@@ -5,7 +5,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bugly/flutter_bugly.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:provider/provider.dart';
@@ -16,6 +15,7 @@ import 'package:tvSink/util/log.dart';
 
 import '../ad/TvBannerAd.dart';
 import '../model/bean/TvResource.dart';
+import '../update/FlutterBuglyManager.dart';
 import '../widgets/KeepAliveTest.dart';
 import '../widgets/PlayerWrapper.dart';
 import '../widgets/SliderLeft.dart';
@@ -43,95 +43,22 @@ ItemScrollController? getScrollController(int _index) {
 class _ScaffoldRouteState extends State<ScaffoldRoute> {
   final ValueNotifier<int> _selectedIndex = ValueNotifier<int>(0);
   PageController? _pageController;
-  String _platformVersion = 'Unknown';
-  GlobalKey<UpdateDialogState> _dialogKey = new GlobalKey();
   SharedPreferences? _preferences;
+  late FlutterBuglyManager _flutterBuglyManager;
 
   final TvBannerAd myBanner = TvBannerAd();
-
-  void _showUpdateDialog(String version, String url, bool isForceUpgrade) {
-    showDialog(
-      barrierDismissible: false,
-      context: context,
-      builder: (_) => _buildDialog(version, url, isForceUpgrade),
-    );
-  }
-
-  void _checkUpgrade() {
-    print("获取更新中。。。");
-    FlutterBugly.checkUpgrade();
-  }
-
-  Widget _buildDialog(String version, String url, bool isForceUpgrade) {
-    return WillPopScope(
-      onWillPop: () async => isForceUpgrade,
-      child: UpdateDialog(
-        key: _dialogKey,
-        version: version,
-        onClickWhenDownload: (_msg) {
-          // 提示不要重复下载
-        },
-        onClickWhenNotDownload: () {
-          logger.e("更新功能 =====> " + url);
-          logger.e("更新版本 =====> " + version);
-          //下载 apk，完成后打开 apk 文件，建议使用 dio + open_file 插件
-          downloadfile(url);
-        },
-      ),
-    );
-  }
-
-  Future<void> downloadfile(String url) async {
-    Response response;
-    var dio = Dio();
-    Directory root = await getTemporaryDirectory();
-    response = await dio.download(url, root.path + '/111.apk',
-        onReceiveProgress: (received, total) {
-      logger.i('received $received');
-      _dialogKey.currentState?.progress = received / total;
-    });
-    if (response.statusCode == 200) {
-      logger.i('下载成功');
-      //防止打印日志不全。
-      await OpenFile.open(root.path + '/111.apk');
-    }
-  }
-
-  /// Dio 可以监听下载进度，调用此方法
-  void _updateProgress(_progress) {
-    setState(() {
-      _dialogKey.currentState!.progress = _progress;
-    });
-  }
 
   @override
   void initState() {
     super.initState();
-
-    logger.e("+===========================================> initState");
 
     SharedPreferences.getInstance().then((value) => {
           _preferences = value,
         });
 
     FlutterNativeSplash.remove();
-    FlutterBugly.init(
-      androidAppId: "8c6adf8a82",
-      customUpgrade: true, // 调用 Android 原生升级方式
-    ).then((_result) {
-      setState(() {
-        _platformVersion = _result.message;
-        print(_result.appId);
-      });
-    });
-    // 当配置 customUpgrade=true 时候，这里可以接收自定义升级
-    FlutterBugly.onCheckUpgrade.listen((_upgradeInfo) {
-      _showUpdateDialog(
-        _upgradeInfo.newFeature,
-        _upgradeInfo.apkUrl!,
-        _upgradeInfo.upgradeType == 2,
-      );
-    });
+    _flutterBuglyManager = FlutterBuglyManager(context);
+    _flutterBuglyManager.init().then((value) => {setState(() {})});
 
     _pageController = PageController();
     myBanner.load().then((value) => {setState(() => {})});
