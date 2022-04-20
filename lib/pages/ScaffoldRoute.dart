@@ -137,6 +137,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
       children: [
         Expanded(
             child: ScrollablePositionedList.builder(
+              addAutomaticKeepAlives: true,
           itemScrollController: getScrollController(index),
           initialScrollIndex: _initTabIndex,
           itemCount: _tvList.length,
@@ -343,9 +344,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
   }
 
   void _onItemTapped(int index, BuildContext context) {
-    setState(() {
-      _pageController?.jumpToPage(index);
-      _selectedIndex.value = index;
-    });
+    _pageController?.jumpToPage(index);
+    _selectedIndex.value = index;
   }
 }

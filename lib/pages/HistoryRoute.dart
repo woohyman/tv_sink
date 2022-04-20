@@ -71,9 +71,10 @@ class _HistoryRouteState extends State<HistoryRoute> {
               semanticContainer: false,
               child: InkWell(
                   onTap: () => {
+                    Navigator.popUntil(context, ModalRoute.withName('/')),
                     commonData.setTvChannel(_list?[innerIndex] ?? "未知", -1),
                   PlayControlManager.instance.setResourceAndPlay(commonData.getLiveSource(_list?[innerIndex] ?? "未知")??"",-1),
-                  Navigator.popUntil(context, ModalRoute.withName('/'))
+
               },
               child: Padding(
                 padding: EdgeInsets.only(
