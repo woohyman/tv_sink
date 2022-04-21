@@ -52,6 +52,8 @@ class _PlayerWrapperState extends State<PlayerWrapper> {
                     fit: fill,
                     player: PlayControlManager.instance.getPlayer(),
                     fs: true,
+                    cover: NetworkImage(
+                        "https://ss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b3b7d0a20cf431ad7831c9504b36acaf2fdd98fc.jpg"),
                   ),
                 ],
               )),

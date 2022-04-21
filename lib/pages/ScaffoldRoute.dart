@@ -130,7 +130,6 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
     }
 
     List<String> _list = _preferences?.getStringList("xx") ?? [];
-    List<String> _iconlist = _preferences?.getStringList("icon") ?? [];
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -171,9 +170,8 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
               child: InkWell(
                   onTap: () => {
                         _list.add(commonData.getBeanByIndex(index, innerIndex)),
-                        _iconlist.add(commonData.getIconUrl(index, innerIndex)),
                         _preferences?.setStringList("xx", _list),
-                        _preferences?.setStringList("tvLogo", _list),
+
                         PlayControlManager.instance.setResourceAndPlay(
                             commonData.getLiveSource(commonData.getBeanByIndex(
                                     index, innerIndex)) ??

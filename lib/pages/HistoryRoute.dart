@@ -18,13 +18,12 @@ class _HistoryRouteState extends State<HistoryRoute> {
 
   @override
   void initState() {
-    SharedPreferences.getInstance().then((value) =>
-    {
-      logger.i("SharedPreferences ***********************> $value"),
-      setState(() {
-        _preferences = value;
-      })
-    });
+    SharedPreferences.getInstance().then((value) => {
+          logger.i("SharedPreferences ***********************> $value"),
+          setState(() {
+            _preferences = value;
+          })
+        });
     super.initState();
   }
 
@@ -71,31 +70,38 @@ class _HistoryRouteState extends State<HistoryRoute> {
               semanticContainer: false,
               child: InkWell(
                   onTap: () => {
-                    Navigator.popUntil(context, ModalRoute.withName('/')),
-                    commonData.setTvChannel(_list?[innerIndex] ?? "未知", -1),
-                  PlayControlManager.instance.setResourceAndPlay(commonData.getLiveSource(_list?[innerIndex] ?? "未知")??"",-1),
-
-              },
-              child: Padding(
-                padding: EdgeInsets.only(
-                    left: 10, right: 0, top: 12, bottom: 12),
-                child: Flex(
-                  direction: Axis.horizontal,
-                  children: [
-                    getImageProviderByUrl(commonData.getIconUrlByTvName(
-                        _list?[innerIndex] ?? "未知")),
-                    Padding(
-                      child: Text(
-                        _list?[innerIndex] ?? "未知",
-                        style: TextStyle(color: Colors.black, fontSize: 14),
-                      ),
-                      padding: EdgeInsets.only(
-                          left: 0, right: 0, top: 12, bottom: 12),
-                    )
-                  ],
-                ),
-              )
-          ));
+                        Navigator.popUntil(context, ModalRoute.withName('/')),
+                        commonData.setTvChannel(_list?[innerIndex] ?? "未知", -1),
+                        PlayControlManager.instance.setResourceAndPlay(
+                            commonData.getLiveSource(
+                                    _list?[innerIndex] ?? "未知") ??
+                                "",
+                            -1),
+                        if (_list?[innerIndex] != null)
+                          {
+                            _list?.add(_list[innerIndex]),
+                            _preferences?.setStringList("xx", _list!),
+                          }
+                      },
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                        left: 10, right: 0, top: 12, bottom: 12),
+                    child: Flex(
+                      direction: Axis.horizontal,
+                      children: [
+                        getImageProviderByUrl(commonData
+                            .getIconUrlByTvName(_list?[innerIndex] ?? "未知")),
+                        Padding(
+                          child: Text(
+                            _list?[innerIndex] ?? "未知",
+                            style: TextStyle(color: Colors.black, fontSize: 14),
+                          ),
+                          padding: EdgeInsets.only(
+                              left: 0, right: 0, top: 12, bottom: 12),
+                        )
+                      ],
+                    ),
+                  )));
         },
         itemCount: _list?.length ?? 0);
   }

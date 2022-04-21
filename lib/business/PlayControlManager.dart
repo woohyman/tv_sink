@@ -15,14 +15,10 @@ class PlayControlManager {
   //第二种方式调用
   static PlayControlManager instance = PlayControlManager._();
 
-  void setResourceAndPlay(String source,int optType) async {
-    logger.e("====> $source");
+  void setResourceAndPlay(String source,int optType) async{
     _onChange!(optType);
-
     await _player.reset();
-    await _player.setDataSource(source, autoPlay: false,showCover: true);
-    await _player.start();
-
+    await _player.setDataSource(source, autoPlay: true);
   }
   Function(int)? _onChange;
   void setPlayStateListener(Function(int) onChange) {
