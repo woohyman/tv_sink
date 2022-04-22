@@ -11,9 +11,9 @@ import '../pages/ScaffoldRoute.dart';
 import '../util/log.dart';
 
 class TvNameList extends StatefulWidget {
-  int _tabIndex;
+  final int _tabIndex;
 
-  TvNameList(this._tabIndex);
+  const TvNameList(this._tabIndex, {Key? key}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() => _TvNameListState();
@@ -21,11 +21,11 @@ class TvNameList extends StatefulWidget {
 
 class _TvNameListState extends State<TvNameList> {
   SharedPreferences? _preferences;
-  ValueNotifier<int> curSelectPosition = ValueNotifier<int>(0);
   int _initTabIndex = 0;
-  late CommonData commonData;
+  ValueNotifier<int> curSelectPosition = ValueNotifier<int>(0);
   int index = 0;
   var _tvList = chineseTvLis;
+  final ItemScrollController _controller = ItemScrollController();
 
   @override
   void initState() {
@@ -45,119 +45,132 @@ class _TvNameListState extends State<TvNameList> {
   }
 
   @override
+  void didUpdateWidget(covariant TvNameList oldWidget) {
+    super.didUpdateWidget(oldWidget);
+  }
+
+  @override
+  void activate() {
+    super.activate();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    commonData = Provider.of<CommonData>(context, listen: true);
-    Position _position = commonData.getPositionByName();
+    Position _position = getPositionByName();
     if (index == _position.tabIndex) {
       _initTabIndex = _position.listIndex;
     }
 
-    return ValueListenableBuilder<int>(
-      builder: (BuildContext context, int value, Widget? child) {
-        return Expanded(
-            child: ScrollablePositionedList.builder(
-          addAutomaticKeepAlives: true,
-          itemScrollController: getScrollController(index),
-          initialScrollIndex: _initTabIndex,
-          itemCount: _tvList.length,
-          itemBuilder: (BuildContext context, int innerIndex) {
-            logger.i("value ==> itemBuilder|$index : $value : $innerIndex");
-            bool isCurIndex = value == innerIndex;
-            List<DropdownMenuItem<String>>? myItems = [];
-            Set? sets = commonData?.getSourceSet(index, innerIndex);
-            sets?.toList().asMap().forEach((key, value) {
-              myItems.add(DropdownMenuItem<String>(
-                value: value,
-                child: Text("直播源${key + 1}"),
-              ));
-            });
-            String tvName = getBeanByIndex(index, innerIndex);
+    return Consumer<CommonData>(builder: (ctx, commonData, child) {
+      if (_controller.isAttached && widget._tabIndex == commonData.position.tabIndex) _controller.jumpTo(index: commonData.position.listIndex);
+      curSelectPosition.value = commonData.position.listIndex;
+      return Expanded(
+          child: ValueListenableBuilder<int>(
+              valueListenable: curSelectPosition,
+              builder: (BuildContext context, int value, Widget? child) {
+                return ScrollablePositionedList.builder(
+                  addAutomaticKeepAlives: true,
+                  itemScrollController: _controller,
+                  initialScrollIndex: commonData.position.listIndex,
+                  itemCount: _tvList.length,
+                  itemBuilder: (BuildContext context, int innerIndex) {
+                    bool isCurIndex = value == innerIndex;
+                    List<DropdownMenuItem<String>>? myItems = [];
+                    Set? sets = getSourceSet(index, innerIndex);
+                    sets.toList().asMap().forEach((key, value) {
+                      myItems.add(DropdownMenuItem<String>(
+                        value: value,
+                        child: Text("直播源${key + 1}"),
+                      ));
+                    });
+                    String tvName = getBeanByIndex(index, innerIndex);
 
-            return Card(
-              color: isCurIndex ? Colors.lightBlue.shade200 : Colors.lightBlue.shade100,
-              //z轴的高度，设置card的阴影
-              elevation: isCurIndex ? 20.0 : 0.0,
-              //设置shape，这里设置成了R角
-              shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(10.0)),
-              ),
-              //对Widget截取的行为，比如这里 Clip.antiAlias 指抗锯齿
-              clipBehavior: Clip.antiAlias,
-              semanticContainer: false,
-              child: InkWell(
-                  onTap: () async {
-                    List<String>? _list = (await SharedPreferences.getInstance()).getStringList("xx") ?? [];
-                    _list.add(tvName);
-                    _preferences?.setStringList("xx", _list);
-                    PlayControlManager.instance.setResourceAndPlay(await compute(getLiveSource, tvName), 1);
-                    curSelectPosition.value = innerIndex;
+                    return Card(
+                      color: isCurIndex ? Colors.lightBlue.shade200 : Colors.lightBlue.shade100,
+                      //z轴的高度，设置card的阴影
+                      elevation: isCurIndex ? 20.0 : 0.0,
+                      //设置shape，这里设置成了R角
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                      ),
+                      //对Widget截取的行为，比如这里 Clip.antiAlias 指抗锯齿
+                      clipBehavior: Clip.antiAlias,
+                      semanticContainer: false,
+                      child: InkWell(
+                          onTap: () async {
+                            List<String>? _list = (await SharedPreferences.getInstance()).getStringList("xx") ?? [];
+                            _list.add(tvName);
+                            _preferences?.setStringList("xx", _list);
+                            PlayControlManager.instance.setResourceAndPlay(await compute(getLiveSource, tvName));
+                            // commonData.notifyPositionChangeByIndex(index, innerIndex);
+                            curSelectPosition.value = innerIndex;
+                          },
+                          child: Padding(
+                            child: Flex(
+                              direction: Axis.horizontal,
+                              children: <Widget>[
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(horizontal: 5),
+                                  child: Expanded(
+                                    flex: 1,
+                                    child: getImageProviderByUrl(getIconUrl(index, innerIndex)),
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 5,
+                                  child: Text(
+                                    tvName,
+                                    style: isCurIndex
+                                        ? const TextStyle(color: Colors.red, fontSize: 18)
+                                        : const TextStyle(color: Colors.black, fontSize: 14),
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 3,
+                                  child: Visibility(
+                                    visible: getSourceSet(index, innerIndex).length > 1,
+                                    child: DropdownButton<String>(
+                                      value: getLiveSource(tvName),
+                                      onChanged: (value) {
+                                        setState(() {
+                                          setLiveSource(tvName, value);
+                                        });
+                                      },
+                                      items: myItems,
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  flex: 1,
+                                  child: Align(
+                                    alignment: Alignment.center,
+                                    child: InkWell(
+                                      onTap: () => {
+                                        setState(() {
+                                          if (iscotain(tvName)) {
+                                            removeurl(tvName);
+                                          } else {
+                                            addcollect(tvName);
+                                          }
+                                        })
+                                      },
+                                      child: iscotain(tvName) ? const Icon(Icons.favorite) : const Icon(Icons.favorite_border),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            padding: const EdgeInsets.only(left: 0, right: 0, top: 12, bottom: 12),
+                          )),
+                    );
                   },
-                  child: Padding(
-                    child: Flex(
-                      direction: Axis.horizontal,
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 5),
-                          child: Expanded(
-                            flex: 1,
-                            child: getImageProviderByUrl(commonData, index, innerIndex),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 5,
-                          child: Text(
-                            tvName,
-                            style: isCurIndex ? const TextStyle(color: Colors.red, fontSize: 18) : const TextStyle(color: Colors.black, fontSize: 14),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 3,
-                          child: Visibility(
-                            visible: commonData.getSourceSet(index, innerIndex).length > 1,
-                            child: DropdownButton<String>(
-                              value: getLiveSource(tvName),
-                              onChanged: (value) {
-                                setState(() {
-                                  commonData.setLiveSource(tvName, value);
-                                });
-                              },
-                              items: myItems,
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: Align(
-                            alignment: Alignment.center,
-                            child: InkWell(
-                              onTap: () => {
-                                setState(() {
-                                  if (commonData.iscotain(tvName)) {
-                                    commonData.removeurl(tvName);
-                                  } else {
-                                    commonData.addcollect(tvName);
-                                  }
-                                })
-                              },
-                              child: commonData.iscotain(tvName) ? const Icon(Icons.favorite) : const Icon(Icons.favorite_border),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    padding: const EdgeInsets.only(left: 0, right: 0, top: 12, bottom: 12),
-                  )),
-            );
-          },
-        ));
-      },
-      valueListenable: curSelectPosition,
-    );
+                );
+              }));
+    });
   }
 }
 
-Widget getImageProviderByUrl(CommonData commonData, int index, int innerIndex) {
-  String url = commonData.getIconUrl(index, innerIndex);
+Widget getImageProviderByUrl(String url) {
   if (url.isEmpty) {
     return Image.asset(
       "images/tv_dianshi.png",

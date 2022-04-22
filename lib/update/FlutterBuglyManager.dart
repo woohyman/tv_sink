@@ -60,8 +60,6 @@ class FlutterBuglyManager{
           // 提示不要重复下载
         },
         onClickWhenNotDownload: () {
-          logger.e("更新功能 =====> " + url);
-          logger.e("更新版本 =====> " + version);
           //下载 apk，完成后打开 apk 文件，建议使用 dio + open_file 插件
           downloadfile(url);
         },
@@ -75,11 +73,9 @@ class FlutterBuglyManager{
     Directory root = await getTemporaryDirectory();
     response = await dio.download(url, root.path + '/111.apk',
         onReceiveProgress: (received, total) {
-          logger.i('received $received');
           _dialogKey.currentState?.progress = received / total;
         });
     if (response.statusCode == 200) {
-      logger.i('下载成功');
       //防止打印日志不全。
       await OpenFile.open(root.path + '/111.apk');
     }

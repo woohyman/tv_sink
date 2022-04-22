@@ -23,45 +23,15 @@ class ScaffoldRoute extends StatefulWidget {
   _ScaffoldRouteState createState() => _ScaffoldRouteState();
 }
 
-ItemScrollController _chineseController = ItemScrollController();
-ItemScrollController _foreignController = ItemScrollController();
-
-ItemScrollController? getScrollController(int _index) {
-  if (_index == 0) {
-    return _chineseController.isAttached ? null : _chineseController;
-  } else if (_index == 1) {
-    return _foreignController.isAttached ? null : _foreignController;
-  } else {
-    return null;
-  }
-}
-
-ItemScrollController? getScrollController2(int _index) {
-  if (_index == 0) {
-    return _chineseController.isAttached ? _chineseController : null;
-  } else if (_index == 1) {
-    return _foreignController.isAttached ? _foreignController : null;
-  } else {
-    return null;
-  }
-}
-
 class _ScaffoldRouteState extends State<ScaffoldRoute> {
   final ValueNotifier<int> _selectedIndex = ValueNotifier<int>(0);
   PageController? _pageController;
   late FlutterBuglyManager _flutterBuglyManager;
-
   final TvBannerAd myBanner = TvBannerAd();
-  int _optType = 0;
 
   @override
   void initState() {
     super.initState();
-    PlayControlManager.instance.setPlayStateListener((int optType) => {
-          setState(() => {
-                _optType = optType,
-              })
-        });
 
     FlutterNativeSplash.remove();
     _flutterBuglyManager = FlutterBuglyManager(context);
@@ -73,19 +43,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
 
   @override
   Widget build(BuildContext context) {
-    CommonData commonData = Provider.of<CommonData>(context, listen: true);
-    Position _position = commonData.getPositionByName();
-
-    logger.e("====> build ==== ${commonData.getTvName()}");
-    try {
-      if (_optType < 0) {
-        _selectedIndex.value = _position.tabIndex;
-        _pageController?.jumpToPage(_position.tabIndex);
-        getScrollController2(_position.tabIndex)?.jumpTo(index: _position.listIndex);
-      }
-    } catch (err, stack) {
-      logger.e("_position ==>$err : $stack");
-    }
+    Position _position = getPositionByName();
 
     return Scaffold(
         appBar: AppBar(
@@ -103,7 +61,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
                 onPageChanged: (index) {
                   _onItemTapped(index, context);
                 },
-                children: <Widget>[
+                children: const <Widget>[
                   KeepAliveWrapper(
                     child: TvNameList(0),
                     keepAlive: true,
@@ -121,23 +79,26 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
             ),
           ],
         ),
-        bottomNavigationBar: ValueListenableBuilder<int>(
-          builder: (BuildContext context, int value, Widget? child) {
-            return BottomNavigationBar(
-              items: const <BottomNavigationBarItem>[
-                BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '中文频道'),
-                BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '英文频道'),
-                BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '收藏频道'),
-              ],
-              currentIndex: value,
-              fixedColor: Colors.blue,
-              onTap: (index) {
-                _onItemTapped(index, context);
-              },
-            );
-          },
-          valueListenable: _selectedIndex,
-        ));
+        bottomNavigationBar: Consumer<CommonData>(builder: (ctx, commonData, child) {
+          _onItemTapped(commonData.position.tabIndex, context);
+          return ValueListenableBuilder<int>(
+            builder: (BuildContext context, int value, Widget? child) {
+              return BottomNavigationBar(
+                items: const <BottomNavigationBarItem>[
+                  BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '中文频道'),
+                  BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '英文频道'),
+                  BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '收藏频道'),
+                ],
+                currentIndex: value,
+                fixedColor: Colors.blue,
+                onTap: (index) {
+                  _onItemTapped(index, context);
+                },
+              );
+            },
+            valueListenable: _selectedIndex,
+          );
+        }));
   }
 
   void _onItemTapped(int index, BuildContext context) {

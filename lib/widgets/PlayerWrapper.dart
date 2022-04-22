@@ -6,6 +6,7 @@ import 'package:tvSink/model/bean/TvResource.dart';
 
 import '../business/PlayControlManager.dart';
 import '../business/WifiManager.dart';
+import '../util/log.dart';
 
 class PlayerWrapper extends StatefulWidget {
   PlayerWrapper({Key? key}) : super(key: key) {}
@@ -15,8 +16,6 @@ class PlayerWrapper extends StatefulWidget {
 }
 
 class _PlayerWrapperState extends State<PlayerWrapper> {
-  void _handleTap(CommonData commonData) {}
-
   @override
   void didUpdateWidget(covariant PlayerWrapper oldWidget) {
     WifiManager.instance.fetchWifiStateByLocal();
@@ -37,45 +36,41 @@ class _PlayerWrapperState extends State<PlayerWrapper> {
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<CommonData>(builder: (ctx, commonData, child) {
-      return Stack(
-        alignment: Alignment.center,
-        children: <Widget>[
-          InkWell(
-              onTap: () => {_handleTap(commonData)},
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  FijkView(
-                    color: Colors.black,
-                    height: 250,
-                    fit: fill,
-                    player: PlayControlManager.instance.getPlayer(),
-                    fs: true,
-                    cover: NetworkImage(
-                        "https://ss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b3b7d0a20cf431ad7831c9504b36acaf2fdd98fc.jpg"),
-                  ),
-                ],
-              )),
-          // getStateView(commonData),
-          Visibility(
-            visible: WifiManager.instance.isTvShow(),
-            child: Container(
-              width: 200,
-              height: 100,
-              color: Colors.transparent,
-              child: Align(
-                child: Text(
-                  "数据流量下不能播放！请前往设置界面修改！",
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
+    return Stack(
+      alignment: Alignment.center,
+      children: <Widget>[
+        InkWell(
+            child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            FijkView(
+              color: Colors.black,
+              height: 250,
+              fit: fill,
+              player: PlayControlManager.instance.getPlayer(),
+              fs: true,
+              cover: const NetworkImage(
+                  "https://ss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b3b7d0a20cf431ad7831c9504b36acaf2fdd98fc.jpg"),
+            ),
+          ],
+        )),
+        Visibility(
+          visible: WifiManager.instance.isTvShow(),
+          child: Container(
+            width: 200,
+            height: 100,
+            color: Colors.transparent,
+            child: const Align(
+              child: Text(
+                "数据流量下不能播放！请前往设置界面修改！",
+                style: TextStyle(
+                  color: Colors.white,
                 ),
               ),
             ),
-          )
-        ],
-      );
-    });
+          ),
+        )
+      ],
+    );
   }
 }

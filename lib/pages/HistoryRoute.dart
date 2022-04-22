@@ -8,98 +8,75 @@ import '../business/PlayControlManager.dart';
 import '../model/bean/TvResource.dart';
 import '../routes/RouterTable.dart';
 import '../util/log.dart';
+import '../widgets/TvNameList.dart';
 
 class HistoryRoute extends StatefulWidget {
+  const HistoryRoute({Key? key}) : super(key: key);
+
   @override
   State<HistoryRoute> createState() => _HistoryRouteState();
 }
 
 class _HistoryRouteState extends State<HistoryRoute> {
-  SharedPreferences? _preferences;
+  List<String> _list = [];
+
+  void fetchListState() async {
+    SharedPreferences _sharePreferences = await SharedPreferences.getInstance();
+    _list = _sharePreferences.getStringList("xx")!.reversed.toList();
+    setState(() {});
+  }
+
+  void setListState() async {
+    SharedPreferences _sharePreferences = await SharedPreferences.getInstance();
+    _sharePreferences.setStringList("xx", _list);
+  }
 
   @override
   void initState() {
-    SharedPreferences.getInstance().then((value) => {
-          logger.i("SharedPreferences ***********************> $value"),
-          setState(() {
-            _preferences = value;
-          })
-        });
+    fetchListState();
     super.initState();
-  }
-
-  Widget getImageProviderByUrl(String url) {
-    if (url.isEmpty) {
-      return Image.asset(
-        "images/tv_dianshi.png",
-        width: 50.0,
-        height: 50.0,
-      );
-    } else {
-      return FadeInImage.assetNetwork(
-          imageErrorBuilder: (context, error, stackTrace) {
-            return Image.asset(
-              "images/tv_dianshi.png",
-              width: 50.0,
-              height: 50.0,
-            );
-          },
-          width: 50.0,
-          height: 50.0,
-          placeholder: "images/tv_dianshi.png",
-          image: url);
-    }
   }
 
   @override
   Widget build(BuildContext context) {
-    CommonData commonData = Provider.of<CommonData>(context, listen: true);
-    List<String>? _list = _preferences?.getStringList("xx")!.reversed.toList();
-
     return ListView.builder(
         itemBuilder: (BuildContext context, int innerIndex) {
-          logger.e("_list?[innerIndex] ==> ${_list?[innerIndex]}");
           return Card(
               color: Colors.lightBlue.shade100,
               elevation: 0.0,
               //设置shape，这里设置成了R角
-              shape: RoundedRectangleBorder(
+              shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(10.0)),
               ),
               //对Widget截取的行为，比如这里 Clip.antiAlias 指抗锯齿
               clipBehavior: Clip.antiAlias,
               semanticContainer: false,
               child: InkWell(
-                  onTap: () async => {
-                        Navigator.popUntil(context, ModalRoute.withName('/')),
-                        commonData.setTvChannel(_list?[innerIndex] ?? "未知", -1),
-                        PlayControlManager.instance.setResourceAndPlay(await compute(getLiveSource, _list?[innerIndex] ?? "未知"),-1),
-                        if (_list?[innerIndex] != null)
-                          {
-                            _list?.add(_list[innerIndex]),
-                            _preferences?.setStringList("xx", _list!),
-                          }
-                      },
+                  onTap: () async {
+                    Navigator.popUntil(context, ModalRoute.withName('/'));
+                    Provider.of<CommonData>(context,listen: false).notifyPositionChange(_list[innerIndex]);
+                    setTvChannel(_list[innerIndex], 0);
+                    PlayControlManager.instance.setResourceAndPlay(await compute(getLiveSource, _list[innerIndex]));
+                    _list.add(_list[innerIndex]);
+                    setListState();
+                  },
                   child: Padding(
-                    padding: EdgeInsets.only(
-                        left: 10, right: 0, top: 12, bottom: 12),
+                    padding: const EdgeInsets.only(left: 10, right: 0, top: 12, bottom: 12),
                     child: Flex(
                       direction: Axis.horizontal,
                       children: [
-                        getImageProviderByUrl(commonData
-                            .getIconUrlByTvName(_list?[innerIndex] ?? "未知")),
+                        getImageProviderByUrl(getIconUrlByTvName(_list[innerIndex])),
                         Padding(
                           child: Text(
-                            _list?[innerIndex] ?? "未知",
-                            style: TextStyle(color: Colors.black, fontSize: 14),
+                            _list[innerIndex],
+                            style: const TextStyle(color: Colors.black, fontSize: 14),
                           ),
-                          padding: EdgeInsets.only(
-                              left: 0, right: 0, top: 12, bottom: 12),
+                          padding: const EdgeInsets.only(left: 0, right: 0, top: 12, bottom: 12),
                         )
                       ],
                     ),
                   )));
         },
-        itemCount: _list?.length ?? 0);
+        itemCount: _list.length);
   }
 }

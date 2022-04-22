@@ -7,158 +7,170 @@ import 'package:tvSink/util/log.dart';
 import 'data.dart';
 
 class CommonData with ChangeNotifier {
+  Position? _position;
 
-  bool iscotain(tvName) {
-    return featuredTvLis.keys.contains(tvName);
+  Position get position => _position ?? Position(0, 0);
+
+  void notifyPositionChange(String tvName) {
+    _position = getPositionByName1(tvName);
+    notifyListeners();
   }
 
-  void addcollect(String tvName) {
-    if (featuredTvLis.keys.contains(tvName)) return;
+  void notifyPositionChangeByIndex(int tabIndex, int listIndex) {
+    _position?.tabIndex = tabIndex;
+    _position?.listIndex = listIndex;
+    notifyListeners();
+  }
+}
 
-    if (chineseTvLis.containsKey(tvName)) {
-      featuredTvLis[tvName] = chineseTvLis[tvName] ?? {};
-    } else if (foreignTvLis.containsKey(tvName)) {
-      featuredTvLis[tvName] = foreignTvLis[tvName] ?? {};
-    }
+bool iscotain(tvName) {
+  return featuredTvLis.keys.contains(tvName);
+}
+
+void addcollect(String tvName) {
+  if (featuredTvLis.keys.contains(tvName)) return;
+
+  if (chineseTvLis.containsKey(tvName)) {
+    featuredTvLis[tvName] = chineseTvLis[tvName] ?? {};
+  } else if (foreignTvLis.containsKey(tvName)) {
+    featuredTvLis[tvName] = foreignTvLis[tvName] ?? {};
+  }
+}
+
+Position getPositionByName1(String tvName) {
+  if (chineseTvLis.containsKey(tvName)) {
+    return Position(0, chineseTvLis.keys.toList().indexOf(tvName));
+  } else if (foreignTvLis.containsKey(tvName)) {
+    return Position(1, foreignTvLis.keys.toList().indexOf(tvName));
+  }
+  return Position(0, 0);
+}
+
+Position getPositionByName() {
+  String tvName = getTvName();
+  if (chineseTvLis.containsKey(tvName)) {
+    return Position(0, chineseTvLis.keys.toList().indexOf(tvName));
+  } else if (foreignTvLis.containsKey(tvName)) {
+    return Position(1, foreignTvLis.keys.toList().indexOf(tvName));
+  }
+  return Position(0, 0);
+}
+
+void removeurl(String tvName) {
+  featuredTvLis.remove(tvName);
+}
+
+final _curPlayChannelMap = {};
+int _index = 0;
+
+int get index => _index;
+
+void switchTab(int index) {
+  _index = index;
+}
+
+String getIconUrl(int tabIndex, int listIndex) {
+  switch (tabIndex) {
+    case 0:
+      return chineseTvLis.values.elementAt(listIndex)["tvg-logo"].toString();
+    case 1:
+      return foreignTvLis.values.elementAt(listIndex)["tvg-logo"].toString();
+    case 2:
+      return featuredTvLis.values.elementAt(listIndex)["tvg-logo"].toString();
+  }
+  return "";
+}
+
+String getIconUrlByTvName(String _tvName) {
+  if (chineseTvLis.containsKey(_tvName)) {
+    return chineseTvLis[_tvName]?["tvg-logo"].toString() ?? "";
+  }
+  if (foreignTvLis.containsKey(_tvName)) {
+    return foreignTvLis[_tvName]?["tvg-logo"].toString() ?? "";
+  }
+  return "";
+}
+
+void setTvChannel(String tvName, int index) {
+  _curPlayChannelMap[index] = tvName;
+  _index = index;
+}
+
+String getDefaultSource(int index) {
+  String defaultSource = (chineseTvLis.entries.first.value["tvg-url"] as Set).first;
+  switch (index) {
+    case 0:
+      defaultSource = (chineseTvLis.entries.first.value["tvg-url"] as Set).first;
+      break;
+    case 1:
+      defaultSource = (foreignTvLis.entries.first.value["tvg-url"] as Set).first;
+      break;
+    case 2:
+      defaultSource = (featuredTvLis.entries.first.value["tvg-url"] as Set).first;
+      break;
+  }
+  return defaultSource;
+}
+
+Set getSourceSet(int tabIndex, int listIndex) {
+  logger.w("liveSource ==> getSourceSet|$tabIndex : $listIndex");
+
+  switch (tabIndex) {
+    case 0:
+      return chineseTvLis.values.elementAt(listIndex)["tvg-url"] as Set;
+    case 1:
+      logger.w("liveSource ==> getSourceSet : ${foreignTvLis.values.elementAt(listIndex)["tvg-url"]}");
+      return foreignTvLis.values.elementAt(listIndex)["tvg-url"] as Set;
+    case 2:
+      return featuredTvLis.values.elementAt(listIndex)["tvg-url"] as Set;
+    default:
+      return chineseTvLis.values.elementAt(listIndex)["tvg-url"] as Set;
+  }
+}
+
+String getTvName() {
+  String defaultSource = chineseTvLis.keys.first;
+  switch (_index) {
+    case 0:
+      defaultSource = chineseTvLis.keys.first;
+      break;
+    case 1:
+      defaultSource = foreignTvLis.keys.first;
+      break;
+    case 2:
+      defaultSource = featuredTvLis.keys.first;
+      break;
+  }
+  return _curPlayChannelMap[_index] ?? defaultSource;
+}
+
+void setLiveSource(String key, String? value) {
+  liveSource[key] = value;
+}
+
+String getTvChannel() {
+  String defaultSource = (chineseTvLis.entries.first.value["tvg-url"] as Set).first;
+  switch (_index) {
+    case 0:
+      defaultSource = (chineseTvLis.entries.first.value["tvg-url"] as Set).first;
+      break;
+    case 1:
+      defaultSource = (foreignTvLis.entries.first.value["tvg-url"] as Set).first;
+      break;
+    case 2:
+      defaultSource = (featuredTvLis.entries.first.value["tvg-url"] as Set).first;
+      break;
   }
 
-  Position getPositionByName() {
-    String tvName = getTvName();
-    if (chineseTvLis.containsKey(tvName)) {
-      return Position(0, chineseTvLis.keys.toList().indexOf(tvName));
-    } else if (foreignTvLis.containsKey(tvName)) {
-      return Position(1, foreignTvLis.keys.toList().indexOf(tvName));
-    }
-    return Position(0, 0);
+  String tvName = _curPlayChannelMap[_index] ?? "";
+  if (liveSource.containsKey(tvName)) {
+    return liveSource[tvName];
+  } else if (chineseTvLis.containsKey(tvName)) {
+    return (chineseTvLis[tvName]!["tvg-url"] as Set).first;
+  } else if (foreignTvLis.containsKey(tvName)) {
+    return (foreignTvLis[tvName]!["tvg-url"] as Set).first;
   }
-
-  void removeurl(String tvName) {
-    featuredTvLis.remove(tvName);
-  }
-
-  final _curPlayChannelMap = {};
-  int _index = 0;
-
-  int get index => _index;
-
-  void switchTab(int index) {
-    _index = index;
-  }
-
-  String getIconUrl(int tabIndex, int listIndex) {
-    switch (tabIndex) {
-      case 0:
-        return chineseTvLis.values.elementAt(listIndex)["tvg-logo"].toString();
-      case 1:
-        return foreignTvLis.values.elementAt(listIndex)["tvg-logo"].toString();
-      case 2:
-        return featuredTvLis.values
-            .elementAt(listIndex)["tvg-logo"]
-            .toString();
-    }
-    return "";
-  }
-
-  String getIconUrlByTvName(String _tvName) {
-    if(chineseTvLis.containsKey(_tvName)){
-      return chineseTvLis[_tvName]?["tvg-logo"].toString()??"";
-    }
-    if(foreignTvLis.containsKey(_tvName)){
-      return foreignTvLis[_tvName]?["tvg-logo"].toString()??"";
-    }
-    return "";
-  }
-
-  void setTvChannel(String tvName, int index) {
-    _curPlayChannelMap[index] = tvName;
-    _index = index;
-  }
-
-  String getDefaultSource(int index) {
-    String defaultSource =
-        (chineseTvLis.entries.first.value["tvg-url"] as Set).first;
-    switch (index) {
-      case 0:
-        defaultSource =
-            (chineseTvLis.entries.first.value["tvg-url"] as Set).first;
-        break;
-      case 1:
-        defaultSource =
-            (foreignTvLis.entries.first.value["tvg-url"] as Set).first;
-        break;
-      case 2:
-        defaultSource =
-            (featuredTvLis.entries.first.value["tvg-url"] as Set).first;
-        break;
-    }
-    return defaultSource;
-  }
-
-  Set getSourceSet(int tabIndex, int listIndex) {
-    logger.w("liveSource ==> getSourceSet|$tabIndex : $listIndex");
-
-    switch (tabIndex) {
-      case 0:
-        return chineseTvLis.values.elementAt(listIndex)["tvg-url"] as Set;
-      case 1:
-        logger.w(
-            "liveSource ==> getSourceSet : ${foreignTvLis.values.elementAt(listIndex)["tvg-url"]}");
-        return foreignTvLis.values.elementAt(listIndex)["tvg-url"] as Set;
-      case 2:
-        return featuredTvLis.values.elementAt(listIndex)["tvg-url"] as Set;
-      default:
-        return chineseTvLis.values.elementAt(listIndex)["tvg-url"] as Set;
-    }
-  }
-
-  String getTvName() {
-    String defaultSource = chineseTvLis.keys.first;
-    switch (_index) {
-      case 0:
-        defaultSource = chineseTvLis.keys.first;
-        break;
-      case 1:
-        defaultSource = foreignTvLis.keys.first;
-        break;
-      case 2:
-        defaultSource = featuredTvLis.keys.first;
-        break;
-    }
-    return _curPlayChannelMap[_index] ?? defaultSource;
-  }
-
-  void setLiveSource(String key, String? value) {
-    liveSource[key] = value;
-  }
-
-  String getTvChannel() {
-    String defaultSource =
-        (chineseTvLis.entries.first.value["tvg-url"] as Set).first;
-    switch (_index) {
-      case 0:
-        defaultSource =
-            (chineseTvLis.entries.first.value["tvg-url"] as Set).first;
-        break;
-      case 1:
-        defaultSource =
-            (foreignTvLis.entries.first.value["tvg-url"] as Set).first;
-        break;
-      case 2:
-        defaultSource =
-            (featuredTvLis.entries.first.value["tvg-url"] as Set).first;
-        break;
-    }
-
-    String tvName = _curPlayChannelMap[_index] ?? "";
-    if (liveSource.containsKey(tvName)) {
-      return liveSource[tvName];
-    } else if (chineseTvLis.containsKey(tvName)) {
-      return (chineseTvLis[tvName]!["tvg-url"] as Set).first;
-    } else if (foreignTvLis.containsKey(tvName)) {
-      return (foreignTvLis[tvName]!["tvg-url"] as Set).first;
-    }
-    return defaultSource;
-  }
+  return defaultSource;
 }
 
 class Position {
@@ -169,11 +181,12 @@ class Position {
 }
 
 final liveSource = {};
+
 String getLiveSource(String key) {
   if (liveSource.containsKey(key)) {
     return liveSource[key];
   } else {
-    return getSourceByKey(key)??"";
+    return getSourceByKey(key) ?? "";
   }
 }
 
