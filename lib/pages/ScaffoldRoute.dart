@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bugly/flutter_bugly.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
@@ -16,6 +17,7 @@ import 'package:tvSink/util/log.dart';
 import '../ad/TvBannerAd.dart';
 import '../business/PlayControlManager.dart';
 import '../model/bean/TvResource.dart';
+import '../model/bean/data.dart';
 import '../update/FlutterBuglyManager.dart';
 import '../widgets/KeepAliveTest.dart';
 import '../widgets/PlayerWrapper.dart';
@@ -85,16 +87,16 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
 
   Widget getWidgetByPlatForm(int index, BuildContext context) {
     CommonData commonData = Provider.of<CommonData>(context, listen: true);
-    var _tvList = commonData.chineseTvLis;
+    var _tvList = chineseTvLis;
     switch (index) {
       case 0:
-        _tvList = commonData.chineseTvLis;
+        _tvList = chineseTvLis;
         break;
       case 1:
-        _tvList = commonData.foreignTvLis;
+        _tvList = foreignTvLis;
         break;
       case 2:
-        _tvList = commonData.featuredTvLis;
+        _tvList = featuredTvLis;
         break;
     }
 
@@ -152,12 +154,12 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
 
             return Card(
               color: commonData.getTvName() ==
-                      commonData.getBeanByIndex(index, innerIndex)
+                      getBeanByIndex(index, innerIndex)
                   ? Colors.lightBlue.shade200
                   : Colors.lightBlue.shade100,
               //z轴的高度，设置card的阴影
               elevation: commonData.getTvName() ==
-                      commonData.getBeanByIndex(index, innerIndex)
+                      getBeanByIndex(index, innerIndex)
                   ? 20.0
                   : 0.0,
               //设置shape，这里设置成了R角
@@ -168,17 +170,13 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
               clipBehavior: Clip.antiAlias,
               semanticContainer: false,
               child: InkWell(
-                  onTap: () => {
-                        _list.add(commonData.getBeanByIndex(index, innerIndex)),
+                  onTap: () async => {
+                        _list.add(getBeanByIndex(index, innerIndex)),
                         _preferences?.setStringList("xx", _list),
 
-                        PlayControlManager.instance.setResourceAndPlay(
-                            commonData.getLiveSource(commonData.getBeanByIndex(
-                                    index, innerIndex)) ??
-                                "",
-                            1),
-                    commonData.setTvChannel(
-                        commonData.getBeanByIndex(index, innerIndex),
+                        PlayControlManager.instance.setResourceAndPlay(await compute(getLiveSource, getBeanByIndex(index, innerIndex)),1),
+                        commonData.setTvChannel(
+                        getBeanByIndex(index, innerIndex),
                         index),
                       },
                   child: Padding(
@@ -195,9 +193,9 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
                         Expanded(
                           flex: 5,
                           child: Text(
-                            commonData.getBeanByIndex(index, innerIndex),
+                            getBeanByIndex(index, innerIndex),
                             style: commonData.getTvName() ==
-                                    commonData.getBeanByIndex(index, innerIndex)
+                                    getBeanByIndex(index, innerIndex)
                                 ? TextStyle(color: Colors.red, fontSize: 18)
                                 : TextStyle(color: Colors.black, fontSize: 14),
                           ),
@@ -210,12 +208,12 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
                                     .length >
                                 1,
                             child: DropdownButton<String>(
-                              value: commonData.getLiveSource(
-                                  commonData.getBeanByIndex(index, innerIndex)),
+                              value: getLiveSource(
+                                  getBeanByIndex(index, innerIndex)),
                               onChanged: (value) {
                                 setState(() {
                                   commonData.setLiveSource(
-                                      commonData.getBeanByIndex(
+                                      getBeanByIndex(
                                           index, innerIndex),
                                       value);
                                 });
@@ -231,18 +229,14 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
                             child: InkWell(
                               onTap: () => {
                                 setState(() {
-                                  if (commonData.iscotain(commonData
-                                      .getBeanByIndex(index, innerIndex))) {
-                                    commonData.removeurl(commonData
-                                        .getBeanByIndex(index, innerIndex));
+                                  if (commonData.iscotain(getBeanByIndex(index, innerIndex))) {
+                                    commonData.removeurl(getBeanByIndex(index, innerIndex));
                                   } else {
-                                    commonData.addcollect(commonData
-                                        .getBeanByIndex(index, innerIndex));
+                                    commonData.addcollect(getBeanByIndex(index, innerIndex));
                                   }
                                 })
                               },
-                              child: commonData.iscotain(commonData
-                                      .getBeanByIndex(index, innerIndex))
+                              child: commonData.iscotain(getBeanByIndex(index, innerIndex))
                                   ? Icon(Icons.favorite)
                                   : Icon(Icons.favorite_border),
                             ),

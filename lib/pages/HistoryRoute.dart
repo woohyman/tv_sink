@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -69,14 +70,10 @@ class _HistoryRouteState extends State<HistoryRoute> {
               clipBehavior: Clip.antiAlias,
               semanticContainer: false,
               child: InkWell(
-                  onTap: () => {
+                  onTap: () async => {
                         Navigator.popUntil(context, ModalRoute.withName('/')),
                         commonData.setTvChannel(_list?[innerIndex] ?? "未知", -1),
-                        PlayControlManager.instance.setResourceAndPlay(
-                            commonData.getLiveSource(
-                                    _list?[innerIndex] ?? "未知") ??
-                                "",
-                            -1),
+                        PlayControlManager.instance.setResourceAndPlay(await compute(getLiveSource, _list?[innerIndex] ?? "未知"),-1),
                         if (_list?[innerIndex] != null)
                           {
                             _list?.add(_list[innerIndex]),
