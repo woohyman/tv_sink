@@ -138,7 +138,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
       children: [
         Expanded(
             child: ScrollablePositionedList.builder(
-              addAutomaticKeepAlives: true,
+          addAutomaticKeepAlives: true,
           itemScrollController: getScrollController(index),
           initialScrollIndex: _initTabIndex,
           itemCount: _tvList.length,
@@ -151,17 +151,14 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
                 child: Text("直播源${key + 1}"),
               ));
             });
+            String tvName = getBeanByIndex(index, innerIndex);
 
             return Card(
-              color: commonData.getTvName() ==
-                      getBeanByIndex(index, innerIndex)
+              color: commonData.getTvName() == tvName
                   ? Colors.lightBlue.shade200
                   : Colors.lightBlue.shade100,
               //z轴的高度，设置card的阴影
-              elevation: commonData.getTvName() ==
-                      getBeanByIndex(index, innerIndex)
-                  ? 20.0
-                  : 0.0,
+              elevation: commonData.getTvName() == tvName ? 20.0 : 0.0,
               //设置shape，这里设置成了R角
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(10.0)),
@@ -171,13 +168,11 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
               semanticContainer: false,
               child: InkWell(
                   onTap: () async => {
-                        _list.add(getBeanByIndex(index, innerIndex)),
+                        _list.add(tvName),
                         _preferences?.setStringList("xx", _list),
-
-                        PlayControlManager.instance.setResourceAndPlay(await compute(getLiveSource, getBeanByIndex(index, innerIndex)),1),
-                        commonData.setTvChannel(
-                        getBeanByIndex(index, innerIndex),
-                        index),
+                        PlayControlManager.instance.setResourceAndPlay(
+                            await compute(getLiveSource, tvName), 1),
+                        commonData.setTvChannel(tvName, index),
                       },
                   child: Padding(
                     child: Flex(
@@ -193,9 +188,8 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
                         Expanded(
                           flex: 5,
                           child: Text(
-                            getBeanByIndex(index, innerIndex),
-                            style: commonData.getTvName() ==
-                                    getBeanByIndex(index, innerIndex)
+                            tvName,
+                            style: commonData.getTvName() == tvName
                                 ? TextStyle(color: Colors.red, fontSize: 18)
                                 : TextStyle(color: Colors.black, fontSize: 14),
                           ),
@@ -208,14 +202,10 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
                                     .length >
                                 1,
                             child: DropdownButton<String>(
-                              value: getLiveSource(
-                                  getBeanByIndex(index, innerIndex)),
+                              value: getLiveSource(tvName),
                               onChanged: (value) {
                                 setState(() {
-                                  commonData.setLiveSource(
-                                      getBeanByIndex(
-                                          index, innerIndex),
-                                      value);
+                                  commonData.setLiveSource(tvName, value);
                                 });
                               },
                               items: myItems,
@@ -229,14 +219,14 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
                             child: InkWell(
                               onTap: () => {
                                 setState(() {
-                                  if (commonData.iscotain(getBeanByIndex(index, innerIndex))) {
-                                    commonData.removeurl(getBeanByIndex(index, innerIndex));
+                                  if (commonData.iscotain(tvName)) {
+                                    commonData.removeurl(tvName);
                                   } else {
-                                    commonData.addcollect(getBeanByIndex(index, innerIndex));
+                                    commonData.addcollect(tvName);
                                   }
                                 })
                               },
-                              child: commonData.iscotain(getBeanByIndex(index, innerIndex))
+                              child: commonData.iscotain(tvName)
                                   ? Icon(Icons.favorite)
                                   : Icon(Icons.favorite_border),
                             ),
