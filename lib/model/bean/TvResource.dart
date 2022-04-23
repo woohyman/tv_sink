@@ -4,23 +4,27 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:tvSink/util/log.dart';
 
+import '../../business/EventBus.dart';
 import 'data.dart';
 
 class CommonData with ChangeNotifier {
-  Position? _position;
 
-  Position get position => _position ?? Position(0, 0);
-
-  void notifyPositionChange(String tvName) {
-    _position = getPositionByName1(tvName);
+  void notifyPositionChangeAuto() {
+    position = getPositionByName();
     notifyListeners();
   }
 
   void notifyPositionChangeByIndex(int tabIndex, int listIndex) {
-    _position?.tabIndex = tabIndex;
-    _position?.listIndex = listIndex;
+    position.tabIndex = tabIndex;
+    position.listIndex = listIndex;
     notifyListeners();
   }
+}
+
+Position position = Position(0, 0);
+
+void notifyPositionChange(String tvName) {
+  position = getPositionByName1(tvName);
 }
 
 bool iscotain(tvName) {
@@ -177,7 +181,11 @@ class Position {
   int tabIndex = 0;
   int listIndex = 0;
 
-  Position(this.tabIndex, this.listIndex);
+  Position(int _tabIndex, int _listIndex){
+    logger.e("www1 == Position ==");
+    tabIndex = _tabIndex;
+    listIndex = _listIndex;
+  }
 }
 
 final liveSource = {};

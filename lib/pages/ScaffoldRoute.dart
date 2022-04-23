@@ -7,9 +7,11 @@ import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:tvSink/util/log.dart';
 
 import '../ad/TvBannerAd.dart';
+import '../business/EventBus.dart';
 import '../business/PlayControlManager.dart';
 import '../model/bean/TvResource.dart';
 import '../update/FlutterBuglyManager.dart';
+import '../util/const.dart';
 import '../util/log.dart';
 import '../widgets/KeepAliveTest.dart';
 import '../widgets/PlayerWrapper.dart';
@@ -43,7 +45,12 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
 
   @override
   Widget build(BuildContext context) {
-    Position _position = getPositionByName();
+    bus.on(keySelectState, (arg) {
+      List<String> _list = arg as List<String>;
+      if(_list.contains(tabSelect)){
+        _onItemTapped(position.tabIndex, context);
+      }
+    });
 
     return Scaffold(
         appBar: AppBar(
@@ -79,26 +86,23 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
             ),
           ],
         ),
-        bottomNavigationBar: Consumer<CommonData>(builder: (ctx, commonData, child) {
-          _onItemTapped(commonData.position.tabIndex, context);
-          return ValueListenableBuilder<int>(
-            builder: (BuildContext context, int value, Widget? child) {
-              return BottomNavigationBar(
-                items: const <BottomNavigationBarItem>[
-                  BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '中文频道'),
-                  BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '英文频道'),
-                  BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '收藏频道'),
-                ],
-                currentIndex: value,
-                fixedColor: Colors.blue,
-                onTap: (index) {
-                  _onItemTapped(index, context);
-                },
-              );
-            },
-            valueListenable: _selectedIndex,
-          );
-        }));
+        bottomNavigationBar: ValueListenableBuilder<int>(
+          builder: (BuildContext context, int value, Widget? child) {
+            return BottomNavigationBar(
+              items: const <BottomNavigationBarItem>[
+                BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '中文频道'),
+                BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '英文频道'),
+                BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '收藏频道'),
+              ],
+              currentIndex: value,
+              fixedColor: Colors.blue,
+              onTap: (index) async {
+                _onItemTapped(index, context);
+              },
+            );
+          },
+          valueListenable: _selectedIndex,
+        ));
   }
 
   void _onItemTapped(int index, BuildContext context) {

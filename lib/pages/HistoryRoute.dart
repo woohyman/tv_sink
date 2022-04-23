@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../business/EventBus.dart';
 import '../business/PlayControlManager.dart';
 import '../model/bean/TvResource.dart';
 import '../routes/RouterTable.dart';
+import '../util/const.dart';
 import '../util/log.dart';
 import '../widgets/TvNameList.dart';
 
@@ -22,17 +24,20 @@ class _HistoryRouteState extends State<HistoryRoute> {
 
   void fetchListState() async {
     SharedPreferences _sharePreferences = await SharedPreferences.getInstance();
-    _list = _sharePreferences.getStringList("xx")!.reversed.toList();
+    _list = _sharePreferences.getStringList("xx")?.reversed.toList() ?? [];
+    logger.e("ddd _list => $_list");
     setState(() {});
   }
 
-  void setListState() async {
+  void saveListState(int innerIndex) async {
+    _list.add(_list[innerIndex]);
     SharedPreferences _sharePreferences = await SharedPreferences.getInstance();
     _sharePreferences.setStringList("xx", _list);
   }
 
   @override
   void initState() {
+    logger.e("ddd initState");
     fetchListState();
     super.initState();
   }
@@ -54,11 +59,12 @@ class _HistoryRouteState extends State<HistoryRoute> {
               child: InkWell(
                   onTap: () async {
                     Navigator.popUntil(context, ModalRoute.withName('/'));
-                    Provider.of<CommonData>(context,listen: false).notifyPositionChange(_list[innerIndex]);
+                    notifyPositionChange(_list[innerIndex]);
                     setTvChannel(_list[innerIndex], 0);
+                    saveListState(innerIndex);
+
                     PlayControlManager.instance.setResourceAndPlay(await compute(getLiveSource, _list[innerIndex]));
-                    _list.add(_list[innerIndex]);
-                    setListState();
+                    bus.emit(keySelectState,[tabSelect,scrollToItemSelect]);
                   },
                   child: Padding(
                     padding: const EdgeInsets.only(left: 10, right: 0, top: 12, bottom: 12),

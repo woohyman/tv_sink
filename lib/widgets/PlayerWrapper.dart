@@ -4,9 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tvSink/model/bean/TvResource.dart';
 
+import '../business/EventBus.dart';
 import '../business/PlayControlManager.dart';
 import '../business/WifiManager.dart';
-import '../util/log.dart';
+import '../util/const.dart';
 
 class PlayerWrapper extends StatefulWidget {
   PlayerWrapper({Key? key}) : super(key: key) {}
@@ -16,6 +17,8 @@ class PlayerWrapper extends StatefulWidget {
 }
 
 class _PlayerWrapperState extends State<PlayerWrapper> {
+  final ValueNotifier<bool> showBannerBg = ValueNotifier<bool>(false);
+
   @override
   void didUpdateWidget(covariant PlayerWrapper oldWidget) {
     WifiManager.instance.fetchWifiStateByLocal();
@@ -25,6 +28,9 @@ class _PlayerWrapperState extends State<PlayerWrapper> {
   @override
   void initState() {
     WifiManager.instance.fetchWifiStateByReal();
+    bus.on(startPlayTv, (arg) {
+      showBannerBg.value = arg;
+    });
     super.initState();
   }
 
@@ -39,21 +45,29 @@ class _PlayerWrapperState extends State<PlayerWrapper> {
     return Stack(
       alignment: Alignment.center,
       children: <Widget>[
-        InkWell(
-            child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            FijkView(
-              color: Colors.black,
-              height: 250,
-              fit: fill,
-              player: PlayControlManager.instance.getPlayer(),
-              fs: true,
-              cover: const NetworkImage(
-                  "https://ss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b3b7d0a20cf431ad7831c9504b36acaf2fdd98fc.jpg"),
-            ),
-          ],
-        )),
+        ValueListenableBuilder<bool>(
+          builder: (BuildContext context, bool value, Widget? child) {
+            return Visibility(
+              visible: showBannerBg.value,
+              child: InkWell(
+                  child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  FijkView(
+                    color: Colors.black,
+                    height: 250,
+                    fit: fill,
+                    player: PlayControlManager.instance.getPlayer(),
+                    fs: true,
+                    cover: const NetworkImage(
+                        "https://ss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b3b7d0a20cf431ad7831c9504b36acaf2fdd98fc.jpg"),
+                  ),
+                ],
+              )),
+            );
+          },
+          valueListenable: showBannerBg,
+        ),
         Visibility(
           visible: WifiManager.instance.isTvShow(),
           child: Container(

@@ -1,9 +1,16 @@
 import 'package:fijkplayer/fijkplayer.dart';
 import 'package:tvSink/util/log.dart';
 
+import '../model/bean/TvResource.dart';
+import '../util/const.dart';
+import 'EventBus.dart';
+
 class PlayControlManager {
   final FijkPlayer _player = FijkPlayer();
   String curDataSource = "";
+  bool _afterFirstPress = false;
+
+  bool get afterFirstPress => _afterFirstPress;
 
   PlayControlManager._();
 
@@ -16,6 +23,8 @@ class PlayControlManager {
   static PlayControlManager instance = PlayControlManager._();
 
   void setResourceAndPlay(String source) async{
+    bus.emit(startPlayTv,true);
+    _afterFirstPress = true;
     await _player.reset();
     await _player.setDataSource(source, autoPlay: true);
   }
