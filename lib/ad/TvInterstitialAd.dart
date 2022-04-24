@@ -14,14 +14,14 @@ class TvInterstitialAd {
 
   InterstitialAd? _interstitialAd;
 
-  void load() {
+  void loadAndShow() {
     InterstitialAd.load(
         adUnitId: 'ca-app-pub-3940256099942544/8691691433',
         request: const AdRequest(),
         adLoadCallback: InterstitialAdLoadCallback(
           onAdLoaded: (InterstitialAd ad) {
+            ad.show();
             _interstitialAd = ad;
-
             _interstitialAd?.fullScreenContentCallback = FullScreenContentCallback(
               onAdShowedFullScreenContent: (InterstitialAd ad) => logger.e('aaaaa %ad onAdShowedFullScreenContent.'),
               onAdDismissedFullScreenContent: (InterstitialAd ad) {
@@ -40,10 +40,6 @@ class TvInterstitialAd {
   }
 
   Future<void> show() async {
-    try {
-      await _interstitialAd?.show();
-    } catch (err) {
-
-    }
+    _interstitialAd?.show();
   }
 }

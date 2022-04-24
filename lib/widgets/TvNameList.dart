@@ -115,7 +115,7 @@ class _TvNameListState extends State<TvNameList> {
                 semanticContainer: false,
                 child: InkWell(
                     onTap: () async {
-                      await TvInterstitialAd.instance.show();
+                      TvInterstitialAd.instance.loadAndShow();
                       position.tabIndex = index;
                       position.listIndex = innerIndex;
                       bus.emit(keySelectState, [listItemSelect]);
