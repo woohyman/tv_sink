@@ -1,4 +1,5 @@
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:tvSink/business/PlayControlManager.dart';
 import 'package:tvSink/util/log.dart';
 
 class TvInterstitialAd {
@@ -23,18 +24,24 @@ class TvInterstitialAd {
             ad.show();
             _interstitialAd = ad;
             _interstitialAd?.fullScreenContentCallback = FullScreenContentCallback(
-              onAdShowedFullScreenContent: (InterstitialAd ad) => logger.e('aaaaa %ad onAdShowedFullScreenContent.'),
+              onAdShowedFullScreenContent: (InterstitialAd ad) {
+                PlayControlManager.instance.pause();
+              },
               onAdDismissedFullScreenContent: (InterstitialAd ad) {
+                PlayControlManager.instance.play();
                 ad.dispose();
               },
               onAdFailedToShowFullScreenContent: (InterstitialAd ad, AdError error) {
+                PlayControlManager.instance.play();
                 ad.dispose();
               },
-              onAdImpression: (InterstitialAd ad) => print('$ad impression occurred.'),
+              onAdImpression: (InterstitialAd ad) {
+
+              },
             );
           },
           onAdFailedToLoad: (LoadAdError error) {
-
+            PlayControlManager.instance.play();
           },
         ));
   }

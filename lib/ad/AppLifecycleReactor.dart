@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:tvSink/business/PlayControlManager.dart';
 
 import 'AppOpenAdManager.dart';
 
 class AppLifecycleReactor extends WidgetsBindingObserver {
   final AppOpenAdManager appOpenAdManager;
+  AppLifecycleState? _preState;
 
   AppLifecycleReactor({required this.appOpenAdManager});
 
@@ -11,8 +13,12 @@ class AppLifecycleReactor extends WidgetsBindingObserver {
   Future<void> didChangeAppLifecycleState(AppLifecycleState state) async {
     // Try to show an app open ad if the app is being resumed and
     // we're not already showing an app open ad.
-    if (state == AppLifecycleState.resumed) {
+    if (state == AppLifecycleState.resumed && _preState == AppLifecycleState.paused) {
       appOpenAdManager.showAdIfAvailable();
     }
+    if(state == AppLifecycleState.paused){
+      PlayControlManager.instance.pause();
+    }
+    _preState = state;
   }
 }
