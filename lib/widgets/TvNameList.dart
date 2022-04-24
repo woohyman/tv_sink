@@ -129,12 +129,9 @@ class _TvNameListState extends State<TvNameList> {
                         },
                         child: Row(
                           children: <Widget>[
-                            Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 5),
-                              child: Expanded(
-                                flex: 1,
-                                child: getImageProviderByUrl(getIconUrl(index, innerIndex)),
-                              ),
+                            Expanded(
+                              flex: 1,
+                              child: getImageProviderByUrl(getIconUrl(index, innerIndex)),
                             ),
                             Expanded(
                               flex: 5,
