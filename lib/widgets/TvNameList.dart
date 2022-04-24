@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -9,7 +8,6 @@ import '../business/PlayControlManager.dart';
 import '../model/bean/TvResource.dart';
 import '../model/bean/data.dart';
 import '../util/const.dart';
-import '../util/log.dart';
 
 class TvNameList extends StatefulWidget {
   final int _tabIndex;
@@ -22,16 +20,24 @@ class TvNameList extends StatefulWidget {
 
 class _TvNameListState extends State<TvNameList> {
   int index = 0;
-  var _tvList = chineseTvLis;
+  List<String> _tvList = chineseTvLis.keys.toList();
   final ItemScrollController _controller = ItemScrollController();
 
   @override
   void initState() {
     super.initState();
 
-    bus.on(keyNotifyFavoriteList, (arg) {
+    SharedPreferences.getInstance().then((value) {
+      featuredTvLis.clear();
+      List<String> _list = value.getStringList(keySharePreferenceFavoriteList)??[];
+      featuredTvLis.addAll(_list);
+    });
+
+    bus.on(keyNotifyFavoriteList, (arg) async {
       if (widget._tabIndex == 2) {
         setState(() {});
+        SharedPreferences _sharePreferences = await SharedPreferences.getInstance();
+        _sharePreferences.setStringList(keySharePreferenceFavoriteList, featuredTvLis);
       }
     });
 
@@ -47,10 +53,10 @@ class _TvNameListState extends State<TvNameList> {
     index = widget._tabIndex;
     switch (index) {
       case 0:
-        _tvList = chineseTvLis;
+        _tvList = chineseTvLis.keys.toList();
         break;
       case 1:
-        _tvList = foreignTvLis;
+        _tvList = foreignTvLis.keys.toList();
         break;
       case 2:
         _tvList = featuredTvLis;
@@ -90,7 +96,7 @@ class _TvNameListState extends State<TvNameList> {
             child: Text("直播源${key + 1}"),
           ));
         });
-        String tvName = getBeanByIndex(index, innerIndex);
+        String tvName = _tvList[innerIndex];
 
         return ValueListenableBuilder<bool>(
             valueListenable: isCurIndex,

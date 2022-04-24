@@ -7,4 +7,4 @@ const String keySelectState = "keySelectState";//通知Tab变化
 const String startPlayTv = "StartPlayTv";//用户开始播放电视
 const String keyNotifyFavoriteList = "KeyNotifyFavoriteList";//用于通知收藏列表更新
 
-const String favoriteList = "FavoriteList";//用于收藏列表
+const String keySharePreferenceFavoriteList = "KeySharePreferenceFavoriteList";//用于本地持久化存储

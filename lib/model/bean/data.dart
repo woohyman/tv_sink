@@ -12312,62 +12312,9 @@ final foreignTvLis = {
   }
 };
 
-final featuredTvLis = {
-  "CCTV-1综合": {
-    "tvg-id": "CCTV1.cn",
-    "tvg-country": "CN",
-    "tvg-language": "Chinese;Mandarin",
-    "tvg-logo":
-    "https://upload.wikimedia.org/wikipedia/zh/6/65/CCTV-1Logo.png",
-    "group-title": "General",
-    "tvg-url": {
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225618/index.m3u8"
-    }
-  },
-  "CCTV-2财经": {
-    "tvg-id": "CCTV2.cn",
-    "tvg-country": "CN",
-    "tvg-language": "Chinese;Mandarin",
-    "tvg-logo":
-    "https://upload.wikimedia.org/wikipedia/zh/c/ce/CCTV-2Logo.png",
-    "group-title": "Undefined",
-    "tvg-url": {
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225619/index.m3u8"
-    }
-  },
-  "CCTV-3综艺": {
-    "tvg-id": "CCTV3.cn",
-    "tvg-country": "CN",
-    "tvg-language": "Chinese;Mandarin",
-    "tvg-logo":
-    "https://upload.wikimedia.org/wikipedia/zh/3/34/CCTV-3Logo.png",
-    "group-title": "Entertainment",
-    "tvg-url": {
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225634/index.m3u8"
-    }
-  },
-  "CCTV-4中文国际": {
-    "tvg-id": "",
-    "tvg-country": "CN",
-    "tvg-language": "",
-    "tvg-logo": "",
-    "group-title": "Undefined",
-    "tvg-url": {
-      "http://112.25.48.68/live/program/live/cctv4/1300000/mnf.m3u8",
-      "http://111.63.117.13:6060/030000001000/CCTV-4/CCTV-4.m3u8",
-      "http://223.110.245.159/ott.js.chinamobile.com/PLTV/3/224/3221225781/index.m3u8",
-      "http://183.207.248.71/gitv/live1/CCTV-4/CCTV-4",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225621/index.m3u8",
-      "http://39.135.138.59:18890/PLTV/88888910/224/3221225621/index.m3u8",
-      "http://117.169.120.140:8080/live/cctv-4/.m3u8",
-      "http://183.207.249.6/PLTV/3/224/3221225534/index.m3u8",
-      "http://183.207.249.11/PLTV/3/224/3221225534/index.m3u8",
-      "http://183.207.248.71/cntv/live1/cctv-4/cctv-4",
-      "http://223.110.245.163/ott.js.chinamobile.com/PLTV/3/224/3221227378/index.m3u8",
-      "http://223.110.245.165/ott.js.chinamobile.com/PLTV/3/224/3221225534/index.m3u8",
-      "http://223.110.245.170/PLTV/3/224/3221225534/index.m3u8",
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=26&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://116.199.5.52:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=26&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    }
-  },
-};
+final featuredTvLis = [
+  "CCTV-1综合",
+  "CCTV-2财经",
+  "CCTV-3综艺",
+  "CCTV-4中文国际",
+];
