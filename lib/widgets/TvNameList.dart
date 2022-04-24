@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../ad/TvInterstitialAd.dart';
 import '../business/EventBus.dart';
 import '../business/PlayControlManager.dart';
 import '../model/bean/TvResource.dart';
@@ -114,6 +115,7 @@ class _TvNameListState extends State<TvNameList> {
                 semanticContainer: false,
                 child: InkWell(
                     onTap: () async {
+                      await TvInterstitialAd.instance.show();
                       position.tabIndex = index;
                       position.listIndex = innerIndex;
                       bus.emit(keySelectState, [listItemSelect]);
@@ -123,63 +125,59 @@ class _TvNameListState extends State<TvNameList> {
                       _preferences.setStringList("xx", _list);
                       PlayControlManager.instance.setResourceAndPlay(await compute(getLiveSource, tvName));
                     },
-                    child: Padding(
-                      child: Flex(
-                        direction: Axis.horizontal,
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 5),
-                            child: Expanded(
-                              flex: 1,
-                              child: getImageProviderByUrl(getIconUrl(index, innerIndex)),
-                            ),
-                          ),
-                          Expanded(
-                            flex: 5,
-                            child: Text(
-                              tvName,
-                              style: isCurIndex.value
-                                  ? const TextStyle(color: Colors.red, fontSize: 18)
-                                  : const TextStyle(color: Colors.black, fontSize: 14),
-                            ),
-                          ),
-                          Expanded(
-                            flex: 3,
-                            child: Visibility(
-                              visible: getSourceSet(index, innerIndex).length > 1,
-                              child: DropdownButton<String>(
-                                value: getLiveSource(tvName),
-                                onChanged: (value) {
-                                  setState(() {
-                                    setLiveSource(tvName, value);
-                                  });
-                                },
-                                items: myItems,
-                              ),
-                            ),
-                          ),
-                          Expanded(
+                    child: Row(
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 5),
+                          child: Expanded(
                             flex: 1,
-                            child: Align(
-                              alignment: Alignment.center,
-                              child: InkWell(
-                                onTap: () => {
-                                  setState(() {
-                                    if (iscotain(tvName)) {
-                                      removeurl(tvName);
-                                    } else {
-                                      addcollect(tvName);
-                                    }
-                                    bus.emit(keyNotifyFavoriteList);
-                                  })
-                                },
-                                child: iscotain(tvName) ? const Icon(Icons.favorite) : const Icon(Icons.favorite_border),
-                              ),
+                            child: getImageProviderByUrl(getIconUrl(index, innerIndex)),
+                          ),
+                        ),
+                        Expanded(
+                          flex: 5,
+                          child: Text(
+                            tvName,
+                            style: isCurIndex.value
+                                ? const TextStyle(color: Colors.red, fontSize: 18)
+                                : const TextStyle(color: Colors.black, fontSize: 14),
+                          ),
+                        ),
+                        Expanded(
+                          flex: 3,
+                          child: Visibility(
+                            visible: getSourceSet(index, innerIndex).length > 1,
+                            child: DropdownButton<String>(
+                              value: getLiveSource(tvName),
+                              onChanged: (value) {
+                                setState(() {
+                                  setLiveSource(tvName, value);
+                                });
+                              },
+                              items: myItems,
                             ),
                           ),
-                        ],
-                      ),
-                      padding: const EdgeInsets.only(left: 0, right: 0, top: 12, bottom: 12),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: Align(
+                            alignment: Alignment.center,
+                            child: InkWell(
+                              onTap: () => {
+                                setState(() {
+                                  if (iscotain(tvName)) {
+                                    removeurl(tvName);
+                                  } else {
+                                    addcollect(tvName);
+                                  }
+                                  bus.emit(keyNotifyFavoriteList);
+                                })
+                              },
+                              child: iscotain(tvName) ? const Icon(Icons.favorite) : const Icon(Icons.favorite_border),
+                            ),
+                          ),
+                        ),
+                      ],
                     )),
               );
             });

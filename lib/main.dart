@@ -8,12 +8,13 @@ import 'package:provider/provider.dart';
 import 'package:tvSink/model/bean/TvResource.dart';
 import 'package:tvSink/routes/RouterTable.dart';
 
+import 'ad/TvInterstitialAd.dart';
 import 'pages/ScaffoldRoute.dart';
 
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-
+  TvInterstitialAd.instance.load();
   MobileAds.instance.initialize();
   FlutterBugly.postCatchedException(() {
     // 如果需要 ensureInitialized，请在这里运行。
