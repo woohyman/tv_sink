@@ -25,23 +25,15 @@ class _TvNameListState extends State<TvNameList> {
   var _tvList = chineseTvLis;
   final ItemScrollController _controller = ItemScrollController();
 
-  // Position? _initPosition;
-
-  @override
-  void dispose() {
-    logger.e("www1 == dispose ==");
-    super.dispose();
-  }
-
-  @override
-  void deactivate() {
-    logger.e("www1 == deactivate ==");
-    super.deactivate();
-  }
-
   @override
   void initState() {
     super.initState();
+
+    bus.on(keyNotifyFavoriteList, (arg) {
+      if (widget._tabIndex == 2) {
+        setState(() {});
+      }
+    });
 
     bus.on(keySelectState, (arg) {
       List<String> _list = arg as List<String>;
@@ -172,6 +164,7 @@ class _TvNameListState extends State<TvNameList> {
                                     } else {
                                       addcollect(tvName);
                                     }
+                                    bus.emit(keyNotifyFavoriteList);
                                   })
                                 },
                                 child: iscotain(tvName) ? const Icon(Icons.favorite) : const Icon(Icons.favorite_border),
