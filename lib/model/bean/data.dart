@@ -21,6 +21,16 @@ final chineseTvLis = {
       "http://39.134.115.163:8080/PLTV/88888910/224/3221225619/index.m3u8"
     }
   },
+  "已下线": {
+    "tvg-id": "",
+    "tvg-country": "CN",
+    "tvg-language": "",
+    "tvg-logo": "",
+    "group-title": "Undefined",
+    "tvg-url": {
+      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=44&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
+    }
+  },
   "CCTV-3综艺": {
     "tvg-id": "CCTV3.cn",
     "tvg-country": "CN",
@@ -2162,16 +2172,6 @@ final chineseTvLis = {
     "group-title": "Undefined",
     "tvg-url": {
       "http://l.cztvcloud.com/channels/lantian/SXshengzhou1/720p.m3u8"
-    }
-  },
-  "已下线": {
-    "tvg-id": "",
-    "tvg-country": "CN",
-    "tvg-language": "",
-    "tvg-logo": "",
-    "group-title": "Undefined",
-    "tvg-url": {
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=44&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
     }
   },
   "巴中综合": {

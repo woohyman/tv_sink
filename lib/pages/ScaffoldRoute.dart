@@ -6,6 +6,8 @@ import 'package:provider/provider.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:tvSink/util/log.dart';
 
+import '../ad/AppLifecycleReactor.dart';
+import '../ad/AppOpenAdManager.dart';
 import '../ad/TvBannerAd.dart';
 import '../business/EventBus.dart';
 import '../business/PlayControlManager.dart';
@@ -34,13 +36,16 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
   @override
   void initState() {
     super.initState();
+    myBanner.load();
+
+    AppOpenAdManager appOpenAdManager = AppOpenAdManager()..loadAd();
+    WidgetsBinding.instance!.addObserver(AppLifecycleReactor(appOpenAdManager: appOpenAdManager));
 
     FlutterNativeSplash.remove();
     _flutterBuglyManager = FlutterBuglyManager(context);
     _flutterBuglyManager.init().then((value) => {setState(() {})});
 
     _pageController = PageController();
-    myBanner.load().then((value) => {setState(() => {})});
   }
 
   @override
@@ -54,13 +59,14 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
 
     return Scaffold(
         appBar: AppBar(
-          title: myBanner.getBannerWidget(),
+          title: const Text("电视汇"),
         ),
         drawer: SliderLeft(),
         body: Flex(
           direction: Axis.vertical,
           children: <Widget>[
             PlayerWrapper(),
+            myBanner.getBannerWidget(),
             Expanded(
               flex: 1,
               child: PageView(

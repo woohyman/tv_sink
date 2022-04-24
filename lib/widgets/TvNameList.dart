@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../ad/TvBannerAd.dart';
 import '../ad/TvInterstitialAd.dart';
 import '../business/EventBus.dart';
 import '../business/PlayControlManager.dart';
@@ -30,7 +31,7 @@ class _TvNameListState extends State<TvNameList> {
 
     SharedPreferences.getInstance().then((value) {
       featuredTvLis.clear();
-      List<String> _list = value.getStringList(keySharePreferenceFavoriteList)??[];
+      List<String> _list = value.getStringList(keySharePreferenceFavoriteList) ?? [];
       featuredTvLis.addAll(_list);
     });
 
@@ -42,7 +43,7 @@ class _TvNameListState extends State<TvNameList> {
       }
     });
 
-    bus.on(keySelectState, (arg) {
+    bus.on(keySelectState, (arg) async {
       List<String> _list = arg as List<String>;
       if (_list.contains(scrollToItemSelect)) {
         if (position.tabIndex == widget._tabIndex) {
@@ -75,7 +76,6 @@ class _TvNameListState extends State<TvNameList> {
       itemCount: _tvList.length,
       itemBuilder: (BuildContext context, int innerIndex) {
         bool _isCurIndex = PlayControlManager().afterFirstPress && position.tabIndex == widget._tabIndex && position.listIndex == innerIndex;
-
         ValueNotifier<bool> isCurIndex = ValueNotifier<bool>(_isCurIndex);
         bus.on(keySelectState, (arg) {
           List<String> _list = arg as List<String>;
@@ -99,88 +99,92 @@ class _TvNameListState extends State<TvNameList> {
         });
         String tvName = _tvList[innerIndex];
 
-        return ValueListenableBuilder<bool>(
-            valueListenable: isCurIndex,
-            builder: (BuildContext context, bool value, Widget? child) {
-              return Card(
-                color: isCurIndex.value ? Colors.lightBlue.shade200 : Colors.lightBlue.shade100,
-                //z轴的高度，设置card的阴影
-                elevation: isCurIndex.value ? 20.0 : 0.0,
-                //设置shape，这里设置成了R角
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                ),
-                //对Widget截取的行为，比如这里 Clip.antiAlias 指抗锯齿
-                clipBehavior: Clip.antiAlias,
-                semanticContainer: false,
-                child: InkWell(
-                    onTap: () async {
-                      TvInterstitialAd.instance.loadAndShow();
-                      position.tabIndex = index;
-                      position.listIndex = innerIndex;
-                      bus.emit(keySelectState, [listItemSelect]);
-                      List<String>? _list = (await SharedPreferences.getInstance()).getStringList("xx") ?? [];
-                      _list.add(tvName);
-                      SharedPreferences _preferences = await SharedPreferences.getInstance();
-                      _preferences.setStringList("xx", _list);
-                      PlayControlManager.instance.setResourceAndPlay(await compute(getLiveSource, tvName));
-                    },
-                    child: Row(
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 5),
-                          child: Expanded(
-                            flex: 1,
-                            child: getImageProviderByUrl(getIconUrl(index, innerIndex)),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 5,
-                          child: Text(
-                            tvName,
-                            style: isCurIndex.value
-                                ? const TextStyle(color: Colors.red, fontSize: 18)
-                                : const TextStyle(color: Colors.black, fontSize: 14),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 3,
-                          child: Visibility(
-                            visible: getSourceSet(index, innerIndex).length > 1,
-                            child: DropdownButton<String>(
-                              value: getLiveSource(tvName),
-                              onChanged: (value) {
-                                setState(() {
-                                  setLiveSource(tvName, value);
-                                });
-                              },
-                              items: myItems,
+        return Column(
+          children: [
+            ValueListenableBuilder<bool>(
+                valueListenable: isCurIndex,
+                builder: (BuildContext context, bool value, Widget? child) {
+                  return Card(
+                    color: isCurIndex.value ? Colors.lightBlue.shade200 : Colors.lightBlue.shade100,
+                    //z轴的高度，设置card的阴影
+                    elevation: isCurIndex.value ? 20.0 : 0.0,
+                    //设置shape，这里设置成了R角
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    ),
+                    //对Widget截取的行为，比如这里 Clip.antiAlias 指抗锯齿
+                    clipBehavior: Clip.antiAlias,
+                    semanticContainer: false,
+                    child: InkWell(
+                        onTap: () async {
+                          TvInterstitialAd.instance.loadAndShow();
+                          position.tabIndex = index;
+                          position.listIndex = innerIndex;
+                          bus.emit(keySelectState, [listItemSelect]);
+                          List<String>? _list = (await SharedPreferences.getInstance()).getStringList("xx") ?? [];
+                          _list.add(tvName);
+                          SharedPreferences _preferences = await SharedPreferences.getInstance();
+                          _preferences.setStringList("xx", _list);
+                          PlayControlManager.instance.setResourceAndPlay(await compute(getLiveSource, tvName));
+                        },
+                        child: Row(
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.symmetric(horizontal: 5),
+                              child: Expanded(
+                                flex: 1,
+                                child: getImageProviderByUrl(getIconUrl(index, innerIndex)),
+                              ),
                             ),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: Align(
-                            alignment: Alignment.center,
-                            child: InkWell(
-                              onTap: () => {
-                                setState(() {
-                                  if (iscotain(tvName)) {
-                                    removeurl(tvName);
-                                  } else {
-                                    addcollect(tvName);
-                                  }
-                                  bus.emit(keyNotifyFavoriteList);
-                                })
-                              },
-                              child: iscotain(tvName) ? const Icon(Icons.favorite) : const Icon(Icons.favorite_border),
+                            Expanded(
+                              flex: 5,
+                              child: Text(
+                                tvName,
+                                style: isCurIndex.value
+                                    ? const TextStyle(color: Colors.red, fontSize: 18)
+                                    : const TextStyle(color: Colors.black, fontSize: 14),
+                              ),
                             ),
-                          ),
-                        ),
-                      ],
-                    )),
-              );
-            });
+                            Expanded(
+                              flex: 3,
+                              child: Visibility(
+                                visible: getSourceSet(index, innerIndex).length > 1,
+                                child: DropdownButton<String>(
+                                  value: getLiveSource(tvName),
+                                  onChanged: (value) {
+                                    setState(() {
+                                      setLiveSource(tvName, value);
+                                    });
+                                  },
+                                  items: myItems,
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              flex: 1,
+                              child: Align(
+                                alignment: Alignment.center,
+                                child: InkWell(
+                                  onTap: () => {
+                                    setState(() {
+                                      if (iscotain(tvName)) {
+                                        removeurl(tvName);
+                                      } else {
+                                        addcollect(tvName);
+                                      }
+                                      bus.emit(keyNotifyFavoriteList);
+                                    })
+                                  },
+                                  child: iscotain(tvName) ? const Icon(Icons.favorite) : const Icon(Icons.favorite_border),
+                                ),
+                              ),
+                            ),
+                          ],
+                        )),
+                  );
+                })
+          ],
+        );
       },
     ));
   }

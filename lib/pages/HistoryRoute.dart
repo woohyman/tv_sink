@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../ad/TvInterstitialAd.dart';
 import '../business/EventBus.dart';
 import '../business/PlayControlManager.dart';
 import '../model/bean/TvResource.dart';
@@ -65,6 +66,7 @@ class _HistoryRouteState extends State<HistoryRoute> {
 
                     PlayControlManager.instance.setResourceAndPlay(await compute(getLiveSource, _list[innerIndex]));
                     bus.emit(keySelectState,[tabSelect,scrollToItemSelect]);
+                    TvInterstitialAd.instance.loadAndShow();
                   },
                   child: Padding(
                     padding: const EdgeInsets.only(left: 10, right: 0, top: 12, bottom: 12),
