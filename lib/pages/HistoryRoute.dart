@@ -59,13 +59,13 @@ class _HistoryRouteState extends State<HistoryRoute> {
               semanticContainer: false,
               child: InkWell(
                   onTap: () async {
-                    TvInterstitialAd.instance.loadAndShow();
+                    TvInterstitialAd.instance.loadAndShow(_list[innerIndex]);
                     Navigator.popUntil(context, ModalRoute.withName('/'));
                     notifyPositionChange(_list[innerIndex]);
                     setTvChannel(_list[innerIndex], 0);
                     saveListState(innerIndex);
 
-                    PlayControlManager.instance.setResourceAndPlay(await compute(getLiveSource, _list[innerIndex]));
+                    PlayControlManager.instance.setResourceAndPlay(_list[innerIndex],await compute(getLiveSource, _list[innerIndex]));
                     bus.emit(keySelectState,[tabSelect,scrollToItemSelect]);
 
                   },

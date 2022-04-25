@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../ad/TvBannerAd.dart';
 import '../ad/TvInterstitialAd.dart';
 import '../business/EventBus.dart';
 import '../business/PlayControlManager.dart';
@@ -117,7 +116,7 @@ class _TvNameListState extends State<TvNameList> {
                     semanticContainer: false,
                     child: InkWell(
                         onTap: () async {
-                          TvInterstitialAd.instance.loadAndShow();
+                          TvInterstitialAd.instance.loadAndShow(tvName);
                           position.tabIndex = index;
                           position.listIndex = innerIndex;
                           bus.emit(keySelectState, [listItemSelect]);
@@ -125,7 +124,7 @@ class _TvNameListState extends State<TvNameList> {
                           _list.add(tvName);
                           SharedPreferences _preferences = await SharedPreferences.getInstance();
                           _preferences.setStringList("xx", _list);
-                          PlayControlManager.instance.setResourceAndPlay(await compute(getLiveSource, tvName));
+                          PlayControlManager.instance.setResourceAndPlay(tvName, await compute(getLiveSource, tvName));
                         },
                         child: Row(
                           children: <Widget>[

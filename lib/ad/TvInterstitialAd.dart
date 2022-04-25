@@ -15,7 +15,10 @@ class TvInterstitialAd {
 
   InterstitialAd? _interstitialAd;
 
-  void loadAndShow() {
+  void loadAndShow(String _dataSource) {
+    if(PlayControlManager.instance.intervalTime[_dataSource]??true){
+      return;
+    }
     InterstitialAd.load(
         adUnitId: 'ca-app-pub-3940256099942544/8691691433',
         request: const AdRequest(),
