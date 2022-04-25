@@ -1,6 +1,6 @@
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:tvSink/business/PlayControlManager.dart';
-import 'package:tvSink/util/log.dart';
+import '../model/bean/TvResource.dart';
 
 class TvInterstitialAd {
   TvInterstitialAd._();
@@ -16,7 +16,7 @@ class TvInterstitialAd {
   InterstitialAd? _interstitialAd;
 
   void loadAndShow(String _dataSource) {
-    if(PlayControlManager.instance.intervalTime[_dataSource]??true){
+    if (PlayControlManager.instance.intervalTime[getSourceByKey(_dataSource)] ?? true) {
       return;
     }
     InterstitialAd.load(
@@ -38,9 +38,7 @@ class TvInterstitialAd {
                 PlayControlManager.instance.play();
                 ad.dispose();
               },
-              onAdImpression: (InterstitialAd ad) {
-
-              },
+              onAdImpression: (InterstitialAd ad) {},
             );
           },
           onAdFailedToLoad: (LoadAdError error) {

@@ -16,15 +16,11 @@ class PlayControlManager {
 
   PlayControlManager._() {
     _player.addListener(() {
-      logger.e("aaa4 ${_player.state}");
       if (FijkState.initialized == _player.state && _preSnapTime<0) {
         _preSnapTime = DateTime.now().millisecondsSinceEpoch;
-        logger.e("aaa4 _preSnapTime:$_preSnapTime");
       } else if (FijkState.started == _player.state && _preSnapTime > 0) {
         int _interval = DateTime.now().millisecondsSinceEpoch - _preSnapTime;
-        logger.e("aaa4 _interval:$_interval");
-        _intervalTime[_player.dataSource ?? ""] = _interval < 1000;
-        logger.e("aaa4 ${_player.dataSource ?? ""} : ${_intervalTime[_player.dataSource ?? ""]}");
+        _intervalTime[_player.dataSource ?? ""] = _interval < 2000;
         _preSnapTime = -1;
       }
     });
@@ -39,12 +35,16 @@ class PlayControlManager {
   static PlayControlManager instance = PlayControlManager._();
 
   void setResourceAndPlay(String tvName, String source) async {
-    logger.e("aaa4 source ==> $source : ${_intervalTime[source]}");
+    bool _autoPlay = _intervalTime[source] ?? true;
     bus.emit(startPlayTv, true);
     _afterFirstPress = true;
     await _player.reset();
-    await _player.setDataSource(source, autoPlay: _intervalTime[source] ?? true);
+    await _player.setDataSource(source,autoPlay: false);
     await _player.prepareAsync();
+    if(_autoPlay){
+      _player.start();
+    }
+
   }
 
   void pause() async {
