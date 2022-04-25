@@ -32,6 +32,17 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
   PageController? _pageController;
   late FlutterBuglyManager _flutterBuglyManager;
   final TvBannerAd myBanner = TvBannerAd();
+  Widget? _adBannerWidget;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    myBanner.getBannerWidgetWithAdapter(context).then((value) {
+      setState(() {
+        _adBannerWidget = value;
+      });
+    });
+  }
 
   @override
   void initState() {
@@ -52,7 +63,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
   Widget build(BuildContext context) {
     bus.on(keySelectState, (arg) {
       List<String> _list = arg as List<String>;
-      if(_list.contains(tabSelect)){
+      if (_list.contains(tabSelect)) {
         _onItemTapped(position.tabIndex, context);
       }
     });
@@ -66,7 +77,10 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
           direction: Axis.vertical,
           children: <Widget>[
             PlayerWrapper(),
-            myBanner.getBannerWidget(),
+            Visibility(
+              visible: _adBannerWidget != null,
+              child: myBanner.getBannerWidget(),
+            ),
             Expanded(
               flex: 1,
               child: PageView(
