@@ -1,20 +1,13 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:provider/provider.dart';
-import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
-import 'package:tvSink/util/log.dart';
 
 import '../ad/AppLifecycleReactor.dart';
 import '../ad/AppOpenAdManager.dart';
 import '../ad/TvBannerAd.dart';
 import '../business/EventBus.dart';
-import '../business/PlayControlManager.dart';
 import '../model/bean/TvResource.dart';
 import '../update/FlutterBuglyManager.dart';
 import '../util/const.dart';
-import '../util/log.dart';
 import '../widgets/KeepAliveTest.dart';
 import '../widgets/PlayerWrapper.dart';
 import '../widgets/SliderLeft.dart';

@@ -116,15 +116,17 @@ class _TvNameListState extends State<TvNameList> {
                     semanticContainer: false,
                     child: InkWell(
                         onTap: () async {
-                          TvInterstitialAd.instance.loadAndShow(tvName);
-                          position.tabIndex = index;
-                          position.listIndex = innerIndex;
-                          bus.emit(keySelectState, [listItemSelect]);
+                          await TvInterstitialAd.instance.load();
+                          TvInterstitialAd.instance.showAd(tvName, () {
+                            position.tabIndex = index;
+                            position.listIndex = innerIndex;
+                            bus.emit(keySelectState, [listItemSelect]);
+                            PlayControlManager.instance.setResourceAndPlay(tvName, getLiveSource(tvName));
+                          });
                           List<String>? _list = (await SharedPreferences.getInstance()).getStringList("xx") ?? [];
-                          _list.add(tvName);
                           SharedPreferences _preferences = await SharedPreferences.getInstance();
                           _preferences.setStringList("xx", _list);
-                          PlayControlManager.instance.setResourceAndPlay(tvName, await compute(getLiveSource, tvName));
+                          _list.add(tvName);
                         },
                         child: Row(
                           children: <Widget>[
