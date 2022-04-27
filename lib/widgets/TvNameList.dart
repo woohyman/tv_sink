@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:tvSink/model/sharePreference.dart';
 
 import '../ad/TvInterstitialAd.dart';
 import '../business/EventBus.dart';
@@ -28,17 +28,14 @@ class _TvNameListState extends State<TvNameList> {
   void initState() {
     super.initState();
 
-    SharedPreferences.getInstance().then((value) {
+    fetchFavoriteSharedPreferences().then((value) {
       featuredTvLis.clear();
-      List<String> _list = value.getStringList(keySharePreferenceFavoriteList) ?? [];
-      featuredTvLis.addAll(_list);
+      featuredTvLis.addAll(value);
     });
 
     bus.on(keyNotifyFavoriteList, (arg) async {
       if (widget._tabIndex == 2) {
-        setState(() {});
-        SharedPreferences _sharePreferences = await SharedPreferences.getInstance();
-        _sharePreferences.setStringList(keySharePreferenceFavoriteList, featuredTvLis);
+        saveFavoriteSharedPreferences(featuredTvLis).then((value) => {setState(() {})});
       }
     });
 
@@ -122,11 +119,8 @@ class _TvNameListState extends State<TvNameList> {
                             position.listIndex = innerIndex;
                             bus.emit(keySelectState, [listItemSelect]);
                             PlayControlManager.instance.setResourceAndPlay(tvName, getLiveSource(tvName));
+                            saveHistorySharedPreferences(tvName);
                           });
-                          List<String>? _list = (await SharedPreferences.getInstance()).getStringList("xx") ?? [];
-                          SharedPreferences _preferences = await SharedPreferences.getInstance();
-                          _preferences.setStringList("xx", _list);
-                          _list.add(tvName);
                         },
                         child: Row(
                           children: <Widget>[

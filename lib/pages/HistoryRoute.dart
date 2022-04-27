@@ -1,16 +1,12 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:tvSink/util/log.dart';
 
 import '../ad/TvInterstitialAd.dart';
 import '../business/EventBus.dart';
 import '../business/PlayControlManager.dart';
 import '../model/bean/TvResource.dart';
-import '../routes/RouterTable.dart';
+import '../model/sharePreference.dart';
 import '../util/const.dart';
-import '../util/log.dart';
 import '../widgets/TvNameList.dart';
 
 class HistoryRoute extends StatefulWidget {
@@ -21,25 +17,15 @@ class HistoryRoute extends StatefulWidget {
 }
 
 class _HistoryRouteState extends State<HistoryRoute> {
-  List<String> _list = [];
-
-  void fetchListState() async {
-    SharedPreferences _sharePreferences = await SharedPreferences.getInstance();
-    _list = _sharePreferences.getStringList("xx")?.reversed.toList() ?? [];
-    logger.e("ddd _list => $_list");
-    setState(() {});
-  }
-
-  void saveListState(int innerIndex) async {
-    _list.add(_list[innerIndex]);
-    SharedPreferences _sharePreferences = await SharedPreferences.getInstance();
-    _sharePreferences.setStringList("xx", _list);
-  }
+  final List<String> _list = [];
 
   @override
   void initState() {
-    logger.e("ddd initState");
-    fetchListState();
+    fetchHistorySharedPreferences().then((value) => {
+          setState(() {
+            _list.addAll(value.reversed);
+          })
+        });
     super.initState();
   }
 
@@ -64,7 +50,7 @@ class _HistoryRouteState extends State<HistoryRoute> {
                       Navigator.popUntil(context, ModalRoute.withName('/'));
                       notifyPositionChange(_list[innerIndex]);
                       setTvChannel(_list[innerIndex], 0);
-                      saveListState(innerIndex);
+                      saveHistorySharedPreferences(_list[innerIndex]);
 
                       PlayControlManager.instance.setResourceAndPlay(_list[innerIndex], getLiveSource(_list[innerIndex]));
                       bus.emit(keySelectState, [tabSelect, scrollToItemSelect]);
