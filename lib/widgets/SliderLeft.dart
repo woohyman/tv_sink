@@ -17,6 +17,14 @@ class SliderLeft extends StatefulWidget {
 class _SliderLeftState extends State<SliderLeft> {
   final TvBannerAd myBanner = TvBannerAd();
 
+  static const _insets = 16.0;
+  BannerAd? _inlineAdaptiveAd;
+  bool _isLoaded = false;
+  AdSize? _adSize;
+  late Orientation _currentOrientation;
+
+  double get _adWidth => MediaQuery.of(context).size.width - (2 * _insets);
+
   @override
   void initState() {
     myBanner.load().then((value) => {setState(() => {})});
@@ -24,52 +32,134 @@ class _SliderLeftState extends State<SliderLeft> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return Drawer(
-      child: MediaQuery.removePadding(
-        context: context,
-        removeTop: true,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(top: 30.0),
-                child: ListView(
-                  children: <Widget>[
-                    ListTile(
-                      leading: Icon(Icons.settings),
-                      title: Text('应用设置'),
-                      onTap: () => Navigator.of(context)
-                          .pushNamed(RouterTable.appSettingPath),
-                    ),
-                    ListTile(
-                      onTap: () => {
-                        Navigator.of(context)
-                            .popAndPushNamed(RouterTable.historyPath),
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    _currentOrientation = MediaQuery.of(context).orientation;
+    _loadAd();
+  }
 
-                      },
-                      leading: Icon(Icons.history),
-                      title: Text('观看历史'),
-                    ),
-                    ListTile(
-                      onTap: () => {
-                        Share.share('check out my website https://example.com',
-                            subject: 'Look what I made!')
-                      },
-                      leading: Icon(Icons.share),
-                      title: Text('分享App'),
-                    ),
-                  ],
+  @override
+  void dispose() {
+    super.dispose();
+    _inlineAdaptiveAd?.dispose();
+  }
+
+  void _loadAd() async {
+    await _inlineAdaptiveAd?.dispose();
+    setState(() {
+      _inlineAdaptiveAd = null;
+      _isLoaded = false;
+    });
+
+    // Get an inline adaptive size for the current orientation.
+    // AdSize size = AdSize.getCurrentOrientationInlineAdaptiveBannerAdSize(_adWidth.truncate());
+    AdSize size = AdSize.getCurrentOrientationInlineAdaptiveBannerAdSize(200);
+
+    _inlineAdaptiveAd = BannerAd(
+      // TODO: replace this test ad unit with your own ad unit.
+      adUnitId: 'ca-app-pub-3940256099942544/9214589741',
+      size: size,
+      request: AdRequest(),
+      listener: BannerAdListener(
+        onAdLoaded: (Ad ad) async {
+          print('Inline adaptive banner loaded: ${ad.responseInfo}');
+
+          // After the ad is loaded, get the platform ad size and use it to
+          // update the height of the container. This is necessary because the
+          // height can change after the ad is loaded.
+          BannerAd bannerAd = (ad as BannerAd);
+          final AdSize? size = await bannerAd.getPlatformAdSize();
+          if (size == null) {
+            print('Error: getPlatformAdSize() returned null for $bannerAd');
+            return;
+          }
+
+          setState(() {
+            _inlineAdaptiveAd = bannerAd;
+            _isLoaded = true;
+            _adSize = size;
+          });
+        },
+        onAdFailedToLoad: (Ad ad, LoadAdError error) {
+          print('Inline adaptive banner failedToLoad: $error');
+          ad.dispose();
+        },
+      ),
+    );
+    await _inlineAdaptiveAd!.load();
+  }
+
+  /// Gets a widget containing the ad, if one is loaded.
+  ///
+  /// Returns an empty container if no ad is loaded, or the orientation
+  /// has changed. Also loads a new ad if the orientation changes.
+  Widget _getAdWidget() {
+    return OrientationBuilder(
+      builder: (context, orientation) {
+        if (_currentOrientation == orientation && _inlineAdaptiveAd != null && _isLoaded && _adSize != null) {
+          return Align(
+              child: Container(
+            width: _adWidth,
+            height: _adSize!.height.toDouble(),
+            child: AdWidget(
+              ad: _inlineAdaptiveAd!,
+            ),
+          ));
+        }
+        // Reload the ad if the orientation changes.
+        if (_currentOrientation != orientation) {
+          _currentOrientation = orientation;
+          _loadAd();
+        }
+        return Container();
+      },
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 200,
+      child: Drawer(
+        child: MediaQuery.removePadding(
+          context: context,
+          removeTop: true,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 30.0),
+                  child: ListView(
+                    children: <Widget>[
+                      ListTile(
+                        leading: Icon(Icons.settings),
+                        title: Text('应用设置'),
+                        onTap: () => Navigator.of(context).pushNamed(RouterTable.appSettingPath),
+                      ),
+                      ListTile(
+                        onTap: () => {
+                          Navigator.of(context).popAndPushNamed(RouterTable.historyPath),
+                        },
+                        leading: Icon(Icons.history),
+                        title: Text('观看历史'),
+                      ),
+                      ListTile(
+                        onTap: () => {Share.share('check out my website https://example.com', subject: 'Look what I made!')},
+                        leading: Icon(Icons.share),
+                        title: Text('分享App'),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-            Container(
-              alignment: Alignment.center,
-              child: myBanner.getBannerWidget(),
-            ),
-          ],
+              Container(
+                alignment: Alignment.center,
+                child: _getAdWidget(),
+              ),
+            ],
+          ),
         ),
       ),
     );

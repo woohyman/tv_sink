@@ -70,10 +70,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
           direction: Axis.vertical,
           children: <Widget>[
             PlayerWrapper(),
-            Visibility(
-              visible: _adBannerWidget != null,
-              child: myBanner.getBannerWidget(),
-            ),
+            _adBannerWidget??Container(),
             Expanded(
               flex: 1,
               child: PageView(
