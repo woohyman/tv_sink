@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import '../ad/AppLifecycleReactor.dart';
 import '../ad/AppOpenAdManager.dart';
-import '../ad/TvBannerAd.dart';
 import '../business/EventBus.dart';
 import '../model/bean/TvResource.dart';
 import '../update/FlutterBuglyManager.dart';
@@ -24,23 +24,53 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
   final ValueNotifier<int> _selectedIndex = ValueNotifier<int>(0);
   PageController? _pageController;
   late FlutterBuglyManager _flutterBuglyManager;
-  final TvBannerAd myBanner = TvBannerAd();
-  Widget? _adBannerWidget;
+
+  BannerAd? _anchoredAdaptiveAd;
+  bool _isLoaded = false;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    myBanner.getBannerWidgetWithAdapter(context).then((value) {
-      setState(() {
-        _adBannerWidget = value;
-      });
-    });
+    _loadAd();
+  }
+
+  Future<void> _loadAd() async {
+    // Get an AnchoredAdaptiveBannerAdSize before loading the ad.
+    final AnchoredAdaptiveBannerAdSize? size =
+        await AdSize.getCurrentOrientationAnchoredAdaptiveBannerAdSize(MediaQuery.of(context).size.width.truncate());
+
+    if (size == null) {
+      print('Unable to get height of anchored banner.');
+      return;
+    }
+
+    _anchoredAdaptiveAd = BannerAd(
+      // TODO: replace these test ad units with your own ad unit.
+      adUnitId: 'ca-app-pub-3940256099942544/6300978111',
+      size: size,
+      request: AdRequest(),
+      listener: BannerAdListener(
+        onAdLoaded: (Ad ad) {
+          print('$ad loaded: ${ad.responseInfo}');
+          setState(() {
+            // When the ad is loaded, get the ad size and use it to set
+            // the height of the ad container.
+            _anchoredAdaptiveAd = ad as BannerAd;
+            _isLoaded = true;
+          });
+        },
+        onAdFailedToLoad: (Ad ad, LoadAdError error) {
+          print('Anchored adaptive banner failedToLoad: $error');
+          ad.dispose();
+        },
+      ),
+    );
+    return _anchoredAdaptiveAd!.load();
   }
 
   @override
   void initState() {
     super.initState();
-    myBanner.load();
 
     AppOpenAdManager appOpenAdManager = AppOpenAdManager()..loadAd();
     WidgetsBinding.instance!.addObserver(AppLifecycleReactor(appOpenAdManager: appOpenAdManager));
@@ -50,6 +80,12 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
     _flutterBuglyManager.init().then((value) => {setState(() {})});
 
     _pageController = PageController();
+  }
+
+  @override
+  void dispose() {
+    _anchoredAdaptiveAd?.dispose();
+    super.dispose();
   }
 
   @override
@@ -70,7 +106,13 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
           direction: Axis.vertical,
           children: <Widget>[
             PlayerWrapper(),
-            _adBannerWidget??Container(),
+            if (_anchoredAdaptiveAd != null && _isLoaded)
+              Container(
+                color: Colors.green,
+                width: _anchoredAdaptiveAd!.size.width.toDouble(),
+                height: _anchoredAdaptiveAd!.size.height.toDouble(),
+                child: AdWidget(ad: _anchoredAdaptiveAd!),
+              ),
             Expanded(
               flex: 1,
               child: PageView(
