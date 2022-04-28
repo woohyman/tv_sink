@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:tvSink/model/sharePreference.dart';
@@ -124,12 +123,14 @@ class _TvNameListState extends State<TvNameList> {
                         },
                         child: Row(
                           children: <Widget>[
-                            Expanded(
-                              flex: 1,
+                            Container(
                               child: getImageProviderByUrl(getIconUrl(index, innerIndex)),
+                              height: 50,
+                              width: 50,
+                              margin: const EdgeInsets.only(left: 12, right: 10, top: 5, bottom: 5),
                             ),
                             Expanded(
-                              flex: 5,
+                              flex: 4,
                               child: Text(
                                 tvName,
                                 style: isCurIndex.value
@@ -152,23 +153,20 @@ class _TvNameListState extends State<TvNameList> {
                                 ),
                               ),
                             ),
-                            Expanded(
-                              flex: 1,
-                              child: Align(
-                                alignment: Alignment.center,
-                                child: InkWell(
-                                  onTap: () => {
-                                    setState(() {
-                                      if (iscotain(tvName)) {
-                                        removeurl(tvName);
-                                      } else {
-                                        addcollect(tvName);
-                                      }
-                                      bus.emit(keyNotifyFavoriteList);
-                                    })
-                                  },
-                                  child: iscotain(tvName) ? const Icon(Icons.favorite) : const Icon(Icons.favorite_border),
-                                ),
+                            Container(
+                              margin: const EdgeInsets.only(left: 5, right: 10, top: 0, bottom: 0),
+                              child: InkWell(
+                                onTap: () => {
+                                  setState(() {
+                                    if (iscotain(tvName)) {
+                                      removeurl(tvName);
+                                    } else {
+                                      addcollect(tvName);
+                                    }
+                                    bus.emit(keyNotifyFavoriteList);
+                                  })
+                                },
+                                child: iscotain(tvName) ? const Icon(Icons.favorite) : const Icon(Icons.favorite_border),
                               ),
                             ),
                           ],
@@ -183,23 +181,18 @@ class _TvNameListState extends State<TvNameList> {
 }
 
 Widget getImageProviderByUrl(String url) {
+  const double size = 180.0;
   if (url.isEmpty) {
     return Image.asset(
       "images/tv_dianshi.png",
-      width: 50.0,
-      height: 50.0,
     );
   } else {
     return FadeInImage.assetNetwork(
         imageErrorBuilder: (context, error, stackTrace) {
           return Image.asset(
             "images/tv_dianshi.png",
-            width: 50.0,
-            height: 50.0,
           );
         },
-        width: 50,
-        height: 50.0,
         placeholder: "images/tv_dianshi.png",
         image: url);
   }

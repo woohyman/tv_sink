@@ -59,7 +59,7 @@ class _SliderLeftState extends State<SliderLeft> {
       // TODO: replace this test ad unit with your own ad unit.
       adUnitId: 'ca-app-pub-3940256099942544/9214589741',
       size: size,
-      request: AdRequest(),
+      request: const AdRequest(),
       listener: BannerAdListener(
         onAdLoaded: (Ad ad) async {
           print('Inline adaptive banner loaded: ${ad.responseInfo}');
@@ -98,7 +98,7 @@ class _SliderLeftState extends State<SliderLeft> {
       builder: (context, orientation) {
         if (_currentOrientation == orientation && _inlineAdaptiveAd != null && _isLoaded && _adSize != null) {
           return Align(
-              child: Container(
+              child: SizedBox(
             width: _adWidth,
             height: _adSize!.height.toDouble(),
             child: AdWidget(
@@ -119,7 +119,7 @@ class _SliderLeftState extends State<SliderLeft> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 200,
+      width: MediaQuery.of(context).size.width * 0.7,
       child: Drawer(
         child: MediaQuery.removePadding(
           context: context,
@@ -134,21 +134,21 @@ class _SliderLeftState extends State<SliderLeft> {
                   child: ListView(
                     children: <Widget>[
                       ListTile(
-                        leading: Icon(Icons.settings),
-                        title: Text('应用设置'),
+                        leading: const Icon(Icons.settings),
+                        title: const Text('应用设置'),
                         onTap: () => Navigator.of(context).pushNamed(RouterTable.appSettingPath),
                       ),
                       ListTile(
                         onTap: () => {
                           Navigator.of(context).popAndPushNamed(RouterTable.historyPath),
                         },
-                        leading: Icon(Icons.history),
-                        title: Text('观看历史'),
+                        leading: const Icon(Icons.history),
+                        title: const Text('观看历史'),
                       ),
                       ListTile(
                         onTap: () => {Share.share('check out my website https://example.com', subject: 'Look what I made!')},
-                        leading: Icon(Icons.share),
-                        title: Text('分享App'),
+                        leading: const Icon(Icons.share),
+                        title: const Text('分享App'),
                       ),
                     ],
                   ),

@@ -44,34 +44,36 @@ class _HistoryRouteState extends State<HistoryRoute> {
               clipBehavior: Clip.antiAlias,
               semanticContainer: false,
               child: InkWell(
-                  onTap: () async {
-                    await TvInterstitialAd.instance.load();
-                    TvInterstitialAd.instance.showAd(_list[innerIndex], () {
-                      Navigator.popUntil(context, ModalRoute.withName('/'));
-                      notifyPositionChange(_list[innerIndex]);
-                      setTvChannel(_list[innerIndex], 0);
-                      saveHistorySharedPreferences(_list[innerIndex]);
+                onTap: () async {
+                  await TvInterstitialAd.instance.load();
+                  TvInterstitialAd.instance.showAd(_list[innerIndex], () {
+                    Navigator.popUntil(context, ModalRoute.withName('/'));
+                    notifyPositionChange(_list[innerIndex]);
+                    setTvChannel(_list[innerIndex], 0);
+                    saveHistorySharedPreferences(_list[innerIndex]);
 
-                      PlayControlManager.instance.setResourceAndPlay(_list[innerIndex], getLiveSource(_list[innerIndex]));
-                      bus.emit(keySelectState, [tabSelect, scrollToItemSelect]);
-                    });
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.only(left: 10, right: 0, top: 12, bottom: 12),
-                    child: Flex(
-                      direction: Axis.horizontal,
-                      children: [
-                        getImageProviderByUrl(getIconUrlByTvName(_list[innerIndex])),
-                        Padding(
-                          child: Text(
-                            _list[innerIndex],
-                            style: const TextStyle(color: Colors.black, fontSize: 14),
-                          ),
-                          padding: const EdgeInsets.only(left: 0, right: 0, top: 12, bottom: 12),
-                        )
-                      ],
+                    PlayControlManager.instance.setResourceAndPlay(_list[innerIndex], getLiveSource(_list[innerIndex]));
+                    bus.emit(keySelectState, [tabSelect, scrollToItemSelect]);
+                  });
+                },
+                child: Row(
+                  children: [
+                    Container(
+                      child: getImageProviderByUrl(getIconUrl(index, innerIndex)),
+                      height: 50,
+                      width: 50,
+                      margin: const EdgeInsets.only(left: 12, right: 10, top: 5, bottom: 5),
                     ),
-                  )));
+                    Padding(
+                      child: Text(
+                        _list[innerIndex],
+                        style: const TextStyle(color: Colors.black, fontSize: 14),
+                      ),
+                      padding: const EdgeInsets.only(left: 0, right: 0, top: 12, bottom: 12),
+                    )
+                  ],
+                ),
+              ));
         },
         itemCount: _list.length);
   }
