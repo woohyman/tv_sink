@@ -4,6 +4,7 @@ import 'package:tvSink/util/log.dart';
 import '../ad/TvInterstitialAd.dart';
 import '../business/EventBus.dart';
 import '../business/PlayControlManager.dart';
+import '../business/WifiManager.dart';
 import '../model/bean/TvResource.dart';
 import '../model/sharePreference.dart';
 import '../util/const.dart';
@@ -45,6 +46,13 @@ class _HistoryRouteState extends State<HistoryRoute> {
               semanticContainer: false,
               child: InkWell(
                 onTap: () async {
+                  if(WifiManager.instance.isNeedConnectWithWifi()){
+                    Navigator.popUntil(context, ModalRoute.withName('/'));
+                    bus.emit(keyWifiCompulsion);
+                    PlayControlManager.instance.pause();
+                    return;
+                  }
+
                   await TvInterstitialAd.instance.load();
                   TvInterstitialAd.instance.showAd(_list[innerIndex], () {
                     Navigator.popUntil(context, ModalRoute.withName('/'));

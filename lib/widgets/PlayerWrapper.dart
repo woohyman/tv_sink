@@ -1,10 +1,5 @@
 import 'package:fijkplayer/fijkplayer.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:tvSink/model/bean/TvResource.dart';
-
-import '../ad/TvInterstitialAd.dart';
 import '../business/EventBus.dart';
 import '../business/PlayControlManager.dart';
 import '../business/WifiManager.dart';
@@ -21,14 +16,9 @@ class _PlayerWrapperState extends State<PlayerWrapper> {
   final ValueNotifier<bool> showBannerBg = ValueNotifier<bool>(false);
 
   @override
-  void didUpdateWidget(covariant PlayerWrapper oldWidget) {
-    WifiManager.instance.fetchWifiStateByLocal();
-    super.didUpdateWidget(oldWidget);
-  }
-
-  @override
   void initState() {
-    WifiManager.instance.fetchWifiStateByReal();
+    bus.on(keyWifiCompulsion, (arg) => setState(() {}));
+
     bus.on(startPlayTv, (arg) {
       showBannerBg.value = arg;
     });
@@ -70,16 +60,16 @@ class _PlayerWrapperState extends State<PlayerWrapper> {
           valueListenable: showBannerBg,
         ),
         Visibility(
-          visible: WifiManager.instance.isTvShow(),
+          visible: WifiManager.instance.isNeedConnectWithWifi(),
           child: Container(
-            width: 200,
-            height: 100,
-            color: Colors.transparent,
+            padding: const EdgeInsets.only(left: 0, right: 0, top: 12, bottom: 12),
+            color: Colors.black,
             child: const Align(
               child: Text(
                 "数据流量下不能播放！请前往设置界面修改！",
                 style: TextStyle(
                   color: Colors.white,
+                  fontSize: 20
                 ),
               ),
             ),

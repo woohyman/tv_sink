@@ -1,10 +1,11 @@
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../util/const.dart';
-import '../util/log.dart';
 
 SharedPreferences? _sharedPreferences;
 const String keySpHistory = "KeySpHistory";
+
+//是否强制Wifi下才能播放
+const String keyAppSettingWifiCompulsion = "KeyAppSettingWifiCompulsion";
 
 //保存指定电视名称历史列表
 void saveHistorySharedPreferences(String tvName) async {
@@ -33,4 +34,14 @@ Future<void> saveFavoriteSharedPreferences(List<String> _list) async {
 Future<List<String>> fetchFavoriteSharedPreferences() async {
   SharedPreferences _preferences = _sharedPreferences ?? await SharedPreferences.getInstance();
   return _preferences.getStringList(keySharePreferenceFavoriteList)?.toList() ?? [];
+}
+
+Future<void> saveAppSettingWifiCompulsion(bool _state) async {
+  SharedPreferences _preferences = _sharedPreferences ?? await SharedPreferences.getInstance();
+  _preferences.setBool(keyAppSettingWifiCompulsion, _state);
+}
+
+Future<bool> fetchAppSettingWifiCompulsion() async {
+  SharedPreferences _preferences = _sharedPreferences ?? await SharedPreferences.getInstance();
+  return _preferences.getBool(keyAppSettingWifiCompulsion) ?? false;
 }

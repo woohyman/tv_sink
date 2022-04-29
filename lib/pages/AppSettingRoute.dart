@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:tvSink/business/WifiManager.dart';
+import 'package:tvSink/model/sharePreference.dart';
+
+import '../business/EventBus.dart';
+import '../business/PlayControlManager.dart';
+import '../util/const.dart';
 
 class AppSettingRoute extends StatefulWidget {
   const AppSettingRoute({Key? key}) : super(key: key);
@@ -10,17 +14,16 @@ class AppSettingRoute extends StatefulWidget {
 }
 
 class _SettingRouteState extends State<AppSettingRoute> {
+  bool _switchSelected = true; //维护单选开关状态
+
   @override
   void initState() {
-    SharedPreferences.getInstance().then((preferences) => {
-      setState(()=>{
-        _switchSelected = preferences.getBool("11")??false
-      })
-    });
+    fetchAppSettingWifiCompulsion().then((value) => {
+          setState(() => {_switchSelected = value})
+        });
     super.initState();
   }
 
-  bool _switchSelected = true; //维护单选开关状态
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +34,7 @@ class _SettingRouteState extends State<AppSettingRoute> {
           shrinkWrap: true,
           children: <Widget>[
             ListTile(
-              title: Text(
+              title: const Text(
                 '允许非wifi网络自动播放',
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
               ),
@@ -41,9 +44,12 @@ class _SettingRouteState extends State<AppSettingRoute> {
                   //重新构建页面
                   setState(() {
                     _switchSelected = value;
-                    SharedPreferences.getInstance().then((preferences) => {
-                          preferences.setBool("11", value),
-                        });
+                    WifiManager.instance.setIsNeedWifi(value);
+                    if(WifiManager.instance.isNeedConnectWithWifi()){
+                      PlayControlManager.instance.pause();
+                    }
+                    bus.emit(keyWifiCompulsion);
+                    saveAppSettingWifiCompulsion(value);
                   });
                 },
               ),

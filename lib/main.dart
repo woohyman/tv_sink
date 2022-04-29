@@ -9,13 +9,15 @@ import 'package:tvSink/model/bean/TvResource.dart';
 import 'package:tvSink/routes/RouterTable.dart';
 
 import 'ad/TvInterstitialAd.dart';
+import 'business/WifiManager.dart';
 import 'pages/ScaffoldRoute.dart';
 
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-
+  WifiManager.instance.init();
   MobileAds.instance.initialize();
+
   FlutterBugly.postCatchedException(() {
     // 如果需要 ensureInitialized，请在这里运行。
     // WidgetsFlutterBinding.ensureInitialized();

@@ -5,6 +5,7 @@ import 'package:tvSink/model/sharePreference.dart';
 import '../ad/TvInterstitialAd.dart';
 import '../business/EventBus.dart';
 import '../business/PlayControlManager.dart';
+import '../business/WifiManager.dart';
 import '../model/bean/TvResource.dart';
 import '../model/bean/data.dart';
 import '../util/const.dart';
@@ -112,6 +113,12 @@ class _TvNameListState extends State<TvNameList> {
                     semanticContainer: false,
                     child: InkWell(
                         onTap: () async {
+                          if(WifiManager.instance.isNeedConnectWithWifi()){
+                            bus.emit(keyWifiCompulsion);
+                            PlayControlManager.instance.pause();
+                            return;
+                          }
+
                           await TvInterstitialAd.instance.load();
                           TvInterstitialAd.instance.showAd(tvName, () {
                             position.tabIndex = index;

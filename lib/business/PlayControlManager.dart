@@ -1,7 +1,7 @@
 import 'package:fijkplayer/fijkplayer.dart';
-import 'package:tvSink/util/log.dart';
 import '../util/const.dart';
 import 'EventBus.dart';
+import 'WifiManager.dart';
 
 class PlayControlManager {
   final FijkPlayer _player = FijkPlayer();
@@ -49,6 +49,10 @@ class PlayControlManager {
 
   void pause() async {
     await _player.pause();
+  }
+
+  void stop() async {
+    await _player.stop();
   }
 
   void play() async {
