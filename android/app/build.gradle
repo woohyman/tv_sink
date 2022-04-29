@@ -1,9 +1,17 @@
+import java.text.SimpleDateFormat
+
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
 if (localPropertiesFile.exists()) {
     localPropertiesFile.withReader('UTF-8') { reader ->
         localProperties.load(reader)
     }
+}
+
+def keystoreProperties = new Properties()
+def keystorePropertiesFile = rootProject.file('key.properties')
+if (keystorePropertiesFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 }
 
 def flutterRoot = localProperties.getProperty('flutter.sdk')
@@ -45,19 +53,39 @@ android {
 
         ndk {
             //设置支持的SO库架构
-            abiFilters 'arm64-v8a', 'x86', 'armeabi-v7a', 'x86_64'
+            abiFilters 'arm64-v8a', 'armeabi-v7a'
         }
 
+    }
+
+    signingConfigs {
+        release {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
+            storePassword keystoreProperties['storePassword']
+        }
     }
 
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig signingConfigs.debug
+            signingConfig signingConfigs.release
         }
     }
 
+    //重命名
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "${variant.applicationId}_${variant.flavorName}_${buildType.name}_${variant.versionName}_${buildTime()}.apk"
+        }
+    }
+
+}
+
+static def buildTime() {
+    def df = new SimpleDateFormat("yyyy-MM-dd-HH-mm")
+    df.setTimeZone(TimeZone.getTimeZone("GMT+8:00"))
+    return df.format(new Date())
 }
 
 dependencies {

@@ -64,8 +64,7 @@ class _TvNameListState extends State<TvNameList> {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-        child: ScrollablePositionedList.builder(
+    return ScrollablePositionedList.builder(
       addAutomaticKeepAlives: true,
       itemScrollController: _controller,
       initialScrollIndex: position.listIndex,
@@ -113,7 +112,7 @@ class _TvNameListState extends State<TvNameList> {
                     semanticContainer: false,
                     child: InkWell(
                         onTap: () async {
-                          if(WifiManager.instance.isNeedConnectWithWifi()){
+                          if (WifiManager.instance.isNeedConnectWithWifi()) {
                             bus.emit(keyWifiCompulsion);
                             PlayControlManager.instance.pause();
                             return;
@@ -183,7 +182,7 @@ class _TvNameListState extends State<TvNameList> {
           ],
         );
       },
-    ));
+    );
   }
 }
 
