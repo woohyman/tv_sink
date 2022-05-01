@@ -1,4 +1,3 @@
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bugly/flutter_bugly.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -8,19 +7,18 @@ import 'package:provider/provider.dart';
 import 'package:tvSink/model/bean/TvResource.dart';
 import 'package:tvSink/routes/RouterTable.dart';
 
-import 'ad/TvInterstitialAd.dart';
 import 'business/WifiManager.dart';
 import 'pages/ScaffoldRoute.dart';
 
 void main() {
-  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  WifiManager.instance.init();
-  MobileAds.instance.initialize();
-
   FlutterBugly.postCatchedException(() {
     // 如果需要 ensureInitialized，请在这里运行。
-    // WidgetsFlutterBinding.ensureInitialized();
+    WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+    FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+
+    WifiManager.instance.init();
+    MobileAds.instance.initialize();
+
     runApp(const MyApp());
   });
 }

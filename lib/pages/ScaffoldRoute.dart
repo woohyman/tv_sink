@@ -48,7 +48,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
       // TODO: replace these test ad units with your own ad unit.
       adUnitId: 'ca-app-pub-3940256099942544/6300978111',
       size: size,
-      request: AdRequest(),
+      request: const AdRequest(),
       listener: BannerAdListener(
         onAdLoaded: (Ad ad) {
           print('$ad loaded: ${ad.responseInfo}');
@@ -71,11 +71,18 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
   @override
   void initState() {
     super.initState();
+    FlutterNativeSplash.remove();
+
+    bus.on(keySelectState, (arg) {
+      List<String> _list = arg as List<String>;
+      if (_list.contains(tabSelect)) {
+        _onItemTapped(position.tabIndex);
+      }
+    });
 
     AppOpenAdManager appOpenAdManager = AppOpenAdManager()..loadAd();
     WidgetsBinding.instance!.addObserver(AppLifecycleReactor(appOpenAdManager: appOpenAdManager));
 
-    FlutterNativeSplash.remove();
     _flutterBuglyManager = FlutterBuglyManager(context);
     _flutterBuglyManager.init().then((value) => {setState(() {})});
 
@@ -90,13 +97,6 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
 
   @override
   Widget build(BuildContext context) {
-    bus.on(keySelectState, (arg) {
-      List<String> _list = arg as List<String>;
-      if (_list.contains(tabSelect)) {
-        _onItemTapped(position.tabIndex, context);
-      }
-    });
-
     return Scaffold(
         appBar: AppBar(
           title: const Text("电视汇"),
@@ -118,7 +118,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
               child: PageView(
                 controller: _pageController,
                 onPageChanged: (index) {
-                  _onItemTapped(index, context);
+                  _onItemTapped(index);
                 },
                 children: const <Widget>[
                   KeepAliveWrapper(
@@ -149,7 +149,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
               currentIndex: value,
               fixedColor: Colors.blue,
               onTap: (index) async {
-                _onItemTapped(index, context);
+                _onItemTapped(index);
               },
             );
           },
@@ -157,7 +157,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
         ));
   }
 
-  void _onItemTapped(int index, BuildContext context) {
+  void _onItemTapped(int index) {
     _pageController?.jumpToPage(index);
     _selectedIndex.value = index;
   }
