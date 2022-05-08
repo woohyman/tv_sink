@@ -83,8 +83,8 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
     AppOpenAdManager appOpenAdManager = AppOpenAdManager()..loadAd();
     WidgetsBinding.instance!.addObserver(AppLifecycleReactor(appOpenAdManager: appOpenAdManager));
 
-    _flutterBuglyManager = FlutterBuglyManager(context);
-    _flutterBuglyManager.init().then((value) => {setState(() {})});
+    _flutterBuglyManager = FlutterBuglyManager();
+    _flutterBuglyManager.init(context).then((value) => {setState(() {})});
 
     _pageController = PageController();
   }
