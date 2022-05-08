@@ -83,7 +83,6 @@ class _TvNameListState extends State<TvNameList> {
           }
         });
 
-        // bool isCurIndex = value == innerIndex;
         List<DropdownMenuItem<String>>? myItems = [];
         Set? sets = getSourceSet(index, innerIndex);
         sets.toList().asMap().forEach((key, value) {
