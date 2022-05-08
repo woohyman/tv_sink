@@ -136,12 +136,10 @@ class _SliderLeftState extends State<SliderLeft> {
                       ListTile(
                         leading: const Icon(Icons.settings),
                         title: const Text('应用设置'),
-                        onTap: () => Navigator.of(context).pushNamed(RouterTable.appSettingPath),
+                        onTap: () => Navigator.of(context).popAndPushNamed(RouterTable.appSettingPath),
                       ),
                       ListTile(
-                        onTap: () => {
-                          Navigator.of(context).popAndPushNamed(RouterTable.historyPath),
-                        },
+                        onTap: () => Navigator.of(context).popAndPushNamed(RouterTable.historyPath),
                         leading: const Icon(Icons.history),
                         title: const Text('观看历史'),
                       ),
