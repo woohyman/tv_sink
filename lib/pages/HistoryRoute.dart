@@ -4,8 +4,9 @@ import 'package:tvSink/util/log.dart';
 import '../ad/TvInterstitialAd.dart';
 import '../business/EventBus.dart';
 import '../business/PlayControlManager.dart';
+import '../business/PlaylistStateManager.dart';
 import '../business/WifiManager.dart';
-import '../model/bean/TvResource.dart';
+import '../model/bean/user.dart';
 import '../model/sharePreference.dart';
 import '../util/const.dart';
 import '../widgets/TvNameList.dart';
@@ -18,14 +19,12 @@ class HistoryRoute extends StatefulWidget {
 }
 
 class _HistoryRouteState extends State<HistoryRoute> {
-  final List<String> _list = [];
+  final Map<String, dynamic> _list = {};
 
   @override
   void initState() {
     fetchHistorySharedPreferences().then((value) => {
-          setState(() {
-            _list.addAll(value.reversed);
-          })
+          setState(() => {_list.addAll(value), logger.e("message $_list")})
         });
     super.initState();
   }
@@ -34,6 +33,8 @@ class _HistoryRouteState extends State<HistoryRoute> {
   Widget build(BuildContext context) {
     return ListView.builder(
         itemBuilder: (BuildContext context, int innerIndex) {
+          String tvName = _list.keys.elementAt(innerIndex);
+          User user = User.fromJson(_list.values.elementAt(innerIndex));
           return Card(
               color: Colors.lightBlue.shade100,
               elevation: 0.0,
@@ -46,7 +47,7 @@ class _HistoryRouteState extends State<HistoryRoute> {
               semanticContainer: false,
               child: InkWell(
                 onTap: () async {
-                  if(WifiManager.instance.isNeedConnectWithWifi()){
+                  if (WifiManager.instance.isNeedConnectWithWifi()) {
                     Navigator.popUntil(context, ModalRoute.withName('/'));
                     bus.emit(keyWifiCompulsion);
                     PlayControlManager.instance.pause();
@@ -54,27 +55,25 @@ class _HistoryRouteState extends State<HistoryRoute> {
                   }
 
                   await TvInterstitialAd.instance.load();
-                  TvInterstitialAd.instance.showAd(_list[innerIndex], () {
+                  TvInterstitialAd.instance.showAd(tvName, () {
                     Navigator.popUntil(context, ModalRoute.withName('/'));
-                    notifyPositionChange(_list[innerIndex]);
-                    setTvChannel(_list[innerIndex], 0);
-                    saveHistorySharedPreferences(_list[innerIndex]);
-
-                    PlayControlManager.instance.setResourceAndPlay(_list[innerIndex], getLiveSource(_list[innerIndex]));
+                    saveHistorySharedPreferences(_list.entries.elementAt(innerIndex));
+                    PlaylistStateManager.instance.setPositionByName(tvName);
+                    PlayControlManager.instance.setResourceAndPlay(tvName, PlaylistStateManager.instance.getSourceByKey(tvName));
                     bus.emit(keySelectState, [tabSelect, scrollToItemSelect]);
                   });
                 },
                 child: Row(
                   children: [
                     Container(
-                      child: getImageProviderByUrl(getIconUrl(index, innerIndex)),
+                      child: getImageProviderByUrl(user.tvgLogo),
                       height: 50,
                       width: 50,
                       margin: const EdgeInsets.only(left: 12, right: 10, top: 5, bottom: 5),
                     ),
                     Padding(
                       child: Text(
-                        _list[innerIndex],
+                        tvName,
                         style: const TextStyle(color: Colors.black, fontSize: 14),
                       ),
                       padding: const EdgeInsets.only(left: 0, right: 0, top: 12, bottom: 12),

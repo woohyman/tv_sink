@@ -1,5 +1,9 @@
+import 'dart:convert';
+
 import 'package:shared_preferences/shared_preferences.dart';
+
 import '../util/const.dart';
+import '../util/log.dart';
 
 SharedPreferences? _sharedPreferences;
 const String keySpHistory = "KeySpHistory";
@@ -8,32 +12,59 @@ const String keySpHistory = "KeySpHistory";
 const String keyAppSettingWifiCompulsion = "KeyAppSettingWifiCompulsion";
 
 //保存指定电视名称历史列表
-void saveHistorySharedPreferences(String tvName) async {
+void saveHistorySharedPreferences(MapEntry<String, dynamic> mapEntry) async {
   SharedPreferences _preferences = _sharedPreferences ?? await SharedPreferences.getInstance();
   List<String>? _list = _preferences.getStringList(keySpHistory) ?? [];
-  if (_list.isNotEmpty && _list.last == tvName) {
-    return;
+
+  if (_list.isNotEmpty) {
+    List<String> item = _list.last.split("------");
+    if (item.length != 2 || item[0] == mapEntry.key) {
+      return;
+    }
   }
-  _list.add(tvName);
+  _list.add(mapEntry.key + "------" + json.encode(mapEntry.value));
   _preferences.setStringList(keySpHistory, _list);
 }
 
 //获取历史列表
-Future<List<String>> fetchHistorySharedPreferences() async {
+Future<Map<String, dynamic>> fetchHistorySharedPreferences() async {
   SharedPreferences _preferences = _sharedPreferences ?? await SharedPreferences.getInstance();
-  return _preferences.getStringList(keySpHistory)?.toList() ?? [];
+  List<String> _list = _preferences.getStringList(keySpHistory)?.toList() ?? [];
+  Map<String, dynamic> map = {};
+  for (var element in _list) {
+    List<String> item = element.split("------");
+    if (item.length != 2) {
+      continue;
+    }
+    map[item[0]] = json.decode(item[1]);
+  }
+  return map;
 }
 
 //保存收藏列表
-Future<void> saveFavoriteSharedPreferences(List<String> _list) async {
+Future<void> saveFavoriteSharedPreferences(Map<String, dynamic> _list) async {
+  logger.e("保存历史列表 $_list");
   SharedPreferences _preferences = _sharedPreferences ?? await SharedPreferences.getInstance();
-  _preferences.setStringList(keySharePreferenceFavoriteList, _list);
+  List<String> values = [];
+  _list.forEach((key, value) {
+    values.add(key + "------" + json.encode(value));
+  });
+  _preferences.setStringList(keySPFavoriteList, values);
 }
 
 //获取收藏列表
-Future<List<String>> fetchFavoriteSharedPreferences() async {
+Future<Map<String, dynamic>> fetchFavoriteSharedPreferences() async {
   SharedPreferences _preferences = _sharedPreferences ?? await SharedPreferences.getInstance();
-  return _preferences.getStringList(keySharePreferenceFavoriteList)?.toList() ?? [];
+  List<String> _list = _preferences.getStringList(keySPFavoriteList)?.toList() ?? [];
+  Map<String, dynamic> map = {};
+  for (var element in _list) {
+    List<String> item = element.split("------");
+    if (item.length != 2) {
+      continue;
+    }
+    map[item[0]] = json.decode(item[1]);
+  }
+  return map;
 }
 
 Future<void> saveAppSettingWifiCompulsion(bool _state) async {

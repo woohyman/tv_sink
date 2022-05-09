@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+
 import '../ad/AppLifecycleReactor.dart';
 import '../ad/AppOpenAdManager.dart';
 import '../ad/banner/AnchorAdapter.dart';
 import '../business/EventBus.dart';
-import '../model/bean/TvResource.dart';
+import '../business/PlaylistStateManager.dart';
 import '../update/FlutterBuglyManager.dart';
 import '../util/const.dart';
 import '../widgets/KeepAliveTest.dart';
@@ -39,7 +40,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
     bus.on(keySelectState, (arg) {
       List<String> _list = arg as List<String>;
       if (_list.contains(tabSelect)) {
-        _onItemTapped(position.tabIndex);
+        _onItemTapped(PlaylistStateManager.instance.position.tabIndex);
       }
     });
 

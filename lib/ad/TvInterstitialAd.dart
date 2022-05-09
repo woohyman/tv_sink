@@ -1,6 +1,7 @@
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:tvSink/business/PlayControlManager.dart';
-import '../model/bean/TvResource.dart';
+
+import '../business/PlaylistStateManager.dart';
 
 class TvInterstitialAd {
   InterstitialAd? _ad;
@@ -32,14 +33,14 @@ class TvInterstitialAd {
   }
 
   void showAd(String _dataSource, Function aaa) async {
-    if (PlayControlManager.instance.intervalTime[getSourceByKey(_dataSource)] ?? true) {
+    if (PlayControlManager.instance.intervalTime[PlaylistStateManager.instance.getSourceByKey(_dataSource)] ?? true) {
       aaa();
       return;
     }
-    try{
+    try {
       _ad!.fullScreenContentCallback = TvFullScreenContentCallback(aaa);
       _ad!.show();
-    }catch(err){
+    } catch (err) {
       await load();
       _ad?.fullScreenContentCallback = TvFullScreenContentCallback(aaa);
       _ad?.show();
@@ -49,6 +50,7 @@ class TvInterstitialAd {
 
 class TvFullScreenContentCallback extends FullScreenContentCallback<InterstitialAd> {
   Function _aaa;
+
   TvFullScreenContentCallback(this._aaa);
 
   @override

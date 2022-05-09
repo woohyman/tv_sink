@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
+import 'package:tvSink/model/bean/user.dart';
 import 'package:tvSink/model/sharePreference.dart';
+import 'package:tvSink/util/log.dart';
 
 import '../ad/TvInterstitialAd.dart';
 import '../business/EventBus.dart';
 import '../business/PlayControlManager.dart';
+import '../business/PlaylistStateManager.dart';
 import '../business/WifiManager.dart';
-import '../model/bean/TvResource.dart';
 import '../model/bean/data.dart';
 import '../util/const.dart';
 
@@ -20,8 +22,6 @@ class TvNameList extends StatefulWidget {
 }
 
 class _TvNameListState extends State<TvNameList> {
-  int index = 0;
-  List<String> _tvList = chineseTvLis.keys.toList();
   final ItemScrollController _controller = ItemScrollController();
 
   @override
@@ -35,31 +35,18 @@ class _TvNameListState extends State<TvNameList> {
 
     bus.on(keyNotifyFavoriteList, (arg) async {
       if (widget._tabIndex == 2) {
-        saveFavoriteSharedPreferences(featuredTvLis).then((value) => {setState(() {})});
+        saveFavoriteSharedPreferences(featuredTvLis).then((value) => {setState(() => {})});
       }
     });
 
     bus.on(keySelectState, (arg) async {
       List<String> _list = arg as List<String>;
       if (_list.contains(scrollToItemSelect)) {
-        if (position.tabIndex == widget._tabIndex) {
-          _controller.jumpTo(index: position.listIndex);
+        if (PlaylistStateManager.instance.position.tabIndex == widget._tabIndex) {
+          _controller.jumpTo(index: PlaylistStateManager.instance.position.listIndex);
         }
       }
     });
-
-    index = widget._tabIndex;
-    switch (index) {
-      case 0:
-        _tvList = chineseTvLis.keys.toList();
-        break;
-      case 1:
-        _tvList = foreignTvLis.keys.toList();
-        break;
-      case 2:
-        _tvList = featuredTvLis;
-        break;
-    }
   }
 
   @override
@@ -67,15 +54,18 @@ class _TvNameListState extends State<TvNameList> {
     return ScrollablePositionedList.builder(
       addAutomaticKeepAlives: true,
       itemScrollController: _controller,
-      initialScrollIndex: position.listIndex,
-      itemCount: _tvList.length,
+      initialScrollIndex: PlaylistStateManager.instance.position.listIndex,
+      itemCount: tvData[widget._tabIndex]?.entries.length ?? 0,
       itemBuilder: (BuildContext context, int innerIndex) {
-        bool _isCurIndex = PlayControlManager().afterFirstPress && position.tabIndex == widget._tabIndex && position.listIndex == innerIndex;
+        bool _isCurIndex = PlayControlManager().afterFirstPress &&
+            PlaylistStateManager.instance.position.tabIndex == widget._tabIndex &&
+            PlaylistStateManager.instance.position.listIndex == innerIndex;
         ValueNotifier<bool> isCurIndex = ValueNotifier<bool>(_isCurIndex);
         bus.on(keySelectState, (arg) {
           List<String> _list = arg as List<String>;
           if (_list.contains(listItemSelect)) {
-            if (position.listIndex == innerIndex && position.tabIndex == index) {
+            if (PlaylistStateManager.instance.position.listIndex == innerIndex &&
+                PlaylistStateManager.instance.position.tabIndex == widget._tabIndex) {
               isCurIndex.value = true;
             } else if (isCurIndex.value) {
               isCurIndex.value = false;
@@ -83,15 +73,17 @@ class _TvNameListState extends State<TvNameList> {
           }
         });
 
+        User user = PlaylistStateManager.instance.getUserByPosition(widget._tabIndex, innerIndex);
+
         List<DropdownMenuItem<String>>? myItems = [];
-        Set? sets = getSourceSet(index, innerIndex);
-        sets.toList().asMap().forEach((key, value) {
+        user.tvgUrl.toList().asMap().forEach((key, value) {
           myItems.add(DropdownMenuItem<String>(
             value: value,
             child: Text("直播源${key + 1}"),
           ));
         });
-        String tvName = _tvList[innerIndex];
+
+        String tvName = tvData[widget._tabIndex]?.keys.elementAt(innerIndex) ?? "";
 
         return Column(
           children: [
@@ -119,17 +111,17 @@ class _TvNameListState extends State<TvNameList> {
 
                           await TvInterstitialAd.instance.load();
                           TvInterstitialAd.instance.showAd(tvName, () {
-                            position.tabIndex = index;
-                            position.listIndex = innerIndex;
+                            PlaylistStateManager.instance.position.tabIndex = widget._tabIndex;
+                            PlaylistStateManager.instance.position.listIndex = innerIndex;
                             bus.emit(keySelectState, [listItemSelect]);
-                            PlayControlManager.instance.setResourceAndPlay(tvName, getLiveSource(tvName));
-                            saveHistorySharedPreferences(tvName);
+                            PlayControlManager.instance.setResourceAndPlay(tvName, PlaylistStateManager.instance.getSourceByKey(tvName));
+                            saveHistorySharedPreferences(MapEntry(tvName, user));
                           });
                         },
                         child: Row(
                           children: <Widget>[
                             Container(
-                              child: getImageProviderByUrl(getIconUrl(index, innerIndex)),
+                              child: getImageProviderByUrl(user.tvgLogo),
                               height: 50,
                               width: 50,
                               margin: const EdgeInsets.only(left: 12, right: 10, top: 5, bottom: 5),
@@ -146,12 +138,12 @@ class _TvNameListState extends State<TvNameList> {
                             Expanded(
                               flex: 3,
                               child: Visibility(
-                                visible: getSourceSet(index, innerIndex).length > 1,
+                                visible: user.tvgUrl.length > 1,
                                 child: DropdownButton<String>(
-                                  value: getLiveSource(tvName),
+                                  value: PlaylistStateManager.instance.getSourceByKey(tvName),
                                   onChanged: (value) {
                                     setState(() {
-                                      setLiveSource(tvName, value);
+                                      PlaylistStateManager.instance.setLiveSource(tvName, value);
                                     });
                                   },
                                   items: myItems,
@@ -163,15 +155,17 @@ class _TvNameListState extends State<TvNameList> {
                               child: InkWell(
                                 onTap: () => {
                                   setState(() {
-                                    if (iscotain(tvName)) {
-                                      removeurl(tvName);
+                                    if (PlaylistStateManager.instance.isContain(tvName)) {
+                                      PlaylistStateManager.instance.removeUrl(tvName);
                                     } else {
-                                      addcollect(tvName);
+                                      PlaylistStateManager.instance.addCollect(tvName, user.toJson());
                                     }
+                                    logger.e("保存历史列表 3333");
                                     bus.emit(keyNotifyFavoriteList);
                                   })
                                 },
-                                child: iscotain(tvName) ? const Icon(Icons.favorite) : const Icon(Icons.favorite_border),
+                                child:
+                                    PlaylistStateManager.instance.isContain(tvName) ? const Icon(Icons.favorite) : const Icon(Icons.favorite_border),
                               ),
                             ),
                           ],
@@ -186,7 +180,6 @@ class _TvNameListState extends State<TvNameList> {
 }
 
 Widget getImageProviderByUrl(String url) {
-  const double size = 180.0;
   if (url.isEmpty) {
     return Image.asset(
       "images/tv_dianshi.png",

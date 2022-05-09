@@ -10,6 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
 
+  json_annotation: ^4.5.0
   scrollable_positioned_list: ^0.2.3
   cached_network_image: ^3.2.0
   transparent_image: ^2.0.0
@@ -104,6 +105,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^1.0.0
+  build_runner: ^2.1.10
+  json_serializable: ^6.2.0
 
 flutter:
   uses-material-design: true
