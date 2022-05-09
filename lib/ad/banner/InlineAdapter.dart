@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:tvSink/util/log.dart';
 
 class InlineAdapter {
   bool _isLoaded = false;
@@ -22,16 +23,17 @@ class InlineAdapter {
 
     // Get an inline adaptive size for the current orientation.
     // AdSize size = AdSize.getCurrentOrientationInlineAdaptiveBannerAdSize(_adWidth.truncate());
-    AdSize size = AdSize.getCurrentOrientationInlineAdaptiveBannerAdSize(200);
+    double _adWidth = MediaQuery.of(context).size.width*0.7;
+    AdSize size = AdSize.getCurrentOrientationInlineAdaptiveBannerAdSize(_adWidth.truncate());
 
     _inlineAdaptiveAd = BannerAd(
       // TODO: replace this test ad unit with your own ad unit.
-      adUnitId: 'ca-app-pub-3940256099942544/9214589741',
+      adUnitId: 'ca-app-pub-3940256099942544/6300978111',
       size: size,
       request: const AdRequest(),
       listener: BannerAdListener(
         onAdLoaded: (Ad ad) async {
-          print('Inline adaptive banner loaded: ${ad.responseInfo}');
+          logger.i('Inline adaptive banner loaded: ${ad.responseInfo}');
 
           // After the ad is loaded, get the platform ad size and use it to
           // update the height of the container. This is necessary because the
@@ -39,7 +41,7 @@ class InlineAdapter {
           BannerAd bannerAd = (ad as BannerAd);
           final AdSize? size = await bannerAd.getPlatformAdSize();
           if (size == null) {
-            print('Error: getPlatformAdSize() returned null for $bannerAd');
+            logger.e('Error: getPlatformAdSize() returned null for $bannerAd');
             return;
           }
 
@@ -49,7 +51,7 @@ class InlineAdapter {
           function();
         },
         onAdFailedToLoad: (Ad ad, LoadAdError error) {
-          print('Inline adaptive banner failedToLoad: $error');
+          logger.e('Inline adaptive banner failedToLoad: $error');
           ad.dispose();
         },
       ),

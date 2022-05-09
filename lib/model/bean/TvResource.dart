@@ -183,7 +183,6 @@ class Position {
   int listIndex = 0;
 
   Position(int _tabIndex, int _listIndex) {
-    logger.e("www1 == Position ==");
     tabIndex = _tabIndex;
     listIndex = _listIndex;
   }

@@ -44,7 +44,6 @@ class AnchorAdapter {
   }
 
   Widget getWidget() {
-    logger.e("ssss == getWidget ==");
     if (_anchoredAdaptiveAd != null && _isLoaded) {
       return Container(
         color: Colors.green,
