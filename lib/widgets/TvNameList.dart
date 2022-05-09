@@ -51,11 +51,20 @@ class _TvNameListState extends State<TvNameList> {
 
   @override
   Widget build(BuildContext context) {
+    int length = tvData[widget._tabIndex]?.entries.length ?? 0;
+    if (length <= 0) {
+      return Container(
+          alignment: Alignment.center,
+          child: const Text(
+            "暂无收藏数据",
+            style: TextStyle(fontSize: 20.0),
+          ));
+    }
     return ScrollablePositionedList.builder(
       addAutomaticKeepAlives: true,
       itemScrollController: _controller,
       initialScrollIndex: PlaylistStateManager.instance.position.listIndex,
-      itemCount: tvData[widget._tabIndex]?.entries.length ?? 0,
+      itemCount: length,
       itemBuilder: (BuildContext context, int innerIndex) {
         bool _isCurIndex = PlayControlManager().afterFirstPress &&
             PlaylistStateManager.instance.position.tabIndex == widget._tabIndex &&
