@@ -1,2 +1,5 @@
 //编译脚本
 keytool -genkey -v -keystore /Users/wujianwu/Desktop/workspace/tvsink/android/app/tvsink.keystore -keyalg RSA -keysize 2048 -validity 20000 -alias tvsink -storetype jks
+
+//
+base存放模块 model存放数据相关

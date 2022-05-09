@@ -1,7 +1,7 @@
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:tvSink/business/PlayControlManager.dart';
+import 'package:tvSink/base/PlayControlManager.dart';
 
-import '../business/PlaylistStateManager.dart';
+import '../base/PlaylistStateManager.dart';
 
 class TvInterstitialAd {
   InterstitialAd? _ad;
@@ -49,14 +49,14 @@ class TvInterstitialAd {
 }
 
 class TvFullScreenContentCallback extends FullScreenContentCallback<InterstitialAd> {
-  Function _aaa;
+  final Function _callback;
 
-  TvFullScreenContentCallback(this._aaa);
+  TvFullScreenContentCallback(this._callback);
 
   @override
   GenericAdEventCallback? get onAdShowedFullScreenContent => (ad) {
         PlayControlManager.instance.pause();
-        _aaa();
+        _callback();
       };
 
   @override
@@ -64,7 +64,7 @@ class TvFullScreenContentCallback extends FullScreenContentCallback<Interstitial
         PlayControlManager.instance.play();
         await ad.dispose();
         await TvInterstitialAd.instance.load();
-        // _aaa();
+        // _callback();
       };
 
   @override
@@ -72,6 +72,6 @@ class TvFullScreenContentCallback extends FullScreenContentCallback<Interstitial
         PlayControlManager.instance.play();
         ad.dispose();
         await TvInterstitialAd.instance.load();
-        // _aaa();
+        _callback();
       };
 }

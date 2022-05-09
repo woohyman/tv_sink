@@ -13,6 +13,7 @@ const String keyAppSettingWifiCompulsion = "KeyAppSettingWifiCompulsion";
 
 //保存指定电视名称历史列表
 void saveHistorySharedPreferences(MapEntry<String, dynamic> mapEntry) async {
+
   SharedPreferences _preferences = _sharedPreferences ?? await SharedPreferences.getInstance();
   List<String>? _list = _preferences.getStringList(keySpHistory) ?? [];
 
@@ -22,6 +23,7 @@ void saveHistorySharedPreferences(MapEntry<String, dynamic> mapEntry) async {
       return;
     }
   }
+
   _list.add(mapEntry.key + "------" + json.encode(mapEntry.value));
   _preferences.setStringList(keySpHistory, _list);
 }
@@ -29,7 +31,7 @@ void saveHistorySharedPreferences(MapEntry<String, dynamic> mapEntry) async {
 //获取历史列表
 Future<Map<String, dynamic>> fetchHistorySharedPreferences() async {
   SharedPreferences _preferences = _sharedPreferences ?? await SharedPreferences.getInstance();
-  List<String> _list = _preferences.getStringList(keySpHistory)?.toList() ?? [];
+  List<String> _list = _preferences.getStringList(keySpHistory)?.reversed.toList() ?? [];
   Map<String, dynamic> map = {};
   for (var element in _list) {
     List<String> item = element.split("------");
@@ -43,7 +45,6 @@ Future<Map<String, dynamic>> fetchHistorySharedPreferences() async {
 
 //保存收藏列表
 Future<void> saveFavoriteSharedPreferences(Map<String, dynamic> _list) async {
-  logger.e("保存历史列表 $_list");
   SharedPreferences _preferences = _sharedPreferences ?? await SharedPreferences.getInstance();
   List<String> values = [];
   _list.forEach((key, value) {

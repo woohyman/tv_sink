@@ -5,10 +5,10 @@ import 'package:tvSink/model/sharePreference.dart';
 import 'package:tvSink/util/log.dart';
 
 import '../ad/TvInterstitialAd.dart';
-import '../business/EventBus.dart';
-import '../business/PlayControlManager.dart';
-import '../business/PlaylistStateManager.dart';
-import '../business/WifiManager.dart';
+import '../base/EventBus.dart';
+import '../base/PlayControlManager.dart';
+import '../base/PlaylistStateManager.dart';
+import '../base/WifiManager.dart';
 import '../model/bean/data.dart';
 import '../util/const.dart';
 
@@ -169,7 +169,6 @@ class _TvNameListState extends State<TvNameList> {
                                     } else {
                                       PlaylistStateManager.instance.addCollect(tvName, user.toJson());
                                     }
-                                    logger.e("保存历史列表 3333");
                                     bus.emit(keyNotifyFavoriteList);
                                   })
                                 },

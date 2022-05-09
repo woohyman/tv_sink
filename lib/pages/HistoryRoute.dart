@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:tvSink/util/log.dart';
 
 import '../ad/TvInterstitialAd.dart';
-import '../business/EventBus.dart';
-import '../business/PlayControlManager.dart';
-import '../business/PlaylistStateManager.dart';
-import '../business/WifiManager.dart';
+import '../base/EventBus.dart';
+import '../base/PlayControlManager.dart';
+import '../base/PlaylistStateManager.dart';
+import '../base/WifiManager.dart';
 import '../model/bean/user.dart';
 import '../model/sharePreference.dart';
 import '../util/const.dart';
@@ -24,13 +24,22 @@ class _HistoryRouteState extends State<HistoryRoute> {
   @override
   void initState() {
     fetchHistorySharedPreferences().then((value) => {
-          setState(() => {_list.addAll(value), logger.e("message $_list")})
+          setState(() => {_list.addAll(value),})
         });
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    if (_list.isEmpty) {
+      return Container(
+          alignment: Alignment.center,
+          child: const Text(
+            "暂无历史数据",
+            style: TextStyle(fontSize: 20.0),
+          ));
+    }
+
     return ListView.builder(
         itemBuilder: (BuildContext context, int innerIndex) {
           String tvName = _list.keys.elementAt(innerIndex);

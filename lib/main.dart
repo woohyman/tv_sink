@@ -5,7 +5,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:tvSink/routes/RouterTable.dart';
 
-import 'business/WifiManager.dart';
+import 'base/WifiManager.dart';
 import 'pages/ScaffoldRoute.dart';
 
 void main() {
