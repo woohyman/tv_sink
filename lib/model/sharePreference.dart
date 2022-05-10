@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../util/const.dart';
-import '../util/log.dart';
 
 SharedPreferences? _sharedPreferences;
 const String keySpHistory = "KeySpHistory";

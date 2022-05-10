@@ -1,10 +1,10 @@
+import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 import '../ad/AppLifecycleReactor.dart';
 import '../ad/AppOpenAdManager.dart';
 import '../ad/banner/AnchorAdapter.dart';
-import '../base/EventBus.dart';
 import '../base/PlaylistStateManager.dart';
 import '../update/FlutterBuglyManager.dart';
 import '../util/const.dart';
@@ -37,10 +37,14 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
     super.initState();
     FlutterNativeSplash.remove();
 
-    bus.on(keySelectState, (arg) {
-      List<String> _list = arg as List<String>;
-      if (_list.contains(tabSelect)) {
-        _onItemTapped(PlaylistStateManager.instance.position.tabIndex);
+    eventBus.on<MapEntry<String, dynamic>>().listen((event) {
+      switch (event.key) {
+        case keySelectState:
+          List<String> _list = event.value as List<String>;
+          if (_list.contains(tabSelect)) {
+            _onItemTapped(PlaylistStateManager.instance.position.tabIndex);
+          }
+          break;
       }
     });
 

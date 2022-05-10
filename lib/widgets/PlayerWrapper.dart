@@ -1,6 +1,7 @@
+import 'package:event_bus/event_bus.dart';
 import 'package:fijkplayer/fijkplayer.dart';
 import 'package:flutter/material.dart';
-import '../base/EventBus.dart';
+
 import '../base/PlayControlManager.dart';
 import '../base/WifiManager.dart';
 import '../util/const.dart';
@@ -17,10 +18,15 @@ class _PlayerWrapperState extends State<PlayerWrapper> {
 
   @override
   void initState() {
-    bus.on(keyWifiCompulsion, (arg) => setState(() {}));
-
-    bus.on(startPlayTv, (arg) {
-      showBannerBg.value = arg;
+    eventBus.on<MapEntry<String, dynamic>>().listen((event) {
+      switch (event.key) {
+        case keyWifiCompulsion:
+          setState(() {});
+          break;
+        case startPlayTv:
+          showBannerBg.value = event.value;
+          break;
+      }
     });
     super.initState();
   }
@@ -67,10 +73,7 @@ class _PlayerWrapperState extends State<PlayerWrapper> {
             child: const Align(
               child: Text(
                 "数据流量下不能播放！请前往设置界面修改！",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20
-                ),
+                style: TextStyle(color: Colors.white, fontSize: 20),
               ),
             ),
           ),

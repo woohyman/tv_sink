@@ -7,7 +7,7 @@ import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:tvSink/util/log.dart';
 
-import '../pages/update_dialog.dart';
+import '../pages/UpdateDialog.dart';
 
 class FlutterBuglyManager {
   final GlobalKey<UpdateDialogState> _dialogKey = GlobalKey();

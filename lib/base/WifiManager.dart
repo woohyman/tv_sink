@@ -1,8 +1,6 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
-import 'package:tvSink/util/log.dart';
 import '../model/sharePreference.dart';
 import '../util/const.dart';
-import 'EventBus.dart';
 import 'PlayControlManager.dart';
 
 class WifiManager {
@@ -24,7 +22,7 @@ class WifiManager {
     Connectivity().onConnectivityChanged.listen((ConnectivityResult result) async {
       _result = result;
       _isNeedWifi = await fetchAppSettingWifiCompulsion();
-      bus.emit(keyWifiCompulsion);
+      eventBus.fire(const MapEntry(keyWifiCompulsion, null));
       if (_result == ConnectivityResult.mobile && _isNeedWifi) {
         PlayControlManager.instance.pause();
       }

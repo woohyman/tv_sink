@@ -1,3 +1,4 @@
+import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:tvSink/model/bean/user.dart';
@@ -5,7 +6,6 @@ import 'package:tvSink/model/sharePreference.dart';
 import 'package:tvSink/util/log.dart';
 
 import '../ad/TvInterstitialAd.dart';
-import '../base/EventBus.dart';
 import '../base/PlayControlManager.dart';
 import '../base/PlaylistStateManager.dart';
 import '../base/WifiManager.dart';
@@ -33,18 +33,22 @@ class _TvNameListState extends State<TvNameList> {
       featuredTvLis.addAll(value);
     });
 
-    bus.on(keyNotifyFavoriteList, (arg) async {
-      if (widget._tabIndex == 2) {
-        saveFavoriteSharedPreferences(featuredTvLis).then((value) => {setState(() => {})});
-      }
-    });
-
-    bus.on(keySelectState, (arg) async {
-      List<String> _list = arg as List<String>;
-      if (_list.contains(scrollToItemSelect)) {
-        if (PlaylistStateManager.instance.position.tabIndex == widget._tabIndex) {
-          _controller.jumpTo(index: PlaylistStateManager.instance.position.listIndex);
-        }
+    eventBus.on<MapEntry<String, dynamic>>().listen((event) {
+      logger.i("====> 接收 $event");
+      switch (event.key) {
+        case keyNotifyFavoriteList:
+          if (widget._tabIndex == 2) {
+            saveFavoriteSharedPreferences(featuredTvLis).then((value) => {setState(() => {})});
+          }
+          break;
+        case keySelectState:
+          List<String> _list = event.value as List<String>;
+          if (_list.contains(scrollToItemSelect)) {
+            if (PlaylistStateManager.instance.position.tabIndex == widget._tabIndex) {
+              _controller.jumpTo(index: PlaylistStateManager.instance.position.listIndex);
+            }
+          }
+          break;
       }
     });
   }
@@ -70,15 +74,20 @@ class _TvNameListState extends State<TvNameList> {
             PlaylistStateManager.instance.position.tabIndex == widget._tabIndex &&
             PlaylistStateManager.instance.position.listIndex == innerIndex;
         ValueNotifier<bool> isCurIndex = ValueNotifier<bool>(_isCurIndex);
-        bus.on(keySelectState, (arg) {
-          List<String> _list = arg as List<String>;
-          if (_list.contains(listItemSelect)) {
-            if (PlaylistStateManager.instance.position.listIndex == innerIndex &&
-                PlaylistStateManager.instance.position.tabIndex == widget._tabIndex) {
-              isCurIndex.value = true;
-            } else if (isCurIndex.value) {
-              isCurIndex.value = false;
-            }
+
+        eventBus.on<MapEntry<String, dynamic>>().listen((event) {
+          switch (event.key) {
+            case keySelectState:
+              List<String> _list = event.value as List<String>;
+              if (_list.contains(listItemSelect)) {
+                if (PlaylistStateManager.instance.position.listIndex == innerIndex &&
+                    PlaylistStateManager.instance.position.tabIndex == widget._tabIndex) {
+                  isCurIndex.value = true;
+                } else if (isCurIndex.value) {
+                  isCurIndex.value = false;
+                }
+              }
+              break;
           }
         });
 
@@ -112,8 +121,11 @@ class _TvNameListState extends State<TvNameList> {
                     semanticContainer: false,
                     child: InkWell(
                         onTap: () async {
+                          eventBus.fire(const MapEntry(keySelectState, [listItemSelect]));
+
                           if (WifiManager.instance.isNeedConnectWithWifi()) {
-                            bus.emit(keyWifiCompulsion);
+                            logger.i("====> 发送 keyWifiCompulsion");
+                            eventBus.fire(const MapEntry(keyWifiCompulsion, null));
                             PlayControlManager.instance.pause();
                             return;
                           }
@@ -122,7 +134,8 @@ class _TvNameListState extends State<TvNameList> {
                           TvInterstitialAd.instance.showAd(tvName, () {
                             PlaylistStateManager.instance.position.tabIndex = widget._tabIndex;
                             PlaylistStateManager.instance.position.listIndex = innerIndex;
-                            bus.emit(keySelectState, [listItemSelect]);
+                            logger.i("====> 发送 keySelectState");
+                            eventBus.fire(const MapEntry(keySelectState, [listItemSelect]));
                             PlayControlManager.instance.setResourceAndPlay(tvName, PlaylistStateManager.instance.getSourceByKey(tvName));
                             saveHistorySharedPreferences(MapEntry(tvName, user));
                           });
@@ -169,7 +182,7 @@ class _TvNameListState extends State<TvNameList> {
                                     } else {
                                       PlaylistStateManager.instance.addCollect(tvName, user.toJson());
                                     }
-                                    bus.emit(keyNotifyFavoriteList);
+                                    eventBus.fire(const MapEntry(keyNotifyFavoriteList, null));
                                   })
                                 },
                                 child:

@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 
 class UpdateDialog extends StatefulWidget {
-  final key;
-  final version;
+  final String version;
   final Function? onClickWhenDownload;
   final Function? onClickWhenNotDownload;
 
-  UpdateDialog({
-    this.key,
-    this.version,
+  const UpdateDialog({
+    Key? key,
+    required this.version,
     this.onClickWhenDownload,
     this.onClickWhenNotDownload,
-  });
+  }) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => new UpdateDialogState();
+  State<StatefulWidget> createState() => UpdateDialogState();
 }
 
 class UpdateDialogState extends State<UpdateDialog> {
@@ -28,9 +27,7 @@ class UpdateDialogState extends State<UpdateDialog> {
 
     return AlertDialog(
       title: Text("有新的更新", style: _textStyle),
-      content: _downloadProgress == 0.0
-          ? Text("版本${widget.version}", style: _textStyle)
-          : LinearProgressIndicator(value: _downloadProgress),
+      content: _downloadProgress == 0.0 ? Text("版本${widget.version}", style: _textStyle) : LinearProgressIndicator(value: _downloadProgress),
       actions: <Widget>[
         TextButton(
           child: Text('更新', style: _textStyle),
@@ -43,7 +40,7 @@ class UpdateDialogState extends State<UpdateDialog> {
           },
         ),
         TextButton(
-          child: Text('取消'),
+          child: const Text('取消'),
           onPressed: () {
             Navigator.of(context).pop();
           },

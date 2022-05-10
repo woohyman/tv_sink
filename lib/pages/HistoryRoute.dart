@@ -1,8 +1,7 @@
+import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
-import 'package:tvSink/util/log.dart';
 
 import '../ad/TvInterstitialAd.dart';
-import '../base/EventBus.dart';
 import '../base/PlayControlManager.dart';
 import '../base/PlaylistStateManager.dart';
 import '../base/WifiManager.dart';
@@ -58,7 +57,7 @@ class _HistoryRouteState extends State<HistoryRoute> {
                 onTap: () async {
                   if (WifiManager.instance.isNeedConnectWithWifi()) {
                     Navigator.popUntil(context, ModalRoute.withName('/'));
-                    bus.emit(keyWifiCompulsion);
+                    eventBus.fire(const MapEntry(keyWifiCompulsion, null));
                     PlayControlManager.instance.pause();
                     return;
                   }
@@ -69,7 +68,7 @@ class _HistoryRouteState extends State<HistoryRoute> {
                     saveHistorySharedPreferences(_list.entries.elementAt(innerIndex));
                     PlaylistStateManager.instance.setPositionByName(tvName);
                     PlayControlManager.instance.setResourceAndPlay(tvName, PlaylistStateManager.instance.getSourceByKey(tvName));
-                    bus.emit(keySelectState, [tabSelect, scrollToItemSelect]);
+                    eventBus.fire(const MapEntry(keySelectState, [tabSelect, scrollToItemSelect]));
                   });
                 },
                 child: Row(

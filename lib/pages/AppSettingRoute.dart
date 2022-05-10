@@ -1,9 +1,9 @@
+import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:tvSink/base/WifiManager.dart';
 import 'package:tvSink/model/sharePreference.dart';
 
-import '../base/EventBus.dart';
 import '../base/PlayControlManager.dart';
 import '../update/FlutterBuglyManager.dart';
 import '../util/const.dart';
@@ -55,7 +55,7 @@ class _SettingRouteState extends State<AppSettingRoute> {
                     if (WifiManager.instance.isNeedConnectWithWifi()) {
                       PlayControlManager.instance.pause();
                     }
-                    bus.emit(keyWifiCompulsion);
+                    eventBus.fire(const MapEntry(keyWifiCompulsion, null));
                     saveAppSettingWifiCompulsion(value);
                   });
                 },

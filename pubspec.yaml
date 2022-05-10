@@ -50,8 +50,8 @@ dependencies:
   #  rxdart: ^0.23.0
   #状态管理
   provider: ^6.0.1
-  #  # 消息中心（事件发送和监听）
-  #  event_bus: ^1.1.1
+  # 消息中心（事件发送和监听）
+  event_bus: ^2.0.0
   #  #webView
   #  webview_flutter: ^1.0.7
   #  #调用底层的拨打电话、发送邮件、发送信息以及打开网址和打开第三方应用等等

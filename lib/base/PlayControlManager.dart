@@ -1,7 +1,6 @@
+import 'package:event_bus/event_bus.dart';
 import 'package:fijkplayer/fijkplayer.dart';
 import '../util/const.dart';
-import 'EventBus.dart';
-import 'WifiManager.dart';
 
 class PlayControlManager {
   final FijkPlayer _player = FijkPlayer();
@@ -36,7 +35,7 @@ class PlayControlManager {
 
   void setResourceAndPlay(String tvName, String source) async {
     bool _autoPlay = _intervalTime[source] ?? true;
-    bus.emit(startPlayTv, true);
+    eventBus.fire(const MapEntry(startPlayTv, true));
     _afterFirstPress = true;
     await _player.reset();
     await _player.setDataSource(source,autoPlay: false);
