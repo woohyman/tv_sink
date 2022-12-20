@@ -5,7 +5,7 @@ import '../ad/TvInterstitialAd.dart';
 import '../domain/PlayControlManager.dart';
 import '../domain/PlaylistStateManager.dart';
 import '../domain/WifiManager.dart';
-import '../domain/model/bean/user.dart';
+import '../domain/model/user.dart';
 import '../datastore/sharePreference.dart';
 import '../util/const.dart';
 import '../widgets/TvNameList.dart';

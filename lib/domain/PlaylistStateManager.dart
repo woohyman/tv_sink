@@ -1,5 +1,5 @@
-import '../domain/model/bean/data.dart';
-import '../domain/model/bean/user.dart';
+import '../mock/data.dart';
+import 'model/user.dart';
 
 class PlaylistStateManager {
   PlaylistStateManager._();

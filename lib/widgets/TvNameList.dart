@@ -1,7 +1,7 @@
 import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
-import 'package:tvSink/domain/model/bean/user.dart';
+import 'package:tvSink/domain/model/user.dart';
 import 'package:tvSink/datastore/sharePreference.dart';
 import 'package:tvSink/util/log.dart';
 
@@ -9,7 +9,7 @@ import '../ad/TvInterstitialAd.dart';
 import '../domain/PlayControlManager.dart';
 import '../domain/PlaylistStateManager.dart';
 import '../domain/WifiManager.dart';
-import '../domain/model/bean/data.dart';
+import '../mock/data.dart';
 import '../util/const.dart';
 
 class TvNameList extends StatefulWidget {

@@ -3,13 +3,10 @@ import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:tvSink/util/log.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  readContent()
-      .then((value) => {print("解析成功！")})
-      .onError((error, stackTrace) => {print("$error : $stackTrace")});
+  readContent().then((value) => {print("解析成功！")}).onError((error, stackTrace) => {print("$error : $stackTrace")});
 }
 
 //从文件读出字符串
@@ -33,12 +30,11 @@ Future<String> readContent() async {
           if (arrays1[0].contains("group-title") || arrays1[0].contains("user-agent")) {
             var arrays2 = arrays1[1].split(",");
             result["\"${arrays1[0]}\""] = arrays2[0];
-            if (arrays2.length>1 && out["\"${arrays2[1]}\""] == null) {
+            if (arrays2.length > 1 && out["\"${arrays2[1]}\""] == null) {
               out["\"${arrays2[1]}\""] = result;
             }
           } else {
-            result["\"${arrays1[0]}\""] =
-                arrays1[1].endsWith("\"") ? arrays1[1] : arrays1[1] + "\"";
+            result["\"${arrays1[0]}\""] = arrays1[1].endsWith("\"") ? arrays1[1] : arrays1[1] + "\"";
           }
         }
       }
