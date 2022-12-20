@@ -1,10 +1,10 @@
 import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:tvSink/base/WifiManager.dart';
-import 'package:tvSink/model/sharePreference.dart';
+import 'package:tvSink/domain/WifiManager.dart';
+import 'package:tvSink/datastore/sharePreference.dart';
 
-import '../base/PlayControlManager.dart';
+import '../domain/PlayControlManager.dart';
 import '../update/FlutterBuglyManager.dart';
 import '../util/const.dart';
 

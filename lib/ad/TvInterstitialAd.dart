@@ -1,7 +1,7 @@
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:tvSink/base/PlayControlManager.dart';
+import 'package:tvSink/domain/PlayControlManager.dart';
 
-import '../base/PlaylistStateManager.dart';
+import '../domain/PlaylistStateManager.dart';
 
 class TvInterstitialAd {
   InterstitialAd? _ad;

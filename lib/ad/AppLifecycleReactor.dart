@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tvSink/base/PlayControlManager.dart';
+import 'package:tvSink/domain/PlayControlManager.dart';
 
 import 'AppOpenAdManager.dart';
 

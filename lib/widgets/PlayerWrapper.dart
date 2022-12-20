@@ -2,8 +2,8 @@ import 'package:event_bus/event_bus.dart';
 import 'package:fijkplayer/fijkplayer.dart';
 import 'package:flutter/material.dart';
 
-import '../base/PlayControlManager.dart';
-import '../base/WifiManager.dart';
+import '../domain/PlayControlManager.dart';
+import '../domain/WifiManager.dart';
 import '../util/const.dart';
 
 class PlayerWrapper extends StatefulWidget {

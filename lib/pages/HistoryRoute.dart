@@ -2,11 +2,11 @@ import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
 
 import '../ad/TvInterstitialAd.dart';
-import '../base/PlayControlManager.dart';
-import '../base/PlaylistStateManager.dart';
-import '../base/WifiManager.dart';
-import '../model/bean/user.dart';
-import '../model/sharePreference.dart';
+import '../domain/PlayControlManager.dart';
+import '../domain/PlaylistStateManager.dart';
+import '../domain/WifiManager.dart';
+import '../domain/model/bean/user.dart';
+import '../datastore/sharePreference.dart';
 import '../util/const.dart';
 import '../widgets/TvNameList.dart';
 

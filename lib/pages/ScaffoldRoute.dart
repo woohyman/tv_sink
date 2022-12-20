@@ -5,7 +5,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import '../ad/AppLifecycleReactor.dart';
 import '../ad/AppOpenAdManager.dart';
 import '../ad/banner/AnchorAdapter.dart';
-import '../base/PlaylistStateManager.dart';
+import '../domain/PlaylistStateManager.dart';
 import '../update/FlutterBuglyManager.dart';
 import '../util/const.dart';
 import '../widgets/KeepAliveTest.dart';
