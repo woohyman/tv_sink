@@ -1,9 +1,15 @@
-import 'package:event_bus/event_bus.dart';
-import 'package:fijkplayer/fijkplayer.dart';
+import 'dart:ui';
+
+import 'package:video_player/video_player.dart';
+
 import '../util/const.dart';
 
 class PlayControlManager {
-  final FijkPlayer _player = FijkPlayer();
+  VideoPlayerController controller = VideoPlayerController.networkUrl(
+    Uri.parse('http://liveop.cctv.cn/hls/4KHD/playlist.m3u8'),
+    videoPlayerOptions: VideoPlayerOptions(mixWithOthers: true),
+  );
+
   String curDataSource = "";
   bool _afterFirstPress = false;
 
@@ -14,20 +20,25 @@ class PlayControlManager {
   Map<String, bool> get intervalTime => _intervalTime;
 
   PlayControlManager._() {
-    _player.addListener(() {
-      if (FijkState.initialized == _player.state && _preSnapTime<0) {
-        _preSnapTime = DateTime.now().millisecondsSinceEpoch;
-      } else if (FijkState.started == _player.state && _preSnapTime > 0) {
-        int _interval = DateTime.now().millisecondsSinceEpoch - _preSnapTime;
-        _intervalTime[_player.dataSource ?? ""] = _interval < 2000;
-        _preSnapTime = -1;
-      }
+    controller.addListener(() {
+      // if (FijkState.initialized == _player.state && _preSnapTime<0) {
+      //   _preSnapTime = DateTime.now().millisecondsSinceEpoch;
+      // } else if (FijkState.started == _player.state && _preSnapTime > 0) {
+      //   int _interval = DateTime.now().millisecondsSinceEpoch - _preSnapTime;
+      //   _intervalTime[controller.dataSource ?? ""] = _interval < 2000;
+      //   _preSnapTime = -1;
+      // }
     });
   }
 
   //第一种方式调用
   factory PlayControlManager() {
     return instance;
+  }
+
+  VoidCallback? _listener;
+  void addListener(VoidCallback listener){
+    _listener = listener;
   }
 
   //第二种方式调用
@@ -37,32 +48,38 @@ class PlayControlManager {
     bool _autoPlay = _intervalTime[source] ?? true;
     eventBus.fire(const MapEntry(startPlayTv, true));
     _afterFirstPress = true;
-    await _player.reset();
-    await _player.setDataSource(source,autoPlay: false);
-    await _player.prepareAsync();
-    if(_autoPlay){
-      _player.start();
-    }
 
+    await controller.dispose();
+    // source = "http://liveop.cctv.cn/hls/4KHD/playlist.m3u8";
+    print("== Uri.parse(source) =="+source);
+
+    controller = VideoPlayerController.networkUrl(
+      Uri.parse(source),
+      videoPlayerOptions: VideoPlayerOptions(mixWithOthers: true),
+    );
+    // if(_autoPlay){
+
+    await controller.initialize();
+    await controller.play();
+    print("== controller.play() =="+controller.value.toString());
+    // }
+
+    _listener?.call();
   }
 
   void pause() async {
-    await _player.pause();
+    await controller.pause();
   }
 
   void stop() async {
-    await _player.stop();
+    await controller.pause();
   }
 
   void play() async {
-    await _player.start();
+    await controller.play();
   }
 
   void release() async {
-    await _player.release();
-  }
-
-  FijkPlayer getPlayer() {
-    return _player;
+    await controller.dispose();
   }
 }

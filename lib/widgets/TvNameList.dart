@@ -5,7 +5,6 @@ import 'package:tvSink/domain/model/user.dart';
 import 'package:tvSink/datastore/sharePreference.dart';
 import 'package:tvSink/util/log.dart';
 
-import '../ad/TvInterstitialAd.dart';
 import '../domain/PlayControlManager.dart';
 import '../domain/PlaylistStateManager.dart';
 import '../domain/WifiManager.dart';
@@ -130,15 +129,12 @@ class _TvNameListState extends State<TvNameList> {
                             return;
                           }
 
-                          await TvInterstitialAd.instance.load();
-                          TvInterstitialAd.instance.showAd(tvName, () {
-                            PlaylistStateManager.instance.position.tabIndex = widget._tabIndex;
-                            PlaylistStateManager.instance.position.listIndex = innerIndex;
-                            logger.i("====> 发送 keySelectState");
-                            eventBus.fire(const MapEntry(keySelectState, [listItemSelect]));
-                            PlayControlManager.instance.setResourceAndPlay(tvName, PlaylistStateManager.instance.getSourceByKey(tvName));
-                            saveHistorySharedPreferences(MapEntry(tvName, user));
-                          });
+                          PlaylistStateManager.instance.position.tabIndex = widget._tabIndex;
+                          PlaylistStateManager.instance.position.listIndex = innerIndex;
+                          logger.i("====> 发送 keySelectState");
+                          eventBus.fire(const MapEntry(keySelectState, [listItemSelect]));
+                          PlayControlManager.instance.setResourceAndPlay(tvName, PlaylistStateManager.instance.getSourceByKey(tvName));
+                          saveHistorySharedPreferences(MapEntry(tvName, user));
                         },
                         child: Row(
                           children: <Widget>[

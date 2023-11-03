@@ -1,13 +1,12 @@
-import 'package:event_bus/event_bus.dart';
-import 'package:fijkplayer/fijkplayer.dart';
 import 'package:flutter/material.dart';
+import 'package:video_player/video_player.dart';
 
 import '../domain/PlayControlManager.dart';
 import '../domain/WifiManager.dart';
 import '../util/const.dart';
 
 class PlayerWrapper extends StatefulWidget {
-  PlayerWrapper({Key? key}) : super(key: key) {}
+  const PlayerWrapper({Key? key}) : super(key: key);
 
   @override
   State<PlayerWrapper> createState() => _PlayerWrapperState();
@@ -28,57 +27,69 @@ class _PlayerWrapperState extends State<PlayerWrapper> {
           break;
       }
     });
+
+    PlayControlManager.instance.controller.initialize();
+    PlayControlManager.instance.addListener(() {
+      print("====================********************=====>");
+      setState(() {});
+    });
+
     super.initState();
   }
 
-  static const FijkFit fill = FijkFit(
-    sizeFactor: 1.0,
-    aspectRatio: -1,
-    alignment: Alignment.center,
-  );
+  @override
+  void dispose() {
+    PlayControlManager.instance.controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.center,
-      children: <Widget>[
-        ValueListenableBuilder<bool>(
-          builder: (BuildContext context, bool value, Widget? child) {
-            return Visibility(
-              visible: showBannerBg.value,
-              child: InkWell(
-                  child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  FijkView(
-                    color: Colors.black,
-                    height: 250,
-                    fit: fill,
-                    player: PlayControlManager.instance.getPlayer(),
-                    fs: true,
-                    cover: const NetworkImage(
-                        "https://ss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b3b7d0a20cf431ad7831c9504b36acaf2fdd98fc.jpg"),
+    return SizedBox(
+      height: 500,
+      child: Stack(
+        alignment: Alignment.center,
+        children: <Widget>[
+          ValueListenableBuilder<bool>(
+            builder: (BuildContext context, bool value, Widget? child) {
+              return Container(
+                padding: const EdgeInsets.all(20),
+                child: AspectRatio(
+                  aspectRatio:
+                      PlayControlManager.instance.controller.value.aspectRatio,
+                  child: Stack(
+                    alignment: Alignment.bottomCenter,
+                    children: <Widget>[
+                      VideoPlayer(PlayControlManager.instance.controller),
+                      ClosedCaption(
+                          text: PlayControlManager
+                              .instance.controller.value.caption.text),
+                      VideoProgressIndicator(
+                          PlayControlManager.instance.controller,
+                          allowScrubbing: true),
+                    ],
                   ),
-                ],
-              )),
-            );
-          },
-          valueListenable: showBannerBg,
-        ),
-        Visibility(
-          visible: WifiManager.instance.isNeedConnectWithWifi(),
-          child: Container(
-            padding: const EdgeInsets.only(left: 0, right: 0, top: 12, bottom: 12),
-            color: Colors.black,
-            child: const Align(
-              child: Text(
-                "数据流量下不能播放！请前往设置界面修改！",
-                style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
+              );
+            },
+            valueListenable: showBannerBg,
+          ),
+          Visibility(
+            visible: false,
+            child: Container(
+              padding:
+                  const EdgeInsets.only(left: 0, right: 0, top: 12, bottom: 12),
+              color: Colors.black,
+              child: const Align(
+                child: Text(
+                  "数据流量下不能播放！请前往设置界面修改！",
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
               ),
             ),
-          ),
-        )
-      ],
+          )
+        ],
+      ),
     );
   }
 }

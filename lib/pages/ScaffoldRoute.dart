@@ -1,10 +1,9 @@
 import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:video_player/video_player.dart';
 
-import '../ad/AppLifecycleReactor.dart';
-import '../ad/AppOpenAdManager.dart';
-import '../ad/banner/AnchorAdapter.dart';
+import '../domain/PlayControlManager.dart';
 import '../domain/PlaylistStateManager.dart';
 import '../update/FlutterBuglyManager.dart';
 import '../util/const.dart';
@@ -24,12 +23,10 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
   final ValueNotifier<int> _selectedIndex = ValueNotifier<int>(0);
   PageController? _pageController;
   late FlutterBuglyManager _flutterBuglyManager;
-  final AnchorAdapter _anchorAdapter = AnchorAdapter();
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    _anchorAdapter.loadAd(context, () => setState(() => {}));
   }
 
   @override
@@ -48,8 +45,8 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
       }
     });
 
-    AppOpenAdManager appOpenAdManager = AppOpenAdManager()..loadAd();
-    WidgetsBinding.instance!.addObserver(AppLifecycleReactor(appOpenAdManager: appOpenAdManager));
+    // AppOpenAdManager appOpenAdManager = AppOpenAdManager()..loadAd();
+    // WidgetsBinding.instance!.addObserver(AppLifecycleReactor(appOpenAdManager: appOpenAdManager));
 
     _flutterBuglyManager = FlutterBuglyManager();
     _flutterBuglyManager.init(context).then((value) => setState(() => {}));
@@ -59,7 +56,6 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
 
   @override
   void dispose() {
-    _anchorAdapter.dispose();
     super.dispose();
   }
 
@@ -73,8 +69,22 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
         body: Flex(
           direction: Axis.vertical,
           children: <Widget>[
-            PlayerWrapper(),
-            _anchorAdapter.getWidget(),
+            const PlayerWrapper(),
+            // Container(
+            //   height: 250,
+            //   padding: const EdgeInsets.all(20),
+            //   child: AspectRatio(
+            //     aspectRatio: PlayControlManager.instance.controller.value.aspectRatio,
+            //     child: Stack(
+            //       alignment: Alignment.bottomCenter,
+            //       children: <Widget>[
+            //         VideoPlayer(PlayControlManager.instance.controller),
+            //         ClosedCaption(text: PlayControlManager.instance.controller.value.caption.text),
+            //         VideoProgressIndicator(PlayControlManager.instance.controller, allowScrubbing: true),
+            //       ],
+            //     ),
+            //   ),
+            // ),
             Expanded(
               flex: 1,
               child: PageView(

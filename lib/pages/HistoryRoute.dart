@@ -1,7 +1,6 @@
 import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
 
-import '../ad/TvInterstitialAd.dart';
 import '../domain/PlayControlManager.dart';
 import '../domain/PlaylistStateManager.dart';
 import '../domain/WifiManager.dart';
@@ -61,15 +60,6 @@ class _HistoryRouteState extends State<HistoryRoute> {
                     PlayControlManager.instance.pause();
                     return;
                   }
-
-                  await TvInterstitialAd.instance.load();
-                  TvInterstitialAd.instance.showAd(tvName, () {
-                    Navigator.popUntil(context, ModalRoute.withName('/'));
-                    saveHistorySharedPreferences(_list.entries.elementAt(innerIndex));
-                    PlaylistStateManager.instance.setPositionByName(tvName);
-                    PlayControlManager.instance.setResourceAndPlay(tvName, PlaylistStateManager.instance.getSourceByKey(tvName));
-                    eventBus.fire(const MapEntry(keySelectState, [tabSelect, scrollToItemSelect]));
-                  });
                 },
                 child: Row(
                   children: [

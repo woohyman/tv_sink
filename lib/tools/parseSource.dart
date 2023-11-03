@@ -11,7 +11,7 @@ void main() {
 
 //从文件读出字符串
 Future<String> readContent() async {
-  String stringValue = await rootBundle.loadString("file/cn.m3u");
+  String stringValue = await rootBundle.loadString("file/global.m3u");
   var out = {};
 
   var arrays = stringValue.split("\n");

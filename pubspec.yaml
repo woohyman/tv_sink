@@ -14,16 +14,27 @@ dependencies:
   scrollable_positioned_list: ^0.2.3
   cached_network_image: ^3.2.0
   transparent_image: ^2.0.0
-  package_info_plus: ^1.4.2
+  package_info_plus: ^4.2.0
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   flutter_native_splash: ^2.1.2+1
   share_plus: ^4.0.3
-  google_mobile_ads: ^1.2.0
+#  google_mobile_ads: ^1.2.0
   connectivity_plus: ^2.2.1
+  m3u_nullsafe: ^1.0.4
+
   # 开源播放器
-  fijkplayer: ^0.10.1
+  video_player_web_hls: ^1.1.0
+  video_player: ^2.8.1
+  video_player_media_kit: ^1.0.3
+
+  media_kit_libs_android_video: any
+  media_kit_libs_ios_video: any
+  media_kit_libs_macos_video: any
+  media_kit_libs_windows_video: any
+  media_kit_libs_linux: any
+
   flutter_bugly: ^0.4.4
   logger: ^1.1.0
   #  # 路由
@@ -45,7 +56,7 @@ dependencies:
   #  flutter_svprogresshud: ^0.0.6
   #  fluttertoast: ^7.1.5
   shared_preferences: ^2.0.13
-  flutter_easyloading: ^3.0.3
+  flutter_easyloading: ^3.0.5
   #  #响应式编程
   #  rxdart: ^0.23.0
   #状态管理
