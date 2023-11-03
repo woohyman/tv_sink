@@ -64,7 +64,7 @@ class _HistoryRouteState extends State<HistoryRoute> {
                 child: Row(
                   children: [
                     Container(
-                      child: getImageProviderByUrl(user.tvgLogo),
+                      child: getImageProviderByUrl(user.tvgLogo??""),
                       height: 50,
                       width: 50,
                       margin: const EdgeInsets.only(left: 12, right: 10, top: 5, bottom: 5),

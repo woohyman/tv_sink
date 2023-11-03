@@ -20,6 +20,12 @@ Future<String> readContent() async {
     if (value.contains("#EXTM3U ")) {
       continue;
     }
+    // value.replaceAll("tvg-name", "tvgName");
+    // value.replaceAll("tvg-logo", "tvgLogo");
+    // value.replaceAll("group-title", "groupTitle");
+    // value.replaceAll("tvg-url", "tvgUrl");
+    // value.replaceAll("tvg-id", "tvgId");
+
     print("*************************");
     var result = {};
     if (value.contains("#EXTINF:-1")) {
@@ -40,7 +46,7 @@ Future<String> readContent() async {
       }
     } else if (value.contains("http")) {
       if (out.values.last["\"tvg-url\""] == null) {
-        out.values.last["\"tvg-url\""] = {"\"$value\""};
+        out.values.last["\"tvg-url\""] = ["\"$value\""];
       } else {
         out.values.last["\"tvg-url\""].add("\"$value\"");
       }
@@ -59,7 +65,7 @@ Future<String> get _localPath async {
 
 Future<File> get _localFile async {
   final path = await _localPath;
-  return File('$path/counter.txt');
+  return File('$path/counter.json');
 }
 
 Future<File> writeCounter(counter) async {

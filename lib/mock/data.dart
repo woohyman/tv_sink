@@ -1,5032 +1,1499 @@
 final chineseTvLis = <String, dynamic>{
-  "CCTV-1综合": {
-    "tvgId": "CCTV1.cn",
-    "tvgCountry": "CN",
-    "tvgLanguage": "Chinese;Mandarin",
-    "tvgLogo": "https://upload.wikimedia.org/wikipedia/zh/6/65/CCTV-1Logo.png",
-    "groupTitle": "General",
-    "tvgUrl": ["http://39.134.115.163:8080/PLTV/88888910/224/3221225618/index.m3u8"]
+  "CCTV-1": {
+    "tvgId": "CCTV1",
+    "tvgName": "CCTV1",
+    "tvgLogo": "https://live.fanmingming.com/tv/CCTV1.png",
+    "groupTitle": "央视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=cctv1"]
   },
-  "CCTV-2财经": {
-    "tvgId": "CCTV2.cn",
-    "tvgCountry": "CN",
-    "tvgLanguage": "Chinese;Mandarin",
-    "tvgLogo": "https://upload.wikimedia.org/wikipedia/zh/c/ce/CCTV-2Logo.png",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://39.134.115.163:8080/PLTV/88888910/224/3221225619/index.m3u8"]
+  "CCTV-2": {
+    "tvgId": "CCTV2",
+    "tvgName": "CCTV2",
+    "tvgLogo": "https://live.fanmingming.com/tv/CCTV2.png",
+    "groupTitle": "央视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=cctv2"]
   },
-  "CCTV-3综艺": {
-    "tvgId": "CCTV3.cn",
-    "tvgCountry": "CN",
-    "tvgLanguage": "Chinese;Mandarin",
-    "tvgLogo": "https://upload.wikimedia.org/wikipedia/zh/3/34/CCTV-3Logo.png",
-    "groupTitle": "Entertainment",
-    "tvgUrl": ["http://39.134.115.163:8080/PLTV/88888910/224/3221225634/index.m3u8"]
+  "CCTV-3": {
+    "tvgId": "CCTV3",
+    "tvgName": "CCTV3",
+    "tvgLogo": "https://live.fanmingming.com/tv/CCTV3.png",
+    "groupTitle": "央视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=cctv3"]
   },
-  "CCTV-4中文国际": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
+  "CCTV-4": {
+    "tvgId": "CCTV4",
+    "tvgName": "CCTV4",
+    "tvgLogo": "https://live.fanmingming.com/tv/CCTV4.png",
+    "groupTitle": "央视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=cctv4"]
+  },
+  "CCTV-5": {
+    "tvgId": "CCTV5",
+    "tvgName": "CCTV5",
+    "tvgLogo": "https://live.fanmingming.com/tv/CCTV5.png",
+    "groupTitle": "央视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=cctv5"]
+  },
+  "CCTV-5+": {
+    "tvgId": "CCTV5+",
+    "tvgName": "CCTV5+",
+    "tvgLogo": "https://live.fanmingming.com/tv/CCTV5+.png",
+    "groupTitle": "央视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=cctv5p"]
+  },
+  "CCTV-6": {
+    "tvgId": "CCTV6",
+    "tvgName": "CCTV6",
+    "tvgLogo": "https://live.fanmingming.com/tv/CCTV6.png",
+    "groupTitle": "央视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=cctv6"]
+  },
+  "CCTV-7": {
+    "tvgId": "CCTV7",
+    "tvgName": "CCTV7",
+    "tvgLogo": "https://live.fanmingming.com/tv/CCTV7.png",
+    "groupTitle": "央视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=cctv7"]
+  },
+  "CCTV-8": {
+    "tvgId": "CCTV8",
+    "tvgName": "CCTV8",
+    "tvgLogo": "https://live.fanmingming.com/tv/CCTV8.png",
+    "groupTitle": "央视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=cctv8"]
+  },
+  "CCTV-9": {
+    "tvgId": "CCTV9",
+    "tvgName": "CCTV9",
+    "tvgLogo": "https://live.fanmingming.com/tv/CCTV9.png",
+    "groupTitle": "央视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=cctv9"]
+  },
+  "CCTV-10": {
+    "tvgId": "CCTV10",
+    "tvgName": "CCTV10",
+    "tvgLogo": "https://live.fanmingming.com/tv/CCTV10.png",
+    "groupTitle": "央视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=cctv10"]
+  },
+  "CCTV-11": {
+    "tvgId": "CCTV11",
+    "tvgName": "CCTV11",
+    "tvgLogo": "https://live.fanmingming.com/tv/CCTV11.png",
+    "groupTitle": "央视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=cctv11"]
+  },
+  "CCTV-12": {
+    "tvgId": "CCTV12",
+    "tvgName": "CCTV12",
+    "tvgLogo": "https://live.fanmingming.com/tv/CCTV12.png",
+    "groupTitle": "央视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=cctv12"]
+  },
+  "CCTV-13": {
+    "tvgId": "CCTV13",
+    "tvgName": "CCTV13",
+    "tvgLogo": "https://live.fanmingming.com/tv/CCTV13.png",
+    "groupTitle": "央视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=cctv13"]
+  },
+  "CCTV-14": {
+    "tvgId": "CCTV14",
+    "tvgName": "CCTV14",
+    "tvgLogo": "https://live.fanmingming.com/tv/CCTV14.png",
+    "groupTitle": "央视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=cctv14"]
+  },
+  "CCTV-15": {
+    "tvgId": "CCTV15",
+    "tvgName": "CCTV15",
+    "tvgLogo": "https://live.fanmingming.com/tv/CCTV15.png",
+    "groupTitle": "央视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=cctv15"]
+  },
+  "CCTV-16": {
+    "tvgId": "CCTV16",
+    "tvgName": "CCTV16",
+    "tvgLogo": "https://live.fanmingming.com/tv/CCTV16.png",
+    "groupTitle": "央视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=cctv16"]
+  },
+  "CCTV-17": {
+    "tvgId": "CCTV17",
+    "tvgName": "CCTV17",
+    "tvgLogo": "https://live.fanmingming.com/tv/CCTV17.png",
+    "groupTitle": "央视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=cctv17"]
+  },
+  "CCTV-4K": {
+    "tvgId": "CCTV4K",
+    "tvgName": "CCTV4K",
+    "tvgLogo": "https://live.fanmingming.com/tv/CCTV4K.png",
+    "groupTitle": "央视",
     "tvgUrl": [
-      "http://112.25.48.68/live/program/live/cctv4/1300000/mnf.m3u8",
-      "http://111.63.117.13:6060/030000001000/CCTV-4/CCTV-4.m3u8",
-      "http://223.110.245.159/ott.js.chinamobile.com/PLTV/3/224/3221225781/index.m3u8",
-      "http://183.207.248.71/gitv/live1/CCTV-4/CCTV-4",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225621/index.m3u8",
-      "http://39.135.138.59:18890/PLTV/88888910/224/3221225621/index.m3u8",
-      "http://117.169.120.140:8080/live/cctv-4/.m3u8",
-      "http://183.207.249.6/PLTV/3/224/3221225534/index.m3u8",
-      "http://183.207.249.11/PLTV/3/224/3221225534/index.m3u8",
-      "http://183.207.248.71/cntv/live1/cctv-4/cctv-4",
-      "http://223.110.245.163/ott.js.chinamobile.com/PLTV/3/224/3221227378/index.m3u8",
-      "http://223.110.245.165/ott.js.chinamobile.com/PLTV/3/224/3221225534/index.m3u8",
-      "http://223.110.245.170/PLTV/3/224/3221225534/index.m3u8",
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=26&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://116.199.5.52:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=26&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    ]
-  },
-  "CCTV-5+体育赛事": {
-    "tvgId": "CCTV5Plus.cn",
-    "tvgCountry": "CN",
-    "tvgLanguage": "Chinese",
-    "tvgLogo": "https://www.lyngsat.com/logo/tv/cc/cctv-5-plus-cn.png",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://39.134.115.163:8080/PLTV/88888910/224/3221225649/index.m3u8"]
-  },
-  "CCTV-5体育": {
-    "tvgId": "CCTV5.cn",
-    "tvgCountry": "CN",
-    "tvgLanguage": "Chinese;Mandarin",
-    "tvgLogo": "https://upload.wikimedia.org/wikipedia/zh/3/33/CCTV-5Logo.png",
-    "groupTitle": "Sports",
-    "tvgUrl": ["http://39.134.115.163:8080/PLTV/88888910/224/3221225633/index.m3u8"]
-  },
-  "CCTV-6电影": {
-    "tvgId": "CCTV6.cn",
-    "tvgCountry": "CN",
-    "tvgLanguage": "Chinese;Mandarin",
-    "tvgLogo": "https://upload.wikimedia.org/wikipedia/zh/0/0c/CCTV-6Logo.png",
-    "groupTitle": "Movies",
-    "tvgUrl": ["http://39.134.115.163:8080/PLTV/88888910/224/3221225632/index.m3u8"]
-  },
-  "CCTV-7国防军事": {
-    "tvgId": "CCTV7.cn",
-    "tvgCountry": "CN",
-    "tvgLanguage": "Chinese;Mandarin",
-    "tvgLogo": "https://upload.wikimedia.org/wikipedia/zh/f/f0/CCTV-7Logo.png",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://39.134.115.163:8080/PLTV/88888910/224/3221225624/index.m3u8"]
-  },
-  "CCTV-8电视剧": {
-    "tvgId": "CCTV8.cn",
-    "tvgCountry": "CN",
-    "tvgLanguage": "Chinese;Mandarin",
-    "tvgLogo": "https://upload.wikimedia.org/wikipedia/zh/4/49/CCTV-8Logo.png",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://39.134.115.163:8080/PLTV/88888910/224/3221225631/index.m3u8"]
-  },
-  "CCTV-9纪录": {
-    "tvgId": "CCTV9.cn",
-    "tvgCountry": "CN",
-    "tvgLanguage": "Chinese;Mandarin",
-    "tvgLogo": "https://upload.wikimedia.org/wikipedia/zh/1/11/CCTV-9Logo.png",
-    "groupTitle": "Documentary",
-    "tvgUrl": ["http://39.134.115.163:8080/PLTV/88888910/224/3221225646/index.m3u8"]
-  },
-  "CCTV-10科教": {
-    "tvgId": "CCTV10.cn",
-    "tvgCountry": "CN",
-    "tvgLanguage": "Chinese;Mandarin",
-    "tvgLogo": "https://upload.wikimedia.org/wikipedia/zh/f/fd/CCTV-10Logo.png",
-    "groupTitle": "Education",
-    "tvgUrl": ["http://39.134.115.163:8080/PLTV/88888910/224/3221225636/index.m3u8"]
-  },
-  "CCTV-11戏曲": {
-    "tvgId": "CCTV11.cn",
-    "tvgCountry": "CN",
-    "tvgLanguage": "Chinese;Mandarin",
-    "tvgLogo": "https://upload.wikimedia.org/wikipedia/zh/9/9c/CCTV-11Logo.png",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://39.135.138.59:18890/PLTV/88888910/224/3221225628/index.m3u8"]
-  },
-  "CCTV-12社会与法制": {
-    "tvgId": "CCTV12.cn",
-    "tvgCountry": "CN",
-    "tvgLanguage": "Chinese;Mandarin",
-    "tvgLogo": "https://upload.wikimedia.org/wikipedia/zh/7/71/CCTV-12Logo.png",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://39.134.115.163:8080/PLTV/88888910/224/3221225637/index.m3u8"]
-  },
-  "CCTV-13新闻": {
-    "tvgId": "CCTV13.cn",
-    "tvgCountry": "CN",
-    "tvgLanguage": "Chinese;Mandarin",
-    "tvgLogo": "https://upload.wikimedia.org/wikipedia/zh/0/0b/CCTV-13Logo.png",
-    "groupTitle": "News",
-    "tvgUrl": ["http://39.134.115.163:8080/PLTV/88888910/224/3221225638/index.m3u8"]
-  },
-  "CCTV-15音乐": {
-    "tvgId": "CCTV15.cn",
-    "tvgCountry": "CN",
-    "tvgLanguage": "Chinese",
-    "tvgLogo": "https://www.lyngsat.com/logo/tv/cc/cctv-15-cn.png",
-    "groupTitle": "Music",
-    "tvgUrl": [
-      "http://116.199.5.52:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=54&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    ]
-  },
-  "CCTV-17农业农村": {
-    "tvgId": "CCTV17.cn",
-    "tvgCountry": "CN",
-    "tvgLanguage": "Chinese",
-    "tvgLogo": "https://www.lyngsat.com/logo/tv/cc/cctv-17-cn.png",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://39.134.115.163:8080/PLTV/88888910/224/3221225908/index.m3u8"]
-  },
-  "CCTV-女性时尚": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://223.110.245.153/ott.js.chinamobile.com/PLTV/3/224/3221227026/index.m3u8"]
-  },
-  "CCTV-老故事": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://223.110.245.145/ott.js.chinamobile.com/PLTV/3/224/3221227043/index.m3u8"]
-  },
-  "CETV1": {
-    "tvgId": "CETV1.cn",
-    "tvgCountry": "CN",
-    "tvgLanguage": "Chinese",
-    "tvgLogo": "https://www.lyngsat.com/logo/tv/cc/cetv-1-cn.png",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://183.207.248.71/gitv/live1/GCETV-1/GCETV-1"]
-  },
-  "CETV2": {
-    "tvgId": "CETV2.cn",
-    "tvgCountry": "CN",
-    "tvgLanguage": "Chinese",
-    "tvgLogo": "https://www.lyngsat.com/logo/tv/cc/cetv-2-cn.png",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://183.207.248.71/gitv/live1/GCETV-2/GCETV-2"]
-  },
-  "CGTN": {
-    "tvgId": "CGTN.cn",
-    "tvgCountry": "CN",
-    "tvgLanguage": "English",
-    "tvgLogo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/CGTN.svg/800px-CGTN.svg.png",
-    "groupTitle": "News",
-    "tvgUrl": [
-      "http://live.cgtn.com/500/progindex.m3u8",
-      "http://livear.cgtn.com/1000a/progindex.m3u8",
-      "http://39.135.138.59:18890/PLTV/88888910/224/3221225645/index.m3u8",
-      "https://dai.google.com/linear/hls/event/r4sa-f6GSN2XIvzKv5jVng/master.m3u8",
-      "https://livees.cgtn.com/1000e/progindex.m3u8",
-      "http://livees.cgtn.com/500e/progindex.m3u8",
-      "https://news.cgtn.com/resource/live/french/cgtn-f.m3u8",
-      "http://liveru.cgtn.com/1000r/progindex.m3u8"
-    ]
-  },
-  "CHC动作电影": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=119&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    ]
-  },
-  "CNC中文": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://source07.v.news.cn/live/CNCCN/playlist.m3u8"]
-  },
-  "CNC英语": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://source07.v.news.cn/live/CNCEN/playlist.m3u8"]
-  },
-  "DW": {
-    "tvgId": "DWEnglish.de",
-    "tvgCountry": "INT",
-    "tvgLanguage": "English",
-    "tvgLogo": "https://i.imgur.com/A1xzjOI.png",
-    "groupTitle": "News",
-    "tvgUrl": ["https://dwamdstream102.akamaized.net/hls/live/2015525/dwstream102/index.m3u8"]
-  },
-  "France": {
-    "tvgId": "France24English.fr",
-    "tvgCountry": "INT",
-    "tvgLanguage": "English",
-    "tvgLogo": "https://upload.wikimedia.org/wikipedia/commons/8/8a/France24.png",
-    "groupTitle": "News",
-    "tvgUrl": ["http://f24hls-i.akamaihd.net/hls/live/221147/F24ENHIHLS/master.m3u8"]
-  },
-  "NewTV动画王国": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://183.207.249.15/PLTV/3/224/3221225555/index.m3u8",
-      "http://223.110.245.161/ott.js.chinamobile.com/PLTV/3/224/3221225555/index.m3u8"
-    ]
-  },
-  "NewTV完美遊戲": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://183.207.249.16/PLTV/3/224/3221225539/index.m3u8"]
-  },
-  "NewTV搏击": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://223.110.245.151/ott.js.chinamobile.com/PLTV/3/224/3221226803/index.m3u8"]
-  },
-  "NewTV精品電影": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://183.207.249.14/PLTV/3/224/3221225567/index.m3u8",
-      "http://223.110.245.153/ott.js.chinamobile.com/PLTV/3/224/3221225567/index.m3u8"
-    ]
-  },
-  "NewTV超级电影": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://39.134.115.163:8080/PLTV/88888910/224/3221225623/index.m3u8"]
-  },
-  "Pluto": {
-    "tvgId": "EuronewsEnglish.fr",
-    "tvgCountry": "INT",
-    "tvgLanguage": "English",
-    "tvgLogo": "https://i.imgur.com/8t9mdg9.png",
-    "groupTitle": "News",
-    "tvgUrl": [
-      "https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/60d3583ef310610007fb02b1/master.m3u8?advertisingId=channel&appName=rokuchannel&appVersion=1.0&bmodel=bm1&channelid=channel&content=channel&contentrating=ROKUADSCONTENTRATING&contenttype=livefeed&coppa=false&deviceDNT=1&deviceId=channel&deviceMake=rokuChannel&deviceModel=web&deviceType=rokuChannel&deviceVersion=1.0&embedPartner=rokuChannel&genre=ROKUADSCONTENTGENRE&islat=1&platform=web&rdid=channel&serverSideAds=false&studioid=viacom&tags=ROKUCONTENTTAGS"
-    ]
-  },
-  "Red": {
-    "tvgId": "RedBullTV.at",
-    "tvgCountry": "INT",
-    "tvgLanguage": "English",
-    "tvgLogo": "https://i.imgur.com/7NeBmWX.jpg",
-    "groupTitle": "Sports",
-    "tvgUrl": ["https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master.m3u8"]
-  },
-  "RT": {
-    "tvgId": "RTDocumentary.ru",
-    "tvgCountry": "INT",
-    "tvgLanguage": "English",
-    "tvgLogo": "https://i.imgur.com/XJGki3v.png",
-    "groupTitle": "Documentary",
-    "tvgUrl": ["https://rt-rtd.rttv.com/live/rtdoc/playlist.m3u8", "https://live-hr6yv36f.rmbl.ws/slot-30/ngrp:srak-wx8rall/playlist.m3u8"]
-  },
-  "SDETV": {
-    "tvgId": "SDETV.cn",
-    "tvgCountry": "CN",
-    "tvgLanguage": "Chinese",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://223.110.245.149/ott.js.chinamobile.com/PLTV/3/224/3221227019/index.m3u8"]
-  },
-  "SiTV七彩戏剧": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://112.25.48.68/live/program/live/qcxj/1300000/mnf.m3u8"]
-  },
-  "SiTV东方财经": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://112.25.48.68/live/program/live/dfcj/1300000/mnf.m3u8"]
-  },
-  "SiTV全纪实台": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://112.25.48.68/live/program/live/qjshd/4000000/mnf.m3u8"]
-  },
-  "SiTV动漫秀场": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://112.25.48.68/live/program/live/dmxchd/4000000/mnf.m3u8"]
-  },
-  "SiTV劲爆体育": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://112.25.48.68/live/program/live/jbtyhd/4000000/mnf.m3u8",
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=74&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    ]
-  },
-  "SiTV幸福彩": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=73&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    ]
-  },
-  "SiTV新视觉": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=75&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    ]
-  },
-  "SiTV新视觉台": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://112.25.48.68/live/program/live/xsjhd/4000000/mnf.m3u8"]
-  },
-  "SiTV极速汽车": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://112.25.48.68/live/program/live/jsqchd/4000000/mnf.m3u8"]
-  },
-  "SiTV欢笑剧场": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://112.25.48.68/live/program/live/hxjchd/4000000/mnf.m3u8"]
-  },
-  "SiTV法治天地": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://112.25.48.68/live/program/live/fztd/1300000/mnf.m3u8"]
-  },
-  "SiTV游戏风云": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://112.25.48.68/live/program/live/yxfyhd/4000000/mnf.m3u8"]
-  },
-  "SiTV生活时尚": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://112.25.48.68/live/program/live/shsshd/4000000/mnf.m3u8"]
-  },
-  "SiTV都市剧场": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://112.25.48.68/live/program/live/dsjchd/4000000/mnf.m3u8"]
-  },
-  "SiTV魅力足球": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://112.25.48.68/live/program/live/mlyyhd/4000000/mnf.m3u8",
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=76&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    ]
-  },
-  "TRT": {
-    "tvgId": "TRTWorld.tr",
-    "tvgCountry": "INT",
-    "tvgLanguage": "English",
-    "tvgLogo": "https://i.ibb.co/phw4pjP/mjTjJ1N.png",
-    "groupTitle": "News",
-    "tvgUrl": ["https://tv-trtworld.live.trt.com.tr/master.m3u8"]
-  },
-  "TVB明珠台": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://116.199.5.51:8114/hls/Fsvchanhlsseidx=12&FvSeid=1&Fsvctype=LIVES&Fsvotype=1&Providerid=0&Pcontentid=8114.m3u8"]
-  },
-  "TVB翡翠台": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://116.199.5.51:8114/index.m3u8?Fsvchanhlsseidx=188&Fsvctype=LIVES&Fsvotype=1&FvSeid=1&Pcontentid=.m3u8&Providerid=",
-      "http://116.199.5.52:8114/00000000/index.m3u8?Fsv=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=188&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=&restag=video"
-    ]
-  },
-  "TVS2": {
-    "tvgId": "TVS2.cn",
-    "tvgCountry": "CN",
-    "tvgLanguage": "Chinese",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://223.110.245.153/ott.js.chinamobile.com/PLTV/3/224/3221227005/index.m3u8"]
-  },
-  "UN": {
-    "tvgId": "UNWebTV.us",
-    "tvgCountry": "INT",
-    "tvgLanguage": "English",
-    "tvgLogo": "https://i.imgur.com/lPyJhBN.png",
-    "groupTitle": "News",
-    "tvgUrl": ["https://cdnapi.kaltura.com/p/2503451/sp/250345100/playManifest/entryId/1gb6tjmle/protocol/https/format/applehttp/a.m3u8"]
-  },
-  "World": {
-    "tvgId": "WorldFashionChannelInternational.ru",
-    "tvgCountry": "INT",
-    "tvgLanguage": "English",
-    "tvgLogo": "https://i.imgur.com/JyslMHb.jpg",
-    "groupTitle": "Lifestyle",
-    "tvgUrl": ["https://wfcint.mediacdn.ru/cdn/wfcintweb/playlist.m3u8"]
-  },
-  "万州三峡移民": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://123.146.162.24:8013/tslslive/PU2vzMI/hls/livesd.m3u8"]
-  },
-  "万州影视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://123.146.162.24:8013/tslslive/vWlnEzU/hls/livesd.m3u8"]
-  },
-  "万州科教": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://123.146.162.24:8013/tslslive/URetCnP/hls/livesd.m3u8"]
-  },
-  "万州综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://123.146.162.24:8013/tslslive/noEX9SG/hls/livesd.m3u8"]
-  },
-  "三明公共": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream.smntv.cn/smtv2/playlist.m3u8"]
-  },
-  "三明新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream.smntv.cn/smtv1/playlist.m3u8"]
-  },
-  "上海": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://112.25.48.68/live/program/live/wypdhd/4000000/mnf.m3u8"]
-  },
-  "上海东方影视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://112.25.48.68/live/program/live/dsjpdhd/4000000/mnf.m3u8"]
-  },
-  "上海五星体育": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://112.25.48.68/live/program/live/ssty/4000000/mnf.m3u8"]
-  },
-  "上海卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://223.110.245.159/ott.js.chinamobile.com/PLTV/3/224/3221227208/index.m3u8",
-      "http://223.110.245.159/ott.js.chinamobile.com/PLTV/3/224/3221225856/index.m3u8",
-      "http://223.110.245.159/ott.js.chinamobile.com/PLTV/3/224/3221227396/index.m3u8",
-      "http://183.207.248.71/cntv/live1/HD-2500k-1080P-dongfangstv/HD-2500k-1080P-dongfangstv"
-    ]
-  },
-  "上海哈哈炫动": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://112.25.48.68/live/program/live/hhxdhd/4000000/mnf.m3u8"]
-  },
-  "上海教育": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://112.25.48.68/live/program/live/setv/1300000/mnf.m3u8"]
-  },
-  "上海新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://112.25.48.68/live/program/live/xwzhhd/4000000/mnf.m3u8"]
-  },
-  "上海第一财经": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://112.25.48.68/live/program/live/dycjhd/4000000/mnf.m3u8"]
-  },
-  "上海纪实": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225654/index.m3u8",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225655/index.m3u8"
-    ]
-  },
-  "上海这一刻魔都眼": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://bililive.kksmg.com/hls/sdi80/playlist.m3u8"]
-  },
-  "上海都市": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://112.25.48.68/live/program/live/ylpdhd/4000000/mnf.m3u8"]
-  },
-  "上海金山电视台": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live.mudu.tv/watch/4zbn2f.m3u8"]
-  },
-  "上虞1新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://l.cztvcloud.com/channels/lantian/SXshangyu1/720p.m3u8"]
-  },
-  "上虞3新商都": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://l.cztvcloud.com/channels/lantian/SXshangyu3/720p.m3u8"]
-  },
-  "上虞經濟文化": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://l.cztvcloud.com/channels/lantian/SXshangyu2/720p.m3u8"]
-  },
-  "东南卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://125.210.152.18:9090/live/DNWSHDH265.m3u8",
-      "http://183.207.249.15/PLTV/4/224/3221225816/index.m3u8",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225657/index.m3u8",
-      "http://117.169.120.140:8080/live/dongnanstv/.m3u8",
-      "http://112.25.48.68/live/program/live/dnwshd/4000000/mnf.m3u8",
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=23&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://223.110.254.205:6610/cntv/live1/n-dongnanstv/n-dongnanstv/1.m3u8",
-      "http://116.199.5.52:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=23&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    ]
-  },
-  "东乡电视台": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://117.156.28.119/270000001111/1110000131/index.m3u8"]
-  },
-  "东方卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225658/index.m3u8",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225659/index.m3u8",
-      "http://183.207.249.7/PLTV/4/224/3221227396/index.m3u8",
-      "http://112.25.48.68/live/program/live/hddfws/4000000/mnf.m3u8",
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=22&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://116.199.5.52:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=22&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://223.110.254.212:6610/cntv/live1/HD-2500k-1080P-dongfangstv/HD-2500k-1080P-dongfangstv/1.m3u8",
-      "http://ott.js.chinamobile.com/PLTV/3/224/3221227597/index.m3u8",
-      "http://223.110.243.138/ott.js.chinamobile.com/PLTV/3/224/3221227208/index.m3u8",
-      "http://223.110.243.138/PLTV/3/224/3221227208/index.m3u8"
-    ]
-  },
-  "东方影视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://140.207.241.3:8080/live/program/live/dsjpdhd/4000000/mnf.m3u8"]
-  },
-  "东至影视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://223.247.33.124:1935/live/yingshi/playlist.m3u8"]
-  },
-  "东至文化资讯": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://223.247.33.124:1935/live/wenhua/playlist.m3u8"]
-  },
-  "东至新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://223.247.33.124:1935/live/zonghe/playlist.m3u8"]
-  },
-  "东莞综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://dslive.grtn.cn/dgzh/sd/live.m3u8"]
-  },
-  "中国交通": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://223.110.245.161/ott.js.chinamobile.com/PLTV/3/224/3221227027/index.m3u8",
-      "http://ott.js.chinamobile.com/PLTV/3/224/3221227027/index.m3u8",
-      "https://tv.lanjingfm.com/cctbn/hainan.m3u8"
-    ]
-  },
-  "中国天气": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://112.25.48.68/live/program/live/zgqx/1300000/mnf.m3u8"]
-  },
-  "中国教育1": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://39.134.39.39/PLTV/88888888/224/3221226282/index.m3u8"]
-  },
-  "中国气象": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hls.weathertv.cn/tslslive/qCFIfHB/hls/livesd.m3u8"]
-  },
-  "中天新聞": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://seb.sason.top/sc/ztxwfhd.m3u8"]
-  },
-  "中山公共": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://dslive.grtn.cn/zszh/sd/live.m3u8"]
-  },
-  "中牟综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://218.206.193.210:9850/playServer/acquirePlayService?deviceGroup=TV(STB)&drmType=none&kdsplayer=media&nsukey=&op=sovp&playType=catchup&protocol=hls0&redirect=m3u8&resourceId=1000000000000001&type=live",
-      "http://live.dxhmt.cn:9081/tv/10122-1.m3u8"
-    ]
-  },
-  "中視新聞": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://seb.sason.top/sc/zsxwfhd.m3u8"]
-  },
-  "乐清新闻": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://33809.hlsplay.aodianyun.com/guangdianyun33809/tvchannel170.m3u8"]
-  },
-  "云南": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://tvdrs.wsrtv.com.cn:8100/channellive/ch2.flv",
-      "http://tvdrs.wsrtv.com.cn:8100/channellive/ch1.flv",
-      "http://file.hhtv.cc/cms/videos/nmip-media/channellive/channel1/playlist.m3u8"
-    ]
-  },
-  "云南卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://112.25.48.68/live/program/live/ynws/1300000/mnf.m3u8",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225664/index.m3u8",
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=110&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://116.199.5.52:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=110&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://183.207.248.71/gitv/live1/GYUNNAN/GYUNNAN",
-      "http://223.110.245.157/ott.js.chinamobile.com/PLTV/3/224/3221225591/index.m3u8",
-      "http://223.110.245.159/ott.js.chinamobile.com/PLTV/3/224/3221225838/index.m3u8",
-      "http://223.110.245.173/PLTV/4/224/3221225838/index.m3u8",
-      "http://ott.js.chinamobile.com/PLTV/3/224/3221225838/index.m3u8",
-      "http://183.207.248.71/cntv/live1/yunnanstv/yunnanstv",
-      "https://hwapi.yunshicloud.com/8xughf/e0bx15.m3u8"
-    ]
-  },
-  "云南都市": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://39.130.202.81:6610/gitvlive/GYNTV-2-HD/GYNTV-2-HD.m3u8"]
-  },
-  "五星体育": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://223.110.245.147/ott.js.chinamobile.com/PLTV/3/224/3221226799/index.m3u8"]
-  },
-  "亚太台": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://174.127.67.246/live330/playlist.m3u8"]
-  },
-  "交城電視台": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://sxjc.chinashadt.com:2036/live/stream:jctv.stream/playlist.m3u8"]
-  },
-  "京视剧场": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://223.110.245.143/ott.js.chinamobile.com/PLTV/3/224/3221227040/index.m3u8"]
-  },
-  "亳州新聞頻道": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://220.180.110.101:8083/videos/live/33/59/NC7XQdEveyncq/NC7XQdEveyncq.m3u8"]
-  },
-  "仙桃新聞綜合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://221.233.242.239:280/live/71/playlist.m3u8"]
-  },
-  "优漫卡通": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://183.207.249.15/PLTV/4/224/3221225933/index.m3u8", "http://223.110.243.171/PLTV/3/224/3221226982/index.m3u8"]
-  },
-  "优视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://1-fss24-s0.streamhoster.com/lvuchannel/definst/broadcast1/chunklist.m3u8",
-      "http://1-fss24-s0.streamhoster.com/lvuchannel/broadcast1/playlist.m3u8"
-    ]
-  },
-  "余姚姚江文化": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://l.cztvcloud.com/channels/lantian/SXyuyao3/720p.m3u8"]
-  },
-  "余姚新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://l.cztvcloud.com/channels/lantian/SXyuyao1/720p.m3u8"]
-  },
-  "佛山公共": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=182&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://116.199.5.52:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=182&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    ]
-  },
-  "侨乡": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream.jinjiang.tv/1/sd/live.m3u8"]
-  },
-  "兵团卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://112.25.48.68/live/program/live/btws/1300000/mnf.m3u8",
-      "http://116.199.5.51:8114/hls/Fsvchanhlsseidx=050&FvSeid=1&Fsvctype=LIVES&Fsvotype=1&Providerid=0&Pcontentid=8114.m3u8"
-    ]
-  },
-  "内江公共": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://njzb.scnj.tv:90/live/gggygggy800.m3u8"]
-  },
-  "内江科教": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://njzb.scnj.tv:90/live/kjpdkjpd800.m3u8"]
-  },
-  "内江综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://njzb.scnj.tv:90/live/xwzhxwzh800.m3u8"]
-  },
-  "内蒙古": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://223.110.245.161/ott.js.chinamobile.com/PLTV/3/224/3221225836/index.m3u8"]
-  },
-  "内蒙古卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=17&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225667/index.m3u8",
-      "http://117.169.120.140:8080/live/neimenggustv/.m3u8",
-      "http://183.207.248.71/gitv/live1/GNEIMENGGU/GNEIMENGGU",
-      "http://223.110.245.173/PLTV/4/224/3221225836/index.m3u8"
-    ]
-  },
-  "农安新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream2.jlntv.cn/naxw/sd/live.m3u8"]
-  },
-  "凤凰中文": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://116.199.5.51:8114/index.m3u8?Fsvchanhlsseidx=190&Fsvctype=LIVES&Fsvotype=1&FvSeid=1&Pcontentid=.m3u8&Providerid=",
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=190&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://116.199.5.52:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=190&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://125.210.152.18:9090/live/FHZW1200.m3u8",
-      "http://223.110.245.139/ott.js.chinamobile.com/PLTV/3/224/3221226922/index.m3u8",
-      "http://223.110.245.139/PLTV/3/224/3221226922/index.m3u8",
-      "http://223.110.245.167/ott.js.chinamobile.com/PLTV/3/224/3221226922/index.m3u8"
-    ]
-  },
-  "凤凰资讯": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://125.210.152.18:9090/live/FHZX1200.m3u8",
-      "http://183.207.249.35/PLTV/3/224/3221226923/index.m3u8",
-      "http://223.110.245.167/ott.js.chinamobile.com/PLTV/3/224/3221226923/index.m3u8"
-    ]
-  },
-  "凤凰香港": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://183.207.249.35/PLTV/3/224/3221226975/index.m3u8", "http://223.110.245.136/PLTV/3/224/3221226975/index.m3u8"]
-  },
-  "利川公共": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://uni6rtmp.tulix.tv:1935/vbstv/vbsabr.smil/chunklistw1847269952b204800.m3u8",
-      "http://lichuan.live.tempsource.cjyun.org/videotmp/s10093-lcgg.m3u8"
-    ]
-  },
-  "利川新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://uni6rtmp.tulix.tv:1935/vbstv/vbsabr.smil/chunklistw439903609b1228800.m3u8"]
-  },
-  "前郭综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream2.jlntv.cn/qg/sd/live.m3u8"]
-  },
-  "动作电影": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://39.134.19.68/dbiptv.sn.chinamobile.com/PLTV/88888888/224/3221226465/index.m3u8"]
-  },
-  "动画王国": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://183.207.248.71/cntv/live1/donghuawg/donghuawg"]
-  },
-  "北京体育": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://116.199.5.51:8114/index.m3u8?Fsvchanhlsseidx=158&Fsvctype=LIVES&Fsvotype=1&FvSeid=1&Pcontentid=.m3u8&Providerid="]
-  },
-  "北京冬奥纪实": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=158&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    ]
-  },
-  "北京卡酷少儿": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=108&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
+      "https://cntv.lat/tv?auth=202311030915&id=cctv4k",
+      "https://cntv.lat/tv?auth=202311030915&id=cctv164k"
     ]
   },
   "北京卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://183.207.248.71/gitv/live1/GBEIJING/GBEIJING",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225673/index.m3u8",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225674/index.m3u8",
-      "http://183.207.249.7/PLTV/3/224/3221225574/index.m3u8",
-      "http://183.207.249.8/PLTV/3/224/3221225574/index.m3u8",
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=30&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://116.199.5.52:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=30&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://183.207.248.71/cntv/live1/beijingstv/beijingstv",
-      "http://183.207.248.71/cntv/live1/HD-2500k-1080P-beijingstv/HD-2500k-1080P-beijingstv",
-      "http://223.110.243.173/PLTV/3/224/3221227246/index.m3u8",
-      "http://223.110.245.139/PLTV/4/224/3221227390/index.m3u8",
-      "http://223.110.245.153/ott.js.chinamobile.com/PLTV/3/224/3221225574/index.m3u8",
-      "http://223.110.245.163/ott.js.chinamobile.com/PLTV/3/224/3221227436/index.m3u8",
-      "http://223.110.245.173/PLTV/4/224/3221227390/index.m3u8",
-      "http://ott.js.chinamobile.com/PLTV/3/224/3221225574/index.m3u8",
-      "http://112.25.48.68/live/program/live/bjwshd/4000000/mnf.m3u8"
-    ]
+    "tvgId": "北京卫视",
+    "tvgName": "北京卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/北京卫视.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=bjws"]
   },
-  "北京紀實": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225675/index.m3u8",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225676/index.m3u8"
-    ]
-  },
-  "北京衛視": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://14.152.88.77/liveplay-kk.rtxapp.com/live/program/live/bjwshd/4000000/mnf.m3u8"]
-  },
-  "北碚综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://222.178.181.121:12034/beibei01.m3u8"]
-  },
-  "半岛新闻": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["https://live-hls-web-aje.getaj.net/AJE/01.m3u8"]
-  },
-  "华亭电视台": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://117.156.28.119/270000001111/1110000148/index.m3u8"]
-  },
-  "华数": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hls-ott-zhibo.wasu.tv/live/442/index.m3u8"]
-  },
-  "南京信息": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live.nbs.cn/channels/njtv/xxpd/m3u8:500k/live.m3u8"]
-  },
-  "南京十八": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://183.207.248.71/gitv/live1/GNJSB/GNJSB", "http://live.nbs.cn/channels/njtv/sbpd/m3u8:500k/live.m3u8"]
-  },
-  "南京娱乐": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live.nbs.cn/channels/njtv/ylpd/m3u8:500k/live.m3u8"]
-  },
-  "南京少儿": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live.nbs.cn/channels/njtv/sepd/m3u8:500k/live.m3u8"]
-  },
-  "南京教科": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://183.207.248.71/gitv/live1/GNJJK/GNJJK",
-      "http://223.110.245.155/ott.js.chinamobile.com/PLTV/3/224/3221227194/index.m3u8",
-      "http://live.nbs.cn/channels/njtv/jkpd/m3u8:500k/live.m3u8"
-    ]
-  },
-  "南京新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live.nbs.cn/channels/njtv/xwzh/m3u8:500k/live.m3u8"]
-  },
-  "南京生活": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live.nbs.cn/channels/njtv/shpd/m3u8:500k/live.m3u8"]
-  },
-  "南宁公共": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hls.nntv.cn/nnlive/NNTVPUBA.m3u8"]
-  },
-  "南宁影视娱乐": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hls.nntv.cn/nnlive/NNTVVODA.m3u8"]
-  },
-  "南宁新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hls.nntv.cn/nnlive/NNTVNEWSA.m3u8"]
-  },
-  "南宁都市生活": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hls.nntv.cn/nnlive/NNTVMETROA.m3u8"]
-  },
-  "南川新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://221.5.213.4:30000/1111.m3u8"]
-  },
-  "南川旅游经济": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://221.5.213.4:30000/2222.m3u8"]
-  },
-  "南方卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://116.199.5.52:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=9&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    ]
-  },
-  "南陽公共頻道": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://30539.hlsplay.aodianyun.com/lms30539/tvchannel295.m3u8"]
-  },
-  "南陽科教頻道": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://30539.hlsplay.aodianyun.com/lms30539/tvchannel296.m3u8"]
-  },
-  "厦门卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://112.25.48.68/live/program/live/xmws/1300000/mnf.m3u8",
-      "http://223.110.245.159/ott.js.chinamobile.com/PLTV/3/224/3221226996/index.m3u8"
-    ]
-  },
-  "双峰电视一套": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hnsf.chinashadt.com:2036/zhuanma/tv1.stream360p/playlist.m3u8"]
-  },
-  "发现之旅": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://125.210.152.18:9090/live/FXZL750.m3u8"]
-  },
-  "台視新聞": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://seb.sason.top/sc/tsxwfhd.m3u8"]
-  },
-  "吉州新聞綜合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://218.204.153.158/10.m3u8"]
-  },
-  "吉林7": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream1.jlntv.cn/fzpd/sd/live.m3u8"]
-  },
-  "吉林卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://stream4.jlntv.cn/test2/sd/live.m3u8",
-      "http://125.210.152.18:9090/live/JLWSHDH265.m3u8",
-      "http://112.25.48.68/live/program/live/jlws/1300000/mnf.m3u8",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225680/index.m3u8",
-      "http://117.169.120.140:8080/live/jilinstv/.m3u8",
-      "http://183.207.249.7/PLTV/4/224/3221225883/index.m3u8",
-      "http://223.110.245.153/ott.js.chinamobile.com/PLTV/3/224/3221225883/index.m3u8",
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=25&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://116.199.5.52:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=25&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    ]
-  },
-  "吉林市新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream2.jlntv.cn/jilin1/sd/live.m3u8"]
-  },
-  "吉林乡村": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream1.jlntv.cn/xcpd/sd/live.m3u8"]
-  },
-  "周口图文信息": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://tv.zkxww.com:1935/live4/mp4:ch4-500k/playlist.m3u8"]
-  },
-  "周口新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://tv.zkxww.com:1935/live1/mp4:ch1-500k/playlist.m3u8"]
-  },
-  "周口科教文化2": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://tv.zkxww.com:1935/live3/mp4:ch3-500k/playlist.m3u8"]
-  },
-  "周口经济生活2": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://tv.zkxww.com:1935/live2/mp4:ch2-500k/playlist.m3u8"]
-  },
-  "和政电视台": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://117.156.28.119/270000001111/1110000149/index.m3u8"]
-  },
-  "哈哈炫动卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://210.210.155.35/qwr9ew/s/s50/index2.m3u8", "http://210.210.155.35/qwr9ew/s/s50/index.m3u8"]
-  },
-  "唯心電視": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://mobile.ccdntech.com/transcoder/definst/vod164Live/live/playlist.m3u8"]
-  },
-  "嘉佳卡通": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://223.110.245.139/PLTV/4/224/3221227009/index.m3u8", "http://112.25.48.68/live/program/live/jjkt/1300000/mnf.m3u8"]
-  },
-  "四川": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://30814.hlsplay.aodianyun.com/lms30814/tvchannel246.flv",
-      "http://m3u8.channellive.dzxw.net/cms/videos/nmip-media/channellive/channel36/playlist.m3u8",
-      "http://m3u8.channellive.dzxw.net/cms/videos/nmip-media/channellive/channel35/playlist.m3u8",
-      "http://flv.drs.tv.yatv.tv:8080/channellive/gonggong.flv",
-      "http://flv.drs.tv.yatv.tv:8080/channellive/xinwen.flv"
-    ]
-  },
-  "四川卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://125.210.152.18:9090/live/SCWSHDH265.m3u8",
-      "http://112.25.48.68/live/program/live/scws/1300000/mnf.m3u8",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225733/index.m3u8",
-      "http://183.207.248.71/gitv/live1/SCWS/SCWS",
-      "http://223.110.245.145/ott.js.chinamobile.com/PLTV/3/224/3221225814/index.m3u8",
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=3&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    ]
-  },
-  "四平新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream2.jlntv.cn/sptv/sd/live.m3u8"]
-  },
-  "国外MTV": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["https://vcndstv.teleosmedia.com/stream/dstv/sunburn/seglist720p.m3u8"]
-  },
-  "增城綜合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://202.168.164.38:8083/videos/live/19/27/QEQXMtU5AUpwo/QEQXMtU5AUpwo.m3u8"]
-  },
-  "大冶一套": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://dayeyun.live.tempsource.cjyun.org/videotmp/s10102-TC1T.m3u8"]
-  },
-  "大冶二套": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://dayeyun.live.tempsource.cjyun.org/videotmp/s10102-TC2T.m3u8"]
-  },
-  "大悟综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://yunshangdawu.live.tempsource.cjyun.org/videotmp/s10129-dwzhpd.m3u8"]
-  },
-  "大爱海外": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["https://pulltv3.wanfudaluye.com/live/tv3.m3u8"]
+  "东方卫视": {
+    "tvgId": "东方卫视",
+    "tvgName": "东方卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/东方卫视.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=dfws"]
   },
   "天津卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://183.207.249.12/PLTV/4/224/3221225808/index.m3u8",
-      "http://223.110.245.151/ott.js.chinamobile.com/PLTV/3/224/3221225808/index.m3u8",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225698/index.m3u8",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225739/index.m3u8",
-      "http://117.169.120.140:8080/live/hdtianjinstv/.m3u8",
-      "http://112.25.48.68/live/program/live/tjwshd/4000000/mnf.m3u8",
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=37&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://116.199.5.52:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=37&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://183.207.248.71/cntv/live1/HD-2500k-1080P-tianjinstv/HD-2500k-1080P-tianjinstv",
-      "http://223.110.243.170/PLTV/3/224/3221227212/index.m3u8",
-      "http://223.110.245.155/ott.js.chinamobile.com/PLTV/3/224/3221227382/index.m3u8",
-      "http://223.110.245.165/ott.js.chinamobile.com/PLTV/3/224/3221227407/index.m3u8",
-      "http://223.110.245.170/PLTV/3/224/3221227212/index.m3u8"
-    ]
+    "tvgId": "天津卫视",
+    "tvgName": "天津卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/天津卫视.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=tjws"]
   },
-  "奇妙電視": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://media.fantv.hk/m3u8/archive/channel2stream1.m3u8"]
+  "重庆卫视": {
+    "tvgId": "重庆卫视",
+    "tvgName": "重庆卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/重庆卫视.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=cqws"]
   },
-  "女性时尚": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://223.110.245.169/PLTV/4/224/3221227026/index.m3u8"]
+  "黑龙江卫视": {
+    "tvgId": "黑龙江卫视",
+    "tvgName": "黑龙江卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/黑龙江卫视.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=hljws"]
   },
-  "孟州电视台": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live.dxhmt.cn:9081/tv/10883-1.m3u8"]
+  "吉林卫视": {
+    "tvgId": "吉林卫视",
+    "tvgName": "吉林卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/吉林卫视.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=jlws"]
+  },
+  "辽宁卫视": {
+    "tvgId": "辽宁卫视",
+    "tvgName": "辽宁卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/辽宁卫视.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=lnws"]
+  },
+  "内蒙古卫视": {
+    "tvgId": "内蒙古卫视",
+    "tvgName": "内蒙古卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/内蒙古卫视.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=nmws"]
   },
   "宁夏卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://112.25.48.68/live/program/live/nxws/1300000/mnf.m3u8",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225726/index.m3u8",
-      "http://117.169.120.140:8080/live/ningxiastv/.m3u8",
-      "http://183.207.248.11/PLTV/4/224/3221225842/index.m3u8",
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=120&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://116.199.5.52:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=120&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://223.110.245.151/ott.js.chinamobile.com/PLTV/3/224/3221225842/index.m3u8",
-      "http://183.207.248.71/gitv/live1/GNINGXIA/GNINGXIA"
-    ]
-  },
-  "安徽": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://live.0561rtv.cn/ggpd/hd/live.m3u8",
-      "http://live.0561rtv.cn/xwzh/hd/live.m3u8",
-      "http://117.70.93.210:1935/live/xinwen/playlist.m3u8",
-      "http://dstpush1.retalltech.com/app/stream2.m3u8",
-      "http://dstpush1.retalltech.com/app/stream1.m3u8"
-    ]
-  },
-  "安徽卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://183.207.249.5/PLTV/4/224/3221225800/index.m3u8",
-      "http://183.207.248.71/gitv/live1/AHWS/AHWS",
-      "http://223.110.245.143/ott.js.chinamobile.com/PLTV/3/224/3221225800/index.m3u8",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225691/index.m3u8",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225737/index.m3u8",
-      "http://183.207.249.15/PLTV/3/224/3221225634/index.m3u8",
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=2&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://223.110.245.147/ott.js.chinamobile.com/PLTV/3/224/3221225634/index.m3u8",
-      "http://223.110.254.203:6610/cntv/live1/HD-8000k-1080P-anhuistv/HD-8000k-1080P-anhuistv/1.m3u8",
-      "http://zbbf2.ahtv.cn/live/749.m3u8",
-      "http://183.207.248.71/cntv/live1/anhuistv/anhuistv",
-      "http://112.25.48.68/live/program/live/ahwshd/4000000/mnf.m3u8"
-    ]
-  },
-  "安徽小说评书广播": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream1.ahrtv.cn/xspsgb/sd/live.m3u8"]
-  },
-  "安徽戏曲广播": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream2.ahrtv.cn/xnxq/sd/live.m3u8"]
-  },
-  "安徽新闻综合广播": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream2.ahrtv.cn/xnxw/sd/live.m3u8"]
-  },
-  "安徽旅游广播": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream2.ahrtv.cn/lygb/sd/live.m3u8"]
-  },
-  "完美游戏": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://183.207.248.71/cntv/live1/wmyx/wmyx"]
-  },
-  "宜章新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hnyz.chinashadt.com:2036/live/stream:tv1.stream/playlist.m3u8"]
-  },
-  "宜章社会法制": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hnyz.chinashadt.com:2036/live/stream:tv2.stream/playlist.m3u8"]
-  },
-  "家庭影院": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://39.134.19.153/dbiptv.sn.chinamobile.com/PLTV/88888888/224/3221226462/index.m3u8"]
-  },
-  "家庭理财": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://223.110.245.139/PLTV/4/224/3221227011/index.m3u8"]
-  },
-  "家有购物": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://183.207.248.71/cntv/live1/SD-1500k-576P-jiayougw/SD-1500k-576P-jiayougw"]
-  },
-  "宿州公共": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live.ahsz.tv/video/s10001-ggpd/index.m3u8"]
-  },
-  "宿州新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live.ahsz.tv/video/s10001-szzh/index.m3u8"]
-  },
-  "宿州科教": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live.ahsz.tv/video/s10001-kxjy/index.m3u8"]
-  },
-  "宿迁公共": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://223.110.245.153/ott.js.chinamobile.com/PLTV/3/224/3221226939/index.m3u8"]
-  },
-  "山东体育": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://livealone302.iqilu.com/iqilu/typd.m3u8"]
-  },
-  "山东农科": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://livealone302.iqilu.com/iqilu/nkpd.m3u8"]
-  },
-  "山东卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://183.207.248.71/gitv/live1/SDWS/SDWS",
-      "http://223.110.245.149/ott.js.chinamobile.com/PLTV/3/224/3221225804/index.m3u8",
-      "http://125.210.152.18:9090/live/SDWSHDH265.m3u8",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225697/index.m3u8",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225738/index.m3u8",
-      "http://117.169.120.140:8080/live/hdshandongstv/.m3u8",
-      "http://116.199.5.52:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=39&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://183.207.248.71/cntv/live1/HD-2500k-1080P-shandongstv/HD-2500k-1080P-shandongstv",
-      "http://223.110.243.171/PLTV/3/224/3221227258/index.m3u8",
-      "http://223.110.245.139/PLTV/4/224/3221227448/index.m3u8",
-      "http://223.110.254.207:6610/cntv/live1/HD-2500k-1080P-shandongstv/HD-2500k-1080P-shandongstv/1.m3u8",
-      "http://ott.js.chinamobile.com/PLTV/3/224/3221227258/index.m3u8",
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=39&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    ]
-  },
-  "山东少儿": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://livealone302.iqilu.com/iqilu/sepd.m3u8"]
-  },
-  "山东居家购物": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://livealone302.iqilu.com/iqilu/gwpd.m3u8"]
-  },
-  "山东影视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://livealone302.iqilu.com/iqilu/yspd.m3u8"]
-  },
-  "山东新闻": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://livealone302.iqilu.com/iqilu/ggpd.m3u8"]
-  },
-  "山东生活": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://livealone302.iqilu.com/iqilu/shpd.m3u8"]
-  },
-  "山东综艺": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://livealone302.iqilu.com/iqilu/zypd.m3u8"]
-  },
-  "山东齐鲁": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://livealone302.iqilu.com/iqilu/qlpd.m3u8"]
-  },
-  "山西": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream.sxsztv.com/live4/sd/live.m3u8"]
-  },
-  "山西优购物": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=55&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    ]
-  },
-  "山西卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225730/index.m3u8",
-      "http://117.169.120.140:8080/live/shanxistv/.m3u8",
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=144&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    ]
-  },
-  "岳西圖文頻道": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://58.243.4.22:1935/live/tuwen/playlist.m3u8"]
-  },
-  "岳西影視頻道": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://58.243.4.22:1935/live/yingshi/playlist.m3u8"]
-  },
-  "岳西綜合頻道": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://58.243.4.22:1935/live/zonghe/playlist.m3u8"]
-  },
-  "岳阳公共": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://live.hnxttv.com:9601/live/dspd/800K/tzwjvideo.m3u8?BVUUID=C236454D-5355-2F5F-FA96-1887C72E55CE&auth=654837809071524@615@2E9A5FD0B225B012E3178551CF3754A8"
-    ]
-  },
-  "岷县电视台": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://117.156.28.119/270000001111/1110000130/index.m3u8"]
-  },
-  "嵊州综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://l.cztvcloud.com/channels/lantian/SXshengzhou1/720p.m3u8"]
-  },
-  "巴中综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://30814.hlsplay.aodianyun.com/lms30814/tvchannel246.m3u8"]
-  },
-  "平乡电视台": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hbpx.chinashadt.com:2036/live/px1.stream/playlist.m3u8"]
-  },
-  "广东": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://hls.wiseqx.com/live/qxzh.m3u8",
-      "http://chaoan.chaoantv.com:8278/chaoanzonghe/playlist.m3u8",
-      "https://www.sgmsw.cn/videos/tv/201805/1308/9P424TC5M000AFO13CXK6GN6BOA889D2/hls/live.m3u8",
-      "https://www.sgmsw.cn/videos/tv/201805/1308/SB05RIYZOU8JR418AUQOF62CAJQ08D0E/hls/live.m3u8"
-    ]
-  },
-  "广东体育": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://116.199.5.52:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=20&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=8&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    ]
-  },
-  "广东公共": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=85&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    ]
-  },
-  "广东南方卫视地面": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=9&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    ]
-  },
-  "广东卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225701/index.m3u8",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225742/index.m3u8",
-      "http://112.25.48.68/live/program/live/gdwshd/4000000/mnf.m3u8",
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=43&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://183.207.248.71/cntv/live1/HD-2500k-1080P-guangdongstv/HD-2500k-1080P-guangdongstv",
-      "http://223.110.243.136/PLTV/3/224/3221227249/index.m3u8",
-      "http://223.110.245.170/PLTV/3/224/3221227249/index.m3u8",
-      "http://223.110.245.172/PLTV/4/224/3221227399/index.m3u8",
-      "http://223.110.254.195:6610/cntv/live1/HD-2500k-1080P-guangdongstv/HD-2500k-1080P-guangdongstv/1.m3u8"
-    ]
-  },
-  "广东嘉佳卡通": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=130&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    ]
-  },
-  "广东少儿": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=83&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    ]
-  },
-  "广东影视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=86&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    ]
-  },
-  "广东新闻": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=84&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    ]
-  },
-  "广东珠江": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=79&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    ]
-  },
-  "广东经济科教": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=20&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    ]
-  },
-  "广东综艺": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://116.199.5.52:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=79&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    ]
-  },
-  "广州影视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://116.199.5.52:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=46&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    ]
-  },
-  "广州新闻": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://116.199.5.52:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=00&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=11&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    ]
-  },
-  "广州法治": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=46&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    ]
-  },
-  "广州竞赛": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=0&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://116.199.5.52:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=52&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    ]
-  },
-  "广州综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://116.199.5.52:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=44&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=81&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    ]
-  },
-  "广水新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://guangshui.live.tempsource.cjyun.org/videotmp/s10146-GSXW.m3u8"]
-  },
-  "广视网": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://116.199.5.52:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=11&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    ]
-  },
-  "广西卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225731/index.m3u8",
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=138&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    ]
-  },
-  "康巴卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://223.110.245.139/PLTV/4/224/3221227008/index.m3u8"]
-  },
-  "延边卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://223.110.245.139/PLTV/4/224/3221227002/index.m3u8",
-      "http://223.110.245.161/ott.js.chinamobile.com/PLTV/3/224/3221227002/index.m3u8",
-      "http://ott.js.chinamobile.com/PLTV/3/224/3221227002/index.m3u8",
-      "http://live.ybtvyun.com/video/s10016-7e5f23de35df/index.m3u8"
-    ]
-  },
-  "延边新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream2.jlntv.cn/jlyb/sd/live.m3u8"]
-  },
-  "建安电视台": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live.dxhmt.cn:9081/tv/11003-1.m3u8"]
-  },
-  "开州综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://kaixianlive.cbg.cn:10345/1.m3u8"]
-  },
-  "弈坛春秋": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://223.110.245.139/PLTV/4/224/3221227031/index.m3u8"]
-  },
-  "张家口一套": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://nlive.zjkgdcs.com:8091/live/xwzhpd.m3u8"]
-  },
-  "张家港新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://3gvod.zjgonline.com.cn:1935/live/xinwenzonghe2/playlist.m3u8"]
-  },
-  "张家港社会生活": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://3gvod.zjgonline.com.cn:1935/live/shehuishenghuo2/playlist.m3u8"]
-  },
-  "张家界1": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream.zjjrtv.com/zjjtv1/hd/live.m3u8"]
-  },
-  "张家界2台": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream.zjjrtv.com/zjjtv2/hd/live.m3u8"]
-  },
-  "彭水文化旅游": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://pengshuilive.cbg.cn/pengshui02.m3u8"]
-  },
-  "彭水新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://pengshuilive.cbg.cn/pengshui01.m3u8"]
-  },
-  "徐州-1": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://183.207.249.15/PLTV/3/224/3221225945/index.m3u8"]
-  },
-  "徐州-3": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://183.207.249.7/PLTV/3/224/3221225949/index.m3u8",
-      "http://223.110.245.151/ott.js.chinamobile.com/PLTV/3/224/3221225949/index.m3u8"
-    ]
-  },
-  "徐州-4": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://183.207.249.15/PLTV/3/224/3221225951/index.m3u8"]
-  },
-  "徐州公共頻道": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream1.huaihai.tv/ggpd/playlist.m3u8", "http://183.207.248.11/PLTV/3/224/3221225951/index.m3u8"]
-  },
-  "徐州影视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream1.huaihai.tv/wyys/playlist.m3u8"]
-  },
-  "徐州新聞綜合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://stream1.huaihai.tv/xwzh/playlist.m3u8",
-      "http://183.207.248.11/PLTV/3/224/3221225945/index.m3u8",
-      "http://223.110.245.165/ott.js.chinamobile.com/PLTV/3/224/3221225945/index.m3u8"
-    ]
-  },
-  "徐州生活": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream1.huaihai.tv/jjsh/playlist.m3u8"]
-  },
-  "徐州經濟生活": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://223.110.245.167/ott.js.chinamobile.com/PLTV/3/224/3221225947/index.m3u8"]
-  },
-  "徐州贾汪旅游": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://223.110.245.147/ott.js.chinamobile.com/PLTV/3/224/3221227389/index.m3u8"]
-  },
-  "忍者神龟": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://www.alibabapictures.com/movies/shenggui/poyingerchu.mp4"]
-  },
-  "忠县文旅": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://qxlmlive.cbg.cn:1935/app2/definst/ls36.stream/playlist.m3u8"]
-  },
-  "忠县综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://qxlmlive.cbg.cn:1935/app2/definst/ls35.stream/playlist.m3u8"]
-  },
-  "惠州新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://dslive.grtn.cn/hzzh/sd/live.m3u8"]
-  },
-  "成都大熊猫": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["https://gcbsc.v.live.baishancdnx.cn/gc/xiongmao031/index.m3u8?contentid=2820180516001"]
-  },
-  "房山电视台": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["https://live.funhillrm.com/2/playlist.m3u8"]
-  },
-  "抚州公共": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://111.75.179.195:30767/video/livevide2.m3u8"]
-  },
-  "揭阳综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://dslive.grtn.cn/jyzh/playlist.m3u8"]
-  },
-  "撫州綜合頻道": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://111.75.179.195:30767/video/livevide.m3u8"]
-  },
-  "敦煌电视台": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://117.156.28.119/270000001111/1110000028/index.m3u8"]
-  },
-  "文山综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://m3u8.channel.wsrtv.com.cn/cms/videos/nmip-media/channellive/channel7/playlist.m3u8"]
-  },
-  "斗鱼电影2": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://tx2play1.douyucdn.cn/live/20415rnWbjg6Ex1K.xs"]
-  },
-  "斗鱼电影3": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://tx2play1.douyucdn.cn/live/3928r9p0BHMDG8000p.flv"]
-  },
-  "斗鱼电影4": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://tx2play1.douyucdn.cn/live/122402rK7MO9bXSq8000p.flv"]
-  },
-  "斗鱼车评": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://tx2play1.douyucdn.cn/live/321987r8e6tCsPR4000.xs?uuid="]
-  },
-  "新唐人-美西": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live.ntdimg.com/uwlive520/playlist.m3u8"]
-  },
-  "新唐人亚太臺": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["https://live.ntdimg.com/aplive200/playlist.m3u8"]
-  },
-  "新唐人加东臺": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["https://live.ntdimg.com/mllive860/playlist.m3u8"]
-  },
-  "新唐人加西臺": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["https://live.ntdimg.com/cwlive220/playlist.m3u8"]
-  },
-  "新唐人旧金山臺": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["https://live.ntdimg.com/sflive990/playlist.m3u8"]
-  },
-  "新唐人美东臺": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["https://live.ntdimg.com/live400/playlist.m3u8"]
-  },
-  "新唐人美西臺": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["https://live.ntdimg.com/uwlive990/playlist.m3u8"]
-  },
-  "新昌休闲影视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://l.cztvcloud.com/channels/lantian/SXxinchang2/720p.m3u8"]
-  },
-  "新昌新聞綜合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://l.cztvcloud.com/channels/lantian/SXxinchang1/720p.m3u8"]
-  },
-  "新泰乡村党建": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live.xtgdw.cn:1935/live/xtxc/playlist.m3u8"]
-  },
-  "新泰影視頻道": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://111.17.214.4:1935/live/xtys/playlist.m3u8", "http://live.xtgdw.cn:1935/live/xtys/playlist.m3u8"]
-  },
-  "新泰生活": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://111.17.214.4:1935/live/xtsh/playlist.m3u8", "http://live.xtgdw.cn:1935/live/xtsh/playlist.m3u8"]
-  },
-  "新泰综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://111.17.214.4:1935/live/xtzh/playlist.m3u8", "http://live.xtgdw.cn:1935/live/xtzh/playlist.m3u8"]
-  },
-  "新泰鄉村黨建": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://111.17.214.4:1935/live/xtxc/playlist.m3u8"]
-  },
-  "新疆兵团卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=50&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    ]
-  },
-  "新疆卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://112.25.48.68/live/program/live/xjws/1300000/mnf.m3u8",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225725/index.m3u8",
-      "http://183.207.249.15/PLTV/3/224/3221225523/index.m3u8",
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=122&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://183.207.248.71/cntv/live1/xinjiangstv/xinjiangstv",
-      "http://183.207.248.71/gitv/live1/GXINJIANG/GXINJIANG",
-      "http://223.110.243.136/PLTV/3/224/3221225523/index.m3u8"
-    ]
-  },
-  "新疆少儿": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://livehyw5.chinamcache.com/hyw/zb12.m3u8"]
-  },
-  "新疆汉语信息服务": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://livehyw5.chinamcache.com/hyw/zb11.m3u8"]
-  },
-  "新疆汉语综艺": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://livehyw5.chinamcache.com/hyw/zb04.m3u8"]
-  },
-  "新郑综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live.dxhmt.cn:9081/tv/10184-1.m3u8"]
-  },
-  "旺苍新闻": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://3g.dzsm.com/streamer/gycttv.m3u8"]
-  },
-  "明珠台": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=12&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    ]
-  },
-  "星空卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=233&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=234&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://116.199.5.52:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=233&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://116.199.5.52:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=234&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    ]
-  },
-  "星空衛視": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://218.202.220.2:5000/nnlive.ts?id=STARTV",
-      "http://116.199.5.51:8114/hls/Fsvchanhlsseidx=234&FvSeid=1&Fsvctype=LIVES&Fsvotype=1&Providerid=0&Pcontentid=8114.m3u8"
-    ]
-  },
-  "晋中公共": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://jzlive.jztvnews.com:90/live/jzgg.m3u8"]
-  },
-  "晋中综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://jzlive.jztvnews.com:90/live/jzzh.m3u8"]
-  },
-  "景县电视一套": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://hbjx.chinashadt.com:1935/live/stream:jx1.stream360p/playlist.m3u8",
-      "http://hbjx.chinashadt.com:1935/live/jx1.stream/playlist.m3u8"
-    ]
-  },
-  "智慧教育": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://111.63.117.13:6060/030000001000/GCETV-4/GCETV-4.m3u8"]
-  },
-  "朔州1": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream.sxsztv.com/live1/playlist.m3u8"]
-  },
-  "朔州2": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream.sxsztv.com/live2/playlist.m3u8"]
-  },
-  "東光一套": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hbdg.chinashadt.com:1936/live/stream:dgtv1.stream/playlist.m3u8"]
-  },
-  "東光二套": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hbdg.chinashadt.com:1936/live/stream:dgtv2.stream/playlist.m3u8"]
-  },
-  "東光綜藝": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hbdg.chinashadt.com:1936/live/stream:dgzy.stream/playlist.m3u8"]
-  },
-  "松原新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream2.jlntv.cn/sytv/sd/live.m3u8"]
-  },
-  "枣庄公共": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream.zzgd.tv/3/sd/live.m3u8"]
-  },
-  "枣庄教育": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream.zzgd.tv/2/sd/live.m3u8"]
-  },
-  "枣庄新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream.zzgd.tv/1/sd/live.m3u8"]
-  },
-  "栖霞新闻": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://pili-live-hls.140.i2863.com/i2863-140/live140236499.m3u8"]
-  },
-  "梁平综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://qxlmlive.cbg.cn:1935/app2/ls44.stream/playlist.m3u8"]
-  },
-  "梅州综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://dslive.grtn.cn/mzzh/playlist.m3u8"]
-  },
-  "榆树综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream.zhystv.com/yset/sd/live.m3u8"]
-  },
-  "榆樹綜藝頻道": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream.zhystv.com/ysyt/sd/live.m3u8"]
-  },
-  "武汉外语": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream.appwuhan.com/6tzb/sd/live.m3u8"]
-  },
-  "武汉文体": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream.appwuhan.com/5tzb/sd/live.m3u8"]
-  },
-  "武汉经济": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream.appwuhan.com/4tzb/sd/live.m3u8"]
-  },
-  "武进新闻": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live.wjyanghu.com/live/CH1.m3u8"]
-  },
-  "武进生活": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live.wjyanghu.com/live/CH2.m3u8"]
-  },
-  "永新电视一套": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://jxyx.chinashadt.com:2036/live/1002.stream/playlist.m3u8"]
-  },
-  "永新电视三套": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://jxyx.chinashadt.com:2036/live/1004.stream/playlist.m3u8"]
-  },
-  "永新电视二套": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://jxyx.chinashadt.com:2036/live/1003.stream/playlist.m3u8"]
-  },
-  "汕头综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://dslive.grtn.cn/stzh/playlist.m3u8"]
-  },
-  "汕尾公共": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://dslive.grtn.cn/swzh/sd/live.m3u8"]
-  },
-  "江津文化旅游": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://222.179.155.21:1935/ch2.m3u8", "http://jiangjinlive.cbg.cn:1935/ch2.m3u8"]
-  },
-  "江津新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://222.179.155.21:1935/ch1.m3u8", "http://jiangjinlive.cbg.cn:1935/ch1.m3u8"]
-  },
-  "江津经济生活": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://222.179.155.21:1935/ch0.m3u8", "http://jiangjinlive.cbg.cn:1935/ch0.m3u8"]
-  },
-  "江苏": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live.lyg1.com/ggpd/sd/live.m3u8", "http://live.lyg1.com/zhpd/sd/live.m3u8"]
-  },
-  "江苏优漫卡通": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=146&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    ]
-  },
-  "江苏体育": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://183.207.249.12/PLTV/4/224/3221225935/index.m3u8",
-      "http://183.207.248.71/gitv/live1/GJSTY/GJSTY",
-      "http://223.110.245.157/ott.js.chinamobile.com/PLTV/3/224/3221225935/index.m3u8"
-    ]
-  },
-  "江苏公共": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://183.207.248.71/gitv/live1/GJSGG/GJSGG"]
-  },
-  "江苏卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://183.207.248.71/gitv/live1/JSWS-HD/JSWS-HD",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225702/index.m3u8",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225743/index.m3u8",
-      "http://117.169.120.140:8080/live/hdjiangsustv/.m3u8",
-      "http://183.207.249.34/PLTV/4/224/3221227402/index.m3u8",
-      "http://112.25.48.68/live/program/live/jswshd/4000000/mnf.m3u8",
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=5&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://183.207.248.71/cntv/live1/jiangsustv/jiangsustv",
-      "http://223.110.245.157/ott.js.chinamobile.com/PLTV/3/224/3221227439/index.m3u8",
-      "http://223.110.245.170/PLTV/3/224/3221227255/index.m3u8",
-      "http://183.207.248.71/cntv/live1/HD-2500k-1080P-jiangsustv/HD-2500k-1080P-jiangsustv"
-    ]
-  },
-  "江苏城市": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://183.207.248.71/gitv/live1/GJSCS/GJSCS", "http://223.110.245.143/ott.js.chinamobile.com/PLTV/3/224/3221225929/index.m3u8"]
-  },
-  "江苏影视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://223.110.243.134/PLTV/4/224/3221225937/index.m3u8", "http://183.207.248.71/gitv/live1/GJSYS/GJSYS"]
-  },
-  "江苏教育": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://223.110.245.151/ott.js.chinamobile.com/PLTV/3/224/3221225923/index.m3u8", "http://183.207.248.71/gitv/live1/GJSJY/GJSJY"]
-  },
-  "江苏综艺": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://183.207.248.71/gitv/live1/GJSZY/GJSZY"]
-  },
-  "江西": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live.0793.tv/srtv1/sd/live.m3u8"]
-  },
-  "江西卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://125.210.152.18:9090/live/JXWSHDH265.m3u8",
-      "http://183.207.249.15/PLTV/4/224/3221225798/index.m3u8",
-      "http://183.207.248.71/gitv/live1/JXWS/JXWS",
-      "http://117.169.120.140:8080/live/jiangxistv/.m3u8",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225705/index.m3u8",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225746/index.m3u8",
-      "http://183.207.249.11/PLTV/3/224/3221225536/index.m3u8",
-      "http://112.25.48.68/live/program/live/jxwshd/4000000/mnf.m3u8",
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=40&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://183.207.248.71/cntv/live1/jiangxistv/jiangxistv",
-      "http://223.110.245.170/PLTV/3/224/3221225536/index.m3u8",
-      "http://223.110.254.199:6610/cntv/live1/jiangxistv/jiangxistv/1.m3u8"
-    ]
-  },
-  "江门综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://218.17.99.211:5080/hls/ttsw6ccn.m3u8"]
-  },
-  "沧县电视二套": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hebcx.chinashadt.com:2036/live/10002.stream/playlist.m3u8"]
-  },
-  "沧县电视综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hebcx.chinashadt.com:2036/live/10001.stream/playlist.m3u8"]
-  },
-  "河北公共": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live7.plus.hebtv.com/hbggx/playlist.m3u8"]
-  },
-  "河北农民": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://live3.plus.hebtv.com/nmpdx/playlist.m3u8",
-      "http://hbzx.chinashadt.com:2036/zhibo/stream:hbnm.stream360p/playlist.m3u8",
-      "http://hbzx.chinashadt.com:2036/zhibo/stream:hbnm.stream/playlist.m3u8"
-    ]
+    "tvgId": "宁夏卫视",
+    "tvgName": "宁夏卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/宁夏卫视.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=nxws"]
+  },
+  "甘肃卫视": {
+    "tvgId": "甘肃卫视",
+    "tvgName": "甘肃卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/甘肃卫视.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=gsws"]
+  },
+  "青海卫视": {
+    "tvgId": "青海卫视",
+    "tvgName": "青海卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/青海卫视.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=qhws"]
+  },
+  "陕西卫视": {
+    "tvgId": "陕西卫视",
+    "tvgName": "陕西卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/陕西卫视.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=sxws"]
   },
   "河北卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://125.210.152.18:9090/live/HBWSHDH265.m3u8",
-      "http://112.25.48.68/live/program/live/hbws/1300000/mnf.m3u8",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225732/index.m3u8",
-      "http://hbpx.chinashadt.com:2036/live/px4.stream/playlist.m3u8",
-      "http://183.207.248.71/gitv/live1/GHEBEI/GHEBEI",
-      "http://223.110.245.149/ott.js.chinamobile.com/PLTV/3/224/3221225840/index.m3u8",
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=45&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
-    ]
+    "tvgId": "河北卫视",
+    "tvgName": "河北卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/河北卫视.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=hbws"]
   },
-  "河北少儿科教": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live6.plus.hebtv.com/sekjx/playlist.m3u8"]
+  "山西卫视": {
+    "tvgId": "山西卫视",
+    "tvgName": "山西卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/山西卫视.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=sxiws"]
   },
-  "河北影视剧": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live6.plus.hebtv.com/hbysx/hd/live.m3u8"]
+  "山东卫视": {
+    "tvgId": "山东卫视",
+    "tvgName": "山东卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/山东卫视.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=sdws"]
   },
-  "河北经济": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hbfc.chinashadt.com:2036/live/6.stream/playlist.m3u8"]
-  },
-  "河北经济生活": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live2.plus.hebtv.com/jjshx/playlist.m3u8"]
-  },
-  "河北都市": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live3.plus.hebtv.com/hbdsx/playlist.m3u8"]
+  "安徽卫视": {
+    "tvgId": "安徽卫视",
+    "tvgName": "安徽卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/安徽卫视.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=ahws"]
   },
   "河南卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://112.25.48.68/live/program/live/hnws/1300000/mnf.m3u8",
-      "http://183.207.248.71/cntv/live1/henanstv/henanstv",
-      "http://ott.js.chinamobile.com/PLTV/3/224/3221225815/index.m3u8"
-    ]
+    "tvgId": "河南卫视",
+    "tvgName": "河南卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/河南卫视.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=hnws"]
   },
-  "河源公共": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://tmpstream.hyrtv.cn/hygg/sd/live.m3u8"]
+  "湖北卫视": {
+    "tvgId": "湖北卫视",
+    "tvgName": "湖北卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/湖北卫视.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=hubws"]
   },
-  "河源综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://tmpstream.hyrtv.cn/xwzh/sd/live.m3u8"]
+  "湖南卫视": {
+    "tvgId": "湖南卫视",
+    "tvgName": "湖南卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/湖南卫视.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=hunws"]
   },
-  "洛陽綜合頻道": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live1.lytv.com.cn:1935/live/LYTV1-1/playlist.m3u8"]
+  "江西卫视": {
+    "tvgId": "江西卫视",
+    "tvgName": "江西卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/江西卫视.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=jxws"]
   },
-  "洪雅新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://117.172.215.250:8083/videos/live/35/39/GQVbrgob5CGJM/GQVbrgob5CGJM.m3u8"]
-  },
-  "济宁公共": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://lives.jnnews.tv/video/s10001-JTV3/index.m3u8"]
-  },
-  "济宁图文": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://lives.jnnews.tv/video/s10001-JTV4/index.m3u8"]
-  },
-  "济宁教育": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://lives.jnnews.tv/video/s10001-JTV2/index.m3u8"]
-  },
-  "浙江6套": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hw-m-l.cztv.com/channels/lantian/channel06/1080p.m3u8"]
-  },
-  "浙江": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://hw-m-l.cztv.com/channels/lantian/channel06/720p.m3u8",
-      "http://hw-m-l.cztv.com/channels/lantian/channel10/720p.m3u8",
-      "http://hw-m-l.cztv.com/channels/lantian/channel08/720p.m3u8",
-      "http://hw-m-l.cztv.com/channels/lantian/channel04/720p.m3u8",
-      "http://hw-m-l.cztv.com/channels/lantian/channel07/720p.m3u8",
-      "http://hw-m-l.cztv.com/channels/lantian/channel11/720p.m3u8",
-      "http://hw-m-l.cztv.com/channels/lantian/channel09/720p.m3u8",
-      "http://hw-m-l.cztv.com/channels/lantian/channel03/720p.m3u8",
-      "http://live.shaoxing.com.cn/video/s10001-sxtv3/index.m3u8",
-      "http://live.shaoxing.com.cn/video/s10001-sxtv1/index.m3u8"
-    ]
-  },
-  "浙江公共": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hw-m-l.cztv.com/channels/lantian/channel07/1080p.m3u8"]
+  "江苏卫视": {
+    "tvgId": "江苏卫视",
+    "tvgName": "江苏卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/江苏卫视.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=jsws"]
   },
   "浙江卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
+    "tvgId": "浙江卫视",
+    "tvgName": "浙江卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/浙江卫视.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=zjws"]
+  },
+  "东南卫视": {
+    "tvgId": "东南卫视",
+    "tvgName": "东南卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/东南卫视.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=dnws"]
+  },
+  "海峡卫视": {
+    "tvgId": "海峡卫视",
+    "tvgName": "海峡卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/海峡卫视.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=hxws"]
+  },
+  "厦门卫视": {
+    "tvgId": "厦门卫视",
+    "tvgName": "厦门卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/厦门卫视.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=xmws"]
+  },
+  "广东卫视": {
+    "tvgId": "广东卫视",
+    "tvgName": "广东卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/广东卫视.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=gdws"]
+  },
+  "深圳卫视": {
+    "tvgId": "深圳卫视",
+    "tvgName": "深圳卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/深圳卫视.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=szws"]
+  },
+  "广西卫视": {
+    "tvgId": "广西卫视",
+    "tvgName": "广西卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/广西卫视.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=gxws"]
+  },
+  "云南卫视": {
+    "tvgId": "云南卫视",
+    "tvgName": "云南卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/云南卫视.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=ynws"]
+  },
+  "贵州卫视": {
+    "tvgId": "贵州卫视",
+    "tvgName": "贵州卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/贵州卫视.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=gzws"]
+  },
+  "四川卫视": {
+    "tvgId": "四川卫视",
+    "tvgName": "四川卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/四川卫视.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=scws"]
+  },
+  "康巴卫视": {
+    "tvgId": "康巴卫视",
+    "tvgName": "康巴卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/康巴卫视.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=kbws"]
+  },
+  "海南卫视": {
+    "tvgId": "海南卫视",
+    "tvgName": "海南卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/海南卫视.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=hinws"]
+  },
+  "三沙卫视": {
+    "tvgId": "三沙卫视",
+    "tvgName": "三沙卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/三沙卫视.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=ssws"]
+  },
+  "新疆卫视": {
+    "tvgId": "新疆卫视",
+    "tvgName": "新疆卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/新疆卫视.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=xjws"]
+  },
+  "兵团卫视": {
+    "tvgId": "兵团卫视",
+    "tvgName": "兵团卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/兵团卫视.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=btws"]
+  },
+  "西藏卫视": {
+    "tvgId": "西藏卫视",
+    "tvgName": "西藏卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/西藏卫视.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=xzws"]
+  },
+  "西藏藏语卫视": {
+    "tvgId": "西藏藏语卫视",
+    "tvgName": "西藏藏语卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/西藏藏语卫视.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=xzzyws"]
+  },
+  "CETV1": {
+    "tvgId": "中国教育1台",
+    "tvgName": "中国教育1台",
+    "tvgLogo": "https://live.fanmingming.com/tv/CETV1.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=cetv1"]
+  },
+  "CETV2": {
+    "tvgId": "中国教育2台",
+    "tvgName": "中国教育2台",
+    "tvgLogo": "https://live.fanmingming.com/tv/CETV2.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=cetv2"]
+  },
+  "CETV4": {
+    "tvgId": "中国教育4台",
+    "tvgName": "中国教育4台",
+    "tvgLogo": "https://live.fanmingming.com/tv/CETV4.png",
+    "groupTitle": "卫视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=cetv4"]
+  },
+  "北京纪实科教": {
+    "tvgId": "北京纪实",
+    "tvgName": "北京纪实",
+    "tvgLogo": "https://live.fanmingming.com/tv/北京纪实科教.png",
+    "groupTitle": "数字",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=bjjskj"]
+  },
+  "纪实人文": {
+    "tvgId": "上海纪实",
+    "tvgName": "上海纪实",
+    "tvgLogo": "https://live.fanmingming.com/tv/纪实人文.png",
+    "groupTitle": "数字",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=shjsrw"]
+  },
+  "动漫秀场": {
+    "tvgId": "动漫秀场",
+    "tvgName": "动漫秀场",
+    "tvgLogo": "https://live.fanmingming.com/tv/动漫秀场.png",
+    "groupTitle": "数字",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=dmxc"]
+  },
+  "哈哈炫动": {
+    "tvgId": "哈哈炫动",
+    "tvgName": "哈哈炫动",
+    "tvgLogo": "https://live.fanmingming.com/tv/哈哈炫动.png",
+    "groupTitle": "数字",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=hhxd"]
+  },
+  "欢笑剧场": {
+    "tvgId": "欢笑剧场",
+    "tvgName": "欢笑剧场",
+    "tvgLogo": "https://live.fanmingming.com/tv/欢笑剧场.png",
+    "groupTitle": "数字",
     "tvgUrl": [
-      "http://183.207.248.71/gitv/live1/GZHEJIANG/GZHEJIANG",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225703/index.m3u8",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225744/index.m3u8",
-      "http://183.207.249.34/PLTV/4/224/3221227393/index.m3u8",
-      "http://hw-m-l.cztv.com/channels/lantian/channel01/1080p.m3u8",
-      "http://112.25.48.68/live/program/live/zjwshd/4000000/mnf.m3u8",
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=13&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://116.199.5.52:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=13&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://183.207.248.71/cntv/live1/HD-2500k-1080P-zhejiangstv/HD-2500k-1080P-zhejiangstv",
-      "http://183.207.248.71/cntv/live1/zhejiangstv/zhejiangstv",
-      "http://223.110.243.173/PLTV/3/224/3221227215/index.m3u8",
-      "http://223.110.245.143/ott.js.chinamobile.com/PLTV/3/224/3221227483/index.m3u8",
-      "http://223.110.245.159/ott.js.chinamobile.com/PLTV/3/224/3221227393/index.m3u8",
-      "http://223.110.254.210:6610/cntv/live1/zhejiangstv/zhejiangstv/1.m3u8",
-      "http://ott.js.chinamobile.com/PLTV/3/224/3221227393/index.m3u8"
+      "https://cntv.lat/tv?auth=202311030915&id=hxjc",
+      "https://cntv.lat/tv?auth=202311030915&id=hxjc4k"
     ]
   },
+  "都市剧场": {
+    "tvgId": "SITV都市剧场",
+    "tvgName": "SITV都市剧场",
+    "tvgLogo": "https://live.fanmingming.com/tv/都市剧场.png",
+    "groupTitle": "数字",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=dsjc"]
+  },
+  "五星体育": {
+    "tvgId": "上海五星体育",
+    "tvgName": "上海五星体育",
+    "tvgLogo": "https://live.fanmingming.com/tv/五星体育.png",
+    "groupTitle": "数字",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=wxty"]
+  },
+  "劲爆体育": {
+    "tvgId": "SITV劲爆体育",
+    "tvgName": "SITV劲爆体育",
+    "tvgLogo": "https://live.fanmingming.com/tv/劲爆体育.png",
+    "groupTitle": "数字",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=jbty"]
+  },
+  "新视觉": {
+    "tvgId": "新视觉",
+    "tvgName": "新视觉",
+    "tvgLogo": "https://live.fanmingming.com/tv/新视觉.png",
+    "groupTitle": "数字",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=xsj"]
+  },
+  "游戏风云": {
+    "tvgId": "游戏风云",
+    "tvgName": "游戏风云",
+    "tvgLogo": "https://live.fanmingming.com/tv/游戏风云.png",
+    "groupTitle": "数字",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=yxfy"]
+  },
+  "生活时尚": {
+    "tvgId": "生活时尚",
+    "tvgName": "生活时尚",
+    "tvgLogo": "https://live.fanmingming.com/tv/生活时尚.png",
+    "groupTitle": "数字",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=shss"]
+  },
+  "金色学堂": {
+    "tvgId": "SITV金色学堂",
+    "tvgName": "SITV金色学堂",
+    "tvgLogo": "https://live.fanmingming.com/tv/金色学堂.png",
+    "groupTitle": "数字",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=jspd"]
+  },
+  "乐游": {
+    "tvgId": "全纪实",
+    "tvgName": "全纪实",
+    "tvgLogo": "https://live.fanmingming.com/tv/乐游.png",
+    "groupTitle": "数字",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=qjs"]
+  },
+  "魅力足球": {
+    "tvgId": "魅力足球",
+    "tvgName": "魅力足球",
+    "tvgLogo": "https://live.fanmingming.com/tv/魅力足球.png",
+    "groupTitle": "数字",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=mlzq"]
+  },
+  "茶频道": {
+    "tvgId": "茶",
+    "tvgName": "茶",
+    "tvgLogo": "https://live.fanmingming.com/tv/茶.png",
+    "groupTitle": "数字",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=cpd"]
+  },
+  "快乐垂钓": {
+    "tvgId": "快乐垂钓",
+    "tvgName": "快乐垂钓",
+    "tvgLogo": "https://live.fanmingming.com/tv/快乐垂钓.png",
+    "groupTitle": "数字",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=klcd"]
+  },
+  "金鹰纪实": {
+    "tvgId": "金鹰纪实",
+    "tvgName": "金鹰纪实",
+    "tvgLogo": "https://live.fanmingming.com/tv/金鹰纪实.png",
+    "groupTitle": "数字",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=jyjs"]
+  },
+  "金鹰卡通": {
+    "tvgId": "湖南金鹰卡通",
+    "tvgName": "湖南金鹰卡通",
+    "tvgLogo": "https://live.fanmingming.com/tv/湖南金鹰卡通.png",
+    "groupTitle": "数字",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=jykt"]
+  },
+  "嘉佳卡通": {
+    "tvgId": "嘉佳卡通",
+    "tvgName": "嘉佳卡通",
+    "tvgLogo": "https://live.fanmingming.com/tv/嘉佳卡通.png",
+    "groupTitle": "数字",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=jjkt"]
+  },
+  "财富天下": {
+    "tvgId": "财富天下",
+    "tvgName": "财富天下",
+    "tvgLogo": "https://live.fanmingming.com/tv/财富天下.png",
+    "groupTitle": "数字",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=cftx"]
+  },
+  "中国天气": {
+    "tvgId": "中国天气",
+    "tvgName": "中国天气",
+    "tvgLogo": "https://live.fanmingming.com/tv/中国天气.png",
+    "groupTitle": "数字",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=zgtq"]
+  },
+  "上海新闻综合": {
+    "tvgId": "上视新闻",
+    "tvgName": "上视新闻",
+    "tvgLogo": "https://live.fanmingming.com/tv/上视新闻.png",
+    "groupTitle": "地方",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=shxwzh"]
+  },
+  "上海都市": {
+    "tvgId": "上海都市",
+    "tvgName": "上海都市",
+    "tvgLogo": "https://live.fanmingming.com/tv/上海都市.png",
+    "groupTitle": "地方",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=shds"]
+  },
+  "上海ICS外语": {
+    "tvgId": "上海外语",
+    "tvgName": "上海外语",
+    "tvgLogo": "https://live.fanmingming.com/tv/上海外语.png",
+    "groupTitle": "地方",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=shics"]
+  },
+  "东方影视": {
+    "tvgId": "东方影视",
+    "tvgName": "东方影视",
+    "tvgLogo": "https://live.fanmingming.com/tv/东方影视.png",
+    "groupTitle": "地方",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=dfys"]
+  },
+  "七彩戏剧": {
+    "tvgId": "SITV七彩戏剧",
+    "tvgName": "SITV七彩戏剧",
+    "tvgLogo": "https://live.fanmingming.com/tv/七彩戏剧.png",
+    "groupTitle": "地方",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=qcxj"]
+  },
+  "第一财经": {
+    "tvgId": "上海第一财经",
+    "tvgName": "上海第一财经",
+    "tvgLogo": "https://live.fanmingming.com/tv/上海第一财经.png",
+    "groupTitle": "地方",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=dycj"]
+  },
+  "法治天地": {
+    "tvgId": "SITV法治天地",
+    "tvgName": "SITV法治天地",
+    "tvgLogo": "https://live.fanmingming.com/tv/法治天地.png",
+    "groupTitle": "地方",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=fztd"]
+  },
+  "东方财经": {
+    "tvgId": "东方财经",
+    "tvgName": "东方财经",
+    "tvgLogo": "https://live.fanmingming.com/tv/东方财经.png",
+    "groupTitle": "地方",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=dfcj"]
+  },
+  "上海教育": {
+    "tvgId": "上海教育台",
+    "tvgName": "上海教育台",
+    "tvgLogo": "https://live.fanmingming.com/tv/上海教育.png",
+    "groupTitle": "地方",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=shjy"]
+  },
+  "东方购物": {
+    "tvgId": "东方购物",
+    "tvgName": "东方购物",
+    "tvgLogo": "https://live.fanmingming.com/tv/东方购物.png",
+    "groupTitle": "地方",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=dfgw"]
+  },
+  "浦东电视台": {
+    "tvgId": "浦东电视台",
+    "tvgName": "浦东电视台",
+    "tvgLogo": "https://live.fanmingming.com/tv/浦东电视台.png",
+    "groupTitle": "地方",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=pdtv"]
+  },
+  "福建综合": {
+    "tvgId": "福建综合",
+    "tvgName": "福建综合",
+    "tvgLogo": "https://live.fanmingming.com/tv/福建综合.png",
+    "groupTitle": "地方",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=fjzh"]
+  },
+  "福建新闻": {
+    "tvgId": "福建新闻",
+    "tvgName": "福建新闻",
+    "tvgLogo": "https://live.fanmingming.com/tv/福建新闻.png",
+    "groupTitle": "地方",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=fjxw"]
+  },
+  "福建电视剧": {
+    "tvgId": "福建电视剧",
+    "tvgName": "福建电视剧",
+    "tvgLogo": "https://live.fanmingming.com/tv/福建电视剧.png",
+    "groupTitle": "地方",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=fjdsj"]
+  },
+  "福建文体": {
+    "tvgId": "福建文体",
+    "tvgName": "福建文体",
+    "tvgLogo": "https://live.fanmingming.com/tv/福建文体.png",
+    "groupTitle": "地方",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=fjwt"]
+  },
+  "福建少儿": {
+    "tvgId": "福建少儿",
+    "tvgName": "福建少儿",
+    "tvgLogo": "https://live.fanmingming.com/tv/福建少儿.png",
+    "groupTitle": "地方",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=fjse"]
+  },
+  "福建旅游": {
+    "tvgId": "福建旅游",
+    "tvgName": "福建旅游",
+    "tvgLogo": "https://live.fanmingming.com/tv/福建旅游.png",
+    "groupTitle": "地方",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=fjly"]
+  },
+  "福建经济": {
+    "tvgId": "福建经济",
+    "tvgName": "福建经济",
+    "tvgLogo": "https://live.fanmingming.com/tv/福建经济.png",
+    "groupTitle": "地方",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=fjjj"]
+  },
+  "福建公共": {
+    "tvgId": "福建公共",
+    "tvgName": "福建公共",
+    "tvgLogo": "https://live.fanmingming.com/tv/福建公共.png",
+    "groupTitle": "地方",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=fjgg"]
+  },
+  "福建教育": {
+    "tvgId": "福建教育",
+    "tvgName": "福建教育",
+    "tvgLogo": "https://live.fanmingming.com/tv/福建教育.png",
+    "groupTitle": "地方",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=fjjy"]
+  },
+  "浙江公共新闻": {
+    "tvgId": "浙江公共新闻",
+    "tvgName": "浙江公共新闻",
+    "tvgLogo": "https://live.fanmingming.com/tv/浙江新闻.png",
+    "groupTitle": "地方",
+    "tvgUrl": ["http://hw-m-l.cztv.com/channels/lantian/channel007/1080p.m3u8"]
+  },
   "浙江国际": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hw-m-l.cztv.com/channels/lantian/channel010/1080p.m3u8", "http://hw-m-l.cztv.com/channels/lantian/channel10/1080p.m3u8"]
+    "tvgId": "浙江国际",
+    "tvgName": "浙江国际",
+    "tvgLogo": "https://live.fanmingming.com/tv/浙江国际.png",
+    "groupTitle": "地方",
+    "tvgUrl": ["http://hw-m-l.cztv.com/channels/lantian/channel010/1080p.m3u8"]
   },
   "浙江少儿": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hw-m-l.cztv.com/channels/lantian/channel008/1080p.m3u8", "http://hw-m-l.cztv.com/channels/lantian/channel08/1080p.m3u8"]
-  },
-  "浙江影视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hw-m-l.cztv.com/channels/lantian/channel05/720p.m3u8", "http://yd-m-l.cztv.com/channels/lantian/channel05/1080p.m3u8"]
+    "tvgId": "浙江少儿",
+    "tvgName": "浙江少儿",
+    "tvgLogo": "https://live.fanmingming.com/tv/浙江少儿.png",
+    "groupTitle": "地方",
+    "tvgUrl": ["http://hw-m-l.cztv.com/channels/lantian/channel008/1080p.m3u8"]
   },
   "浙江教科影视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
+    "tvgId": "浙江教科影视",
+    "tvgName": "浙江教科影视",
+    "tvgLogo": "https://live.fanmingming.com/tv/浙江教科影视.png",
+    "groupTitle": "地方",
     "tvgUrl": ["http://hw-m-l.cztv.com/channels/lantian/channel004/1080p.m3u8"]
   },
   "浙江数码时代": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
+    "tvgId": "浙江数码时代",
+    "tvgName": "浙江数码时代",
+    "tvgLogo": "https://live.fanmingming.com/tv/之江记录.png",
+    "groupTitle": "地方",
     "tvgUrl": ["http://hw-m-l.cztv.com/channels/lantian/channel012/1080p.m3u8"]
   },
   "浙江民生休闲": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
+    "tvgId": "浙江民生休闲",
+    "tvgName": "浙江民生休闲",
+    "tvgLogo": "https://live.fanmingming.com/tv/浙江民生休闲.png",
+    "groupTitle": "地方",
     "tvgUrl": ["http://hw-m-l.cztv.com/channels/lantian/channel006/1080p.m3u8"]
   },
-  "浙江留学": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hw-m-l.cztv.com/channels/lantian/channel09/1080p.m3u8"]
-  },
   "浙江经济生活": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
+    "tvgId": "浙江经视",
+    "tvgName": "浙江经视",
+    "tvgLogo": "https://live.fanmingming.com/tv/浙江经济生活.png",
+    "groupTitle": "地方",
     "tvgUrl": ["http://hw-m-l.cztv.com/channels/lantian/channel003/1080p.m3u8"]
   },
-  "浙江钱江": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hw-m-l.cztv.com/channels/lantian/channel002/1080p.m3u8", "http://hw-m-l.cztv.com/channels/lantian/channel02/1080p.m3u8"]
+  "浙江钱江频道": {
+    "tvgId": "浙江钱江都市",
+    "tvgName": "浙江钱江都市",
+    "tvgLogo": "https://live.fanmingming.com/tv/钱江都市.png",
+    "groupTitle": "地方",
+    "tvgUrl": ["http://hw-m-l.cztv.com/channels/lantian/channel002/1080p.m3u8"]
   },
-  "海南卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
+  "内蒙古新闻综合": {
+    "tvgId": "内蒙古新闻综合",
+    "tvgName": "内蒙古新闻综合",
+    "tvgLogo": "https://live.fanmingming.com/tv/内蒙古新闻综合.png",
+    "groupTitle": "地方",
     "tvgUrl": [
-      "http://112.25.48.68/live/program/live/lyws/1300000/mnf.m3u8",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225722/index.m3u8",
-      "http://183.207.248.11/PLTV/4/224/3221225810/index.m3u8",
-      "http://livelyws.chinamcache.com/lyws/zb01.m3u8?authkey=1593241343-0-0-90b80e74457c94b2015f9428a1cb9b0e",
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=114&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
+      "https://livestream-bt.nmtv.cn/nmtv/2316general.m3u8?txSecret=173f71025a2de64458989cfb281a0a37&txTime=771E8800"
     ]
   },
-  "海南州藏語頻道": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live.hnzzzzzdst.com/channel1/sd/live.m3u8"]
-  },
-  "海盐新闻": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://haiyan.liveyun.hoge.cn/xwpd/sd/live.m3u8"]
-  },
-  "海西州综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream.haixitv.cn/1/sd/live.m3u8"]
-  },
-  "涡阳新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://220.180.110.101:8083/videos/live/36/57/hwEHU4UVQ1Iv5/hwEHU4UVQ1Iv5.m3u8"]
-  },
-  "深圳卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
+  "内蒙古经济生活": {
+    "tvgId": "内蒙古经济生活",
+    "tvgName": "内蒙古经济生活",
+    "tvgLogo": "https://live.fanmingming.com/tv/内蒙古经济生活.png",
+    "groupTitle": "地方",
     "tvgUrl": [
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225700/index.m3u8",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225741/index.m3u8",
-      "http://39.135.138.59:18890/PLTV/88888910/224/3221225741/index.m3u8",
-      "http://117.169.120.140:8080/live/hdshenzhenstv/.m3u8",
-      "http://183.207.249.37/PLTV/4/224/3221227307/index.m3u8",
-      "http://39.134.39.39/PLTV/88888888/224/3221226199/index.m3u8",
-      "http://112.25.48.68/live/program/live/szwshd/4000000/mnf.m3u8",
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=42&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://116.199.5.52:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=42&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://223.110.243.171/PLTV/3/224/3221227217/index.m3u8",
-      "http://223.110.245.139/PLTV/4/224/3221227307/index.m3u8",
-      "http://183.207.248.71/cntv/live1/HD-2500k-1080P-shenzhenstv/HD-2500k-1080P-shenzhenstv"
+      "https://livestream-bt.nmtv.cn/nmtv/2317general.m3u8?txSecret=8e4b7cf6a2c8a75f74aef1a8a07cef43&txTime=771E8800"
     ]
   },
-  "湖北": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://jingmen.live.cjyun.org/video/s10101-jmggpd.m3u8"]
-  },
-  "湖北卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
+  "内蒙古少儿频道": {
+    "tvgId": "内蒙古少儿",
+    "tvgName": "内蒙古少儿",
+    "tvgLogo": "https://live.fanmingming.com/tv/内蒙古少儿.png",
+    "groupTitle": "地方",
     "tvgUrl": [
-      "http://183.207.249.16/PLTV/4/224/3221225877/index.m3u8",
-      "http://183.207.248.71/gitv/live1/GHUBEI/GHUBEI",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225699/index.m3u8",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225740/index.m3u8",
-      "http://117.169.120.140:8080/live/hdhubeistv/.m3u8",
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=18&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://183.207.248.71/cntv/live1/HD-2500k-1080P-hubeistv/HD-2500k-1080P-hubeistv",
-      "http://223.110.243.171/PLTV/3/224/3221227211/index.m3u8",
-      "http://223.110.245.153/ott.js.chinamobile.com/PLTV/3/224/3221227211/index.m3u8",
-      "http://223.110.245.170/PLTV/3/224/3221227211/index.m3u8",
-      "http://223.110.254.136:6610/cntv/live1/HD-2500k-1080P-hubeistv/HD-2500k-1080P-hubeistv/1.m3u8",
-      "http://ott.js.chinamobile.com/PLTV/3/224/3221227377/index.m3u8",
-      "http://ott.js.chinamobile.com/PLTV/3/224/3221227565/index.m3u8"
+      "https://livestream-bt.nmtv.cn/nmtv/2318general.m3u8?txSecret=ff5a1fd70ea228ee35b0d29895f37c56&txTime=771E8800"
     ]
   },
-  "湖南先锋乒羽": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
+  "内蒙古文体娱乐": {
+    "tvgId": "内蒙古文体娱乐",
+    "tvgName": "内蒙古文体娱乐",
+    "tvgLogo": "https://live.fanmingming.com/tv/内蒙古文体娱乐.png",
+    "groupTitle": "地方",
     "tvgUrl": [
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=72&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
+      "https://livestream-bt.nmtv.cn/nmtv/2319general.m3u8?txSecret=82ed51a2a4cbf85b62fec8ef2bfe4529&txTime=771E8800"
     ]
   },
-  "湖南卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
+  "内蒙古农牧频道": {
+    "tvgId": "内蒙古农牧",
+    "tvgName": "内蒙古农牧",
+    "tvgLogo": "https://live.fanmingming.com/tv/内蒙古农牧.png",
+    "groupTitle": "地方",
     "tvgUrl": [
-      "http://116.199.5.51:8114/hls/Fsvchanhlsseidx=006&FvSeid=1&Fsvctype=LIVES&Fsvotype=1&Providerid=0&Pcontentid=8114.m3u8",
-      "http://125.210.152.18:9090/live/HNWSHDH265.m3u8",
-      "http://hbpx.chinashadt.com:2036/live/px5.stream/playlist.m3u8",
-      "http://183.207.248.71/gitv/live1/GHUNAN/GHUNAN",
-      "http://223.110.245.165/ott.js.chinamobile.com/PLTV/3/224/3221225854/index.m3u8",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225704/index.m3u8",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225745/index.m3u8",
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=6&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://116.199.5.52:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=6&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://183.207.248.71/cntv/live1/HD-2500k-1080P-hunanstv/HD-2500k-1080P-hunanstv",
-      "http://183.207.248.71/cntv/live1/hunanstv/hunanstv",
-      "http://223.110.243.173/PLTV/3/224/3221227220/index.m3u8",
-      "http://223.110.245.139/PLTV/4/224/3221227404/index.m3u8",
-      "http://223.110.245.159/ott.js.chinamobile.com/PLTV/3/224/3221227191/index.m3u8",
-      "http://223.110.245.168/PLTV/4/224/3221227320/index.m3u8",
-      "http://223.110.245.170/PLTV/3/224/3221227191/index.m3u8",
-      "http://223.110.254.134:6610/cntv/live1/hunanstv/hunanstv/1.m3u8"
+      "https://livestream-bt.nmtv.cn/nmtv/2320general.m3u8?txSecret=b5e44fcd9473993661f17746112ad1b7&txTime=771E8800"
     ]
   },
-  "湖南快乐垂钓": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
+  "内蒙古蒙语卫视": {
+    "tvgId": "内蒙古蒙语卫视",
+    "tvgName": "内蒙古蒙语卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/内蒙古蒙语卫视.png",
+    "groupTitle": "地方",
     "tvgUrl": [
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=69&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
+      "https://livestream-bt.nmtv.cn/nmtv/2315general.m3u8?txSecret=e2b255285dd119a92c8aa5cdf00f8b84&txTime=771EF880"
     ]
   },
-  "湖南快乐购": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
+  "内蒙古蒙语文化": {
+    "tvgId": "内蒙古蒙语文化",
+    "tvgName": "内蒙古蒙语文化",
+    "tvgLogo": "https://live.fanmingming.com/tv/内蒙古蒙语文化.png",
+    "groupTitle": "地方",
     "tvgUrl": [
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=56&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
+      "https://livestream-bt.nmtv.cn/nmtv/2321general.m3u8?txSecret=2250268a1d326dbbc4cbf0ba32649ca5&txTime=771E8800"
     ]
   },
-  "湖南茶": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
+  "云南影视": {
+    "tvgId": "云南影视",
+    "tvgName": "云南影视",
+    "tvgLogo": "https://live.fanmingming.com/tv/云南影视.png",
+    "groupTitle": "地方",
+    "tvgUrl": ["http://mqiptv.com:8014/ch/custom20/mqlive.m3u8"]
+  },
+  "云南娱乐": {
+    "tvgId": "云南娱乐",
+    "tvgName": "云南娱乐",
+    "tvgLogo": "https://live.fanmingming.com/tv/云南娱乐.png",
+    "groupTitle": "地方",
+    "tvgUrl": ["http://mqiptv.com:8014/ch/custom22/mqlive.m3u8"]
+  },
+  "云南都市": {
+    "tvgId": "云南都市",
+    "tvgName": "云南都市",
+    "tvgLogo": "https://live.fanmingming.com/tv/云南都市.png",
+    "groupTitle": "地方",
+    "tvgUrl": ["http://mqiptv.com:8014/ch/custom25/mqlive.m3u8"]
+  },
+  "云南康旅": {
+    "tvgId": "云南康旅",
+    "tvgName": "云南康旅",
+    "tvgLogo": "https://live.fanmingming.com/tv/yunnan.png",
+    "groupTitle": "地方",
+    "tvgUrl": ["http://mqiptv.com:8014/ch/custom23/mqlive.m3u8"]
+  },
+  "看天下精选": {
+    "tvgId": "看天下精选",
+    "tvgName": "看天下精选",
+    "tvgLogo": "https://live.fanmingming.com/tv/bestv.png",
+    "groupTitle": "百视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=ktxjx"]
+  },
+  "华语影院": {
+    "tvgId": "华语影院",
+    "tvgName": "华语影院",
+    "tvgLogo": "https://live.fanmingming.com/tv/bestv.png",
+    "groupTitle": "百视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=hyyy"]
+  },
+  "电竞天堂": {
+    "tvgId": "电竞天堂",
+    "tvgName": "电竞天堂",
+    "tvgLogo": "https://live.fanmingming.com/tv/bestv.png",
+    "groupTitle": "百视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=djtt"]
+  },
+  "青春动漫": {
+    "tvgId": "青春动漫",
+    "tvgName": "青春动漫",
+    "tvgLogo": "https://live.fanmingming.com/tv/bestv.png",
+    "groupTitle": "百视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=qcdm"]
+  },
+  "星光影院": {
+    "tvgId": "星光影院",
+    "tvgName": "星光影院",
+    "tvgLogo": "https://live.fanmingming.com/tv/bestv.png",
+    "groupTitle": "百视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=xgyy"]
+  },
+  "谍战剧场": {
+    "tvgId": "谍战剧场",
+    "tvgName": "谍战剧场",
+    "tvgLogo": "https://live.fanmingming.com/tv/bestv.png",
+    "groupTitle": "百视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=dzjc"]
+  },
+  "全球大片": {
+    "tvgId": "全球大片",
+    "tvgName": "全球大片",
+    "tvgLogo": "https://live.fanmingming.com/tv/bestv.png",
+    "groupTitle": "百视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=qqdp"]
+  },
+  "热门剧场": {
+    "tvgId": "热门剧场",
+    "tvgName": "热门剧场",
+    "tvgLogo": "https://live.fanmingming.com/tv/bestv.png",
+    "groupTitle": "百视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=rmjc"]
+  },
+  "热门综艺": {
+    "tvgId": "热门综艺",
+    "tvgName": "热门综艺",
+    "tvgLogo": "https://live.fanmingming.com/tv/bestv.png",
+    "groupTitle": "百视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=rmzy"]
+  },
+  "戏曲精选": {
+    "tvgId": "戏曲精选",
+    "tvgName": "戏曲精选",
+    "tvgLogo": "https://live.fanmingming.com/tv/bestv.png",
+    "groupTitle": "百视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=xqjx"]
+  },
+  "健康养生": {
+    "tvgId": "健康养生",
+    "tvgName": "健康养生",
+    "tvgLogo": "https://live.fanmingming.com/tv/bestv.png",
+    "groupTitle": "百视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=jkys"]
+  },
+  "百变课堂": {
+    "tvgId": "百变课堂",
+    "tvgName": "百变课堂",
+    "tvgLogo": "https://live.fanmingming.com/tv/bestv.png",
+    "groupTitle": "百视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=bbkt"]
+  },
+  "宝宝动画": {
+    "tvgId": "宝宝动画",
+    "tvgName": "宝宝动画",
+    "tvgLogo": "https://live.fanmingming.com/tv/bestv.png",
+    "groupTitle": "百视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=bbdh"]
+  },
+  "百视通体育1": {
+    "tvgId": "百视通体育1",
+    "tvgName": "百视通体育1",
+    "tvgLogo": "https://live.fanmingming.com/tv/bestv.png",
+    "groupTitle": "百视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=sport1"]
+  },
+  "百视通体育2": {
+    "tvgId": "百视通体育2",
+    "tvgName": "百视通体育2",
+    "tvgLogo": "https://live.fanmingming.com/tv/bestv.png",
+    "groupTitle": "百视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=sport2"]
+  },
+  "百视通体育3": {
+    "tvgId": "百视通体育3",
+    "tvgName": "百视通体育3",
+    "tvgLogo": "https://live.fanmingming.com/tv/bestv.png",
+    "groupTitle": "百视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=sport3"]
+  },
+  "百视通体育4": {
+    "tvgId": "百视通体育4",
+    "tvgName": "百视通体育4",
+    "tvgLogo": "https://live.fanmingming.com/tv/bestv.png",
+    "groupTitle": "百视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=sport4"]
+  },
+  "百视通体育5": {
+    "tvgId": "百视通体育5",
+    "tvgName": "百视通体育5",
+    "tvgLogo": "https://live.fanmingming.com/tv/bestv.png",
+    "groupTitle": "百视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=sport5"]
+  },
+  "百视通体育6": {
+    "tvgId": "百视通体育6",
+    "tvgName": "百视通体育6",
+    "tvgLogo": "https://live.fanmingming.com/tv/bestv.png",
+    "groupTitle": "百视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=sport6"]
+  },
+  "百视通体育7": {
+    "tvgId": "百视通体育7",
+    "tvgName": "百视通体育7",
+    "tvgLogo": "https://live.fanmingming.com/tv/bestv.png",
+    "groupTitle": "百视",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=sport7"]
+  },
+  "CHC高清电影": {
+    "tvgId": "CHC高清电影",
+    "tvgName": "CHC高清电影",
+    "tvgLogo": "https://live.fanmingming.com/tv/CHC高清电影.png",
+    "groupTitle": "数字",
     "tvgUrl": [
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=70&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
+      "http://hls.live.cqccn.com/__cl/cg:live/__c/chcgqdyHD/__op/default/__f/index.m3u8"
     ]
   },
-  "湖南都市": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hnsd.chinashadt.com:2036/live/stream:hunandushi.stream/playlist.m3u8"]
-  },
-  "湘潭公共": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live.hnxttv.com:9601/live/dspd/800K/tzwjvideo.m3u8"]
-  },
-  "湘潭新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live.hnxttv.com:9601/live/xwzh/800K/tzwjvideo.m3u8"]
-  },
-  "滁州公共": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://183.167.193.45:1935/live/cztvgg/playlist.m3u8"]
-  },
-  "滁州新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://183.167.193.45:1935/live/cztvzh/playlist.m3u8"]
-  },
-  "滁州科教": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://183.167.193.45:1935/live/cztvkj/playlist.m3u8"]
-  },
-  "滦县综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hblxx.chinashadt.com:2036/live/stream:lx1.stream/playlist.m3u8"]
-  },
-  "滦县综艺": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hblxx.chinashadt.com:2036/live/stream:lx2.stream/playlist.m3u8"]
-  },
-  "滨州公共电视剧": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream.bzcm.net/1/sd/live.m3u8"]
-  },
-  "滨州新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream.bzcm.net/2/sd/live.m3u8"]
-  },
-  "滨州测试": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream.bzcm.net/4/sd/live.m3u8"]
-  },
-  "滨海新闻": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://60.30.52.41/live/bhtv1/playlist.m3u8"]
-  },
-  "滨海新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://jsbh.chinashadt.com:2036/live/bh11.stream/playlist.m3u8"]
-  },
-  "滨海都市": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://60.30.52.41/live/bhtv2/playlist.m3u8"]
-  },
-  "漳州新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://31182.hlsplay.aodianyun.com/lms31182/tvchannel175.m3u8"]
-  },
-  "潮安综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://chaoan.chaoantv.com:8278/live/chaoanzongyi.m3u8"]
-  },
-  "潮州综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://dslive.grtn.cn/czzh/sd/live.m3u8"]
-  },
-  "澳亚卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
+  "CHC动作电影": {
+    "tvgId": "CHC动作电影",
+    "tvgName": "CHC动作电影",
+    "tvgLogo": "https://live.fanmingming.com/tv/CHC动作电影.png",
+    "groupTitle": "数字",
     "tvgUrl": [
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=192&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://116.199.5.51:8114/hls/Fsvchanhlsseidx=192&FvSeid=1&Fsvctype=LIVES&Fsvotype=1&Providerid=0&Pcontentid=8114.m3u8",
-      "http://116.199.5.52:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=192&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://live.mastvnet.com/4rlff1m/live.m3u8"
+      "http://hls.live.cqccn.com/__cl/cg:live/__c/chcdzdyHD/__op/default/__f/index.m3u8"
     ]
   },
-  "澳视澳门": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://61.244.22.4/ch1/ch1.live/playelist.m3u8"]
-  },
-  "澳视葡文": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://61.244.22.4/ch2/ch2.live/chunklistw1632175875.m3u8"]
-  },
-  "澳门1": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://61.244.22.4/ch3/ch3.live/playelist.m3u8"]
-  },
-  "澳门2": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://61.244.22.4/ch2/ch2.live/playelist.m3u8"]
-  },
-  "澳门体育": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://61.244.22.4/ch4/sportch4.live/playelist.m3u8"]
-  },
-  "灵台新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://117.156.28.119/270000001111/1110000145/index.m3u8"]
-  },
-  "炫动卡通": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://183.207.255.188/live/program/live/xdkt/1300000/mnf.m3u8", "http://223.110.245.139/PLTV/4/224/3221226388/index.m3u8"]
-  },
-  "点掌财经": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://cclive.aniu.tv/live/anzb.m3u8"]
-  },
-  "珠江": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
+  "CHC家庭影院": {
+    "tvgId": "CHC家庭影院",
+    "tvgName": "CHC家庭影院",
+    "tvgLogo": "https://live.fanmingming.com/tv/CHC家庭影院.png",
+    "groupTitle": "数字",
     "tvgUrl": [
-      "http://116.199.5.52:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=8&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
+      "http://hls.live.cqccn.com/__cl/cg:live/__c/chcjtyyHD/__op/default/__f/index.m3u8"
     ]
   },
-  "甘肃公共": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["https://hls.gstv.com.cn/49048r/3t5xyc.m3u8"]
-  },
-  "甘肃卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
+  "风云剧场": {
+    "tvgId": "风云剧场",
+    "tvgName": "风云剧场",
+    "tvgLogo": "https://live.fanmingming.com/tv/风云剧场.png",
+    "groupTitle": "数字",
     "tvgUrl": [
-      "http://112.25.48.68/live/program/live/gsws/1300000/mnf.m3u8",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225724/index.m3u8",
-      "http://117.169.120.140:8080/live/gansustv/.m3u8",
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=142&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://183.207.248.71/gitv/live1/GGANSU/GGANSU",
-      "http://116.199.5.52:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=142&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://39.134.39.38/PLTV/88888888/224/3221226240/index.m3u8?from=26&hmsdevid=685&icpid=88888888",
-      "http://39.134.39.39/PLTV/88888888/224/3221226240/index.m3u8"
+      "http://hls.live.cqccn.com/__cl/cg:live/__c/fyjcHD/__op/default/__f/index.m3u8"
     ]
   },
-  "甘肃移动": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["https://hls.gstv.com.cn/49048r/y72q36.m3u8"]
-  },
-  "生活": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://223.110.245.153/ott.js.chinamobile.com/PLTV/3/224/3221227311/index.m3u8"]
-  },
-  "电白视窗": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
+  "风云音乐": {
+    "tvgId": "风云音乐",
+    "tvgName": "风云音乐",
+    "tvgLogo": "https://live.fanmingming.com/tv/风云音乐.png",
+    "groupTitle": "数字",
     "tvgUrl": [
-      "http://gddb.chinashadt.com:1935/live/video2.stream360p/playlist.m3u8",
-      "http://gddb.chinashadt.com:1935/live/video2.stream/playlist.m3u8"
+      "http://hls.live.cqccn.com/__cl/cg:live/__c/fyyyHD/__op/default/__f/index.m3u8"
     ]
   },
-  "电白综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
+  "风云足球": {
+    "tvgId": "风云足球",
+    "tvgName": "风云足球",
+    "tvgLogo": "https://live.fanmingming.com/tv/风云足球.png",
+    "groupTitle": "数字",
     "tvgUrl": [
-      "http://gddb.chinashadt.com:1935/live/video1.stream360p/playlist.m3u8",
-      "http://gddb.chinashadt.com:1935/live/video1.stream/playlist.m3u8"
+      "http://hls.live.cqccn.com/__cl/cg:live/__c/fyzqHD/__op/default/__f/index.m3u8"
     ]
   },
-  "白城新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream2.jlntv.cn/baicheng1/sd/live.m3u8"]
+  "央视台球": {
+    "tvgId": "央视台球",
+    "tvgName": "央视台球",
+    "tvgLogo": "https://live.fanmingming.com/tv/央视台球.png",
+    "groupTitle": "数字",
+    "tvgUrl": [
+      "http://hls.live.cqccn.com/__cl/cg:live/__c/ystqHD/__op/default/__f/index.m3u8"
+    ]
   },
-  "白山新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream2.jlntv.cn/baishan1/sd/live.m3u8"]
+  "怀旧剧场": {
+    "tvgId": "怀旧剧场",
+    "tvgName": "怀旧剧场",
+    "tvgLogo": "https://live.fanmingming.com/tv/怀旧剧场.png",
+    "groupTitle": "数字",
+    "tvgUrl": [
+      "http://hls.live.cqccn.com/__cl/cg:live/__c/hjjcHD/__op/default/__f/index.m3u8"
+    ]
   },
-  "百事通体育1": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://112.25.48.68/live/program/live/hdnba1/4000000/mnf.m3u8"]
+  "第一剧场": {
+    "tvgId": "第一剧场",
+    "tvgName": "第一剧场",
+    "tvgLogo": "https://live.fanmingming.com/tv/第一剧场.png",
+    "groupTitle": "数字",
+    "tvgUrl": [
+      "http://hls.live.cqccn.com/__cl/cg:live/__c/diyijuchangHD/__op/default/__f/index.m3u8"
+    ]
   },
-  "百事通体育2": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://112.25.48.68/live/program/live/hdnba2/4000000/mnf.m3u8"]
+  "高尔夫网球": {
+    "tvgId": "高尔夫网球",
+    "tvgName": "高尔夫网球",
+    "tvgLogo": "https://live.fanmingming.com/tv/高尔夫网球.png",
+    "groupTitle": "数字",
+    "tvgUrl": [
+      "http://hls.live.cqccn.com/__cl/cg:live/__c/golfHD/__op/default/__f/index.m3u8"
+    ]
   },
-  "百事通体育3": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://112.25.48.68/live/program/live/hdnba3/4000000/mnf.m3u8"]
+  "文化精品": {
+    "tvgId": "文化精品",
+    "tvgName": "文化精品",
+    "tvgLogo": "https://live.fanmingming.com/tv/文化精品.png",
+    "groupTitle": "数字",
+    "tvgUrl": [
+      "http://hls.live.cqccn.com/__cl/cg:live/__c/yswhHD/__op/default/__f/index.m3u8"
+    ]
   },
-  "百事通体育5": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://112.25.48.68/live/program/live/hdnba5/4000000/mnf.m3u8"]
+  "兵器科技": {
+    "tvgId": "兵器科技",
+    "tvgName": "兵器科技",
+    "tvgLogo": "https://live.fanmingming.com/tv/兵器科技.png",
+    "groupTitle": "数字",
+    "tvgUrl": [
+      "http://hls.live.cqccn.com/__cl/cg:live/__c/bqkjHD/__op/default/__f/index.m3u8"
+    ]
   },
-  "百事通体育7": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://112.25.48.68/live/program/live/hdnba7/4000000/mnf.m3u8"]
+  "凤凰中文": {
+    "tvgId": "凤凰中文",
+    "tvgName": "凤凰中文",
+    "tvgLogo": "https://live.fanmingming.com/tv/凤凰卫视中文台.png",
+    "groupTitle": "港澳",
+    "tvgUrl": [
+      "http://180.97.247.27/1301-tx.otvstream.otvcloud.com/otv/skcc/live/channel52003/index.m3u8"
+    ]
   },
-  "石景山电视台": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live.sjsrm.com/bjsjs/sd/live.m3u8"]
-  },
-  "福山生活": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live.jiaodong.net:82/tvfushan/hls/tvshenghuo.m3u8"]
-  },
-  "福州少儿": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live.zohi.tv/video/s10001-sepd-4/index.m3u8"]
-  },
-  "福州影视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live.zohi.tv/video/s10001-yspd-2/index.m3u8"]
-  },
-  "福州生活": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live.zohi.tv/video/s10001-shpd-3/index.m3u8"]
-  },
-  "福州综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live.zohi.tv/video/s10001-FZTV-1/index.m3u8"]
-  },
-  "萬州三峽移民": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://123.146.162.24:8017/c2F0hmi/1000/live.m3u8", "http://wanzhoulive.cbg.cn:8017/c2F0hmi/1000/live.m3u8"]
-  },
-  "萬州影視文藝": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://wanzhoulive.cbg.cn:8017/d4ceB1a/1000/live.m3u8", "http://123.146.162.24:8017/d4ceB1a/1000/live.m3u8"]
-  },
-  "萬州科教頻道": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://123.146.162.24:8017/Cz7WPb8/800/live.m3u8", "http://wanzhoulive.cbg.cn:8017/Cz7WPb8/800/live.m3u8"]
-  },
-  "萬州綜合頻道": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://123.146.162.24:8017/iTXwrGs/800/live.m3u8", "http://wanzhoulive.cbg.cn:8017/iTXwrGs/800/live.m3u8"]
-  },
-  "积石山电视台": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://117.156.28.119/270000001111/1110000152/index.m3u8"]
-  },
-  "篮球资讯": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://223.110.245.139/PLTV/4/224/3221227023/index.m3u8"]
-  },
-  "娄底": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://mms.ldntv.cn:1935/live/definst/zonghe/chunklistw67585331.m3u8"]
-  },
-  "娄底综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://119.39.242.52:1935/live/zonghe/playlist.m3u8", "http://mms.ldntv.cn:1935/live/zonghe/playlist.m3u8"]
-  },
-  "精品电影": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://183.207.248.71/cntv/live1/jdianying/jdianying"]
-  },
-  "綦江综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://113.207.29.195:1935/app2/definst/ls25.stream/playlist.m3u8"]
-  },
-  "红牛REDBULL": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master3360.m3u8"]
-  },
-  "纪实人文": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://39.135.138.59:18890/PLTV/88888910/224/3221225655/index.m3u8"]
-  },
-  "纯享4K": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://39.134.115.163:8080/PLTV/88888910/224/3221225786/index.m3u8"]
-  },
-  "继续教育": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://111.63.117.13:6060/030000001000/GCETV-2/GCETV-2.m3u8"]
-  },
-  "罗山电视台": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live.dxhmt.cn:9081/tv/11521-1.m3u8"]
-  },
-  "置业": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://223.110.245.161/ott.js.chinamobile.com/PLTV/3/224/3221227037/index.m3u8"]
-  },
-  "美国中文电视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["https://jpts.sinovision.net/livestream.m3u8"]
-  },
-  "美国亚美卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["https://dcunilive30-lh.akamaihd.net/i/dclive1@535522/master.m3u8"]
-  },
-  "美国狗狗宠物": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["https://video.blivenyc.com/broadcast/prod/2061/22/desktop-playlist.m3u8"]
+  "凤凰资讯": {
+    "tvgId": "凤凰资讯",
+    "tvgName": "凤凰资讯",
+    "tvgLogo": "https://live.fanmingming.com/tv/凤凰卫视资讯台.png",
+    "groupTitle": "港澳",
+    "tvgUrl": [
+      "http://180.97.247.27/1301-tx.otvstream.otvcloud.com/otv/skcc/live/channel52002/index.m3u8"
+    ]
   },
   "翡翠台": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
+    "tvgId": "翡翠台",
+    "tvgName": "翡翠台",
+    "tvgLogo": "https://live.fanmingming.com/tv/翡翠台.png",
+    "groupTitle": "港澳",
+    "tvgUrl": ["https://pi.0472.org/tv/fct.php?auth=202311030915"]
+  },
+  "明珠台": {
+    "tvgId": "明珠台",
+    "tvgName": "明珠台",
+    "tvgLogo": "https://live.fanmingming.com/tv/明珠台.png",
+    "groupTitle": "港澳",
+    "tvgUrl": ["https://pi.0472.org/tv/mzt.php?auth=202311030915"]
+  },
+  "澳视澳门": {
+    "tvgId": "澳视澳门",
+    "tvgName": "澳视澳门",
+    "tvgLogo": "https://live.fanmingming.com/tv/澳视澳门.png",
+    "groupTitle": "港澳",
+    "tvgUrl": ["https://pi.0472.org/tv/asam.php?auth=202311030915"]
+  },
+  "星空卫视": {
+    "tvgId": "星空卫视",
+    "tvgName": "星空卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/星空卫视.png",
+    "groupTitle": "港澳",
+    "tvgUrl": ["https://pi.0472.org/tv/startv.php?auth=202311030915"]
+  },
+  "澳亚卫视": {
+    "tvgId": "澳亚卫视",
+    "tvgName": "澳亚卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/澳亚卫视.png",
+    "groupTitle": "港澳",
+    "tvgUrl": ["https://pi.0472.org/tv/aoya.php?auth=202311030915"]
+  },
+  "香港卫视": {
+    "tvgId": "香港卫视",
+    "tvgName": "香港卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/香港卫视.png",
+    "groupTitle": "港澳",
+    "tvgUrl": ["http://zhibo.hkstv.tv/livestream/mutfysrq/playlist.m3u8"]
+  },
+  "莲花卫视": {
+    "tvgId": "莲花卫视",
+    "tvgName": "莲花卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/澳门莲花.png",
+    "groupTitle": "港澳",
+    "tvgUrl": ["https://cntv.lat/tv/lhws.php"]
+  },
+  "人间卫视": {
+    "tvgId": "人间卫视",
+    "tvgName": "人间卫视",
+    "tvgLogo": "https://live.fanmingming.com/tv/人间卫视.png",
+    "groupTitle": "港澳",
     "tvgUrl": [
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=188&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
+      "http://61.216.67.119:1935/bltvhd/bltv1/chunklist_w1266569526.m3u8"
     ]
+  },
+  "CGTN": {
+    "tvgId": "CGTN",
+    "tvgName": "CGTN",
+    "tvgLogo": "https://live.fanmingming.com/tv/CGTN.png",
+    "groupTitle": "国际",
+    "tvgUrl": ["https://cntv.lat/tv?auth=202311030915&id=cgtn"]
+  },
+  "CGTN记录": {
+    "tvgId": "CGTNDOCUMENTARY",
+    "tvgName": "CGTNDOCUMENTARY",
+    "tvgLogo": "https://live.fanmingming.com/tv/CGTNDoc.png",
+    "groupTitle": "国际",
+    "tvgUrl": ["https://livedoc.cgtn.com/500d/prog_index.m3u8"]
+  },
+  "CGTN俄语": {
+    "tvgId": "CGTN俄语",
+    "tvgName": "CGTN俄语",
+    "tvgLogo": "https://live.fanmingming.com/tv/CGTN俄语.png",
+    "groupTitle": "国际",
+    "tvgUrl": ["https://liveru.cgtn.com/1000r/prog_index.m3u8"]
+  },
+  "CGTN法语": {
+    "tvgId": "CGTN法语",
+    "tvgName": "CGTN法语",
+    "tvgLogo": "https://live.fanmingming.com/tv/CGTN法语.png",
+    "groupTitle": "国际",
+    "tvgUrl": ["https://livefr.cgtn.com/1000f/prog_index.m3u8"]
+  },
+  "CGTN西语": {
+    "tvgId": "CGTN西语",
+    "tvgName": "CGTN西语",
+    "tvgLogo": "https://live.fanmingming.com/tv/CGTN西语.png",
+    "groupTitle": "国际",
+    "tvgUrl": ["https://livees.cgtn.com/1000e/prog_index.m3u8"]
+  },
+  "CGTN阿语": {
+    "tvgId": "CGTN阿语",
+    "tvgName": "CGTN阿语",
+    "tvgLogo": "https://live.fanmingming.com/tv/CGTN阿语.png",
+    "groupTitle": "国际",
+    "tvgUrl": ["https://livear.cgtn.com/1000a/prog_index.m3u8"]
+  },
+  "NHKWORLD": {
+    "tvgId": "NHKWORLD",
+    "tvgName": "NHKWORLD",
+    "tvgLogo": "https://live.fanmingming.com/tv/NHKWorld.png",
+    "groupTitle": "国际",
+    "tvgUrl": [
+      "https://nhkwlive-ojp.akamaized.net/hls/live/2003459/nhkwlive-ojp-en/index_4M.m3u8"
+    ]
+  },
+  "亚洲新闻": {
+    "tvgId": "CHANNELNEWSASIA",
+    "tvgName": "CHANNELNEWSASIA",
+    "tvgLogo": "https://live.fanmingming.com/tv/亚洲新闻.png",
+    "groupTitle": "国际",
+    "tvgUrl": [
+      "https://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index.m3u8"
+    ]
+  },
+  "半岛英语": {
+    "tvgId": "半岛英语",
+    "tvgName": "半岛英语",
+    "tvgLogo": "https://live.fanmingming.com/tv/半岛新闻.png",
+    "groupTitle": "国际",
+    "tvgUrl": ["http://live-hls-web-aje.getaj.net/AJE/01.m3u8"]
+  },
+  "半岛阿语": {
+    "tvgId": "ALJAZEERA",
+    "tvgName": "ALJAZEERA",
+    "tvgLogo": "https://live.fanmingming.com/tv/半岛新闻.png",
+    "groupTitle": "国际",
+    "tvgUrl": ["http://live-hls-web-aja.getaj.net/AJA/02.m3u8"]
+  },
+  "Thai": {
+    "tvgId": "ThaiPBS3",
+    "tvgName": "ThaiPBS3",
+    "tvgLogo": "https://live.fanmingming.com/tv/ThaiPBS.png",
+    "groupTitle": "国际",
+    "tvgUrl": [
+      "http://thaipbs-live.cdn.byteark.com/live/playlist_1080p/index.m3u8"
+    ]
+  },
+  "Love": {
+    "tvgId": "LoveNature",
+    "tvgName": "LoveNature",
+    "tvgLogo": "https://live.fanmingming.com/tv/LoveNature.png",
+    "groupTitle": "国际",
+    "tvgUrl": ["https://d18dyiwu97wm6q.cloudfront.net/playlist2160p.m3u8"]
+  },
+  "FASHIONTV": {
+    "tvgId": "FASHIONTV",
+    "tvgName": "FASHIONTV",
+    "tvgLogo": "https://live.fanmingming.com/tv/fashiontv.png",
+    "groupTitle": "国际",
+    "tvgUrl": [
+      "http://lb.streaming.sk/fashiontv/stream/chunklist_w1906011378.m3u8",
+      "https://fash2043.cloudycdn.services/slive/ftv_ftv_4k_hevc_73d_42080_default_466_hls.smil/playlist.m3u8"
+    ]
+  },
+  "金砖电视": {
+    "tvgId": "金砖电视",
+    "tvgName": "金砖电视",
+    "tvgLogo": "https://live.fanmingming.com/tv/金砖电视.png",
+    "groupTitle": "国际",
+    "tvgUrl": [
+      "http://brics.bonus-tv.ru/cdn/brics/chinese/tracks-v1a1/index.m3u8"
+    ]
+  },
+  "亚洲新闻720P": {
+    "tvgId": "CHANNELNEWSASIA",
+    "tvgName": "CHANNELNEWSASIA",
+    "tvgLogo": "https://live.fanmingming.com/tv/亚洲新闻.png",
+    "groupTitle": "国际",
+    "tvgUrl": [
+      "https://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index_4.m3u8"
+    ]
+  },
+  "亚洲新闻1080P": {
+    "tvgId": "CHANNELNEWSASIA",
+    "tvgName": "CHANNELNEWSASIA",
+    "tvgLogo": "https://live.fanmingming.com/tv/亚洲新闻.png",
+    "groupTitle": "国际",
+    "tvgUrl": [
+      "https://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index_5.m3u8"
+    ]
+  },
+  "韩·BBS佛教": {
+    "groupTitle": "测试频道",
+    "tvgUrl": [
+      "http://bbstv.clouducs.com:1935/bbstv-live/livestream/chunklist_w1403706733.m3u8"
+    ]
+  },
+  "韩·SBS": {
+    "groupTitle": "测试频道",
+    "tvgUrl": ["http://1.245.74.5:1935/live/tv/.m3u8"]
+  },
+  "韩·阿里郎Korea": {
+    "groupTitle": "测试频道",
+    "tvgUrl": [
+      "http://amdlive.ctnd.com.edgesuite.net/arirang_1ch/smil:arirang_1ch.smil/playlist.m3u8"
+    ]
+  },
+  "韩·JobPlusTV": {
+    "groupTitle": "测试频道",
+    "tvgUrl": [
+      "http://live.worktv.or.kr:1935/live/wowtvlive1.sdp/playlist.m3u8"
+    ]
+  },
+  "韩·GS": {
+    "groupTitle": "测试频道",
+    "tvgUrl": [
+      "https://gstv-myshop.gsshop.com/myshop_hd/myshop_hd.stream/playlist.m3u8"
+    ]
+  },
+  "韩·KoreaTV": {
+    "groupTitle": "测试频道",
+    "tvgUrl": ["https://hlive.ktv.go.kr/live/klive_h.stream/playlist.m3u8"]
+  },
+  "韩·TBS": {
+    "groupTitle": "测试频道",
+    "tvgUrl": [
+      "https://cdntv.tbs.seoul.kr/tbs/_definst_/tbs_tv_web_720.smil/playlist.m3u8"
+    ]
+  },
+  "韩·KBS": {
+    "groupTitle": "测试频道",
+    "tvgUrl": [
+      "https://kbsworld-ott.akamaized.net/hls/live/2002341/kbsworld/01.m3u8"
+    ]
+  },
+  "韩·EBS1": {
+    "groupTitle": "测试频道",
+    "tvgUrl": [
+      "http://ebsonairios.ebs.co.kr/groundwavefamilypc/familypc1m/playlist.m3u8"
+    ]
+  },
+  "韩·EBS2": {
+    "groupTitle": "测试频道",
+    "tvgUrl": [
+      "http://ebsonairios.ebs.co.kr/ebs2familypc/familypc1m/playlist.m3u8"
+    ]
+  },
+  "韩·EBSe": {
+    "groupTitle": "测试频道",
+    "tvgUrl": [
+      "http://ebsonairios.ebs.co.kr/plus3familypc/familypc1m/playlist.m3u8"
+    ]
+  },
+  "韩·NBS": {
+    "groupTitle": "测试频道",
+    "tvgUrl": ["https://media.joycorp.co.kr:4443/live/live_720p/playlist.m3u8"]
+  },
+  "俄·IGITV": {
+    "groupTitle": "测试频道",
+    "tvgUrl": ["http://hls-igi.cdnvideo.ru/igi/igi_hq/playlist.m3u8"]
+  },
+  "俄·RBC": {
+    "groupTitle": "测试频道",
+    "tvgUrl": ["http://92.50.128.180/utv/1358/index.m3u8"]
+  },
+  "美·NASA": {
+    "groupTitle": "测试频道",
+    "tvgUrl": [
+      "https://ntv1.akamaized.net/hls/live/2014075/NASA-NTV1-HLS/master_2000.m3u8",
+      "https://ntv2.akamaized.net/hls/live/2013923/NASA-NTV2-HLS/master_2000.m3u8"
+    ]
+  },
+  "美·红牛运动": {
+    "groupTitle": "测试频道",
+    "tvgUrl": [
+      "http://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master_1660.m3u8"
+    ]
+  },
+  "乌·M2音乐": {
+    "groupTitle": "测试频道",
+    "tvgUrl": ["http://live.m2.tv/hls3/stream.m3u8"]
+  },
+  "西·加利西亚欧洲体育电视台": {
+    "groupTitle": "测试频道",
+    "tvgUrl": ["http://europa-crtvg.flumotion.com/playlist.m3u8"]
+  },
+  "希·FoxTV": {
+    "groupTitle": "测试频道",
+    "tvgUrl": ["http://live.streams.ovh:1935/foxtv/foxtv/playlist.m3u8"]
+  },
+  "越·HBTV": {
+    "groupTitle": "测试频道",
+    "tvgUrl": [
+      "http://hoabinhtvlive.746b3ddb.cdnviet.com/hoabinhtv/playlist.m3u8"
+    ]
+  },
+  "越·ANTV": {
+    "groupTitle": "测试频道",
+    "tvgUrl": ["http://antvlive.ab5c6921.cdnviet.com/antv/chunklist.m3u8"]
+  },
+  "番薯": {
+    "groupTitle": "测试频道",
+    "tvgUrl": ["http://61.216.67.119:1935/TWHG/E1/chunklist_w705811302.m3u8"]
   },
   "耀才财经": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://202.69.67.66/webcast/bshdlive-pc/playlist.m3u8", "http://202.69.67.66:443/webcast/bshdlive-mobile/playlist.m3u8"]
+    "groupTitle": "测试频道",
+    "tvgUrl": ["http://202.69.67.66:443/webcast/bshdlive-pc/playlist.m3u8"]
   },
-  "肃州电视台": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://117.156.28.119/270000001111/1110000123/index.m3u8"]
-  },
-  "肇庆综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://dslive.grtn.cn/zqzh/playlist.m3u8"]
-  },
-  "舟山公共生活": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live.wifizs.cn/ggsh/sd/live.m3u8"]
-  },
-  "舟山新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live.wifizs.cn/xwzh/sd/live.m3u8", "http://stream.wifizs.cn/xwzh/sd/live.m3u8"]
-  },
-  "舟山群岛旅游": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live.wifizs.cn/qdly/sd/live.m3u8"]
-  },
-  "芜湖公共": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live1.wuhubtv.com/channel3/sd/live.m3u8"]
-  },
-  "芜湖新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live1.wuhubtv.com/channel1/sd/live.m3u8"]
-  },
-  "芜湖生活": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live1.wuhubtv.com/channel2/sd/live.m3u8"]
-  },
-  "荣昌综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://183.64.181.25:40023/rongchang01.m3u8"]
-  },
-  "莒縣圖文頻道": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://61.162.225.122:8181/live/test3.m3u8"]
-  },
-  "莒縣電視一套": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://61.162.225.122:8181/live/test1.m3u8"]
-  },
-  "莒縣電視二套": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://61.162.225.122:8181/live/test2.m3u8"]
-  },
-  "萍鄉公共頻道": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://www.pxitv.com:8099/hls-live/livepkgr/definst/pxitvevent/pxtv3stream.m3u8"]
-  },
-  "萍鄉教育頻道": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://www.pxitv.com:8099/hls-live/livepkgr/definst/pxitvevent/pxtv2stream.m3u8"]
-  },
-  "萍鄉新聞綜合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://www.pxitv.com:8099/hls-live/livepkgr/definst/pxitvevent/pxtv1stream.m3u8"]
-  },
-  "萧山新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://l.cztvcloud.com/channels/lantian/SXxiaoshan1/720p.m3u8"]
-  },
-  "蓝屏": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
+  "ABC新闻": {
+    "groupTitle": "测试频道",
     "tvgUrl": [
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=109&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
+      "http://cms-wowza.lunabyte.io/wbrz-live-1/_definst_/smil:wbrz-live.smil/chunklist_b1300000.m3u8"
     ]
   },
-  "蓬安新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://palive.patv123.com:8091/live/xwpd800K.m3u8"]
-  },
-  "蕪湖教育頻道": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live1.wuhubtv.com/channel4/sd/live.m3u8"]
-  },
-  "蕭山生活頻道": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://l.cztvcloud.com/channels/lantian/SXxiaoshan2/720p.m3u8"]
-  },
-  "衡水影视娱乐": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hls.hsrtv.cn/hls/hstv2.m3u8"]
-  },
-  "衡水新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hls.hsrtv.cn/hls/hstv1.m3u8"]
-  },
-  "西安丝路": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream2.xiancity.cn/xatv5/playlist.m3u8"]
-  },
-  "西安乐购购物": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream2.xiancity.cn/xatv6/playlist.m3u8"]
-  },
-  "西安商务资讯": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream2.xiancity.cn/xatv3/playlist.m3u8"]
-  },
-  "西安影视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream2.xiancity.cn/xatv4/playlist.m3u8"]
-  },
-  "西安新闻": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream2.xiancity.cn/xatv1/playlist.m3u8"]
-  },
-  "西安白鸽": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream2.xiancity.cn/xatv2/playlist.m3u8"]
-  },
-  "西藏卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
+  "NewsmaxTV": {
+    "groupTitle": "测试频道",
     "tvgUrl": [
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225723/index.m3u8",
-      "http://117.169.120.140:8080/live/xizangstv/.m3u8",
-      "http://183.207.249.16/PLTV/3/224/3221225523/index.m3u8",
-      "http://media.vtibet.com/masvod/HLSLive/9/hanyuTVq1.m3u8",
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=208&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid="
+      "http://nmxlive.akamaized.net/hls/live/529965/Live_1/index.m3u8"
     ]
   },
-  "西藏藏語": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://media.vtibet.com/masvod/HLSLive/7/zangyuTVq1.m3u8"]
+  "PBS": {
+    "groupTitle": "测试频道",
+    "tvgUrl": ["https://pbs-samsunguk.amagi.tv/playlist.m3u8"]
   },
-  "西虹市首富": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["https://zuikzy.win7i.com/2018/07/30/hCt7GSGU1sAgOC8j/playlist.m3u8"]
+  "moviesphere": {
+    "groupTitle": "测试频道",
+    "tvgUrl": ["https://moviesphere-samsung-samsungus.amagi.tv/playlist.m3u8"]
   },
-  "西青新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://221.238.209.44:81/hls/live1.m3u8"]
+  "EdgeSport": {
+    "groupTitle": "测试频道",
+    "tvgUrl": ["https://edgesport-samsunguk.amagi.tv/playlist.m3u8"]
   },
-  "贵州卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
+  "CanadaOne": {
+    "groupTitle": "测试频道",
+    "tvgUrl": ["http://cdn8.live247stream.com/canadaone/tv/playlist.m3u8"]
+  },
+  "CA": {
+    "groupTitle": "测试频道",
     "tvgUrl": [
-      "http://125.210.152.18:9090/live/GZWSHDH265.m3u8",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225728/index.m3u8",
-      "http://183.207.248.71/gitv/live1/GGUIZHOU/GGUIZHOU",
-      "http://223.110.245.149/ott.js.chinamobile.com/PLTV/3/224/3221225787/index.m3u8"
+      "https://rcavlive.akamaized.net/hls/live/704025/xcanrdi/master.m3u8"
     ]
   },
-  "赵县电视一套": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
+  "InsightTV": {
+    "groupTitle": "测试频道",
+    "tvgUrl": ["https://insighttv-samsung-canada.amagi.tv/playlist.m3u8"]
+  },
+  "Astrakhan24": {
+    "groupTitle": "测试频道",
+    "tvgUrl": ["http://streaming.astrakhan.ru/astrakhan24/index.m3u8"]
+  },
+  "Самара": {
+    "groupTitle": "测试频道",
     "tvgUrl": [
-      "http://hbzx.chinashadt.com:2036/zhibo/stream:zx1.stream360p/playlist.m3u8",
-      "http://hbzx.chinashadt.com:2036/zhibo/stream:zx1.stream/playlist.m3u8"
+      "http://live.guberniatv.cdnvideo.ru/guberniatv/guberniatv.sdp/playlist.m3u8"
     ]
   },
-  "赵县电视二套": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://hbzx.chinashadt.com:2036/zhibo/stream:zx2.stream360p/playlist.m3u8",
-      "http://hbzx.chinashadt.com:2036/zhibo/stream:zx2.stream/playlist.m3u8"
-    ]
-  },
-  "辛集新聞頻道": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://zsxj.chinashadt.com:1935/live/xjxw.stream360p/playlist.m3u8"]
-  },
-  "辛集生活頻道": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://zsxj.chinashadt.com:1935/live/xjsh.stream360p/playlist.m3u8"]
-  },
-  "辽宁卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://183.207.249.12/PLTV/4/224/3221225802/index.m3u8",
-      "http://183.207.248.71/cntv/live1/liaoningstv/liaoningstv",
-      "http://183.207.249.71/PLTV/3/224/3221225566/index.m3u8",
-      "http://125.210.152.18:9090/live/LNWSHDH265.m3u8",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225735/index.m3u8",
-      "http://39.135.138.59:18890/PLTV/88888910/224/3221225696/index.m3u8",
-      "http://39.134.39.37/PLTV/88888888/224/3221226209/index.m3u8",
-      "http://112.25.48.68/live/program/live/lnwshd/4000000/mnf.m3u8",
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=38&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://223.110.245.145/ott.js.chinamobile.com/PLTV/3/224/3221227410/index.m3u8"
-    ]
-  },
-  "辽源新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream2.jlntv.cn/liaoyuan1/sd/live.m3u8"]
-  },
-  "迪庆综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream01.dqtv123.com:1935/live/xinwenzonghe.stream/playlist.m3u8"]
-  },
-  "迪庆藏语": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream01.dqtv123.com:1935/live/diqingzangyu.stream/playlist.m3u8"]
-  },
-  "通化新闻": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream2.jlntv.cn/tonghua1/sd/live.m3u8"]
-  },
-  "通州电视台": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://pull.dayuntongzhou.com/live/tztv.m3u8"]
-  },
-  "邗江资讯": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://223.110.245.139/PLTV/4/224/3221227154/index.m3u8"]
-  },
-  "邵东综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hnsd.chinashadt.com:2036/live/stream:shaodong.stream/playlist.m3u8"]
-  },
-  "酒泉新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://117.156.28.119/270000001111/1110000001/index.m3u8"]
-  },
-  "重庆卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://116.199.5.51:8114/index.m3u8?Fsvchanhlsseidx=10&Fsvctype=LIVES&Fsvotype=1&FvSeid=1&Pcontentid=.m3u8&Providerid=",
-      "http://112.25.48.68/live/program/live/cqws/1300000/mnf.m3u8",
-      "http://183.207.249.5/PLTV/4/224/3221225812/index.m3u8",
-      "http://183.207.248.71/gitv/live1/GCHONGQING/GCHONGQING",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225692/index.m3u8",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225734/index.m3u8",
-      "http://117.169.120.132:8080/live/chongqingstv/playlist.m3u8",
-      "http://223.110.254.137:6610/cntv/live1/HD-8000k-1080P-chongqingstv/HD-8000k-1080P-chongqingstv/1.m3u8"
-    ]
-  },
-  "重庆忠县": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://qxlmlive.cbg.cn:1935/app2/ls35.stream/chunklist.m3u8"]
-  },
-  "重庆移动": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://qxlmlive.cbg.cn:1935/app2/ls57.stream/playlist.m3u8"]
-  },
-  "重庆移动机场": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://qxlmlive.cbg.cn:1935/app2/ls56.stream/playlist.m3u8"]
-  },
-  "金昌公共頻道": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream4.liveyun.hoge.cn/ch01/sd/live.m3u8"]
-  },
-  "金昌綜合頻道": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream4.liveyun.hoge.cn/ch02/sd/live.m3u8"]
-  },
-  "金鹰卡通": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://223.110.245.145/ott.js.chinamobile.com/PLTV/3/224/3221226303/index.m3u8",
-      "http://223.110.241.149:6610/gitv/live1/GJINYING/GJINYING/1.m3u8",
-      "http://112.25.48.68/live/program/live/jykt/1300000/mnf.m3u8"
-    ]
-  },
-  "银川公共": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream.ycgbtv.com.cn/ycgg/sd/live.m3u8"]
-  },
-  "银川生活": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream.ycgbtv.com.cn/ycxw/sd/live.m3u8"]
-  },
-  "長豐新聞綜合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://218.23.114.19:1935/live/xinwen/playlist.m3u8"]
-  },
-  "长乐综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://35908.hlsplay.aodianyun.com/guangdianyun35908/tvchannel327.m3u8"]
-  },
-  "长春综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream2.jlntv.cn/jlcc/sd/live.m3u8"]
-  },
-  "长沙地铁移动": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://35848.hlsplay.aodianyun.com/guangdianyun35848/tvchannel356.m3u8"]
-  },
-  "长沙女性": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://35848.hlsplay.aodianyun.com/guangdianyun35848/tvchannel349.m3u8"]
-  },
-  "长沙经贸": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://35848.hlsplay.aodianyun.com/guangdianyun35848/tvchannel350.m3u8"]
-  },
-  "长沙购物": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://35848.hlsplay.aodianyun.com/guangdianyun35848/tvchannel354.m3u8"]
-  },
-  "阜城综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hbfc.chinashadt.com:2036/live/2.stream/playlist.m3u8"]
-  },
-  "阳江综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://dslive.grtn.cn/yjzh/playlist.m3u8"]
-  },
-  "陕西卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://112.25.48.68/live/program/live/sxws/1300000/mnf.m3u8",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225729/index.m3u8",
-      "http://223.110.245.139/PLTV/4/224/3221227022/index.m3u8"
-    ]
-  },
-  "隆化影视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hblh.chinashadt.com:2036/live/stream:lh2.stream/playlist.m3u8"]
-  },
-  "隆化综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hblh.chinashadt.com:2036/live/stream:lh1.stream/playlist.m3u8"]
-  },
-  "集安综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream2.jlntv.cn/ja/sd/live.m3u8"]
-  },
-  "霍山综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://ahhs.chinashadt.com:1936/live/stream:hs1.stream/playlist.m3u8"]
-  },
-  "霸州公共頻道": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hbbz.chinashadt.com:2036/live/stream:bzgg.stream/playlist.m3u8"]
-  },
-  "霸州少兒頻道": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hbbz.chinashadt.com:2036/live/stream:bzse.stream/playlist.m3u8"]
-  },
-  "霸州文化頻道": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hbbz.chinashadt.com:2036/live/stream:bzwh.stream/playlist.m3u8"]
-  },
-  "霸州新聞頻道": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hbbz.chinashadt.com:2036/live/stream:bzxw.stream/playlist.m3u8"]
-  },
-  "青州文化旅游": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://sdqz.chinashadt.com:2036/live/stream:3.stream/playlist.m3u8"]
-  },
-  "青州生活": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://sdqz.chinashadt.com:2036/live/stream:2.stream/playlist.m3u8"]
-  },
-  "青州综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://sdqz.chinashadt.com:2036/live/stream:1.stream/playlist.m3u8"]
-  },
-  "青海卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://112.25.48.68/live/program/live/qhws/1300000/mnf.m3u8",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225727/index.m3u8",
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=206&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://116.199.5.52:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=206&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://live.geermurmt.com/qhws/sd/live.m3u8"
-    ]
-  },
-  "靖江新闻綜合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://58.222.151.43:1935/live/xwzhpc/playlist.m3u8", "http://visit.jjbctv.com:1935/live/xwzhpc/playlist.m3u8"]
-  },
-  "静宁综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://117.156.28.119/270000001111/1110000147/index.m3u8"]
-  },
-  "鞍山图文": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://116.199.5.51:8114/index.m3u8?Fsvchanhlsseidx=12&Fsvctype=LIVES&Fsvotype=1&FvSeid=1&Pcontentid=.m3u8&Providerid="]
-  },
-  "风尚购物": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://183.207.248.71/cntv/live1/fengshanggw/fengshanggw"]
-  },
-  "餘姚姚江文化": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://l.cztvcloud.com/channels/lantian/SXyuyao2/720p.m3u8"]
-  },
-  "马云对话": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://www.alibabapictures.com/movies/10/mayunduihua.mp4"]
-  },
-  "高台电视台": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://117.156.28.119/270000001111/1110000146/index.m3u8"]
-  },
-  "高清电影": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://39.134.19.76/dbiptv.sn.chinamobile.com/PLTV/88888888/224/3221226463/index.m3u8"]
-  },
-  "鹤壁新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://pili-live-hls.hebitv.com/hebi/hebi.m3u8"]
-  },
-  "鹤峰综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hefeng.live.tempsource.cjyun.org/videotmp/s10100-hftv.m3u8"]
-  },
-  "鹿泉一套": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hblq.chinashadt.com:2036/live/stream:luquan1.stream/playlist.m3u8"]
-  },
-  "鹿泉二套": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hblq.chinashadt.com:2036/live/stream:luquan2.stream/playlist.m3u8"]
-  },
-  "黃驊影視": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hbhh.chinashadt.com:2111/live/hhys.stream/playlist.m3u8"]
-  },
-  "黃驊渤海新區": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hbhh.chinashadt.com:2111/live/bhtv.stream/playlist.m3u8"]
-  },
-  "黄骅一套": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hbhh.chinashadt.com:2111/live/hhtv.stream/playlist.m3u8"]
-  },
-  "黄骅二套": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://hbhh.chinashadt.com:2111/live/hhtv2.stream/playlist.m3u8"]
-  },
-  "黑龙卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://125.210.152.18:9090/live/HLJWSHDH265.m3u8",
-      "http://223.110.243.169/PLTV/3/224/3221227252/index.m3u8",
-      "http://223.110.245.139/PLTV/4/224/3221227492/index.m3u8",
-      "http://223.110.245.170/PLTV/3/224/3221227252/index.m3u8"
-    ]
-  },
-  "黑龙江": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://183.207.248.71/gitv/live1/GHEILONGJIANG/GHEILONGJIANG",
-      "http://223.110.245.161/ott.js.chinamobile.com/PLTV/3/224/3221227492/index.m3u8",
-      "http://ott.js.chinamobile.com/PLTV/3/224/3221227252/index.m3u8"
-    ]
-  },
-  "黑龙江卫": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://183.207.248.71/cntv/live1/HD-2500k-1080P-heilongjiangstv/HD-2500k-1080P-heilongjiangstv"]
-  },
-  "黑龙江卫视": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": [
-      "http://116.199.5.51:8114/00000000/index.m3u8?FsvCMSID=&FsvSVPARAM1=0&FsvShiftEnable=0&FsvShiftTsp=0&Fsvchanhlsseidx=27&Fsvcid=0&Fsvctype=LIVES&Fsvctype=LIVES&Fsvfiletype=1&Fsvotype=1&Fsvotype=1&Fsvrateid=0&FvSeid=5abd1660af1babb4&Pcontentid=&Providerid=",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225690/index.m3u8",
-      "http://39.134.115.163:8080/PLTV/88888910/224/3221225736/index.m3u8",
-      "http://183.207.249.36/PLTV/4/224/3221227323/index.m3u8",
-      "http://223.110.254.143:6610/cntv/live1/HD-8000k-1080P-heilongjiangstv/HD-8000k-1080P-heilongjiangstv/1.m3u8"
-    ]
-  },
-  "黔西南公共": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live.qxndt.com/channel3/sd/live.m3u8"]
-  },
-  "黔西南综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://live.qxndt.com/channel2/sd/live.m3u8"]
-  },
-  "點掌財經": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://cclive2.aniu.tv/live/anzb.m3u8"]
-  },
-  "龙口图文": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://yslk.chinashadt.com:1635/live/stream:di4.stream/playlist.m3u8"]
-  },
-  "龙口新闻综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://yslk.chinashadt.com:1635/live/stream:di1.stream/playlist.m3u8"]
-  },
-  "龙口生活": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://yslk.chinashadt.com:1635/live/stream:di2.stream/playlist.m3u8"]
-  },
-  "龙岩公共": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream.lytv.net.cn/1/sd/live.m3u8"]
-  },
-  "龙岩综合": {
-    "tvgId": "",
-    "tvgCountry": "CN",
-    "tvgLanguage": "",
-    "tvgLogo": "",
-    "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream.lytv.net.cn/2/sd/live.m3u8"]
+  "日本QVC": {
+    "groupTitle": "测试频道",
+    "tvgUrl": ["http://cdn-live1.qvc.jp/iPhone/800/800.m3u8"]
+  },
+  "日本Shop": {
+    "groupTitle": "测试频道",
+    "tvgUrl": ["https://stream3.shopch.jp/HLS/master.m3u8"]
+  },
+  "长城精品": {
+    "groupTitle": "测试频道",
+    "tvgUrl": ["http://38.64.72.148:80/hls/modn/list/4008/chunklist1.m3u8"]
+  },
+  "香港佛陀": {
+    "groupTitle": "测试频道",
+    "tvgUrl": ["https://js1.amtb.cn/liveedge/_definst_/livetv/playlist.m3u8"]
+  },
+  "VB": {
+    "groupTitle": "测试频道",
+    "tvgUrl": ["http://live.tv2bornholm.dk/stream/live/chunklist.m3u8"]
   }
 };
 
@@ -5035,7 +1502,8 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "BBCNews.uk",
     "tvgCountry": "INT",
     "tvgLanguage": "English",
-    "tvgLogo": "https://raw.githubusercontent.com/Tapiosinn/tv-logos/master/countries/united-kingdom/bbc-news-uk.png",
+    "tvgLogo":
+        "https://raw.githubusercontent.com/Tapiosinn/tv-logos/master/countries/united-kingdom/bbc-news-uk.png",
     "groupTitle": "News",
     "tvgUrl": [
       "https://cdnuk001.broadcastcdn.net/KUK-BBCNEWSHD/index.m3u8",
@@ -5048,13 +1516,16 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "",
     "tvgLogo": "",
     "groupTitle": "Undefined",
-    "tvgUrl": ["http://223.110.245.167/ott.js.chinamobile.com/PLTV/3/224/3221226942/index.m3u8"]
+    "tvgUrl": [
+      "http://223.110.245.167/ott.js.chinamobile.com/PLTV/3/224/3221226942/index.m3u8"
+    ]
   },
   "Bloomberg": {
     "tvgId": "BloombergTVAsia.us",
     "tvgCountry": "APAC;OCE;SAS",
     "tvgLanguage": "English",
-    "tvgLogo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/BloombergTelevisionlogo.svg/300px-BloombergTelevisionlogo.svg.png",
+    "tvgLogo":
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/BloombergTelevisionlogo.svg/300px-BloombergTelevisionlogo.svg.png",
     "groupTitle": "Business",
     "tvgUrl": [
       "https://liveprodapnortheast.global.ssl.fastly.net/ap1/Channel-APTVqvs-AWS-tokyo-1/Source-APTVqvs-1000-1live.m3u8",
@@ -5100,7 +1571,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/Uvie0ws.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["http://melb3awvid-lh.akamaihd.net/i/melbournevid1@109381/master.m3u8"]
+    "tvgUrl": [
+      "http://melb3awvid-lh.akamaihd.net/i/melbournevid1@109381/master.m3u8"
+    ]
   },
   "5AAB": {
     "tvgId": "5AABTV.ca",
@@ -5164,9 +1637,12 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "247RetroTV.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://raw.githubusercontent.com/geonsey/Free2ViewTV/master/images/logos/247RetroTV.png",
+    "tvgLogo":
+        "https://raw.githubusercontent.com/geonsey/Free2ViewTV/master/images/logos/247RetroTV.png",
     "groupTitle": "Classic",
-    "tvgUrl": ["http://hlsdpi-cdn-chqtx02.totalstream.net/dpilive/247retro/ret/dai/playlist.m3u8"]
+    "tvgUrl": [
+      "http://hlsdpi-cdn-chqtx02.totalstream.net/dpilive/247retro/ret/dai/playlist.m3u8"
+    ]
   },
   "abc": {
     "tvgId": "WPLGDT1.us",
@@ -5180,7 +1656,8 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "ABCKids.au",
     "tvgCountry": "AU",
     "tvgLanguage": "English",
-    "tvgLogo": "https://static-s.aa-cdn.net/img/ios/960892021/6dcf6804c2d739fe765563a1f28f493e",
+    "tvgLogo":
+        "https://static-s.aa-cdn.net/img/ios/960892021/6dcf6804c2d739fe765563a1f28f493e",
     "groupTitle": "Kids",
     "tvgUrl": [
       "https://c.mjh.nz/101002210222",
@@ -5205,9 +1682,12 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "ABPHindi.in",
     "tvgCountry": "IN",
     "tvgLanguage": "English",
-    "tvgLogo": "https://static.abplive.in/wp-content/themes/abp-hindi/images/logo/hindiLogoD.png",
+    "tvgLogo":
+        "https://static.abplive.in/wp-content/themes/abp-hindi/images/logo/hindiLogoD.png",
     "groupTitle": "News",
-    "tvgUrl": ["https://abp-i.akamaihd.net/hls/live/765529/abphindi/master.m3u8"]
+    "tvgUrl": [
+      "https://abp-i.akamaihd.net/hls/live/765529/abphindi/master.m3u8"
+    ]
   },
   "Absolute": {
     "tvgId": "AbsoluteRealitybyWETV.us",
@@ -5215,7 +1695,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/oOFjyYf.png",
     "groupTitle": "Entertainment",
-    "tvgUrl": ["https://amc-absolutereality-1.imdbtv.wurl.com/manifest/playlist.m3u8"]
+    "tvgUrl": [
+      "https://amc-absolutereality-1.imdbtv.wurl.com/manifest/playlist.m3u8"
+    ]
   },
   "ACC": {
     "tvgId": "ACCNetwork.us",
@@ -5231,7 +1713,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://od.lk/s/MF8yNDUzNzc0Mjlf/AccuWeather500x500.png",
     "groupTitle": "Weather",
-    "tvgUrl": ["https://amg00684-accuweather-accuweather-rokuus-0endj.amagi.tv/playlist.m3u8"]
+    "tvgUrl": [
+      "https://amg00684-accuweather-accuweather-rokuus-0endj.amagi.tv/playlist.m3u8"
+    ]
   },
   "Actionable": {
     "tvgId": "Actionable.us",
@@ -5239,7 +1723,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://stitcheraws.unreel.me/wse-node02.powr.com/live/5c7e25a1932c8368bdbfd87d/playlist.m3u8"]
+    "tvgUrl": [
+      "https://stitcheraws.unreel.me/wse-node02.powr.com/live/5c7e25a1932c8368bdbfd87d/playlist.m3u8"
+    ]
   },
   "ActionMax": {
     "tvgId": "ActionMaxEast.us",
@@ -5247,7 +1733,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/Snba5W2.jpg",
     "groupTitle": "Movies",
-    "tvgUrl": ["http://31.220.41.88:8081/live/us-cinemaxaction.stream/playlist.m3u8"]
+    "tvgUrl": [
+      "http://31.220.41.88:8081/live/us-cinemaxaction.stream/playlist.m3u8"
+    ]
   },
   "Adult": {
     "tvgId": "AdultSwimAquaTeenHungerForce.us",
@@ -5297,9 +1785,12 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "Africanews.cg",
     "tvgCountry": "CG",
     "tvgLanguage": "English",
-    "tvgLogo": "https://www.zap.co.ao/media/cache/moviethumb/uploads/ao/channels/5e7b5a7adf3e8.png",
+    "tvgLogo":
+        "https://www.zap.co.ao/media/cache/moviethumb/uploads/ao/channels/5e7b5a7adf3e8.png",
     "groupTitle": "News",
-    "tvgUrl": ["https://rakuten-africanews-1-dk.samsung.wurl.com/manifest/playlist.m3u8"]
+    "tvgUrl": [
+      "https://rakuten-africanews-1-dk.samsung.wurl.com/manifest/playlist.m3u8"
+    ]
   },
   "Afrobeats": {
     "tvgId": "Afrobeats.uk",
@@ -5315,7 +1806,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/lG3OHxA.png",
     "groupTitle": "Comedy",
-    "tvgUrl": ["https://dai.google.com/linear/hls/event/18lZXPySFa5GRVEbOXA/master.m3u8"]
+    "tvgUrl": [
+      "https://dai.google.com/linear/hls/event/18lZXPySFa5GRVEbOXA/master.m3u8"
+    ]
   },
   "Ahlulbayt": {
     "tvgId": "AhlulbaytTV.uk",
@@ -5331,7 +1824,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English;Panjabi",
     "tvgLogo": "https://i.imgur.com/62IpVDn.png",
     "groupTitle": "Religious",
-    "tvgUrl": ["https://cdnamd-hls-globecast.akamaized.net/live/ramdisk/akaaltv/hls1smartakaal/akaaltv.m3u8"]
+    "tvgUrl": [
+      "https://cdnamd-hls-globecast.akamaized.net/live/ramdisk/akaaltv/hls1smartakaal/akaaltv.m3u8"
+    ]
   },
   "Akaku": {
     "tvgId": "Akaku53.us",
@@ -5339,7 +1834,11 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/MQET539.jpg",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://akaku.vod.castus.tv/live/ch1.m3u8", "https://akaku.vod.castus.tv/live/ch2.m3u8", "https://akaku.vod.castus.tv/live/ch3.m3u8"]
+    "tvgUrl": [
+      "https://akaku.vod.castus.tv/live/ch1.m3u8",
+      "https://akaku.vod.castus.tv/live/ch2.m3u8",
+      "https://akaku.vod.castus.tv/live/ch3.m3u8"
+    ]
   },
   "AKC": {
     "tvgId": "AKCTV.us",
@@ -5357,7 +1856,8 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "AlJazeeraEnglish.qa",
     "tvgCountry": "QA",
     "tvgLanguage": "English",
-    "tvgLogo": "https://rndcdn.dstv.com/dstvcms/2016/06/14/DStvNowAppAlJazeeranew4-4logo001xlrg.png",
+    "tvgLogo":
+        "https://rndcdn.dstv.com/dstvcms/2016/06/14/DStvNowAppAlJazeeranew4-4logo001xlrg.png",
     "groupTitle": "News",
     "tvgUrl": ["https://live-hls-web-aje.getaj.net/AJE/index.m3u8"]
   },
@@ -5373,7 +1873,8 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "AMCEast.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://www.directv.com/images/logos/channels/dark/large/313.png",
+    "tvgLogo":
+        "https://www.directv.com/images/logos/channels/dark/large/313.png",
     "groupTitle": "Undefined",
     "tvgUrl": [
       "https://bcovlive-a.akamaihd.net/ebf15ff84e98490e8b00209ed77c77f5/us-east-1/6240731308001/playlist.m3u8",
@@ -5388,7 +1889,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLogo":
         "https://3gz8cg829c.execute-api.us-west-2.amazonaws.com/prod/image-renderer/16x9/full/600/center/90/a0e4b00e-239d-484d-9d86-2ba28295ad94-large16x9STIRR0721EPGAmericaVsAddiction1920x1080.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://dai.google.com/linear/hls/event/-A9339ixSzydnZQZHd1u2A/master.m3u8"]
+    "tvgUrl": [
+      "https://dai.google.com/linear/hls/event/-A9339ixSzydnZQZHd1u2A/master.m3u8"
+    ]
   },
   "America's": {
     "tvgId": "AmericasVoice.us",
@@ -5396,7 +1899,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/jtFBBGs.jpg",
     "groupTitle": "News",
-    "tvgUrl": ["https://content.uplynk.com/channel/26bd482ffe364a1282bc3df28bd3c21f.m3u8"]
+    "tvgUrl": [
+      "https://content.uplynk.com/channel/26bd482ffe364a1282bc3df28bd3c21f.m3u8"
+    ]
   },
   "American": {
     "tvgId": "AmericanClassics.us",
@@ -5413,7 +1918,8 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "Ameritrade.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://images-na.ssl-images-amazon.com/images/I/71CZKwin9mL.png",
+    "tvgLogo":
+        "https://images-na.ssl-images-amazon.com/images/I/71CZKwin9mL.png",
     "groupTitle": "Business",
     "tvgUrl": ["https://tdameritrade-vizio.amagi.tv/playlist.m3u8"]
   },
@@ -5423,7 +1929,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://upload.wikimedia.org/wikipedia/en/b/b1/Amgtv.PNG",
     "groupTitle": "Family",
-    "tvgUrl": ["https://2-fss-2.streamhoster.com/pl138/201660-1270634-1/playlist.m3u8"]
+    "tvgUrl": [
+      "https://2-fss-2.streamhoster.com/pl138/201660-1270634-1/playlist.m3u8"
+    ]
   },
   "Amga": {
     "tvgId": "AmgaTV.us",
@@ -5437,25 +1945,34 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "AnAmericanChristmasCarol.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://github.com/geonsey/Free2ViewTV/blob/master/images/logos/GenericChristmas715x715.png?raw",
+    "tvgLogo":
+        "https://github.com/geonsey/Free2ViewTV/blob/master/images/logos/GenericChristmas715x715.png?raw",
     "groupTitle": "Movies",
-    "tvgUrl": ["https://cloudfront.tubi.video/5b97b1f5-a605-44a5-a192-12e10beece40/sd846jzc/stream.m3u8"]
+    "tvgUrl": [
+      "https://cloudfront.tubi.video/5b97b1f5-a605-44a5-a192-12e10beece40/sd846jzc/stream.m3u8"
+    ]
   },
   "Architectural": {
     "tvgId": "ArchitecturalDigest.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://github.com/geonsey/Free2ViewTV/blob/master/images/logos/AD246x246.png?raw",
+    "tvgLogo":
+        "https://github.com/geonsey/Free2ViewTV/blob/master/images/logos/AD246x246.png?raw",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-redboxarchitecturaldigest/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-redboxarchitecturaldigest/CDN/playlist.m3u8"
+    ]
   },
   "Arirang": {
     "tvgId": "ArirangTV.kr",
     "tvgCountry": "KR",
     "tvgLanguage": "English",
-    "tvgLogo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Arirang.svg/500px-Arirang.svg.png",
+    "tvgLogo":
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Arirang.svg/500px-Arirang.svg.png",
     "groupTitle": "General;News",
-    "tvgUrl": ["http://amdlive-ch01.ctnd.com.edgesuite.net/arirang1ch/smil:arirang1ch.smil/playlist.m3u8"]
+    "tvgUrl": [
+      "http://amdlive-ch01.ctnd.com.edgesuite.net/arirang1ch/smil:arirang1ch.smil/playlist.m3u8"
+    ]
   },
   "Arise": {
     "tvgId": "AriseNews.uk",
@@ -5463,7 +1980,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/BlNMp0k.png",
     "groupTitle": "News",
-    "tvgUrl": ["https://news.ashttp9.visionip.tv/live/visiontvuk-news-arise-tv-hsslive-25f-16x9-SD/playlist.m3u8"]
+    "tvgUrl": [
+      "https://news.ashttp9.visionip.tv/live/visiontvuk-news-arise-tv-hsslive-25f-16x9-SD/playlist.m3u8"
+    ]
   },
   "Ark": {
     "tvgId": "ArkTV.ug",
@@ -5487,7 +2006,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/j98vGQp.jpg",
     "groupTitle": "Movies",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-theasylum/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-theasylum/CDN/playlist.m3u8"
+    ]
   },
   "Atlanta": {
     "tvgId": "AtlantaChannel.us",
@@ -5503,15 +2024,20 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://www.lyngsat.com/logo/tv/aa/atvpk.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://streamone.simpaisa.com:8443/pitvlive1/atv.smil/playlist.m3u8"]
+    "tvgUrl": [
+      "https://streamone.simpaisa.com:8443/pitvlive1/atv.smil/playlist.m3u8"
+    ]
   },
   "Audio": {
     "tvgId": "AudioDungeon.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://www.prunderground.com/wp-content/uploads/2019/04/Audio-Dungeon-1.png",
+    "tvgLogo":
+        "https://www.prunderground.com/wp-content/uploads/2019/04/Audio-Dungeon-1.png",
     "groupTitle": "Entertainment",
-    "tvgUrl": ["https://content.uplynk.com/channel/5688add7ce704ce1a27ab62bb44044b9.m3u8"]
+    "tvgUrl": [
+      "https://content.uplynk.com/channel/5688add7ce704ce1a27ab62bb44044b9.m3u8"
+    ]
   },
   "Australia": {
     "tvgId": "AustraliaChannel.au",
@@ -5519,15 +2045,21 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "",
     "groupTitle": "News",
-    "tvgUrl": ["https://austchannel-live.akamaized.net/hls/live/2002729/austchannel-news/master.m3u8"]
+    "tvgUrl": [
+      "https://austchannel-live.akamaized.net/hls/live/2002729/austchannel-news/master.m3u8"
+    ]
   },
   "AWE": {
     "tvgId": "AWE.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://d2pggiv3o55wnc.cloudfront.net/awe/wp-content/uploads/2015/09/AWELogoBlk.jpg",
+    "tvgLogo":
+        "https://d2pggiv3o55wnc.cloudfront.net/awe/wp-content/uploads/2015/09/AWELogoBlk.jpg",
     "groupTitle": "Undefined",
-    "tvgUrl": ["http://n1.klowdtv.net/live1/awe720p/chunks.m3u8", "https://aweencore-vizio.amagi.tv/playlist.m3u8"]
+    "tvgUrl": [
+      "http://n1.klowdtv.net/live1/awe720p/chunks.m3u8",
+      "https://aweencore-vizio.amagi.tv/playlist.m3u8"
+    ]
   },
   "AXN": {
     "tvgId": "AXNEastAsia.us",
@@ -5535,7 +2067,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English;Thai",
     "tvgLogo": "https://www.img09.xyz/assets/img/chlogo/hd-axn.png",
     "groupTitle": "Movies",
-    "tvgUrl": ["https://htv-drm-live-cdn.fptplay.net/CDN-FPT02/AXN-HD-1080p/playlist.m3u8"]
+    "tvgUrl": [
+      "https://htv-drm-live-cdn.fptplay.net/CDN-FPT02/AXN-HD-1080p/playlist.m3u8"
+    ]
   },
   "AXS": {
     "tvgId": "AXSTVNow.us",
@@ -5557,9 +2091,12 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "BabyFirst.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://images.pluto.tv/channels/5f4fb4cf605ddf000748e16f/colorLogoPNG.png",
+    "tvgLogo":
+        "https://images.pluto.tv/channels/5f4fb4cf605ddf000748e16f/colorLogoPNG.png",
     "groupTitle": "Kids",
-    "tvgUrl": ["https://babyfirst.akamaized.net/hls/live/2028842/bftvusaott/playlist.m3u8"]
+    "tvgUrl": [
+      "https://babyfirst.akamaized.net/hls/live/2028842/bftvusaott/playlist.m3u8"
+    ]
   },
   "Baeble": {
     "tvgId": "Baeble.us",
@@ -5567,7 +2104,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/mDxouc8.png",
     "groupTitle": "Music",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-redboxbaeble/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-redboxbaeble/CDN/playlist.m3u8"
+    ]
   },
   "Bahrain": {
     "tvgId": "BahrainTV.bh",
@@ -5583,7 +2122,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/5VUZTa1.png",
     "groupTitle": "Kids",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-redboxbatterypop/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-redboxbatterypop/CDN/playlist.m3u8"
+    ]
   },
   "BBC": {
     "tvgId": "BBCAlba.uk",
@@ -5658,7 +2199,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/qtirIFA.png",
     "groupTitle": "Shop",
-    "tvgUrl": ["https://lsqvc4us-lh.akamaihd.net/i/lsqvc4us01@802711/master.m3u8"]
+    "tvgUrl": [
+      "https://lsqvc4us-lh.akamaihd.net/i/lsqvc4us01@802711/master.m3u8"
+    ]
   },
   "Bek": {
     "tvgId": "BekSportsEast.us",
@@ -5677,7 +2220,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English;Indonesian",
     "tvgLogo": "https://i.imgur.com/GIGcX5K.png",
     "groupTitle": "News",
-    "tvgUrl": ["https://b1world.beritasatumedia.com/Beritasatu/B1Worldmanifest.m3u8"]
+    "tvgUrl": [
+      "https://b1world.beritasatumedia.com/Beritasatu/B1Worldmanifest.m3u8"
+    ]
   },
   "Better": {
     "tvgId": "BetterHealthTV.us",
@@ -5697,7 +2242,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/wwUtlBi.png",
     "groupTitle": "Religious",
-    "tvgUrl": ["http://stream.iphonewebtown.com:1935/bibleexplorations/bexplorationsmobile.stream/playlist.m3u8"]
+    "tvgUrl": [
+      "http://stream.iphonewebtown.com:1935/bibleexplorations/bexplorationsmobile.stream/playlist.m3u8"
+    ]
   },
   "Big": {
     "tvgId": "BigLifeTV.us",
@@ -5729,7 +2276,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/wvr1F1i.png",
     "groupTitle": "Entertainment",
-    "tvgUrl": ["https://theblaze4.akamaized.net/hls/live/699982/theblaze/cm-dvr/master.m3u8"]
+    "tvgUrl": [
+      "https://theblaze4.akamaized.net/hls/live/699982/theblaze/cm-dvr/master.m3u8"
+    ]
   },
   "Bloody": {
     "tvgId": "BloodyDisgusting.us",
@@ -5737,13 +2286,16 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://f9q4g5j6.ssl.hwcdn.net/602dd011302f4d7da05d4bf3",
     "groupTitle": "Movies",
-    "tvgUrl": ["https://bloodydisgusting-ingest-roku-us.cinedigm.com/playlist.m3u8"]
+    "tvgUrl": [
+      "https://bloodydisgusting-ingest-roku-us.cinedigm.com/playlist.m3u8"
+    ]
   },
   "Bloomberg": {
     "tvgId": "BloombergQuicktake.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://www.adweek.com/wp-content/uploads/2019/12/quicktake-bloomberg-tictoc-CONTENT-2019-640x360.jpg",
+    "tvgLogo":
+        "https://www.adweek.com/wp-content/uploads/2019/12/quicktake-bloomberg-tictoc-CONTENT-2019-640x360.jpg",
     "groupTitle": "General",
     "tvgUrl": [
       "https://bloomberg-quicktake-1-fi.samsung.wurl.com/manifest/playlist.m3u8",
@@ -5764,7 +2316,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/nm3N3aw.png",
     "groupTitle": "Music",
-    "tvgUrl": ["https://59d39900ebfb8.streamlock.net/blugrassmusic/blugrassmusic/playlist.m3u8"]
+    "tvgUrl": [
+      "https://59d39900ebfb8.streamlock.net/blugrassmusic/blugrassmusic/playlist.m3u8"
+    ]
   },
   "bon": {
     "tvgId": "bonappetit.us",
@@ -5778,7 +2332,8 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "BounceXL.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://images.pluto.tv/channels/6176fd25e83a5f0007a464c9/colorLogoPNG.png",
+    "tvgLogo":
+        "https://images.pluto.tv/channels/6176fd25e83a5f0007a464c9/colorLogoPNG.png",
     "groupTitle": "Entertainment",
     "tvgUrl": [
       "https://c217322ca48e4d1e98ab33fe41a5ed01.mediatailor.us-east-1.amazonaws.com/v1/master/04fd913bb278d8775298c26fdca9d9841f37601f/SamsungBounceXL/playlist.m3u8"
@@ -5816,7 +2371,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/9k7fsqw.png",
     "groupTitle": "Religious",
-    "tvgUrl": ["https://api.visionip.tv/live/ASHTTP/visiontvuk-international-britishmuslimtv-hsslive-25f-16x9-MB/playlist.m3u8"]
+    "tvgUrl": [
+      "https://api.visionip.tv/live/ASHTTP/visiontvuk-international-britishmuslimtv-hsslive-25f-16x9-MB/playlist.m3u8"
+    ]
   },
   "bspoketv": {
     "tvgId": "bspoketv.us",
@@ -5871,15 +2428,19 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "BusinessRockstars.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://github.com/geonsey/Free2ViewTV/blob/master/images/logos/BusinessRockstars1400x1400.png?raw",
+    "tvgLogo":
+        "https://github.com/geonsey/Free2ViewTV/blob/master/images/logos/BusinessRockstars1400x1400.png?raw",
     "groupTitle": "Business",
-    "tvgUrl": ["https://content.uplynk.com/channel/7ad2b600b40b4a89933ab6981757f8b3.m3u8"]
+    "tvgUrl": [
+      "https://content.uplynk.com/channel/7ad2b600b40b4a89933ab6981757f8b3.m3u8"
+    ]
   },
   "Buzzr": {
     "tvgId": "Buzzr.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://upload.wikimedia.org/wikipedia/en/8/84/NewBUZZRLogo2021.png",
+    "tvgLogo":
+        "https://upload.wikimedia.org/wikipedia/en/8/84/NewBUZZRLogo2021.png",
     "groupTitle": "Entertainment",
     "tvgUrl": ["https://buzzr-roku-us.amagi.tv/playlist.m3u8"]
   },
@@ -5897,7 +2458,10 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://cdn.tvpassport.com/image/station/240x135/cspan2.png",
     "groupTitle": "Legislative",
-    "tvgUrl": ["https://skystreams-lh.akamaihd.net/i/SkyC21@500807/master.m3u8", "https://skystreams-lh.akamaihd.net/i/SkyC31@500808/master.m3u8"]
+    "tvgUrl": [
+      "https://skystreams-lh.akamaihd.net/i/SkyC21@500807/master.m3u8",
+      "https://skystreams-lh.akamaihd.net/i/SkyC31@500808/master.m3u8"
+    ]
   },
   "Cable": {
     "tvgId": "CableHits.us",
@@ -5905,7 +2469,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/zl7Gzwm.png",
     "groupTitle": "Entertainment",
-    "tvgUrl": ["https://bk7l2w4nlx53-hls-live.5centscdn.com/AETV/514c04b31b5f01cf00dd4965e197fdda.sdp/playlist.m3u8"]
+    "tvgUrl": [
+      "https://bk7l2w4nlx53-hls-live.5centscdn.com/AETV/514c04b31b5f01cf00dd4965e197fdda.sdp/playlist.m3u8"
+    ]
   },
   "California": {
     "tvgId": "CaliforniaMusicChannel.us",
@@ -5913,7 +2479,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/L38mC6H.png",
     "groupTitle": "Music",
-    "tvgUrl": ["https://cmctv.ios.internapcdn.net/cmctvvitalstreamcom/live1/CMCU-92/playlist.m3u8"]
+    "tvgUrl": [
+      "https://cmctv.ios.internapcdn.net/cmctvvitalstreamcom/live1/CMCU-92/playlist.m3u8"
+    ]
   },
   "Camera": {
     "tvgId": "CameraSmileTV.us",
@@ -5954,17 +2522,24 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "CaptitalOTBBetting.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://www.capitalotb.com/wp-content/uploads/2019/09/COTB-Logo.png",
+    "tvgLogo":
+        "https://www.capitalotb.com/wp-content/uploads/2019/09/COTB-Logo.png",
     "groupTitle": "Sports",
-    "tvgUrl": ["https://d2up1hmow19bcd.cloudfront.net/livecf/liveracing/playlist.m3u8"]
+    "tvgUrl": [
+      "https://d2up1hmow19bcd.cloudfront.net/livecf/liveracing/playlist.m3u8"
+    ]
   },
   "Cartoon": {
     "tvgId": "CartoonNetworkAsia.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://cms.dmpcdn.com/livetv/2017/10/18/01393493-1e29-4eb5-869b-1bd3e60b7b76.png",
+    "tvgLogo":
+        "https://cms.dmpcdn.com/livetv/2017/10/18/01393493-1e29-4eb5-869b-1bd3e60b7b76.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["http://198.16.106.62:8278/streams/d/Cn/playlist.m3u8", "http://209.91.213.10:8088/play/a00k"]
+    "tvgUrl": [
+      "http://198.16.106.62:8278/streams/d/Cn/playlist.m3u8",
+      "http://209.91.213.10:8088/play/a00k"
+    ]
   },
   "Catholic": {
     "tvgId": "CatholicTV.us",
@@ -5978,7 +2553,8 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "Cats247.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://images.pluto.tv/channels/599375885ceaac3cabccbed7/colorLogoPNG.png",
+    "tvgLogo":
+        "https://images.pluto.tv/channels/599375885ceaac3cabccbed7/colorLogoPNG.png",
     "groupTitle": "Lifestyle",
     "tvgUrl": [
       "https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/599375885ceaac3cabccbed7/master.m3u8?advertisingId=&appName=web&appStoreUrl=&appVersion=DNT&appname=&architecture=&buildVersion=&deviceDNT=0&deviceId=599375885ceaac3cabccbed7&deviceLat=&deviceLon=&deviceMake=web&deviceModel=web&deviceType=web&deviceVersion=DNT&includeExtendedEvents=false&marketingRegion=US&serverSideAds=false&sid=635&terminate=false&userId="
@@ -5988,9 +2564,12 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "CBBC.uk",
     "tvgCountry": "UK",
     "tvgLanguage": "English",
-    "tvgLogo": "https://upload.wikimedia.org/wikipedia/en/thumb/3/37/CBBC2016logo.svg/600px-CBBC2016logo.svg.png",
+    "tvgLogo":
+        "https://upload.wikimedia.org/wikipedia/en/thumb/3/37/CBBC2016logo.svg/600px-CBBC2016logo.svg.png",
     "groupTitle": "Kids",
-    "tvgUrl": ["https://vs-hls-pushb-uk-live.akamaized.net/x=3/i=urn:bbc:pips:service:cbbchd/mobilewifimainsdabrv2akamaihlslivehttp.m3u8"]
+    "tvgUrl": [
+      "https://vs-hls-pushb-uk-live.akamaized.net/x=3/i=urn:bbc:pips:service:cbbchd/mobilewifimainsdabrv2akamaihlslivehttp.m3u8"
+    ]
   },
   "CBC": {
     "tvgId": "CBC.az",
@@ -6053,9 +2632,12 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "CBSNLiveEvent.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://tvpmlogopus.samsungcloud.tv/platform/image/sourcelogo/vc/70/06/67/USBA37000010420200915T081312.png",
+    "tvgLogo":
+        "https://tvpmlogopus.samsungcloud.tv/platform/image/sourcelogo/vc/70/06/67/USBA37000010420200915T081312.png",
     "groupTitle": "News",
-    "tvgUrl": ["https://cbsnewshd-lh.akamaihd.net/i/cbsnewsLivePlayer1@196305/master.m3u8"]
+    "tvgUrl": [
+      "https://cbsnewshd-lh.akamaihd.net/i/cbsnewsLivePlayer1@196305/master.m3u8"
+    ]
   },
   "CC-TV": {
     "tvgId": "CCTV.us",
@@ -6063,7 +2645,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/feFWTb8.jpg",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://granicusliveus3-a.akamaihd.net/charlotte/G0055002/playlist.m3u8"]
+    "tvgUrl": [
+      "https://granicusliveus3-a.akamaihd.net/charlotte/G0055002/playlist.m3u8"
+    ]
   },
   "CCX": {
     "tvgId": "CCXMediaNorthBrooklynParkMN.us",
@@ -6071,7 +2655,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/EOeoqsd.jpg",
     "groupTitle": "Undefined",
-    "tvgUrl": ["http://156.142.85.152/live/WIFI-2096k-1080p/WIFI-2096k-1080p.m3u8"]
+    "tvgUrl": [
+      "http://156.142.85.152/live/WIFI-2096k-1080p/WIFI-2096k-1080p.m3u8"
+    ]
   },
   "Celebrity": {
     "tvgId": "CelebritySceneTV.us",
@@ -6085,15 +2671,19 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "CerritosTV3.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://live-tv-channels.org/pt-data/uploads/logo/us-cerritos-tv3.jpg",
+    "tvgLogo":
+        "https://live-tv-channels.org/pt-data/uploads/logo/us-cerritos-tv3.jpg",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://granicusliveus4-a.akamaihd.net/cerritos/G0010002/playlist.m3u8"]
+    "tvgUrl": [
+      "https://granicusliveus4-a.akamaihd.net/cerritos/G0010002/playlist.m3u8"
+    ]
   },
   "CGTN": {
     "tvgId": "CGTN.cn",
     "tvgCountry": "CN",
     "tvgLanguage": "English",
-    "tvgLogo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/CGTN.svg/800px-CGTN.svg.png",
+    "tvgLogo":
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/CGTN.svg/800px-CGTN.svg.png",
     "groupTitle": "News",
     "tvgUrl": [
       "http://live.cgtn.com/500/progindex.m3u8",
@@ -6120,7 +2710,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/fuw0hHE.png",
     "groupTitle": "Movies",
-    "tvgUrl": ["http://content.uplynk.com/channel/37eb732888614810b512fdd82604244e.m3u8"]
+    "tvgUrl": [
+      "http://content.uplynk.com/channel/37eb732888614810b512fdd82604244e.m3u8"
+    ]
   },
   "Cheddar": {
     "tvgId": "Cheddar.us",
@@ -6136,7 +2728,10 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/15a9pG9.png",
     "groupTitle": "Cooking",
-    "tvgUrl": ["https://rpn1.bozztv.com/36bay2/gusa-chefchampion/mono.m3u8", "https://rpn1.bozztv.com/36bay2/gusa-chefrock/mono.m3u8"]
+    "tvgUrl": [
+      "https://rpn1.bozztv.com/36bay2/gusa-chefchampion/mono.m3u8",
+      "https://rpn1.bozztv.com/36bay2/gusa-chefrock/mono.m3u8"
+    ]
   },
   "Chelsea": {
     "tvgId": "ChelseaTV.uk",
@@ -6155,13 +2750,16 @@ final foreignTvLis = <String, dynamic>{
     "tvgLogo":
         "https://3gz8cg829c.execute-api.us-west-2.amazonaws.com/prod/image-renderer/16x9/full/600/center/90/1be0cbf7-1ca2-4564-b6dd-3170128b70fb-large16x9STIRRLogo1021ChickenSoupfortheSoul1920x1080EPG.png",
     "groupTitle": "Classic",
-    "tvgUrl": ["https://dai.google.com/linear/hls/event/2C5P0JGUSj65s8KpeyIDcQ/master.m3u8"]
+    "tvgUrl": [
+      "https://dai.google.com/linear/hls/event/2C5P0JGUSj65s8KpeyIDcQ/master.m3u8"
+    ]
   },
   "Chive": {
     "tvgId": "ChiveTV.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://yt3.ggpht.com/a-/AN66SAz6Ssqjkt5Zn8q2-hhZEPzoma1h3IshrpQ",
+    "tvgLogo":
+        "https://yt3.ggpht.com/a-/AN66SAz6Ssqjkt5Zn8q2-hhZEPzoma1h3IshrpQ",
     "groupTitle": "Outdoor",
     "tvgUrl": ["https://a.jsrdn.com/broadcast/4df1bf71c1/+0000/c.m3u8"]
   },
@@ -6171,7 +2769,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://f9q4g5j6.ssl.hwcdn.net/5f9c5eb78083e72bec0d0522",
     "groupTitle": "Auto",
-    "tvgUrl": ["https://linear-11.frequency.stream/dist/plex/11/hls/master/playlist.m3u8"]
+    "tvgUrl": [
+      "https://linear-11.frequency.stream/dist/plex/11/hls/master/playlist.m3u8"
+    ]
   },
   "Christian": {
     "tvgId": "ChristianYouthChannelCYC.us",
@@ -6179,21 +2779,27 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/PfFJy5E.png",
     "groupTitle": "Religious",
-    "tvgUrl": ["http://media3.smc-host.com:1935/cycnow.com/smil:cyc.smil/playlist.m3u8"]
+    "tvgUrl": [
+      "http://media3.smc-host.com:1935/cycnow.com/smil:cyc.smil/playlist.m3u8"
+    ]
   },
   "Cine": {
     "tvgId": "CineRomantico.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://odishaexpo.com/wp-content/uploads/2020/10/UPEntertainmentCineRomanticoLogo.jpg",
+    "tvgLogo":
+        "https://odishaexpo.com/wp-content/uploads/2020/10/UPEntertainmentCineRomanticoLogo.jpg",
     "groupTitle": "Movies",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-rokucineromantico/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-rokucineromantico/CDN/playlist.m3u8"
+    ]
   },
   "CineLife": {
     "tvgId": "CineLife.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://play-lh.googleusercontent.com/TRj4zxxl4QA3JO7DwqalxZwshmhxEzg0QzP1sT3Uv99p4izfj9SyPZD4oVkFUxMNA",
+    "tvgLogo":
+        "https://play-lh.googleusercontent.com/TRj4zxxl4QA3JO7DwqalxZwshmhxEzg0QzP1sT3Uv99p4izfj9SyPZD4oVkFUxMNA",
     "groupTitle": "Lifestyle",
     "tvgUrl": [
       "https://magselect-stirr.amagi.tv/playlist1080p.m3u8",
@@ -6224,7 +2830,8 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "Circle.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://web.opendrive.com/api/v1/download/file.json/MF8yMjY2MjYwMTlf?inline",
+    "tvgLogo":
+        "https://web.opendrive.com/api/v1/download/file.json/MF8yMjY2MjYwMTlf?inline",
     "groupTitle": "Entertainment",
     "tvgUrl": ["https://circle-roku.amagi.tv/playlist.m3u8"]
   },
@@ -6232,9 +2839,12 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "CitizenTV.ke",
     "tvgCountry": "KE",
     "tvgLanguage": "English",
-    "tvgLogo": "https://kenyatv.tech/wp-content/uploads/2021/05/Webp.net-resizeimage.png",
+    "tvgLogo":
+        "https://kenyatv.tech/wp-content/uploads/2021/05/Webp.net-resizeimage.png",
     "groupTitle": "General",
-    "tvgUrl": ["http://free.fullspeed.tv/iptv-query?streaming-ip=https://www.youtube.com/user/kenyacitizentv/live"]
+    "tvgUrl": [
+      "http://free.fullspeed.tv/iptv-query?streaming-ip=https://www.youtube.com/user/kenyacitizentv/live"
+    ]
   },
   "Civilized.": {
     "tvgId": "Civilized.us",
@@ -6242,7 +2852,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/Ge5SMLV.png",
     "groupTitle": "Lifestyle",
-    "tvgUrl": ["https://stitcheraws.unreel.me/wse-node02.powr.com/live/5c7e2531932c8368bdbfd87c/playlist.m3u8"]
+    "tvgUrl": [
+      "https://stitcheraws.unreel.me/wse-node02.powr.com/live/5c7e2531932c8368bdbfd87c/playlist.m3u8"
+    ]
   },
   "Classic": {
     "tvgId": "ClassicCinema.us",
@@ -6260,7 +2872,8 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "CloudflareTV.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://blog-cloudflare-com-assets.storage.googleapis.com/2020/06/twitter-1-1.png",
+    "tvgLogo":
+        "https://blog-cloudflare-com-assets.storage.googleapis.com/2020/06/twitter-1-1.png",
     "groupTitle": "Education",
     "tvgUrl": ["https://cloudflare.tv/hls/live.m3u8"]
   },
@@ -6268,9 +2881,12 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "CNA.sg",
     "tvgCountry": "SG",
     "tvgLanguage": "English",
-    "tvgLogo": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/CNAnewlogo.svg/225px-CNAnewlogo.svg.png",
+    "tvgLogo":
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/CNAnewlogo.svg/225px-CNAnewlogo.svg.png",
     "groupTitle": "News",
-    "tvgUrl": ["https://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index.m3u8"]
+    "tvgUrl": [
+      "https://d2e1asnsl7br7b.cloudfront.net/7782e205e72f43aeb4a48ec97f66ebbe/index.m3u8"
+    ]
   },
   "CNBC": {
     "tvgId": "CNBC.us",
@@ -6288,7 +2904,8 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "CNNChile.cl",
     "tvgCountry": "CL;US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/CNNChilelogo2017.svg/300px-CNNChilelogo2017.svg.png",
+    "tvgLogo":
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/CNNChilelogo2017.svg/300px-CNNChilelogo2017.svg.png",
     "groupTitle": "News",
     "tvgUrl": [
       "https://unlimited1-cl-movistar.dps.live/cnn/cnn.smil/playlist.m3u8",
@@ -6311,7 +2928,8 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "ComedyCentralEast.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/ComedyCentral2018.svg/360px-ComedyCentral2018.svg.png",
+    "tvgLogo":
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/ComedyCentral2018.svg/360px-ComedyCentral2018.svg.png",
     "groupTitle": "Comedy",
     "tvgUrl": [
       "https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5d4947590ba40f75dc29c26b/master.m3u8?advertisingId=&appName=web&appStoreUrl=&appVersion=DNT&appname=&architecture=&buildVersion=&deviceDNT=0&deviceId=5d4947590ba40f75dc29c26b&deviceLat=51.2993&deviceLon=9.4910&deviceMake=web&deviceModel=web&deviceType=web&deviceVersion=DNT&includeExtendedEvents=false&marketingRegion=DE&serverSideAds=false&sid=400&terminate=false&userId=",
@@ -6323,9 +2941,12 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "Comet.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://upload.wikimedia.org/wikipedia/commons/5/53/CometTVLogo.png",
+    "tvgLogo":
+        "https://upload.wikimedia.org/wikipedia/commons/5/53/CometTVLogo.png",
     "groupTitle": "Entertainment",
-    "tvgUrl": ["http://content.uplynk.com/channel/3e45c6b5354a40f787e0b2aadb0f5d6a.m3u8"]
+    "tvgUrl": [
+      "http://content.uplynk.com/channel/3e45c6b5354a40f787e0b2aadb0f5d6a.m3u8"
+    ]
   },
   "Complex": {
     "tvgId": "Complex.us",
@@ -6333,7 +2954,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/aBseWYR.png",
     "groupTitle": "Lifestyle",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-complextv/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-complextv/CDN/playlist.m3u8"
+    ]
   },
   "CONtv": {
     "tvgId": "CONtv.us",
@@ -6341,7 +2964,10 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://f9q4g5j6.ssl.hwcdn.net/5fa07ec3fc8cbc647f034483",
     "groupTitle": "Entertainment",
-    "tvgUrl": ["https://contv-junction.cinedigm.com/ingest/playlist.m3u8", "https://contvanime-littlstar.cinedigm.com/ingest/master.m3u8"]
+    "tvgUrl": [
+      "https://contv-junction.cinedigm.com/ingest/playlist.m3u8",
+      "https://contvanime-littlstar.cinedigm.com/ingest/master.m3u8"
+    ]
   },
   "Cooking": {
     "tvgId": "CookingPanda.us",
@@ -6349,7 +2975,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/Z6pDpzl.png",
     "groupTitle": "Cooking",
-    "tvgUrl": ["https://stream-us-east-1.getpublica.com/playlist.m3u8?networkid=46"]
+    "tvgUrl": [
+      "https://stream-us-east-1.getpublica.com/playlist.m3u8?networkid=46"
+    ]
   },
   "Cornerstone": {
     "tvgId": "CornerstoneTV.us",
@@ -6357,7 +2985,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/cV8FKR9.png",
     "groupTitle": "Religious",
-    "tvgUrl": ["http://cdn.media9.truegod.tv/ctvnlive/smil:ctvn.smil/playlist.m3u8"]
+    "tvgUrl": [
+      "http://cdn.media9.truegod.tv/ctvnlive/smil:ctvn.smil/playlist.m3u8"
+    ]
   },
   "Court": {
     "tvgId": "CourtTV.us",
@@ -6376,7 +3006,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English;French",
     "tvgLogo": "https://i.imgur.com/5ym6eJS.png",
     "groupTitle": "Legislative",
-    "tvgUrl": ["https://d7z3qjdsxbwoq.cloudfront.net/groupa/live/f9809cea-1e07-47cd-a94d-2ddd3e1351db/live.isml/.m3u8"]
+    "tvgUrl": [
+      "https://d7z3qjdsxbwoq.cloudfront.net/groupa/live/f9809cea-1e07-47cd-a94d-2ddd3e1351db/live.isml/.m3u8"
+    ]
   },
   "Crackle": {
     "tvgId": "Crackle.us",
@@ -6384,7 +3016,10 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://od.lk/s/MF8yMjUyNDQ4NjZf/Crackle365x365.png",
     "groupTitle": "Movies",
-    "tvgUrl": ["https://crackle-plex.amagi.tv/playlist.m3u8", "http://crackle-xumo.amagi.tv/playlist.m3u8"]
+    "tvgUrl": [
+      "https://crackle-plex.amagi.tv/playlist.m3u8",
+      "http://crackle-xumo.amagi.tv/playlist.m3u8"
+    ]
   },
   "Craft": {
     "tvgId": "CraftStoreTV.uk",
@@ -6400,7 +3035,10 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/fYXChY0.png",
     "groupTitle": "Documentary",
-    "tvgUrl": ["https://aenetworks-crime360-1.samsung.wurl.com/manifest/playlist.m3u8", "https://crimetimebamca-roku.amagi.tv/playlist.m3u8"]
+    "tvgUrl": [
+      "https://aenetworks-crime360-1.samsung.wurl.com/manifest/playlist.m3u8",
+      "https://crimetimebamca-roku.amagi.tv/playlist.m3u8"
+    ]
   },
   "Cruise1st": {
     "tvgId": "Cruise1stTV.uk",
@@ -6408,7 +3046,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/q50kqOG.jpg",
     "groupTitle": "Shop",
-    "tvgUrl": ["https://cdnamd-hls-globecast.akamaized.net/live/ramdisk/cruisetv/hlsvideo/index.m3u8"]
+    "tvgUrl": [
+      "https://cdnamd-hls-globecast.akamaized.net/live/ramdisk/cruisetv/hlsvideo/index.m3u8"
+    ]
   },
   "CSat": {
     "tvgId": "CSatTV.us",
@@ -6416,7 +3056,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/cigpFzt.png",
     "groupTitle": "Religious",
-    "tvgUrl": ["http://media.smc-host.com:1935/csat.tv/smil:csat.smil/playlist.m3u8"]
+    "tvgUrl": [
+      "http://media.smc-host.com:1935/csat.tv/smil:csat.smil/playlist.m3u8"
+    ]
   },
   "CSPAN1": {
     "tvgId": "CSPAN.us",
@@ -6471,15 +3113,19 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "Dabl.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://raw.githubusercontent.com/Tapiosinn/tv-logos/master/countries/united-states/dabl-us.png",
+    "tvgLogo":
+        "https://raw.githubusercontent.com/Tapiosinn/tv-logos/master/countries/united-states/dabl-us.png",
     "groupTitle": "Lifestyle",
-    "tvgUrl": ["http://dai.google.com/linear/hls/event/oIKcyC8QThaW4F2KeB-Tdw/master.m3u8"]
+    "tvgUrl": [
+      "http://dai.google.com/linear/hls/event/oIKcyC8QThaW4F2KeB-Tdw/master.m3u8"
+    ]
   },
   "Dallas": {
     "tvgId": "DallasCowboysCheerleaders.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://images.pluto.tv/channels/5d40855b3fb0855028c99b6f/colorLogoPNG.png",
+    "tvgLogo":
+        "https://images.pluto.tv/channels/5d40855b3fb0855028c99b6f/colorLogoPNG.png",
     "groupTitle": "Documentary",
     "tvgUrl": [
       "http://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5d40855b3fb0855028c99b6f/master.m3u8?advertisingId=91a6ae51-6f9d-4fbb-adb0-bdfffa44693e&appVersion=unknown&deviceDNT=0&deviceId=91a6ae51-6f9d-4fbb-adb0-bdfffa44693e&deviceLat=0&deviceLon=0&deviceMake=samsung&deviceModel=samsung&deviceType=samsung-tvplus&deviceUA=samsung/SM-T720/10&deviceVersion=unknown&embedPartner=samsung-tvplus&profileFloor=&profileLimit=&samsungappdomain=https://play.google.com/store/apps/details?id=com.samsung.android.tvplus&samsungappname=Mobile+TV+Plus&usprivacy=1YNY"
@@ -6491,15 +3137,21 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/ZHST0G2.png",
     "groupTitle": "Legislative",
-    "tvgUrl": ["https://video.oct.dc.gov/out/u/1512.m3u8", "http://americaneagle-lh.akamaihd.net/i/AEFDC1@31049/master.m3u8"]
+    "tvgUrl": [
+      "https://video.oct.dc.gov/out/u/1512.m3u8",
+      "http://americaneagle-lh.akamaihd.net/i/AEFDC1@31049/master.m3u8"
+    ]
   },
   "Deal": {
     "tvgId": "DealorNoDeal.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://images.pluto.tv/channels/5e9debf8c881310007d7bde1/colorLogoPNG.png",
+    "tvgLogo":
+        "https://images.pluto.tv/channels/5e9debf8c881310007d7bde1/colorLogoPNG.png",
     "groupTitle": "Series",
-    "tvgUrl": ["https://endemol-dealornodeal-1.sinclair.wurl.com/manifest/playlist.m3u8"]
+    "tvgUrl": [
+      "https://endemol-dealornodeal-1.sinclair.wurl.com/manifest/playlist.m3u8"
+    ]
   },
   "Degrassi": {
     "tvgId": "DegrassiTheNextGeneration.us",
@@ -6507,15 +3159,22 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/mRBQKp3.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://dhx-degrassi-1-us.samsung.wurl.tv/playlist.m3u8", "http://dhx-degrassi-2-ca.samsung.wurl.tv/playlist.m3u8"]
+    "tvgUrl": [
+      "https://dhx-degrassi-1-us.samsung.wurl.tv/playlist.m3u8",
+      "http://dhx-degrassi-2-ca.samsung.wurl.tv/playlist.m3u8"
+    ]
   },
   "Demand": {
     "tvgId": "DemandAfrica.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://images.pluto.tv/channels/5f061242a7951e00075d7413/colorLogoPNG.png",
+    "tvgLogo":
+        "https://images.pluto.tv/channels/5f061242a7951e00075d7413/colorLogoPNG.png",
     "groupTitle": "Entertainment",
-    "tvgUrl": ["https://demandafrica-klowdtv.amagi.tv/playlist.m3u8", "https://demandafrica-samsungmexico.amagi.tv/playlist.m3u8"]
+    "tvgUrl": [
+      "https://demandafrica-klowdtv.amagi.tv/playlist.m3u8",
+      "https://demandafrica-samsungmexico.amagi.tv/playlist.m3u8"
+    ]
   },
   "Dharti": {
     "tvgId": "DhartiTV.pk",
@@ -6523,15 +3182,20 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://www.lyngsat.com/logo/tv/dd/dhartitvpk.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://streamone.simpaisa.com:8443/pitvlive1/dhartitv.smil/playlist.m3u8"]
+    "tvgUrl": [
+      "https://streamone.simpaisa.com:8443/pitvlive1/dhartitv.smil/playlist.m3u8"
+    ]
   },
   "Dick": {
     "tvgId": "DickCavett.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://static.wikia.nocookie.net/logopedia/images/2/2e/DickCavettShowlogo.jpg",
+    "tvgLogo":
+        "https://static.wikia.nocookie.net/logopedia/images/2/2e/DickCavettShowlogo.jpg",
     "groupTitle": "Classic",
-    "tvgUrl": ["https://dai.google.com/linear/hls/event/-NacIpMDTZ2y1bhkJN96Vg/master.m3u8"]
+    "tvgUrl": [
+      "https://dai.google.com/linear/hls/event/-NacIpMDTZ2y1bhkJN96Vg/master.m3u8"
+    ]
   },
   "District": {
     "tvgId": "DistrictofColumbiaNetwork.us",
@@ -6563,7 +3227,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/5X5Z5eg.png",
     "groupTitle": "Documentary",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-redboxdocurama/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-redboxdocurama/CDN/playlist.m3u8"
+    ]
   },
   "Dove": {
     "tvgId": "DoveChannel.us",
@@ -6571,7 +3237,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/FVWqYQG.png",
     "groupTitle": "Family",
-    "tvgUrl": ["https://cinedigm.vo.llnwd.net/conssui/amagihlsdataxumo1234A-dovenow/CDN/master.m3u8"]
+    "tvgUrl": [
+      "https://cinedigm.vo.llnwd.net/conssui/amagihlsdataxumo1234A-dovenow/CDN/master.m3u8"
+    ]
   },
   "Dr.": {
     "tvgId": "DrGeneScott.us",
@@ -6579,7 +3247,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/FppLahc.jpg",
     "groupTitle": "Religious",
-    "tvgUrl": ["https://wescottcchls-lh.akamaihd.net/i/wccwowlivehls@24607/master.m3u8"]
+    "tvgUrl": [
+      "https://wescottcchls-lh.akamaihd.net/i/wccwowlivehls@24607/master.m3u8"
+    ]
   },
   "Drama": {
     "tvgId": "DramaLife.us",
@@ -6606,7 +3276,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "Arabic;English",
     "tvgLogo": "https://i.imgur.com/WjJ8MHC.png",
     "groupTitle": "General",
-    "tvgUrl": ["http://dminnvll.cdn.mangomolo.com/dubaione/smil:dubaione.stream.smil/playlist.m3u8"]
+    "tvgUrl": [
+      "http://dminnvll.cdn.mangomolo.com/dubaione/smil:dubaione.stream.smil/playlist.m3u8"
+    ]
   },
   "Duck": {
     "tvgId": "DuckTV.sk",
@@ -6614,7 +3286,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/Qw8x6Os.png",
     "groupTitle": "Kids",
-    "tvgUrl": ["https://mmm-ducktv-4-no.samsung.wurl.com/manifest/playlist.m3u8"]
+    "tvgUrl": [
+      "https://mmm-ducktv-4-no.samsung.wurl.com/manifest/playlist.m3u8"
+    ]
   },
   "Dust": {
     "tvgId": "Dust.us",
@@ -6622,7 +3296,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/FxYhME9.png",
     "groupTitle": "Movies",
-    "tvgUrl": ["https://dai.google.com/linear/hls/event/xuMJ1vhQQDGjEWlxK9Qh4w/master.m3u8"]
+    "tvgUrl": [
+      "https://dai.google.com/linear/hls/event/xuMJ1vhQQDGjEWlxK9Qh4w/master.m3u8"
+    ]
   },
   "DUSTx": {
     "tvgId": "DUSTx.us",
@@ -6638,7 +3314,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/A1xzjOI.png",
     "groupTitle": "News",
-    "tvgUrl": ["https://dwamdstream102.akamaized.net/hls/live/2015525/dwstream102/index.m3u8"]
+    "tvgUrl": [
+      "https://dwamdstream102.akamaized.net/hls/live/2015525/dwstream102/index.m3u8"
+    ]
   },
   "Ebru": {
     "tvgId": "EbruTV.ke",
@@ -6670,7 +3348,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://od.lk/s/MF8yMjgzOTI0NjRf/ElectricNow300x300.png",
     "groupTitle": "Entertainment",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-electricnow/CDN/master.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-electricnow/CDN/master.m3u8"
+    ]
   },
   "Eman": {
     "tvgId": "EmanChannel.uk",
@@ -6690,7 +3370,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/TXamgdB.png",
     "groupTitle": "News",
-    "tvgUrl": ["https://etlive-mediapackage-fastly.cbsaavideo.com/dvr/manifest.m3u8"]
+    "tvgUrl": [
+      "https://etlive-mediapackage-fastly.cbsaavideo.com/dvr/manifest.m3u8"
+    ]
   },
   "Entrepreneur": {
     "tvgId": "Entrepreneur.us",
@@ -6706,13 +3388,16 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/lb0ddYv.png",
     "groupTitle": "Entertainment",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-escapes/CDN/master.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-escapes/CDN/master.m3u8"
+    ]
   },
   "ET": {
     "tvgId": "ETLive.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://images.pluto.tv/channels/5dc0c78281eddb0009a02d5e/colorLogoPNG.png",
+    "tvgLogo":
+        "https://images.pluto.tv/channels/5dc0c78281eddb0009a02d5e/colorLogoPNG.png",
     "groupTitle": "Entertainment",
     "tvgUrl": [
       "https://dai.google.com/linear/hls/event/xrVrJYTmTfitfXBQfeZByQ/master.m3u8",
@@ -6761,29 +3446,38 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://otteravision-tg.ottera.tv/live/master.m3u8?channel=tgtgus"]
+    "tvgUrl": [
+      "https://otteravision-tg.ottera.tv/live/master.m3u8?channel=tgtgus"
+    ]
   },
   "Extrema": {
     "tvgId": "ExtremaTV.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://www.unored247.com/bill/templates/smartlinehost/html/images/extremaclientlogo.png",
+    "tvgLogo":
+        "https://www.unored247.com/bill/templates/smartlinehost/html/images/extremaclientlogo.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["http://livestreamcdn.net:1935/ExtremaTV/ExtremaTV/playlist.m3u8"]
+    "tvgUrl": [
+      "http://livestreamcdn.net:1935/ExtremaTV/ExtremaTV/playlist.m3u8"
+    ]
   },
   "FailArmy": {
     "tvgId": "FailArmy.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://images.pluto.tv/channels/554158e864526b29254ff105/colorLogoPNG.png",
+    "tvgLogo":
+        "https://images.pluto.tv/channels/554158e864526b29254ff105/colorLogoPNG.png",
     "groupTitle": "Comedy",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-redboxfailarmy/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-redboxfailarmy/CDN/playlist.m3u8"
+    ]
   },
   "Fashion": {
     "tvgId": "FashionTVEurope.fr",
     "tvgCountry": "EUR",
     "tvgLanguage": "English",
-    "tvgLogo": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/FashionTVlogo.svg/240px-FashionTVlogo.svg.png",
+    "tvgLogo":
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/FashionTVlogo.svg/240px-FashionTVlogo.svg.png",
     "groupTitle": "Lifestyle",
     "tvgUrl": [
       "https://fashiontv-fashiontv-2-es.samsung.wurl.com/manifest/playlist.m3u8",
@@ -6837,7 +3531,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/z4AuQtX.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://api.new.livestream.com/accounts/19514369/events/6947821/live.m3u8"]
+    "tvgUrl": [
+      "https://api.new.livestream.com/accounts/19514369/events/6947821/live.m3u8"
+    ]
   },
   "Film": {
     "tvgId": "FilmHub.us",
@@ -6845,13 +3541,16 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/AQkhR58.png",
     "groupTitle": "Movies",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-redboxfilmhub/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-redboxfilmhub/CDN/playlist.m3u8"
+    ]
   },
   "FilmRise": {
     "tvgId": "FilmRiseAction.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://github.com/geonsey/Free2ViewTV/blob/master/images/logos/FilmRise-Action442x442.png?raw",
+    "tvgLogo":
+        "https://github.com/geonsey/Free2ViewTV/blob/master/images/logos/FilmRise-Action442x442.png?raw",
     "groupTitle": "Undefined",
     "tvgUrl": [
       "https://dai2.xumo.com/amagihlsdataxumo1212A-rokufilmriseaction/CDN/playlist.m3u8",
@@ -6874,7 +3573,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/umyEio1.jpg",
     "groupTitle": "Kids",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-rokufiremansam/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-rokufiremansam/CDN/playlist.m3u8"
+    ]
   },
   "Fireplace": {
     "tvgId": "FireplaceLounge.us",
@@ -6890,7 +3591,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/2TKL6BX.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://uni01rtmp.tulix.tv/firstlight/firstlight.smil/playlist.m3u8"]
+    "tvgUrl": [
+      "https://uni01rtmp.tulix.tv/firstlight/firstlight.smil/playlist.m3u8"
+    ]
   },
   "Fish": {
     "tvgId": "FishTank.us",
@@ -6904,7 +3607,8 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "Fite.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://images-na.ssl-images-amazon.com/images/I/21QWq2v0DGL.png",
+    "tvgLogo":
+        "https://images-na.ssl-images-amazon.com/images/I/21QWq2v0DGL.png",
     "groupTitle": "Sports",
     "tvgUrl": ["https://cdn-cf.fite.tv/linear/fite247/playlist.m3u8"]
   },
@@ -6914,7 +3618,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/hV46zMX.png",
     "groupTitle": "Classic",
-    "tvgUrl": ["https://584b0aa350b92.streamlock.net/folk-tv/myStream.sdp/playlist.m3u8"]
+    "tvgUrl": [
+      "https://584b0aa350b92.streamlock.net/folk-tv/myStream.sdp/playlist.m3u8"
+    ]
   },
   "Food": {
     "tvgId": "Food52.us",
@@ -6922,7 +3628,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/BVrMQch.png",
     "groupTitle": "Cooking",
-    "tvgUrl": ["https://cinedigm.vo.llnwd.net/conssui/amagihlsdataxumo1212A-redboxfood52A/CDN/master.m3u8"]
+    "tvgUrl": [
+      "https://cinedigm.vo.llnwd.net/conssui/amagihlsdataxumo1212A-redboxfood52A/CDN/master.m3u8"
+    ]
   },
   "Football": {
     "tvgId": "FootballDailyXUMO.us",
@@ -6930,7 +3638,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/VJyUVQ2.png",
     "groupTitle": "Sports",
-    "tvgUrl": ["https://dai2-xumo.fubo.tv/amagihlsdataxumo1212A-footballdaily/CDN/master.m3u8"]
+    "tvgUrl": [
+      "https://dai2-xumo.fubo.tv/amagihlsdataxumo1212A-footballdaily/CDN/master.m3u8"
+    ]
   },
   "Fox": {
     "tvgId": "WSVNDT1.us",
@@ -6962,9 +3672,12 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "France24English.fr",
     "tvgCountry": "INT",
     "tvgLanguage": "English",
-    "tvgLogo": "https://upload.wikimedia.org/wikipedia/commons/8/8a/France24.png",
+    "tvgLogo":
+        "https://upload.wikimedia.org/wikipedia/commons/8/8a/France24.png",
     "groupTitle": "News",
-    "tvgUrl": ["http://f24hls-i.akamaihd.net/hls/live/221147/F24ENHIHLS/master.m3u8"]
+    "tvgUrl": [
+      "http://f24hls-i.akamaihd.net/hls/live/221147/F24ENHIHLS/master.m3u8"
+    ]
   },
   "Freebie": {
     "tvgId": "FreebieTV.us",
@@ -6972,7 +3685,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://d1h1d6qoy9vnra.cloudfront.net/v1/master/9d062541f2ff39b5c0f48b743c6411d25f62fc25/Freebie-Plex/187.m3u8"]
+    "tvgUrl": [
+      "https://d1h1d6qoy9vnra.cloudfront.net/v1/master/9d062541f2ff39b5c0f48b743c6411d25f62fc25/Freebie-Plex/187.m3u8"
+    ]
   },
   "FrightFlix": {
     "tvgId": "FrightFlix.us",
@@ -6980,7 +3695,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/rgNQYAl.png",
     "groupTitle": "Movies",
-    "tvgUrl": ["https://content.uplynk.com/channel/4b3fda1ff2c24556bc2c6034307d117d.m3u8"]
+    "tvgUrl": [
+      "https://content.uplynk.com/channel/4b3fda1ff2c24556bc2c6034307d117d.m3u8"
+    ]
   },
   "FTF": {
     "tvgId": "FTF.us",
@@ -6999,13 +3716,16 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/XboGSjX.png",
     "groupTitle": "Sports",
-    "tvgUrl": ["http://fueltv-fueltv-14-nl.samsung.wurl.com/manifest/playlist.m3u8"]
+    "tvgUrl": [
+      "http://fueltv-fueltv-14-nl.samsung.wurl.com/manifest/playlist.m3u8"
+    ]
   },
   "Fun": {
     "tvgId": "FunRoads.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://funroads.tv/wp-content/uploads/fun-roads-header-horizontal-1.png",
+    "tvgLogo":
+        "https://funroads.tv/wp-content/uploads/fun-roads-header-horizontal-1.png",
     "groupTitle": "Travel",
     "tvgUrl": ["http://104.143.4.5:2080/funroads.m3u8"]
   },
@@ -7015,7 +3735,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/PMMsywm.png",
     "groupTitle": "Comedy",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-rokufunnyordie/CDN/master.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-rokufunnyordie/CDN/master.m3u8"
+    ]
   },
   "Fuse": {
     "tvgId": "FuseEast.us",
@@ -7023,7 +3745,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/mijRpPQ.jpg",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-redboxfuse/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-redboxfuse/CDN/playlist.m3u8"
+    ]
   },
   "Futurism": {
     "tvgId": "Futurism.us",
@@ -7031,7 +3755,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/DX7wYuN.png",
     "groupTitle": "News",
-    "tvgUrl": ["https://dai.google.com/linear/hls/event/YakHdnrRpyszducVuHOpQ/master.m3u8"]
+    "tvgUrl": [
+      "https://dai.google.com/linear/hls/event/YakHdnrRpyszducVuHOpQ/master.m3u8"
+    ]
   },
   "FX": {
     "tvgId": "FXPeru.us",
@@ -7045,9 +3771,12 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "GalvestonCountyTV.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://img.new.livestream.com/accounts/000000000141794a/1769dc58-4a38-4815-9cb7-feb1140db5ec170x170.png",
+    "tvgLogo":
+        "https://img.new.livestream.com/accounts/000000000141794a/1769dc58-4a38-4815-9cb7-feb1140db5ec170x170.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://stream.swagit.com/live-edge/galvestontx/smil:hd-16x9-1-b/playlist.m3u8"]
+    "tvgUrl": [
+      "https://stream.swagit.com/live-edge/galvestontx/smil:hd-16x9-1-b/playlist.m3u8"
+    ]
   },
   "Galxy": {
     "tvgId": "GalxyTV.us",
@@ -7055,13 +3784,16 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/oPnzAPC.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://content.uplynk.com/channel/f467430e4a8e49a59ff3183cf51092b2.m3u8"]
+    "tvgUrl": [
+      "https://content.uplynk.com/channel/f467430e4a8e49a59ff3183cf51092b2.m3u8"
+    ]
   },
   "Game": {
     "tvgId": "GameShowNetworkEast.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://www.gameshownetwork.com/storage/app/media/2020/Navigation/gsnlogo.jpg",
+    "tvgLogo":
+        "https://www.gameshownetwork.com/storage/app/media/2020/Navigation/gsnlogo.jpg",
     "groupTitle": "Entertainment",
     "tvgUrl": ["http://n1.klowdtv.net/live2/gsn720p/chunks.m3u8"]
   },
@@ -7079,7 +3811,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://www.lyngsat.com/logo/tv/gg/gb-news-uk.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://live-gbnews.simplestreamcdn.com/gbnews/gbnews/bitrate1.isml/live.m3u8"]
+    "tvgUrl": [
+      "https://live-gbnews.simplestreamcdn.com/gbnews/gbnews/bitrate1.isml/live.m3u8"
+    ]
   },
   "GBS": {
     "tvgId": "GBSTV.ke",
@@ -7095,7 +3829,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/9fJlCNW.png",
     "groupTitle": "Shop",
-    "tvgUrl": ["http://57d6b85685bb8.streamlock.net:1935/abrgemporiaukgfx/livestream360p/index.m3u8"]
+    "tvgUrl": [
+      "http://57d6b85685bb8.streamlock.net:1935/abrgemporiaukgfx/livestream360p/index.m3u8"
+    ]
   },
   "GFN": {
     "tvgId": "GFNTV.us",
@@ -7103,7 +3839,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/V5CTsI0.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://d3jxchypmk8fja.cloudfront.net/v1/master/9d062541f2ff39b5c0f48b743c6411d25f62fc25/GFNTV-Plex/169.m3u8"]
+    "tvgUrl": [
+      "https://d3jxchypmk8fja.cloudfront.net/v1/master/9d062541f2ff39b5c0f48b743c6411d25f62fc25/GFNTV-Plex/169.m3u8"
+    ]
   },
   "Glamour": {
     "tvgId": "Glamour.us",
@@ -7111,7 +3849,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/o3jWnc5.jpg",
     "groupTitle": "Lifestyle",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-redboxglamour/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-redboxglamour/CDN/playlist.m3u8"
+    ]
   },
   "Glendale": {
     "tvgId": "Glendale11AZ.us",
@@ -7119,7 +3859,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/Zxb1Xyj.jpg",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://stream.swagit.com/live-edge/glendaleaz/smil:std-4x3-1-a/playlist.m3u8"]
+    "tvgUrl": [
+      "https://stream.swagit.com/live-edge/glendaleaz/smil:std-4x3-1-a/playlist.m3u8"
+    ]
   },
   "Glewed": {
     "tvgId": "GlewedTV.us",
@@ -7127,7 +3869,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/W4Bx9pG.jpg",
     "groupTitle": "General",
-    "tvgUrl": ["https://dai.google.com/linear/hls/event/ChWV1GupQOWE92uG4DvbkQ/master.m3u8"]
+    "tvgUrl": [
+      "https://dai.google.com/linear/hls/event/ChWV1GupQOWE92uG4DvbkQ/master.m3u8"
+    ]
   },
   "Global": {
     "tvgId": "GlobalFashionChannel.us",
@@ -7146,7 +3890,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/AQbc1ER.jpg",
     "groupTitle": "Sports",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-redboxglorykickboxing/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-redboxglorykickboxing/CDN/playlist.m3u8"
+    ]
   },
   "Go": {
     "tvgId": "GoTraveler.us",
@@ -7154,7 +3900,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://od.lk/s/MF8yMzE5OTIyMjBf/Redbox512x512.png",
     "groupTitle": "Travel",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-redboxgotraveler/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-redboxgotraveler/CDN/playlist.m3u8"
+    ]
   },
   "God": {
     "tvgId": "GodTVUK.uk",
@@ -7163,7 +3911,10 @@ final foreignTvLis = <String, dynamic>{
     "tvgLogo":
         "https://ocdn.eu/program-tv-transforms/1/dXCktlEYWRtL2IzNzk5OGMwYTExODlhNWNmYzA4ZWY5OTQwNTllNTQ4N2Q3N2U2Y2RkMWVlMTIxMGU4NTRmYjdiYzllNmNmNjKSlQJkAMLDlQIAKMLD",
     "groupTitle": "Religious",
-    "tvgUrl": ["https://zypelive-lh.akamaihd.net/i/default1@745545/master.m3u8", "https://zypelive-lh.akamaihd.net/i/default1@710958/master.m3u8"]
+    "tvgUrl": [
+      "https://zypelive-lh.akamaihd.net/i/default1@745545/master.m3u8",
+      "https://zypelive-lh.akamaihd.net/i/default1@710958/master.m3u8"
+    ]
   },
   "Golden": {
     "tvgId": "GoldenTV.us",
@@ -7179,7 +3930,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/t9xHfSV.png",
     "groupTitle": "Religious",
-    "tvgUrl": ["http://1-fss29-s0.streamhoster.com/lvgoodlife45f1/broadcast1/playlist.m3u8"]
+    "tvgUrl": [
+      "http://1-fss29-s0.streamhoster.com/lvgoodlife45f1/broadcast1/playlist.m3u8"
+    ]
   },
   "Gospel": {
     "tvgId": "GospelTruthTV.us",
@@ -7195,7 +3948,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/tprQSxT.png",
     "groupTitle": "Lifestyle",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-redboxgq/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-redboxgq/CDN/playlist.m3u8"
+    ]
   },
   "Gravitas": {
     "tvgId": "GravitasMovies.us",
@@ -7203,7 +3958,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/H2hD4vT.png",
     "groupTitle": "Movies",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-redboxgravitas/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-redboxgravitas/CDN/playlist.m3u8"
+    ]
   },
   "Great": {
     "tvgId": "GreatCommissionTVGCTV.ph",
@@ -7235,7 +3992,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/JMn9sxk.png",
     "groupTitle": "Movies",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-rokuhallmark/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-rokuhallmark/CDN/playlist.m3u8"
+    ]
   },
   "HappyKids": {
     "tvgId": "HappyKids.us",
@@ -7243,7 +4002,10 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/7IMycQ7.png",
     "groupTitle": "Kids",
-    "tvgUrl": ["https://happykids-roku.amagi.tv/playlist.m3u8", "https://happykidsjunior-vizio.amagi.tv/playlist.m3u8"]
+    "tvgUrl": [
+      "https://happykids-roku.amagi.tv/playlist.m3u8",
+      "https://happykidsjunior-vizio.amagi.tv/playlist.m3u8"
+    ]
   },
   "Hard": {
     "tvgId": "HardKnocks.ca",
@@ -7280,15 +4042,19 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "HBOAsia.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://images.now-tv.com/shares/channelPreview/img/enhk/color/ch115160115",
+    "tvgLogo":
+        "https://images.now-tv.com/shares/channelPreview/img/enhk/color/ch115160115",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://vips-livecdn.fptplay.net/hda1/hbovhls.smil/chunklist.m3u8"]
+    "tvgUrl": [
+      "https://vips-livecdn.fptplay.net/hda1/hbovhls.smil/chunklist.m3u8"
+    ]
   },
   "Hello": {
     "tvgId": "Hello.my",
     "tvgCountry": "MY",
     "tvgLanguage": "English",
-    "tvgLogo": "https://astrocontent.s3.amazonaws.com/Images/ChannelLogo/Pos/702300.png",
+    "tvgLogo":
+        "https://astrocontent.s3.amazonaws.com/Images/ChannelLogo/Pos/702300.png",
     "groupTitle": "Undefined",
     "tvgUrl": ["https://agsplayback01.astro.com.my/CH1/masterHELLOGOSHOP6.m3u8"]
   },
@@ -7298,7 +4064,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/TaeeQnn.png",
     "groupTitle": "Entertainment",
-    "tvgUrl": ["https://stitcheraws.unreel.me/wse-node02.powr.com/live/5c7e2503932c8368bdbfd875/playlist.m3u8"]
+    "tvgUrl": [
+      "https://stitcheraws.unreel.me/wse-node02.powr.com/live/5c7e2503932c8368bdbfd875/playlist.m3u8"
+    ]
   },
   "Himlen": {
     "tvgId": "HimlenTV7.fi",
@@ -7314,15 +4082,20 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/ynZiWvC.jpg",
     "groupTitle": "Documentary",
-    "tvgUrl": ["https://bk7l2w4nlx53-hls-live.5centscdn.com/HISTORY/961ac1c875f5884f31bdd177365ef1e3.sdp/playlist.m3u8"]
+    "tvgUrl": [
+      "https://bk7l2w4nlx53-hls-live.5centscdn.com/HISTORY/961ac1c875f5884f31bdd177365ef1e3.sdp/playlist.m3u8"
+    ]
   },
   "HLN": {
     "tvgId": "HLN.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://yt3.ggpht.com/ia9B0dcvykqfeoPpckovKdWyc7DuwlaejOKha2f6-oNfVdUdkXw4dWBIPUArMEqNljg5uvL6AiU",
+    "tvgLogo":
+        "https://yt3.ggpht.com/ia9B0dcvykqfeoPpckovKdWyc7DuwlaejOKha2f6-oNfVdUdkXw4dWBIPUArMEqNljg5uvL6AiU",
     "groupTitle": "News",
-    "tvgUrl": ["https://tve-live-lln.warnermediacdn.com/hls/live/586496/cnngo/hln/VIDEO03564000.m3u8"]
+    "tvgUrl": [
+      "https://tve-live-lln.warnermediacdn.com/hls/live/586496/cnngo/hln/VIDEO03564000.m3u8"
+    ]
   },
   "HNC": {
     "tvgId": "HNCFree.us",
@@ -7357,13 +4130,16 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/NCbpYa4.png",
     "groupTitle": "Movies",
-    "tvgUrl": ["https://olympusamagi.pc.cdn.bitgravity.com/Horrify-roku/master.m3u8"]
+    "tvgUrl": [
+      "https://olympusamagi.pc.cdn.bitgravity.com/Horrify-roku/master.m3u8"
+    ]
   },
   "Horse": {
     "tvgId": "HorseCountryTV.uk",
     "tvgCountry": "UK",
     "tvgLanguage": "English",
-    "tvgLogo": "https://horseandcountry.tv/wp-content/themes/hctv/img/hclogoheader.png",
+    "tvgLogo":
+        "https://horseandcountry.tv/wp-content/themes/hctv/img/hclogoheader.png",
     "groupTitle": "Outdoor",
     "tvgUrl": [
       "https://hnc-free-viewlift.amagi.tv/HNCAUSTRALIA.m3u8",
@@ -7378,7 +4154,10 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://live-tv-channels.org/pt-data/uploads/logo/us-hsn-2.jpg",
     "groupTitle": "Shop",
-    "tvgUrl": ["https://hsn2html5-lh.akamaihd.net/i/hsn2html501@13178/master.m3u8", "https://hsn.samsung.wurl.com/manifest/playlist.m3u8"]
+    "tvgUrl": [
+      "https://hsn2html5-lh.akamaihd.net/i/hsn2html501@13178/master.m3u8",
+      "https://hsn.samsung.wurl.com/manifest/playlist.m3u8"
+    ]
   },
   "HTV": {
     "tvgId": "HTV1HoustonTelevision.us",
@@ -7397,7 +4176,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/lYqcF1P.png",
     "groupTitle": "Comedy",
-    "tvgUrl": ["https://damkf751d85s1.cloudfront.net/v1/master/9d062541f2ff39b5c0f48b743c6411d25f62fc25/HumorMill-DistroTV/152.m3u8"]
+    "tvgUrl": [
+      "https://damkf751d85s1.cloudfront.net/v1/master/9d062541f2ff39b5c0f48b743c6411d25f62fc25/HumorMill-DistroTV/152.m3u8"
+    ]
   },
   "Hungry": {
     "tvgId": "Hungry.us",
@@ -7405,7 +4186,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/MIUDYh0.png",
     "groupTitle": "Cooking",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-redboxhungry/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-redboxhungry/CDN/playlist.m3u8"
+    ]
   },
   "Hunt": {
     "tvgId": "HuntChannel.us",
@@ -7427,9 +4210,12 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "IdealWorldTV.uk",
     "tvgCountry": "UK",
     "tvgLanguage": "English",
-    "tvgLogo": "https://www.idealworld.tv/gb/common/images/Cms/Header/iw-square.jpg",
+    "tvgLogo":
+        "https://www.idealworld.tv/gb/common/images/Cms/Header/iw-square.jpg",
     "groupTitle": "Shop",
-    "tvgUrl": ["http://free.fullspeed.tv/iptv-query?streaming-ip=https://www.youtube.com/c/IdealworldTvShopping/live"]
+    "tvgUrl": [
+      "http://free.fullspeed.tv/iptv-query?streaming-ip=https://www.youtube.com/c/IdealworldTvShopping/live"
+    ]
   },
   "IDG": {
     "tvgId": "IDG.us",
@@ -7443,7 +4229,8 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "IFCEast.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://www.directv.com/images/logos/channels/dark/large/256.png",
+    "tvgLogo":
+        "https://www.directv.com/images/logos/channels/dark/large/256.png",
     "groupTitle": "Undefined",
     "tvgUrl": [
       "https://bcovlive-a.akamaihd.net/070ffdaa203f439cacbf0d45a1ddb356/us-east-1/6240731308001/playlist.m3u8",
@@ -7462,9 +4249,12 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "IGN.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://images.pluto.tv/channels/5f8ecee24576bc0007a13b79/colorLogoPNG.png",
+    "tvgLogo":
+        "https://images.pluto.tv/channels/5f8ecee24576bc0007a13b79/colorLogoPNG.png",
     "groupTitle": "Entertainment",
-    "tvgUrl": ["https://ign-plex.amagi.tv/hls/amagihlsdataignAAAAAA-ign-plexA/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://ign-plex.amagi.tv/hls/amagihlsdataignAAAAAA-ign-plexA/CDN/playlist.m3u8"
+    ]
   },
   "IIPC": {
     "tvgId": "IIPCTV.ca",
@@ -7486,7 +4276,8 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "ImpactWrestling.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://images.pluto.tv/channels/59b722526996084038c01e1b/colorLogoPNG.png",
+    "tvgLogo":
+        "https://images.pluto.tv/channels/59b722526996084038c01e1b/colorLogoPNG.png",
     "groupTitle": "Sports",
     "tvgUrl": ["https://d2p372oxiwmcn1.cloudfront.net/hls/main.m3u8"]
   },
@@ -7496,7 +4287,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/FcLAaMT.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["http://churchrus2-lh.akamaihd.net/i/coctesting1@57550/master.m3u8"]
+    "tvgUrl": [
+      "http://churchrus2-lh.akamaihd.net/i/coctesting1@57550/master.m3u8"
+    ]
   },
   "InfoWars": {
     "tvgId": "InfoWars.us",
@@ -7504,13 +4297,16 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/MBsQp1e.png",
     "groupTitle": "News",
-    "tvgUrl": ["http://wpc.9ec1.edgecastcdn.net/249EC1/infowarshd-edgecast/hd720.m3u8"]
+    "tvgUrl": [
+      "http://wpc.9ec1.edgecastcdn.net/249EC1/infowarshd-edgecast/hd720.m3u8"
+    ]
   },
   "Insight": {
     "tvgId": "InsightTV.nl",
     "tvgCountry": "NL",
     "tvgLanguage": "English",
-    "tvgLogo": "https://images.pluto.tv/channels/5f06bc60e236570007793f31/colorLogoPNG.png",
+    "tvgLogo":
+        "https://images.pluto.tv/channels/5f06bc60e236570007793f31/colorLogoPNG.png",
     "groupTitle": "Sports",
     "tvgUrl": ["https://insighttv-vizio.amagi.tv/playlist.m3u8"]
   },
@@ -7520,7 +4316,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/CQnD7yU.png",
     "groupTitle": "Religious",
-    "tvgUrl": ["https://inspnetworks-lh.akamaihd.net/i/insp2@393793/master.m3u8"]
+    "tvgUrl": [
+      "https://inspnetworks-lh.akamaihd.net/i/insp2@393793/master.m3u8"
+    ]
   },
   "InTrouble": {
     "tvgId": "InTrouble.nl",
@@ -7552,7 +4350,10 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/GK5BlnN.jpg",
     "groupTitle": "Religious",
-    "tvgUrl": ["https://ap02.iqplay.tv:8082/iqb8002/iq53la/playlist.m3u8", "https://ap02.iqplay.tv:8082/iqb8002/iq6a7k/playlist.m3u8"]
+    "tvgUrl": [
+      "https://ap02.iqplay.tv:8082/iqb8002/iq53la/playlist.m3u8",
+      "https://ap02.iqplay.tv:8082/iqb8002/iq6a7k/playlist.m3u8"
+    ]
   },
   "Iqraa": {
     "tvgId": "IqraaEuropeAfrica.sa",
@@ -7577,7 +4378,8 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "IslamChannel.uk",
     "tvgCountry": "UK",
     "tvgLanguage": "English",
-    "tvgLogo": "https://simplestream-portal.s3.eu-west-1.amazonaws.com/172/642f780c-islamtv.png",
+    "tvgLogo":
+        "https://simplestream-portal.s3.eu-west-1.amazonaws.com/172/642f780c-islamtv.png",
     "groupTitle": "Religious",
     "tvgUrl": ["https://live.islamchannel.tv/islamtvenglish/live.m3u8"]
   },
@@ -7595,7 +4397,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/pmqYFk9.jpg",
     "groupTitle": "Religious",
-    "tvgUrl": ["https://cpdc101-lh.akamaihd.net/i/ISNCPDCMB11@314337/master.m3u8"]
+    "tvgUrl": [
+      "https://cpdc101-lh.akamaihd.net/i/ISNCPDCMB11@314337/master.m3u8"
+    ]
   },
   "ITV2": {
     "tvgId": "ITV2.uk",
@@ -7633,9 +4437,12 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "BeritaSatuEnglish.id",
     "tvgCountry": "ID",
     "tvgLanguage": "English",
-    "tvgLogo": "https://m3u-editor.com/storage/channel-logos/07cd9d90-3cc5-11ea-9aa8-0b5bd3ba261d/92697/14040323.png",
+    "tvgLogo":
+        "https://m3u-editor.com/storage/channel-logos/07cd9d90-3cc5-11ea-9aa8-0b5bd3ba261d/92697/14040323.png",
     "groupTitle": "News",
-    "tvgUrl": ["https://b1english.beritasatumedia.com/Beritasatu/B1Englishmanifest.m3u8"]
+    "tvgUrl": [
+      "https://b1english.beritasatumedia.com/Beritasatu/B1Englishmanifest.m3u8"
+    ]
   },
   "Jamaica": {
     "tvgId": "JamaicaTV.jm",
@@ -7643,7 +4450,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://vse2-sa-all4.secdn.net/tvstartup11-channel/live/mp4:jotvedge/playlist.m3u8"]
+    "tvgUrl": [
+      "https://vse2-sa-all4.secdn.net/tvstartup11-channel/live/mp4:jotvedge/playlist.m3u8"
+    ]
   },
   "JBS": {
     "tvgId": "JBS.us",
@@ -7651,7 +4460,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/pHJm3I0.png",
     "groupTitle": "Religious",
-    "tvgUrl": ["http://uni8rtmp.tulix.tv:1935/shalomtv-pc/smil:shalomtv.smil/master.m3u8"]
+    "tvgUrl": [
+      "http://uni8rtmp.tulix.tv:1935/shalomtv-pc/smil:shalomtv.smil/master.m3u8"
+    ]
   },
   "Jess": {
     "tvgId": "JessTV.ca",
@@ -7659,7 +4470,10 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "",
     "groupTitle": "Undefined",
-    "tvgUrl": ["#EXTVLCOPT:http-referrer=https://ssh101.com/", "https://tna5.bozztv.com/jesstv/index.m3u8"]
+    "tvgUrl": [
+      "#EXTVLCOPT:http-referrer=https://ssh101.com/",
+      "https://tna5.bozztv.com/jesstv/index.m3u8"
+    ]
   },
   "Jewelery": {
     "tvgId": "JewelleryMaker.uk",
@@ -7667,7 +4481,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/azSptPw.png",
     "groupTitle": "Lifestyle",
-    "tvgUrl": ["https://lo2-1.gemporia.com/abrjewellerymaker/smil:livestream.smil/playlist.m3u8"]
+    "tvgUrl": [
+      "https://lo2-1.gemporia.com/abrjewellerymaker/smil:livestream.smil/playlist.m3u8"
+    ]
   },
   "Jewelry": {
     "tvgId": "JewelryTV.us",
@@ -7684,15 +4500,19 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "JohnnyCarsonTV.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://images.pluto.tv/channels/5e66928133461100077dfd73/colorLogoPNG.png",
+    "tvgLogo":
+        "https://images.pluto.tv/channels/5e66928133461100077dfd73/colorLogoPNG.png",
     "groupTitle": "Classic",
-    "tvgUrl": ["https://johnnycarson-redbox.amagi.tv/hls/amagihlsdataredboxAAA-johnnycarson-redbox/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://johnnycarson-redbox.amagi.tv/hls/amagihlsdataredboxAAA-johnnycarson-redbox/CDN/playlist.m3u8"
+    ]
   },
   "Journy": {
     "tvgId": "Journy.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://web.opendrive.com/api/v1/download/file.json/MF8yMjg5MzMxNjNf?inline",
+    "tvgLogo":
+        "https://web.opendrive.com/api/v1/download/file.json/MF8yMjg5MzMxNjNf?inline",
     "groupTitle": "Travel",
     "tvgUrl": ["http://d3lzjtrf5mvf3p.cloudfront.net/playlist.m3u8"]
   },
@@ -7700,7 +4520,8 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "JournysBourdainAllDay.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://provider-static.plex.tv/epg/cms/staging/da04b14e-5a31-4296-bf2e-bbbf0b237255/JournysBourdainAllDaylogodark.png",
+    "tvgLogo":
+        "https://provider-static.plex.tv/epg/cms/staging/da04b14e-5a31-4296-bf2e-bbbf0b237255/JournysBourdainAllDaylogodark.png",
     "groupTitle": "Undefined",
     "tvgUrl": [
       "https://plexpab.teleosmedia.com/linear/ovation/journypresentsanthonybourdain/playlist.m3u8?did=62274240-07e7-5d94-8dc8-ef68cf19e175&dnt=0&pid=6182cd0df4e62961d9c2ccf6&ptoken=PLboJws1xgoB1Srgg"
@@ -7730,7 +4551,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/OiMMkP3.jpg",
     "groupTitle": "Comedy",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-rokujustforlaughsgags/CDN/master.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-rokujustforlaughsgags/CDN/master.m3u8"
+    ]
   },
   "K21": {
     "tvgId": "K21News.pk",
@@ -7738,7 +4561,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://www.lyngsat.com/logo/tv/kk/k21pk.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://streamone.simpaisa.com:8443/pitvlive1/k21.smil/playlist.m3u8"]
+    "tvgUrl": [
+      "https://streamone.simpaisa.com:8443/pitvlive1/k21.smil/playlist.m3u8"
+    ]
   },
   "kabillion": {
     "tvgId": "kabillion.us",
@@ -7746,21 +4571,27 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/2Ybvtlg.png",
     "groupTitle": "Kids",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-redboxkabillion/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-redboxkabillion/CDN/playlist.m3u8"
+    ]
   },
   "Kameme": {
     "tvgId": "KamemeTV.ke",
     "tvgCountry": "KE",
     "tvgLanguage": "English",
-    "tvgLogo": "https://kenyatv.tech/wp-content/uploads/2020/11/ke-kameme-tv-1383.jpg",
+    "tvgLogo":
+        "https://kenyatv.tech/wp-content/uploads/2020/11/ke-kameme-tv-1383.jpg",
     "groupTitle": "General",
-    "tvgUrl": ["http://free.fullspeed.tv/iptv-query?streaming-ip=https://dai.ly/x6ol8sj"]
+    "tvgUrl": [
+      "http://free.fullspeed.tv/iptv-query?streaming-ip=https://dai.ly/x6ol8sj"
+    ]
   },
   "Kartoon": {
     "tvgId": "KartoonCircus.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://github.com/geonsey/Free2ViewTV/blob/master/images/logos/KartoonFunTime209x209.png?raw",
+    "tvgLogo":
+        "https://github.com/geonsey/Free2ViewTV/blob/master/images/logos/KartoonFunTime209x209.png?raw",
     "groupTitle": "Kids",
     "tvgUrl": ["https://simultv.s.llnwi.net/n4s4/KartoonCircus/interlink.m3u8"]
   },
@@ -7778,7 +4609,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://kenyatv.tech/wp-content/uploads/2021/04/KBC-1.jpg",
     "groupTitle": "General",
-    "tvgUrl": ["http://free.fullspeed.tv/iptv-query?streaming-ip=https://dai.ly/x74211t"]
+    "tvgUrl": [
+      "http://free.fullspeed.tv/iptv-query?streaming-ip=https://dai.ly/x74211t"
+    ]
   },
   "KBP": {
     "tvgId": "KBPSports.us",
@@ -7786,7 +4619,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/QleHNMl.png",
     "groupTitle": "Sports",
-    "tvgUrl": ["https://live-k2302-kbp.1plus1.video/sport/smil:sport.smil/playlist.m3u8"]
+    "tvgUrl": [
+      "https://live-k2302-kbp.1plus1.video/sport/smil:sport.smil/playlist.m3u8"
+    ]
   },
   "KBSV/AssyriaSat": {
     "tvgId": "KBSVAssyriaSat.us",
@@ -7812,9 +4647,12 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "KidsClick.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://raw.githubusercontent.com/geonsey/Free2ViewTV/master/images/logos/KidsClick.png",
+    "tvgLogo":
+        "https://raw.githubusercontent.com/geonsey/Free2ViewTV/master/images/logos/KidsClick.png",
     "groupTitle": "Kids",
-    "tvgUrl": ["https://usgeowall.sinclairstoryline.com/channel/1698bf57810a48c486b83d542bca298d.m3u8"]
+    "tvgUrl": [
+      "https://usgeowall.sinclairstoryline.com/channel/1698bf57810a48c486b83d542bca298d.m3u8"
+    ]
   },
   "KidsFlix": {
     "tvgId": "KidsFlix.us",
@@ -7822,7 +4660,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/ZbAVzad.png",
     "groupTitle": "Kids",
-    "tvgUrl": ["https://stream-us-east-1.getpublica.com/playlist.m3u8?networkid=50"]
+    "tvgUrl": [
+      "https://stream-us-east-1.getpublica.com/playlist.m3u8?networkid=50"
+    ]
   },
   "KMTV": {
     "tvgId": "kMTV.uk",
@@ -7846,7 +4686,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/Px8a1JY.png",
     "groupTitle": "Classic",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-rokukocowa/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-rokukocowa/CDN/playlist.m3u8"
+    ]
   },
   "Kohenoor": {
     "tvgId": "KohenoorNews.pk",
@@ -7854,7 +4696,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://www.lyngsat.com/logo/tv/kk/kohenoor-news-pk.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://streamer12.vdn.dstreamone.net/dsone/kohenoortv/playlist.m3u8"]
+    "tvgUrl": [
+      "https://streamer12.vdn.dstreamone.net/dsone/kohenoortv/playlist.m3u8"
+    ]
   },
   "Kool": {
     "tvgId": "KoolLondonRadio.uk",
@@ -7862,7 +4706,10 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/Kv3Htqy.png",
     "groupTitle": "Music",
-    "tvgUrl": ["http://w10.streamgb.com:1935/kool/kool/playlist.m3u8", "http://209.182.219.50:1935/roku/roku/playlist.m3u8"]
+    "tvgUrl": [
+      "http://w10.streamgb.com:1935/kool/kool/playlist.m3u8",
+      "http://209.182.219.50:1935/roku/roku/playlist.m3u8"
+    ]
   },
   "Kordia": {
     "tvgId": "KordiaTV.nz",
@@ -7870,7 +4717,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/7FCjq7C.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://ptvlive.kordia.net.nz/out/v1/3fc2254c865a457c8d7fbbce227a2aae/index.m3u8"]
+    "tvgUrl": [
+      "https://ptvlive.kordia.net.nz/out/v1/3fc2254c865a457c8d7fbbce227a2aae/index.m3u8"
+    ]
   },
   "KTN": {
     "tvgId": "KTNNews.ke",
@@ -7878,7 +4727,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://kenyatv.tech/wp-content/uploads/2020/11/unnamed.jpg",
     "groupTitle": "News",
-    "tvgUrl": ["http://free.fullspeed.tv/iptv-query?streaming-ip=https://www.youtube.com/user/standardgroupkenya/live"]
+    "tvgUrl": [
+      "http://free.fullspeed.tv/iptv-query?streaming-ip=https://www.youtube.com/user/standardgroupkenya/live"
+    ]
   },
   "Kweli": {
     "tvgId": "KweliTV.us",
@@ -7906,7 +4757,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://www.lyngsat.com/logo/tv/ll/lahorenewspk.png",
     "groupTitle": "News",
-    "tvgUrl": ["https://vcdn.dunyanews.tv/lahorelive/definst/ngrp:lnews1all/playlist.m3u8"]
+    "tvgUrl": [
+      "https://vcdn.dunyanews.tv/lahorelive/definst/ngrp:lnews1all/playlist.m3u8"
+    ]
   },
   "Lake": {
     "tvgId": "LakeHavasuCity4.us",
@@ -7914,7 +4767,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/REqqKQ9.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://granicusliveus3-a.akamaihd.net/lakehavasucity/G0643002/playlist.m3u8"]
+    "tvgUrl": [
+      "https://granicusliveus3-a.akamaihd.net/lakehavasucity/G0643002/playlist.m3u8"
+    ]
   },
   "Lao": {
     "tvgId": "LaoChampaTV1.vn",
@@ -7922,13 +4777,16 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English;Vietnamese",
     "tvgLogo": "",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://livefta.malimarcdn.com/ftaedge00/laochampa1.sdp/playlist.m3u8"]
+    "tvgUrl": [
+      "https://livefta.malimarcdn.com/ftaedge00/laochampa1.sdp/playlist.m3u8"
+    ]
   },
   "Latinos": {
     "tvgId": "LatinosNCTV.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://www.revistalatinanc.com/wp-content/uploads/2019/02/3287LatinosncTV.jpg",
+    "tvgLogo":
+        "https://www.revistalatinanc.com/wp-content/uploads/2019/02/3287LatinosncTV.jpg",
     "groupTitle": "Undefined",
     "tvgUrl": ["https://live.latinosnc.tv:1443/MRR/live/playlist.m3u8"]
   },
@@ -7977,7 +4835,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "",
     "groupTitle": "Kids",
-    "tvgUrl": ["https://stitcheraws.unreel.me/wse-node04.powr.com/live/5af61be7d5eeee7af3d1db47/playlist.m3u8"]
+    "tvgUrl": [
+      "https://stitcheraws.unreel.me/wse-node04.powr.com/live/5af61be7d5eeee7af3d1db47/playlist.m3u8"
+    ]
   },
   "Lex": {
     "tvgId": "LexTV.us",
@@ -7985,7 +4845,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/OyUrnuD.jpg",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://granicusliveus2-a.akamaihd.net/lfucg/G0264002/playlist.m3u8"]
+    "tvgUrl": [
+      "https://granicusliveus2-a.akamaihd.net/lfucg/G0264002/playlist.m3u8"
+    ]
   },
   "LifevisionTV": {
     "tvgId": "LifevisionTV.us",
@@ -7993,15 +4855,20 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/pF6Wowj.jpg",
     "groupTitle": "Religious",
-    "tvgUrl": ["https://uni5rtmp.tulix.tv/lifevision/lifevision.stream/playlist.m3u8"]
+    "tvgUrl": [
+      "https://uni5rtmp.tulix.tv/lifevision/lifevision.stream/playlist.m3u8"
+    ]
   },
   "Lively": {
     "tvgId": "LivelyPlace.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://images.pluto.tv/channels/5dc1cb279c91420009db261d/colorLogoPNG.png",
+    "tvgLogo":
+        "https://images.pluto.tv/channels/5dc1cb279c91420009db261d/colorLogoPNG.png",
     "groupTitle": "Series",
-    "tvgUrl": ["https://aenetworks-ae-1.samsung.wurl.com/manifest/playlist.m3u8"]
+    "tvgUrl": [
+      "https://aenetworks-ae-1.samsung.wurl.com/manifest/playlist.m3u8"
+    ]
   },
   "LIVExLIVE": {
     "tvgId": "LIVExLIVE.us",
@@ -8009,7 +4876,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/OaSFTnV.png",
     "groupTitle": "Lifestyle",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-xumolivexlive/CDN/master.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-xumolivexlive/CDN/master.m3u8"
+    ]
   },
   "LNKTV": {
     "tvgId": "LNKTVCity.us",
@@ -8029,7 +4898,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://media-usla.mybtv.net/logos/7.2.png",
     "groupTitle": "Lifestyle",
-    "tvgUrl": ["https://live-news-manifest.tubi.video/live-news-manifest/csm/extlive/tubiprd01,Localish.m3u8"]
+    "tvgUrl": [
+      "https://live-news-manifest.tubi.video/live-news-manifest/csm/extlive/tubiprd01,Localish.m3u8"
+    ]
   },
   "Logos": {
     "tvgId": "LogosTVEnglish.us",
@@ -8037,7 +4908,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://logoschannel.com/images/logo.png",
     "groupTitle": "Religious",
-    "tvgUrl": ["https://5aafcc5de91f1.streamlock.net/logoschannel.com/logoseng/playlist.m3u8"]
+    "tvgUrl": [
+      "https://5aafcc5de91f1.streamlock.net/logoschannel.com/logoseng/playlist.m3u8"
+    ]
   },
   "Lone": {
     "tvgId": "LoneStar.us",
@@ -8080,7 +4953,8 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "Loupe4K.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://www.samsung.com/us/smg/content/dam/s7/home/televisions-and-home-theater/tvs/tvplus/03232021/Loupe4K190x190.png?raw",
+    "tvgLogo":
+        "https://www.samsung.com/us/smg/content/dam/s7/home/televisions-and-home-theater/tvs/tvplus/03232021/Loupe4K190x190.png?raw",
     "groupTitle": "Undefined",
     "tvgUrl": ["http://d2dw21aq0j0l5c.cloudfront.net/playlist.m3u8"]
   },
@@ -8118,7 +4992,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/oIy673i.png",
     "groupTitle": "Documentary",
-    "tvgUrl": ["https://dai.google.com/linear/hls/event/5xreV3X4T9WxeIbrwOmdMA/master.m3u8"]
+    "tvgUrl": [
+      "https://dai.google.com/linear/hls/event/5xreV3X4T9WxeIbrwOmdMA/master.m3u8"
+    ]
   },
   "Marvel": {
     "tvgId": "MarvelHQ.us",
@@ -8134,7 +5010,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/OEamqFg.png",
     "groupTitle": "Movies",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-redbox-maverickmovies/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-redbox-maverickmovies/CDN/playlist.m3u8"
+    ]
   },
   "MavTV": {
     "tvgId": "MavTVSelect.us",
@@ -8142,7 +5020,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/KMGUuAX.png",
     "groupTitle": "Sports",
-    "tvgUrl": ["https://mavtv-mavtvglobal-1-eu.rakuten.wurl.com/manifest/playlist.m3u8"]
+    "tvgUrl": [
+      "https://mavtv-mavtvglobal-1-eu.rakuten.wurl.com/manifest/playlist.m3u8"
+    ]
   },
   "MBC": {
     "tvgId": "MBC.mw",
@@ -8170,7 +5050,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://www.lyngsat.com/logo/tv/mm/mehran-tv-pk.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://streamone.simpaisa.com:8443/pitvlive1/mehran.smil/playlist.m3u8"]
+    "tvgUrl": [
+      "https://streamone.simpaisa.com:8443/pitvlive1/mehran.smil/playlist.m3u8"
+    ]
   },
   "Metal": {
     "tvgId": "MetalTV.ru",
@@ -8186,7 +5068,10 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://cdn.tvpassport.com/image/station/100x100/metv.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://5e6cea03e25b6.streamlock.net/live/WCTVDT2.stream/playlist.m3u8", "https://16live00.akamaized.net/METVEAST/index.m3u8"]
+    "tvgUrl": [
+      "https://5e6cea03e25b6.streamlock.net/live/WCTVDT2.stream/playlist.m3u8",
+      "https://16live00.akamaized.net/METVEAST/index.m3u8"
+    ]
   },
   "MGM": {
     "tvgId": "MGMHDUSA.us",
@@ -8204,7 +5089,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/HJohrzO.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://granicusliveus9-a.akamaihd.net/miamifl/G2076003/playlist.m3u8"]
+    "tvgUrl": [
+      "https://granicusliveus9-a.akamaihd.net/miamifl/G2076003/playlist.m3u8"
+    ]
   },
   "Midnight": {
     "tvgId": "MidnightPulp.us",
@@ -8220,7 +5107,8 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "MillenniumTV24.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://millenniumtv24.com/wp-content/uploads/2020/07/logo-new-24-02.png",
+    "tvgLogo":
+        "https://millenniumtv24.com/wp-content/uploads/2020/07/logo-new-24-02.png",
     "groupTitle": "Undefined",
     "tvgUrl": [
       "https://cdn.appv.jagobd.com:444/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/mnews24.stream/playlist.m3u8",
@@ -8231,7 +5119,8 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "MinecrafTV.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://images.pluto.tv/channels/5812b821249444e05d09cc4c/colorLogoPNG.png",
+    "tvgLogo":
+        "https://images.pluto.tv/channels/5812b821249444e05d09cc4c/colorLogoPNG.png",
     "groupTitle": "Entertainment",
     "tvgUrl": [
       "http://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5812b821249444e05d09cc4c/master.m3u8?advertisingId=91a6ae51-6f9d-4fbb-adb0-bdfffa44693e&appVersion=unknown&deviceDNT=0&deviceId=91a6ae51-6f9d-4fbb-adb0-bdfffa44693e&deviceLat=0&deviceLon=0&deviceMake=samsung&deviceModel=samsung&deviceType=samsung-tvplus&deviceUA=samsung/SM-T720/10&deviceVersion=unknown&embedPartner=samsung-tvplus&profileFloor=&profileLimit=&usprivacy=1YNY"
@@ -8241,7 +5130,8 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "MirrorNow.in",
     "tvgCountry": "IN",
     "tvgLanguage": "English",
-    "tvgLogo": "https://yt3.ggpht.com/-XmvqPl571Ak/AAAAAAAAAAI/AAAAAAAAAAA/mMm0Tpd90kU/s900-c-k-no-mo-rj-c0xffffff/photo.jpg",
+    "tvgLogo":
+        "https://yt3.ggpht.com/-XmvqPl571Ak/AAAAAAAAAAI/AAAAAAAAAAA/mMm0Tpd90kU/s900-c-k-no-mo-rj-c0xffffff/photo.jpg",
     "groupTitle": "Undefined",
     "tvgUrl": ["https://mbnowweb-lh.akamaihd.net/i/MRN1@346545/master.m3u8"]
   },
@@ -8251,7 +5141,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/XaXRbxj.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://5afd52b55ff79.streamlock.net/MISTV/myStream/playlist.m3u8"]
+    "tvgUrl": [
+      "https://5afd52b55ff79.streamlock.net/MISTV/myStream/playlist.m3u8"
+    ]
   },
   "Mission": {
     "tvgId": "MissionTV.us",
@@ -8259,7 +5151,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/1qJkLDZ.png",
     "groupTitle": "Religious",
-    "tvgUrl": ["https://6096a9cf11ae5.streamlock.net:1943/live/missiontv/playlist.m3u8"]
+    "tvgUrl": [
+      "https://6096a9cf11ae5.streamlock.net:1943/live/missiontv/playlist.m3u8"
+    ]
   },
   "MMA": {
     "tvgId": "MMAJunkie.us",
@@ -8275,7 +5169,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/tucTC1O.jpg",
     "groupTitle": "Undefined",
-    "tvgUrl": ["http://media.mohabat.tv:1935/livetranscoder/ngrp:mohabat.streamall/playlist.m3u8"]
+    "tvgUrl": [
+      "http://media.mohabat.tv:1935/livetranscoder/ngrp:mohabat.streamall/playlist.m3u8"
+    ]
   },
   "Monarch": {
     "tvgId": "MonarchChannel.us",
@@ -8299,13 +5195,16 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/WPklHVE.jpg",
     "groupTitle": "Auto",
-    "tvgUrl": ["https://dai2-xumo.fubo.tv/amagihlsdataxumo1212A-motorvisiontv/CDN/master.m3u8"]
+    "tvgUrl": [
+      "https://dai2-xumo.fubo.tv/amagihlsdataxumo1212A-motorvisiontv/CDN/master.m3u8"
+    ]
   },
   "Movee": {
     "tvgId": "Movee4U.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://mytvtogo.net/wp-content/uploads/2018/11/NetworkMovee4U-196x126.jpg",
+    "tvgLogo":
+        "https://mytvtogo.net/wp-content/uploads/2018/11/NetworkMovee4U-196x126.jpg",
     "groupTitle": "Movies",
     "tvgUrl": ["https://broadcast.mytvtogo.net/movee4u/movee4u/playlist.m3u8"]
   },
@@ -8329,9 +5228,12 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "MST3K.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://images.pluto.tv/channels/545943f1c9f133a519bbac92/colorLogoPNG.png",
+    "tvgLogo":
+        "https://images.pluto.tv/channels/545943f1c9f133a519bbac92/colorLogoPNG.png",
     "groupTitle": "Comedy",
-    "tvgUrl": ["https://mst3k-redbox.amagi.tv/hls/amagihlsdataredboxAAA-mst3k/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://mst3k-redbox.amagi.tv/hls/amagihlsdataredboxAAA-mst3k/CDN/playlist.m3u8"
+    ]
   },
   "MTV": {
     "tvgId": "MTV.us",
@@ -8345,9 +5247,12 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "MuseumTVFast.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://tvpmlogopeu.samsungcloud.tv/platform/image/sourcelogo/vc/70/01/66/FRBA3300064WS20211110T010724.png",
+    "tvgLogo":
+        "https://tvpmlogopeu.samsungcloud.tv/platform/image/sourcelogo/vc/70/01/66/FRBA3300064WS20211110T010724.png",
     "groupTitle": "Culture",
-    "tvgUrl": ["https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg01492-secomsasmediart-museumtv-en-plex/playlist.m3u8"]
+    "tvgUrl": [
+      "https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg01492-secomsasmediart-museumtv-en-plex/playlist.m3u8"
+    ]
   },
   "My": {
     "tvgId": "WISCDT2.us",
@@ -8400,9 +5305,12 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "NationalGeographicEast.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://1000logos.net/wp-content/uploads/2017/04/Color-National-Geographic-Logo-500x250.jpg",
+    "tvgLogo":
+        "https://1000logos.net/wp-content/uploads/2017/04/Color-National-Geographic-Logo-500x250.jpg",
     "groupTitle": "Documentary",
-    "tvgUrl": ["https://livecdn.fptplay.net/foxlive/natgeohdhls.smil/playlist.m3u8"]
+    "tvgUrl": [
+      "https://livecdn.fptplay.net/foxlive/natgeohdhls.smil/playlist.m3u8"
+    ]
   },
   "NAU-TV": {
     "tvgId": "NAUTVNorthernArizonaUniversity.us",
@@ -8442,9 +5350,12 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "NBSTV.ug",
     "tvgCountry": "UG",
     "tvgLanguage": "English",
-    "tvgLogo": "https://rndcdn.dstv.com/dstvcms/2018/07/03/NBSlogo4-3001xlrg.png",
+    "tvgLogo":
+        "https://rndcdn.dstv.com/dstvcms/2018/07/03/NBSlogo4-3001xlrg.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://vse-cdn1-readymedia.rea.cdn.moderntv.eu/readymedia/stream/NBSTV/5-20-hls/live.m3u8"]
+    "tvgUrl": [
+      "https://vse-cdn1-readymedia.rea.cdn.moderntv.eu/readymedia/stream/NBSTV/5-20-hls/live.m3u8"
+    ]
   },
   "NDTV": {
     "tvgId": "NDTVProfit.in",
@@ -8452,7 +5363,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/bkGH7q3.jpg",
     "groupTitle": "Business",
-    "tvgUrl": ["https://ndtvprofitelemarchana.akamaized.net/hls/live/2003680-b/ndtvprofit/master.m3u8"]
+    "tvgUrl": [
+      "https://ndtvprofitelemarchana.akamaized.net/hls/live/2003680-b/ndtvprofit/master.m3u8"
+    ]
   },
   "Neo": {
     "tvgId": "NeoNewsHD.pk",
@@ -8460,21 +5373,27 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://www.lyngsat.com/logo/tv/nn/neo-news-hd-pk.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://streamone.simpaisa.com:8443/pitvlive1/neo.smil/playlist.m3u8"]
+    "tvgUrl": [
+      "https://streamone.simpaisa.com:8443/pitvlive1/neo.smil/playlist.m3u8"
+    ]
   },
   "NESN": {
     "tvgId": "NESNNational.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://lh3.googleusercontent.com/zO2IQHNsszQEwBRWkdlGo--3qbOfBIDTxNH4CNDpu8jtuASA6CvL7AwwcmPFItMSBy",
+    "tvgLogo":
+        "https://lh3.googleusercontent.com/zO2IQHNsszQEwBRWkdlGo--3qbOfBIDTxNH4CNDpu8jtuASA6CvL7AwwcmPFItMSBy",
     "groupTitle": "Sports",
-    "tvgUrl": ["https://bcovlive-a.akamaihd.net/bea11a7dfef34b08be06aaca4a72bcdf/us-east-1/6141518204001/playlist.m3u8"]
+    "tvgUrl": [
+      "https://bcovlive-a.akamaihd.net/bea11a7dfef34b08be06aaca4a72bcdf/us-east-1/6141518204001/playlist.m3u8"
+    ]
   },
   "New": {
     "tvgId": "NewJapanProWrestlingWorld.jp",
     "tvgCountry": "JP",
     "tvgLanguage": "English",
-    "tvgLogo": "https://upload.wikimedia.org/wikipedia/en/thumb/1/1c/NewJapanProWrestlingLogo2.svg/480px-NewJapanProWrestlingLogo2.svg.png",
+    "tvgLogo":
+        "https://upload.wikimedia.org/wikipedia/en/thumb/1/1c/NewJapanProWrestlingLogo2.svg/480px-NewJapanProWrestlingLogo2.svg.png",
     "groupTitle": "Sports",
     "tvgUrl": [
       "https://aka-amd-njpwworld-hls-enlive.akamaized.net/hls/video/njpwen/njpwenchannel013/playlistDVR.m3u8",
@@ -8496,15 +5415,20 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://gitee.com/radioer/radioer/raw/main/newsmax.jpg",
     "groupTitle": "News",
-    "tvgUrl": ["https://newsmax-plex.amagi.tv/hls/amagihlsdataplexAAAAA-newsmax-plex/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://newsmax-plex.amagi.tv/hls/amagihlsdataplexAAAAA-newsmax-plex/CDN/playlist.m3u8"
+    ]
   },
   "NewsNet": {
     "tvgId": "NewsNet.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://raw.githubusercontent.com/geonsey/Free2ViewTV/master/images/logos/NewsNet.png",
+    "tvgLogo":
+        "https://raw.githubusercontent.com/geonsey/Free2ViewTV/master/images/logos/NewsNet.png",
     "groupTitle": "News",
-    "tvgUrl": ["https://2-fss-2.streamhoster.com/pl138/amlst:201950-1311088/playlist.m3u8"]
+    "tvgUrl": [
+      "https://2-fss-2.streamhoster.com/pl138/amlst:201950-1311088/playlist.m3u8"
+    ]
   },
   "Newsy": {
     "tvgId": "Newsy.us",
@@ -8523,13 +5447,16 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/SQISXoD.jpg",
     "groupTitle": "Culture;News",
-    "tvgUrl": ["https://nhkwlive-ojp.akamaized.net/hls/live/2003459/nhkwlive-ojp-en/index.m3u8"]
+    "tvgUrl": [
+      "https://nhkwlive-ojp.akamaized.net/hls/live/2003459/nhkwlive-ojp-en/index.m3u8"
+    ]
   },
   "Nick": {
     "tvgId": "NickJrTooUK.uk",
     "tvgCountry": "IE;UK",
     "tvgLanguage": "English",
-    "tvgLogo": "https://upload.wikimedia.org/wikipedia/commons/e/ea/NickJrToo.png",
+    "tvgLogo":
+        "https://upload.wikimedia.org/wikipedia/commons/e/ea/NickJrToo.png",
     "groupTitle": "Kids",
     "tvgUrl": ["http://212.224.98.213:2200/EX/NickJrToo-uk/index.m3u8?token="]
   },
@@ -8537,7 +5464,8 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "NickelodeonAustralia.au",
     "tvgCountry": "AU;NZ",
     "tvgLanguage": "English",
-    "tvgLogo": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Nickelodeon2009logo.svg/500px-Nickelodeon2009logo.svg.png",
+    "tvgLogo":
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/Nickelodeon2009logo.svg/500px-Nickelodeon2009logo.svg.png",
     "groupTitle": "Kids",
     "tvgUrl": [
       "http://c0.cdn.trinity-tv.net/stream/7tsewn83ddjifz69us9je7eftbm5nuausb4dsvz9g5aydin9672n734qbb9jgcfpiqtpwudvs9dpi2udjc3eh4h462eie5azjmfbfgfjeqfuhjmmgx9zuj736ijg7nffhf8rviq5svkgxbp639y9nfgc.m3u8",
@@ -8550,7 +5478,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/Ri0sB6I.jpg",
     "groupTitle": "Sports",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-redboxnitrocircus/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-redboxnitrocircus/CDN/playlist.m3u8"
+    ]
   },
   "NITV": {
     "tvgId": "NITV.au",
@@ -8564,7 +5494,8 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "Nosey.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://images.pluto.tv/channels/5aec96ec5126c2157123c657/colorLogoPNG.png",
+    "tvgLogo":
+        "https://images.pluto.tv/channels/5aec96ec5126c2157123c657/colorLogoPNG.png",
     "groupTitle": "Series",
     "tvgUrl": [
       "https://dai2.xumo.com/amagihlsdataxumo1212A-redbox-nosey/CDN/playlist.m3u8",
@@ -8587,7 +5518,8 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "NowThis.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/NowThisLogoWhite.svg/1200px-NowThisLogoWhite.svg.png",
+    "tvgLogo":
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/NowThisLogoWhite.svg/1200px-NowThisLogoWhite.svg.png",
     "groupTitle": "General",
     "tvgUrl": [
       "https://dai2.xumo.com/amagihlsdataxumo1212A-redboxnowthis/CDN/playlist.m3u8",
@@ -8600,15 +5532,20 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/S3Ujv10.png",
     "groupTitle": "Religious",
-    "tvgUrl": ["https://uni6rtmp.tulix.tv/nrbnetwork/myStream.sdp/playlist.m3u8"]
+    "tvgUrl": [
+      "https://uni6rtmp.tulix.tv/nrbnetwork/myStream.sdp/playlist.m3u8"
+    ]
   },
   "NTA": {
     "tvgId": "NTAInternational.ng",
     "tvgCountry": "NG",
     "tvgLanguage": "English",
-    "tvgLogo": "https://rndcdn.dstv.com/dstvcms/2018/07/19/NTAPluslogo4-3001xlrg.png",
+    "tvgLogo":
+        "https://rndcdn.dstv.com/dstvcms/2018/07/19/NTAPluslogo4-3001xlrg.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://api.visionip.tv/live/ASHTTP/visiontvuk-entertainment-ntai-hsslive-25f-4x3-MB/playlist.m3u8"]
+    "tvgUrl": [
+      "https://api.visionip.tv/live/ASHTTP/visiontvuk-entertainment-ntai-hsslive-25f-4x3-MB/playlist.m3u8"
+    ]
   },
   "NTV": {
     "tvgId": "NTV.ke",
@@ -8628,7 +5565,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/KiIzWmO.jpg",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://api.new.livestream.com/accounts/19770665/events/5522162/live.m3u8"]
+    "tvgUrl": [
+      "https://api.new.livestream.com/accounts/19770665/events/5522162/live.m3u8"
+    ]
   },
   "OAN": {
     "tvgId": "OneAmericaNewsNetwork.us",
@@ -8636,13 +5575,17 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/G6e7Hcl.png",
     "groupTitle": "News",
-    "tvgUrl": ["http://oneamericanews-roku-us.amagi.tv/playlist.m3u8", "https://cdn.herringnetwork.com/80A4DFF/oaneoregon/OANEncore.m3u8"]
+    "tvgUrl": [
+      "http://oneamericanews-roku-us.amagi.tv/playlist.m3u8",
+      "https://cdn.herringnetwork.com/80A4DFF/oaneoregon/OANEncore.m3u8"
+    ]
   },
   "Oireachtas": {
     "tvgId": "OireachtasTV.ie",
     "tvgCountry": "IE",
     "tvgLanguage": "English",
-    "tvgLogo": "https://upload.wikimedia.org/wikipedia/commons/7/75/OfficialHousesoftheOireachtasLogo.jpg",
+    "tvgLogo":
+        "https://upload.wikimedia.org/wikipedia/commons/7/75/OfficialHousesoftheOireachtasLogo.jpg",
     "groupTitle": "Legislative",
     "tvgUrl": [
       "https://d33zah5htxvoxb.cloudfront.net/el/live/oirtv/hls.m3u8",
@@ -8673,7 +5616,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/8pfSswY.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["http://livestream.5centscdn.com/shaditv/23abe62a446fc05ce0a6c810f4045308.sdp/index.m3u8"]
+    "tvgUrl": [
+      "http://livestream.5centscdn.com/shaditv/23abe62a446fc05ce0a6c810f4045308.sdp/index.m3u8"
+    ]
   },
   "One": {
     "tvgId": "OneGolf.pk",
@@ -8689,7 +5634,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/BQWfhEr.jpg",
     "groupTitle": "Legislative",
-    "tvgUrl": ["http://origin-http-delivery.isilive.ca/live/definst/ontla/house-en/playlist.m3u8"]
+    "tvgUrl": [
+      "http://origin-http-delivery.isilive.ca/live/definst/ontla/house-en/playlist.m3u8"
+    ]
   },
   "Open": {
     "tvgId": "OpenShop.au",
@@ -8705,7 +5652,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/9uz9lyg.png",
     "groupTitle": "Lifestyle",
-    "tvgUrl": ["https://hls-cdn.tvstartup.net/barakyah-channel/play/mp4:ourtvedge/playlist.m3u8"]
+    "tvgUrl": [
+      "https://hls-cdn.tvstartup.net/barakyah-channel/play/mp4:ourtvedge/playlist.m3u8"
+    ]
   },
   "Orange": {
     "tvgId": "OrangeTV.us",
@@ -8713,7 +5662,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/I41K90P.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["http://otv3.ocfl.net:1936/OrangeTV/smil:OrangeTV.smil/playlist.m3u8"]
+    "tvgUrl": [
+      "http://otv3.ocfl.net:1936/OrangeTV/smil:OrangeTV.smil/playlist.m3u8"
+    ]
   },
   "Outdoor": {
     "tvgId": "OutdoorAmerica.us",
@@ -8744,7 +5695,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://od.lk/s/MF8yMzA3OTUzMjdf/PAC12720x720.png",
     "groupTitle": "Sports",
-    "tvgUrl": ["https://pac12-redbox.amagi.tv/hls/amagihlsdatapac-12AAA-pac12-redbox/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://pac12-redbox.amagi.tv/hls/amagihlsdatapac-12AAA-pac12-redbox/CDN/playlist.m3u8"
+    ]
   },
   "Panarmenian": {
     "tvgId": "KNETCD2.us",
@@ -8752,13 +5705,16 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/A3kHNyp.jpg",
     "groupTitle": "Undefined",
-    "tvgUrl": ["http://granicusliveus6-a.akamaihd.net/torrance/G0057005/playlist.m3u8"]
+    "tvgUrl": [
+      "http://granicusliveus6-a.akamaihd.net/torrance/G0057005/playlist.m3u8"
+    ]
   },
   "Paramount": {
     "tvgId": "ParamountComedyRussia.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://www.magticom.ge/images/channels/MjAxOC8wOS8xMC82ZTY2ZDc2MC04YzJlLTRhOWMtODM2Mi1jMmQ4OWFiMDAxZTQuanBn.jpg",
+    "tvgLogo":
+        "https://www.magticom.ge/images/channels/MjAxOC8wOS8xMC82ZTY2ZDc2MC04YzJlLTRhOWMtODM2Mi1jMmQ4OWFiMDAxZTQuanBn.jpg",
     "groupTitle": "Undefined",
     "tvgUrl": [
       "http://45.145.32.11:20007/paramountcomedy/video.m3u8",
@@ -8779,7 +5735,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/BsHt9f2.png",
     "groupTitle": "Legislative",
-    "tvgUrl": ["https://ptvlive.kordia.net.nz/out/v1/daf20b9a9ec5449dadd734e50ce52b74/index.m3u8"]
+    "tvgUrl": [
+      "https://ptvlive.kordia.net.nz/out/v1/daf20b9a9ec5449dadd734e50ce52b74/index.m3u8"
+    ]
   },
   "Party": {
     "tvgId": "PartyTymeKaraoke.us",
@@ -8787,7 +5745,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/Jj4zvOK.png",
     "groupTitle": "Entertainment",
-    "tvgUrl": ["https://stream-us-east-1.getpublica.com/playlist.m3u8?networkid=64"]
+    "tvgUrl": [
+      "https://stream-us-east-1.getpublica.com/playlist.m3u8?networkid=64"
+    ]
   },
   "Pattrn": {
     "tvgId": "pattrn.us",
@@ -8795,7 +5755,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://f9q4g5j6.ssl.hwcdn.net/5f976cdcd40f5d6678647013",
     "groupTitle": "Weather",
-    "tvgUrl": ["https://live-news-manifest.tubi.video/live-news-manifest/csm/extlive/tubiprd01,Cloudfront-Pattrn.m3u8"]
+    "tvgUrl": [
+      "https://live-news-manifest.tubi.video/live-news-manifest/csm/extlive/tubiprd01,Cloudfront-Pattrn.m3u8"
+    ]
   },
   "Payvand": {
     "tvgId": "PayvandTV.us",
@@ -8831,7 +5793,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/9PEAPwY.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["http://granicusliveus1-a.akamaihd.net/pinellas/G1551004/playlist.m3u8"]
+    "tvgUrl": [
+      "http://granicusliveus1-a.akamaihd.net/pinellas/G1551004/playlist.m3u8"
+    ]
   },
   "People": {
     "tvgId": "PeopleTV.us",
@@ -8857,7 +5821,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/iwd9Jxb.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://hls-cdn.tvstartup.net/barakyah-channel/live/pbtv/playlist.m3u8"]
+    "tvgUrl": [
+      "https://hls-cdn.tvstartup.net/barakyah-channel/live/pbtv/playlist.m3u8"
+    ]
   },
   "Play.Works": {
     "tvgId": "PlayWorks.us",
@@ -8875,13 +5841,16 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/d3EaS41.png",
     "groupTitle": "Sports",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-xumo-playerstv/CDN/master.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-xumo-playerstv/CDN/master.m3u8"
+    ]
   },
   "Pluto": {
     "tvgId": "70sCinema.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://images.pluto.tv/channels/5f4d878d3d19b30007d2e782/colorLogoPNG.png",
+    "tvgLogo":
+        "https://images.pluto.tv/channels/5f4d878d3d19b30007d2e782/colorLogoPNG.png",
     "groupTitle": "Movies",
     "tvgUrl": [
       "https://service-stitcher.clusters.pluto.tv/v1/stitch/embed/hls/channel/5f4d878d3d19b30007d2e782/master.m3u8?advertisingId=channel&appName=rokuchannel&appVersion=1.0&bmodel=bm1&channelid=channel&content=channel&contentrating=ROKUADSCONTENTRATING&contenttype=livefeed&coppa=false&deviceDNT=1&deviceId=channel&deviceMake=rokuChannel&deviceModel=web&deviceType=rokuChannel&deviceVersion=1.0&embedPartner=rokuChannel&genre=ROKUADSCONTENTGENRE&islat=1&platform=web&rdid=channel&studioid=viacom&tags=ROKUCONTENTTAGS",
@@ -9126,17 +6095,23 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "PlymouthRockTV.ca",
     "tvgCountry": "CA",
     "tvgLanguage": "English",
-    "tvgLogo": "https://github.com/geonsey/Free2ViewTV/blob/master/images/logos/PlymouthRockTV205x205.png?raw",
+    "tvgLogo":
+        "https://github.com/geonsey/Free2ViewTV/blob/master/images/logos/PlymouthRockTV205x205.png?raw",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://vse2-eu-all59.secdn.net/barakyah-channel/live/plymouthtv/playlist.m3u8"]
+    "tvgUrl": [
+      "https://vse2-eu-all59.secdn.net/barakyah-channel/live/plymouthtv/playlist.m3u8"
+    ]
   },
   "pocket.watch": {
     "tvgId": "PocketWatch.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://images.pluto.tv/channels/5dae0a40e8ee0d000975e99b/colorLogoPNG.png",
+    "tvgLogo":
+        "https://images.pluto.tv/channels/5dae0a40e8ee0d000975e99b/colorLogoPNG.png",
     "groupTitle": "Kids",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-redboxpocketwatch/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-redboxpocketwatch/CDN/playlist.m3u8"
+    ]
   },
   "Pongalo": {
     "tvgId": "PongaloNovelaclub.us",
@@ -9144,13 +6119,16 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/vLSvJ7W.jpg",
     "groupTitle": "Series",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-rokunovelaclub/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-rokunovelaclub/CDN/playlist.m3u8"
+    ]
   },
   "Pop": {
     "tvgId": "PopTV.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://getlogo.net/wp-content/uploads/2020/10/pop-tv-logo-vector.png",
+    "tvgLogo":
+        "https://getlogo.net/wp-content/uploads/2020/10/pop-tv-logo-vector.png",
     "groupTitle": "Entertainment",
     "tvgUrl": ["http://n1.klowdtv.net/live2/pop720p/playlist.m3u8"]
   },
@@ -9160,7 +6138,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/mWrqBaS.png",
     "groupTitle": "Entertainment",
-    "tvgUrl": ["https://linear-10.frequency.stream/dist/plex/10/hls/master/playlist.m3u8"]
+    "tvgUrl": [
+      "https://linear-10.frequency.stream/dist/plex/10/hls/master/playlist.m3u8"
+    ]
   },
   "Positiv": {
     "tvgId": "PositivTV.us",
@@ -9168,7 +6148,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/ULF3iOE.png",
     "groupTitle": "Family",
-    "tvgUrl": ["https://api.new.livestream.com/accounts/27460990/events/8973036/live.m3u8"]
+    "tvgUrl": [
+      "https://api.new.livestream.com/accounts/27460990/events/8973036/live.m3u8"
+    ]
   },
   "Press": {
     "tvgId": "PressTV.ir",
@@ -9199,9 +6181,12 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "QelloConcerts.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://tvpmlogopeu.samsungcloud.tv/platform/image/sourcelogo/vc/70/03/20/GBAJ4900013GC20200923T100340.png",
+    "tvgLogo":
+        "https://tvpmlogopeu.samsungcloud.tv/platform/image/sourcelogo/vc/70/03/20/GBAJ4900013GC20200923T100340.png",
     "groupTitle": "Music",
-    "tvgUrl": ["https://dai.google.com/linear/hls/event/BakMHO8xRSmGKYeiyhsq3A/master.m3u8"]
+    "tvgUrl": [
+      "https://dai.google.com/linear/hls/event/BakMHO8xRSmGKYeiyhsq3A/master.m3u8"
+    ]
   },
   "QTV": {
     "tvgId": "QTVGambia.gm",
@@ -9215,15 +6200,19 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "Quicktake.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://dp6mhagng1yw3.cloudfront.net/entries/12th/5ec877f2-d86f-4253-a507-1c42083431a4.png",
+    "tvgLogo":
+        "https://dp6mhagng1yw3.cloudfront.net/entries/12th/5ec877f2-d86f-4253-a507-1c42083431a4.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://dai.google.com/linear/hls/event/6ANW1HGeSTKzJlnAa9u1AQ/master.m3u8"]
+    "tvgUrl": [
+      "https://dai.google.com/linear/hls/event/6ANW1HGeSTKzJlnAa9u1AQ/master.m3u8"
+    ]
   },
   "QVC": {
     "tvgId": "QVC2.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://raw.githubusercontent.com/jnk22/kodinerds-iptv/master/logos/tv/qvc.png",
+    "tvgLogo":
+        "https://raw.githubusercontent.com/jnk22/kodinerds-iptv/master/logos/tv/qvc.png",
     "groupTitle": "Shop",
     "tvgUrl": [
       "https://lsqvc2us-lh.akamaihd.net/i/lsqvc2us01@809440/master.m3u8",
@@ -9270,9 +6259,13 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "RadioUTV.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://radiou.com/wp-content/uploads/2018/06/RadioUSiteFooterTransparent.png",
+    "tvgLogo":
+        "https://radiou.com/wp-content/uploads/2018/06/RadioUSiteFooterTransparent.png",
     "groupTitle": "Music",
-    "tvgUrl": ["https://cdnlive.radiou.com/LS-ATL-43240-1/index.m3u8", "https://ocb-lh.akamaihd.net/i/ocbmplstvmc1@383606/master.m3u8"]
+    "tvgUrl": [
+      "https://cdnlive.radiou.com/LS-ATL-43240-1/index.m3u8",
+      "https://ocb-lh.akamaihd.net/i/ocbmplstvmc1@383606/master.m3u8"
+    ]
   },
   "Rainbow": {
     "tvgId": "RainbowRuby.us",
@@ -9280,7 +6273,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/LrunNdE.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-roku-rainbow-ruby/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-roku-rainbow-ruby/CDN/playlist.m3u8"
+    ]
   },
   "Real": {
     "tvgId": "RealFamiliesAustralia.us",
@@ -9303,7 +6298,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/7NeBmWX.jpg",
     "groupTitle": "Sports",
-    "tvgUrl": ["https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master.m3u8"]
+    "tvgUrl": [
+      "https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master.m3u8"
+    ]
   },
   "Redbox": {
     "tvgId": "Redbox1Spotlight.us",
@@ -9379,7 +6376,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/JiBv7NI.jpg",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-rokurev-and-roll/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-rokurev-and-roll/CDN/playlist.m3u8"
+    ]
   },
   "Revelation": {
     "tvgId": "RevelationTV.us",
@@ -9387,7 +6386,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/sOVdYJZ.png",
     "groupTitle": "Religious",
-    "tvgUrl": ["https://rtv.cdn.mangomolo.com/rtv/smil:rtv.stream.smil/playlist.m3u8"]
+    "tvgUrl": [
+      "https://rtv.cdn.mangomolo.com/rtv/smil:rtv.stream.smil/playlist.m3u8"
+    ]
   },
   "Revry": {
     "tvgId": "Revry.us",
@@ -9413,9 +6414,12 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "RingofHonorWrestling.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://github.com/geonsey/Free2ViewTV/blob/master/images/logos/RingOfHonor400x400.png?raw",
+    "tvgLogo":
+        "https://github.com/geonsey/Free2ViewTV/blob/master/images/logos/RingOfHonor400x400.png?raw",
     "groupTitle": "Sports",
-    "tvgUrl": ["https://stadium-ringofhonor-1.sinclair.wurl.com/manifest/playlist.m3u8"]
+    "tvgUrl": [
+      "https://stadium-ringofhonor-1.sinclair.wurl.com/manifest/playlist.m3u8"
+    ]
   },
   "Rooster": {
     "tvgId": "RoosterTeethTV.us",
@@ -9423,7 +6427,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/3o9cG76.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://d2klx6wjx7p5vm.cloudfront.net/Rooster-teeth/ngrp:Rooster-teethall/playlist.m3u8"]
+    "tvgUrl": [
+      "https://d2klx6wjx7p5vm.cloudfront.net/Rooster-teeth/ngrp:Rooster-teethall/playlist.m3u8"
+    ]
   },
   "RT": {
     "tvgId": "RTAmerica.ru",
@@ -9462,7 +6468,8 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "RunTimeFreeMovies.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://github.com/geonsey/Free2ViewTV/blob/master/images/logos/Runtime120x120.png?raw",
+    "tvgLogo":
+        "https://github.com/geonsey/Free2ViewTV/blob/master/images/logos/Runtime120x120.png?raw",
     "groupTitle": "Movies",
     "tvgUrl": ["https://ammoruntime-plex.amagi.tv/playlist.m3u8"]
   },
@@ -9470,7 +6477,8 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "RuntimeMexico.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://github.com/geonsey/Free2ViewTV/blob/master/images/logos/Runtime120x120.png?raw",
+    "tvgLogo":
+        "https://github.com/geonsey/Free2ViewTV/blob/master/images/logos/Runtime120x120.png?raw",
     "groupTitle": "Undefined",
     "tvgUrl": ["https://runtimemx-samsungmx.amagi.tv/playlist.m3u8"]
   },
@@ -9478,9 +6486,12 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "RunwayTV.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://github.com/geonsey/Free2ViewTV/blob/master/images/logos/RunwayTV960x960.png?raw",
+    "tvgLogo":
+        "https://github.com/geonsey/Free2ViewTV/blob/master/images/logos/RunwayTV960x960.png?raw",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://runway-hls.secdn.net/runway-live/play/runway/playlist.m3u8"]
+    "tvgUrl": [
+      "https://runway-hls.secdn.net/runway-live/play/runway/playlist.m3u8"
+    ]
   },
   "Rush": {
     "tvgId": "RushbyAMC.us",
@@ -9504,7 +6515,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://www.lyngsat.com/logo/tv/ss/s4c-uk.svg",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://live-uk.s4c-cdn.co.uk/out/v1/a0134f1fd5a2461b9422b574566d4442/liveuk1.m3u8"]
+    "tvgUrl": [
+      "https://live-uk.s4c-cdn.co.uk/out/v1/a0134f1fd5a2461b9422b574566d4442/liveuk1.m3u8"
+    ]
   },
   "SafeTV": {
     "tvgId": "SafeTV.us",
@@ -9531,15 +6544,20 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/KcPEkHh.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://api.new.livestream.com/accounts/6986636/events/5362122/live.m3u8"]
+    "tvgUrl": [
+      "https://api.new.livestream.com/accounts/6986636/events/5362122/live.m3u8"
+    ]
   },
   "Santa": {
     "tvgId": "SantaandtheThreeBears.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://github.com/geonsey/Free2ViewTV/blob/master/images/logos/GenericChristmas715x715.png?raw",
+    "tvgLogo":
+        "https://github.com/geonsey/Free2ViewTV/blob/master/images/logos/GenericChristmas715x715.png?raw",
     "groupTitle": "Family",
-    "tvgUrl": ["https://cloudfront.tubi.video/21df8036-fa23-49ff-9877-8af983546d2b/elw3phlf/stream.m3u8"]
+    "tvgUrl": [
+      "https://cloudfront.tubi.video/21df8036-fa23-49ff-9877-8af983546d2b/elw3phlf/stream.m3u8"
+    ]
   },
   "SBS": {
     "tvgId": "SBSFood.au",
@@ -9560,7 +6578,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://od.lk/s/MF8yMzU1NDU3MThf/NostTVSciFi4U576x576.png",
     "groupTitle": "Classic",
-    "tvgUrl": ["https://broadcast.mytvtogo.net/SciFiTV4u/SciFiTV4u/playlist.m3u8"]
+    "tvgUrl": [
+      "https://broadcast.mytvtogo.net/SciFiTV4u/SciFiTV4u/playlist.m3u8"
+    ]
   },
   "Screen": {
     "tvgId": "ScreenDreams.us",
@@ -9568,7 +6588,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/6hIfTMC.jpg",
     "groupTitle": "Relax",
-    "tvgUrl": ["https://content.uplynk.com/channel/3e4b9cada2b74cf18977298804134a36.m3u8"]
+    "tvgUrl": [
+      "https://content.uplynk.com/channel/3e4b9cada2b74cf18977298804134a36.m3u8"
+    ]
   },
   "Sent": {
     "tvgId": "SentTVGlobalNetwork.us",
@@ -9576,7 +6598,10 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/ogvLLji.png",
     "groupTitle": "General",
-    "tvgUrl": ["https://rpn1.bozztv.com/36bay2/gusa-stgn/mono.m3u8", "http://stgn-49.tulix.tv/live19/Stream1/playlist.m3u8"]
+    "tvgUrl": [
+      "https://rpn1.bozztv.com/36bay2/gusa-stgn/mono.m3u8",
+      "http://stgn-49.tulix.tv/live19/Stream1/playlist.m3u8"
+    ]
   },
   "Seven": {
     "tvgId": "Seven.au",
@@ -9617,7 +6642,8 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "ShoutFactoryTV.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://github.com/geonsey/Free2ViewTV/blob/master/images/logos/ShoutFactoryTV300x300.png?raw",
+    "tvgLogo":
+        "https://github.com/geonsey/Free2ViewTV/blob/master/images/logos/ShoutFactoryTV300x300.png?raw",
     "groupTitle": "General",
     "tvgUrl": ["http://shoutfactory-redbox.amagi.tv/playlist.m3u8"]
   },
@@ -9627,7 +6653,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/jhJ25OQ.jpg",
     "groupTitle": "Entertainment",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-redboxshowtimeattheapollo/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-redboxshowtimeattheapollo/CDN/playlist.m3u8"
+    ]
   },
   "Silence": {
     "tvgId": "SilenceTV.nl",
@@ -9643,15 +6671,20 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://www.lyngsat.com/logo/tv/ss/sindhtvnews.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://streamone.simpaisa.com:8443/pitvlive1/sindhnews.smil/playlist.m3u8"]
+    "tvgUrl": [
+      "https://streamone.simpaisa.com:8443/pitvlive1/sindhnews.smil/playlist.m3u8"
+    ]
   },
   "Ski": {
     "tvgId": "SkiTV.uk",
     "tvgCountry": "UK",
     "tvgLanguage": "English",
-    "tvgLogo": "https://content.weyyak.com/af0ecf95-8dc9-443d-9b4f-bc01eab7bd30/poster-image",
+    "tvgLogo":
+        "https://content.weyyak.com/af0ecf95-8dc9-443d-9b4f-bc01eab7bd30/poster-image",
     "groupTitle": "Sports",
-    "tvgUrl": ["https://d2xeo83q8fcni6.cloudfront.net/v1/master/9d062541f2ff39b5c0f48b743c6411d25f62fc25/SkiTV-Zee/193.m3u8"]
+    "tvgUrl": [
+      "https://d2xeo83q8fcni6.cloudfront.net/v1/master/9d062541f2ff39b5c0f48b743c6411d25f62fc25/SkiTV-Zee/193.m3u8"
+    ]
   },
   "SKI": {
     "tvgId": "SKITV.us",
@@ -9659,7 +6692,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://od.lk/s/MF8yMzA3OTUzMjlf/SkiTV400x400.png",
     "groupTitle": "Sports",
-    "tvgUrl": ["https://d2xeo83q8fcni6.cloudfront.net/v1/master/9d062541f2ff39b5c0f48b743c6411d25f62fc25/SkiTV-SportsTribal/193.m3u8"]
+    "tvgUrl": [
+      "https://d2xeo83q8fcni6.cloudfront.net/v1/master/9d062541f2ff39b5c0f48b743c6411d25f62fc25/SkiTV-SportsTribal/193.m3u8"
+    ]
   },
   "SKWAD": {
     "tvgId": "Skwad.us",
@@ -9667,7 +6702,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/sv7WkKe.png",
     "groupTitle": "Kids",
-    "tvgUrl": ["https://stream-us-east-1.getpublica.com/playlist.m3u8?networkid=71"]
+    "tvgUrl": [
+      "https://stream-us-east-1.getpublica.com/playlist.m3u8?networkid=71"
+    ]
   },
   "Sky": {
     "tvgId": "SkyNewsExtra1.uk",
@@ -9688,9 +6725,12 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "SlightlyOffIFC.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://images.pluto.tv/channels/5e82547b6b3df60007fec2b5/colorLogoPNG.png",
+    "tvgLogo":
+        "https://images.pluto.tv/channels/5e82547b6b3df60007fec2b5/colorLogoPNG.png",
     "groupTitle": "Comedy",
-    "tvgUrl": ["https://amc-slightly-off-by-amc-1.imdbtv.wurl.com/manifest/playlist.m3u8"]
+    "tvgUrl": [
+      "https://amc-slightly-off-by-amc-1.imdbtv.wurl.com/manifest/playlist.m3u8"
+    ]
   },
   "Slimo": {
     "tvgId": "Slimo.us",
@@ -9698,15 +6738,20 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://stitcheraws.unreel.me/wse-node02.powr.com/live/5c7e2783932c8368bdbfd8a5/playlist.m3u8"]
+    "tvgUrl": [
+      "https://stitcheraws.unreel.me/wse-node02.powr.com/live/5c7e2783932c8368bdbfd8a5/playlist.m3u8"
+    ]
   },
   "Smile": {
     "tvgId": "Smile.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://github.com/geonsey/Free2ViewTV/blob/master/images/logos/TBNSmile512x512.png?raw",
+    "tvgLogo":
+        "https://github.com/geonsey/Free2ViewTV/blob/master/images/logos/TBNSmile512x512.png?raw",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://api.new.livestream.com/accounts/27460990/events/8266916/live.m3u8"]
+    "tvgUrl": [
+      "https://api.new.livestream.com/accounts/27460990/events/8266916/live.m3u8"
+    ]
   },
   "Smithsonian": {
     "tvgId": "SmithsonianChannelAsia.us",
@@ -9722,7 +6767,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.mjh.nz/.images/tv.snowy-mountains.png",
     "groupTitle": "Sports",
-    "tvgUrl": ["https://dcunilive30-lh.akamaihd.net/i/dclive1@535229/master.m3u8"]
+    "tvgUrl": [
+      "https://dcunilive30-lh.akamaihd.net/i/dclive1@535229/master.m3u8"
+    ]
   },
   "So": {
     "tvgId": "SoYummy.us",
@@ -9730,7 +6777,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/Mq7PBDN.png",
     "groupTitle": "Cooking",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-redboxsoyummy/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-redboxsoyummy/CDN/playlist.m3u8"
+    ]
   },
   "So...Real": {
     "tvgId": "SoReal.us",
@@ -9738,7 +6787,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://od.lk/s/MF8yMjU5ODE2MDdf/SoReal240x240.png",
     "groupTitle": "Lifestyle",
-    "tvgUrl": ["https://dai.google.com/linear/hls/event/VMzvtHhOQdOAzbVhQKQbQ/master.m3u8"]
+    "tvgUrl": [
+      "https://dai.google.com/linear/hls/event/VMzvtHhOQdOAzbVhQKQbQ/master.m3u8"
+    ]
   },
   "Sony": {
     "tvgId": "SonySix.in",
@@ -9792,7 +6843,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://od.lk/s/MF8yMzA3OTUzNTZf/SportsGrid512x512.png",
     "groupTitle": "Sports",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-xumosportsgrid/CDN/master.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-xumosportsgrid/CDN/master.m3u8"
+    ]
   },
   "Sportskool": {
     "tvgId": "SportskoolTV.us",
@@ -9814,9 +6867,12 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "Sportswire.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://provider-static.plex.tv/epg/images/ottchannels/logos/usatodaysportswirelogodarkv2.png",
+    "tvgLogo":
+        "https://provider-static.plex.tv/epg/images/ottchannels/logos/usatodaysportswirelogodarkv2.png",
     "groupTitle": "Sports",
-    "tvgUrl": ["https://dai.google.com/linear/hls/event/8RyZf7SR6yMb-oTXgbEQ/master.m3u8"]
+    "tvgUrl": [
+      "https://dai.google.com/linear/hls/event/8RyZf7SR6yMb-oTXgbEQ/master.m3u8"
+    ]
   },
   "Sporty": {
     "tvgId": "SportyStuffTV.uk",
@@ -9824,7 +6880,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://www.sportystuff.tv/src/img/logo-purple.png",
     "groupTitle": "Sports",
-    "tvgUrl": ["https://ayozat-live.secure2.footprint.net/egress/bhandler/ayozat/sportystufftv/playlist.m3u8"]
+    "tvgUrl": [
+      "https://ayozat-live.secure2.footprint.net/egress/bhandler/ayozat/sportystufftv/playlist.m3u8"
+    ]
   },
   "Spotlight": {
     "tvgId": "Spotlight.us",
@@ -9841,7 +6899,8 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "SpydarTV.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://raw.githubusercontent.com/geonsey/Free2ViewTV/master/images/logos/NostTVSpydarTV.png",
+    "tvgLogo":
+        "https://raw.githubusercontent.com/geonsey/Free2ViewTV/master/images/logos/NostTVSpydarTV.png",
     "groupTitle": "Entertainment",
     "tvgUrl": ["https://simultv.s.llnwi.net/n4s4/Spydar/interlink.m3u8"]
   },
@@ -9851,7 +6910,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/n38w3FD.png",
     "groupTitle": "Sports",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1234A-stadiumsports/CDN/master.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1234A-stadiumsports/CDN/master.m3u8"
+    ]
   },
   "Stingray": {
     "tvgId": "StingrayAmbience.ca",
@@ -9884,7 +6945,8 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "STIRRAmericanClassics.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://americanclassics.tv/wp-content/uploads/2019/02/ac-logo-shield-2-e1550875435641-524x521.png",
+    "tvgLogo":
+        "https://americanclassics.tv/wp-content/uploads/2019/02/ac-logo-shield-2-e1550875435641-524x521.png",
     "groupTitle": "Classic",
     "tvgUrl": [
       "https://dai.google.com/linear/hls/event/0e06oV-NTI2ygS2MRQk9ZA/master.m3u8",
@@ -10020,7 +7082,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/DVfEmq7.png",
     "groupTitle": "Music",
-    "tvgUrl": ["https://59d39900ebfb8.streamlock.net/streetmusic/streetmusic/playlist.m3u8"]
+    "tvgUrl": [
+      "https://59d39900ebfb8.streamlock.net/streetmusic/streetmusic/playlist.m3u8"
+    ]
   },
   "STV": {
     "tvgId": "STV.uk",
@@ -10042,9 +7106,12 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "SundanceTVEast.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://upload.wikimedia.org/wikipedia/en/thumb/6/6c/SundanceTV.svg/800px-SundanceTV.svg.png",
+    "tvgLogo":
+        "https://upload.wikimedia.org/wikipedia/en/thumb/6/6c/SundanceTV.svg/800px-SundanceTV.svg.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://bcovlive-a.akamaihd.net/d2fcbeaead4b425fa13d4fec961fc47a/us-east-1/6240731308001/playlist.m3u8"]
+    "tvgUrl": [
+      "https://bcovlive-a.akamaihd.net/d2fcbeaead4b425fa13d4fec961fc47a/us-east-1/6240731308001/playlist.m3u8"
+    ]
   },
   "Super": {
     "tvgId": "SuperRadyoDZBB.ph",
@@ -10052,7 +7119,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "",
     "groupTitle": "Undefined",
-    "tvgUrl": ["http://stream.gmanews.tv/ioslive/livestream/chunklist.m3u8?wowzasessionid=693701106"]
+    "tvgUrl": [
+      "http://stream.gmanews.tv/ioslive/livestream/chunklist.m3u8?wowzasessionid=693701106"
+    ]
   },
   "Supreme": {
     "tvgId": "SupremeMasterTV.vn",
@@ -10068,7 +7137,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/ygkBFYT.jpg",
     "groupTitle": "Outdoor",
-    "tvgUrl": ["https://stream.swamiji.tv/YogaIPTV/smil:YogaStream.smil/playlist.m3u8"]
+    "tvgUrl": [
+      "https://stream.swamiji.tv/YogaIPTV/smil:YogaStream.smil/playlist.m3u8"
+    ]
   },
   "Sword": {
     "tvgId": "SwordandShield.us",
@@ -10082,7 +7153,8 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "SyfyEast.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://www.directv.com/images/logos/channels/dark/large/905.png",
+    "tvgLogo":
+        "https://www.directv.com/images/logos/channels/dark/large/905.png",
     "groupTitle": "Undefined",
     "tvgUrl": ["http://trn03.tulix.tv/teleup-syfy/playlist.m3u8"]
   },
@@ -10102,13 +7174,16 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://stitcheraws.unreel.me/wse-node02.powr.com/live/5af61f59d5eeee7af3d1db8f/playlist.m3u8"]
+    "tvgUrl": [
+      "https://stitcheraws.unreel.me/wse-node02.powr.com/live/5af61f59d5eeee7af3d1db8f/playlist.m3u8"
+    ]
   },
   "Tastemade": {
     "tvgId": "TastemadeUK.us",
     "tvgCountry": "UK",
     "tvgLanguage": "English",
-    "tvgLogo": "https://images.pluto.tv/channels/6086d4fb828c94000771339e/colorLogoPNG.png",
+    "tvgLogo":
+        "https://images.pluto.tv/channels/6086d4fb828c94000771339e/colorLogoPNG.png",
     "groupTitle": "Cooking",
     "tvgUrl": [
       "https://tastemade-gb.samsung.wurl.com/manifest/playlist.m3u8",
@@ -10123,7 +7198,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/Fbzbq1y.png",
     "groupTitle": "Entertainment",
-    "tvgUrl": ["https://content.uplynk.com/channel/1831163f97674328ad9f4b4814ed39c5.m3u8"]
+    "tvgUrl": [
+      "https://content.uplynk.com/channel/1831163f97674328ad9f4b4814ed39c5.m3u8"
+    ]
   },
   "TBN": {
     "tvgId": "TBNAsia.us",
@@ -10142,7 +7219,8 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "TBSEast.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/TBSNetwork-logo.svg/320px-TBSNetwork-logo.svg.png",
+    "tvgLogo":
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/TBSNetwork-logo.svg/320px-TBSNetwork-logo.svg.png",
     "groupTitle": "General",
     "tvgUrl": [
       "https://tve-live-lln.warnermediacdn.com/hls/live/2023172/tbseast/slate/VIDEO03564000.m3u8",
@@ -10164,9 +7242,12 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "TDAmeritradeNetwork.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://github.com/geonsey/Free2ViewTV/blob/master/images/logos/TDAmeritradeNetwork284x284.png?raw",
+    "tvgLogo":
+        "https://github.com/geonsey/Free2ViewTV/blob/master/images/logos/TDAmeritradeNetwork284x284.png?raw",
     "groupTitle": "Business",
-    "tvgUrl": ["https://content.uplynk.com/channel/f9aafa1f132e40af9b9e7238bc18d128.m3u8"]
+    "tvgUrl": [
+      "https://content.uplynk.com/channel/f9aafa1f132e40af9b9e7238bc18d128.m3u8"
+    ]
   },
   "Tea": {
     "tvgId": "TeaTV2.vn",
@@ -10174,13 +7255,16 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English;Vietnamese",
     "tvgLogo": "",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://livefta.malimarcdn.com/ftaedge00/teatv2.sdp/playlist.m3u8"]
+    "tvgUrl": [
+      "https://livefta.malimarcdn.com/ftaedge00/teatv2.sdp/playlist.m3u8"
+    ]
   },
   "Tehelka": {
     "tvgId": "TehelkaTV.in",
     "tvgCountry": "IN",
     "tvgLanguage": "English",
-    "tvgLogo": "https://upload.wikimedia.org/wikipedia/en/1/15/SangsadTelevisionLogo.jpg",
+    "tvgLogo":
+        "https://upload.wikimedia.org/wikipedia/en/1/15/SangsadTelevisionLogo.jpg",
     "groupTitle": "General",
     "tvgUrl": [
       "https://cdn.appv.jagobd.com:444/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI/tehelkatv.stream/playlist.m3u8"
@@ -10192,7 +7276,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "Dutch;English;Papiamento",
     "tvgLogo": "https://i.imgur.com/wjwxp3K.png",
     "groupTitle": "General",
-    "tvgUrl": ["http://cdn.setar.aw:1935/Telearuba/smil:telearuba.smil/playlist.m3u8"]
+    "tvgUrl": [
+      "http://cdn.setar.aw:1935/Telearuba/smil:telearuba.smil/playlist.m3u8"
+    ]
   },
   "TeleCuraçao": {
     "tvgId": "TeleCuracao.cw",
@@ -10200,7 +7286,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/9D9G4co.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["http://ott.streann.com:8080/loadbalancer/services/public/channels/5ed71e232cdc24a3d08cd6de/playlist.m3u8"]
+    "tvgUrl": [
+      "http://ott.streann.com:8080/loadbalancer/services/public/channels/5ed71e232cdc24a3d08cd6de/playlist.m3u8"
+    ]
   },
   "TeleRadyo": {
     "tvgId": "TeleRaydo.us",
@@ -10208,7 +7296,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/yxKb7yF.jpg",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://abscbn-ono.akamaized.net/midroll/amagihlsdataabscbnAAA-abscbn-teleradyo-oando/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://abscbn-ono.akamaized.net/midroll/amagihlsdataabscbnAAA-abscbn-teleradyo-oando/CDN/playlist.m3u8"
+    ]
   },
   "Teletubbies": {
     "tvgId": "Teletubbies.uk",
@@ -10216,7 +7306,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/FlCXGip.jpg",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-rokuteletubbies/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-rokuteletubbies/CDN/playlist.m3u8"
+    ]
   },
   "Tempe": {
     "tvgId": "Tempe11.us",
@@ -10224,13 +7316,16 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/Rgy4qWN.gif",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://granicusliveus1-a.akamaihd.net/tempe/G0355003/playlist.m3u8"]
+    "tvgUrl": [
+      "https://granicusliveus1-a.akamaihd.net/tempe/G0355003/playlist.m3u8"
+    ]
   },
   "Tennis": {
     "tvgId": "TennisChannel.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://ott-gateway.sinclairstoryline.com/optimized/90/17ec0fba-d4ec-4421-a665-c8dcab0f80ee-small3x1TheTChannel.png",
+    "tvgLogo":
+        "https://ott-gateway.sinclairstoryline.com/optimized/90/17ec0fba-d4ec-4421-a665-c8dcab0f80ee-small3x1TheTChannel.png",
     "groupTitle": "Sports",
     "tvgUrl": [
       "https://playoutengine.sinclairstoryline.com/playout/9f87522c-5a0e-4ff4-b82c-d5564216132f/g.m3u8",
@@ -10244,7 +7339,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/cZ4pGmk.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://stream-us-east-1.getpublica.com/playlist.m3u8?networkid=31"]
+    "tvgUrl": [
+      "https://stream-us-east-1.getpublica.com/playlist.m3u8?networkid=31"
+    ]
   },
   "The": {
     "tvgId": "TheArchive.us",
@@ -10318,7 +7415,10 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/AzZhwWR.jpg",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://timeline-samsung-uk.amagi.tv/playlist.m3u8", "https://lds-timeline-samsungau.amagi.tv/playlist.m3u8"]
+    "tvgUrl": [
+      "https://timeline-samsung-uk.amagi.tv/playlist.m3u8",
+      "https://lds-timeline-samsungau.amagi.tv/playlist.m3u8"
+    ]
   },
   "Timeline": {
     "tvgId": "Timeline.us",
@@ -10334,7 +7434,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/cFlNhjV.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://cdn-shop-lc-01.akamaized.net/Content/HLSHLS/Live/channel(TJCOTT)/index.m3u8"]
+    "tvgUrl": [
+      "https://cdn-shop-lc-01.akamaized.net/Content/HLSHLS/Live/channel(TJCOTT)/index.m3u8"
+    ]
   },
   "TMZ": {
     "tvgId": "TMZ.us",
@@ -10342,7 +7444,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/wzBD6fy.png",
     "groupTitle": "Entertainment",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-redboxtmz/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-redboxtmz/CDN/playlist.m3u8"
+    ]
   },
   "TNT": {
     "tvgId": "TNTEast.us",
@@ -10359,9 +7463,12 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "TodayAD.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://images.pluto.tv/channels/5d695f7db53adf96b78e7ce3/colorLogoPNG.png",
+    "tvgLogo":
+        "https://images.pluto.tv/channels/5d695f7db53adf96b78e7ce3/colorLogoPNG.png",
     "groupTitle": "News",
-    "tvgUrl": ["https://live-news-manifest.tubi.video/live-news-manifest/csm/extlive/tubiprd01,Cloudfront-Today.m3u8"]
+    "tvgUrl": [
+      "https://live-news-manifest.tubi.video/live-news-manifest/csm/extlive/tubiprd01,Cloudfront-Today.m3u8"
+    ]
   },
   "Toon": {
     "tvgId": "ToonGoggles.us",
@@ -10369,15 +7476,20 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/oyIMxzM.png",
     "groupTitle": "Kids",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-redboxtoongoggles/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-redboxtoongoggles/CDN/playlist.m3u8"
+    ]
   },
   "Top": {
     "tvgId": "TopStoriesbyNewsy.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://images.pluto.tv/channels/5459795fc9f133a519bc0bef/colorLogoPNG.png",
+    "tvgLogo":
+        "https://images.pluto.tv/channels/5459795fc9f133a519bc0bef/colorLogoPNG.png",
     "groupTitle": "News",
-    "tvgUrl": ["http://content.uplynk.com/channel/04cce35dcd994bbc82d61805ae67a65f.m3u8"]
+    "tvgUrl": [
+      "http://content.uplynk.com/channel/04cce35dcd994bbc82d61805ae67a65f.m3u8"
+    ]
   },
   "Toronto": {
     "tvgId": "Toronto360TV.ca",
@@ -10397,7 +7509,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English;Spanish",
     "tvgLogo": "https://cdn.mitvstatic.com/channels/cotrace-sports-starsm.png",
     "groupTitle": "Sports",
-    "tvgUrl": ["http://tracesportstars-samsunges.amagi.tv/hls/amagihlsdatasamsunguk-tracesport-samsungspain/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "http://tracesportstars-samsunges.amagi.tv/hls/amagihlsdatasamsunguk-tracesport-samsungspain/CDN/playlist.m3u8"
+    ]
   },
   "Tranquil": {
     "tvgId": "TranquilThunderstorms.us",
@@ -10454,17 +7568,23 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "TV1.zm",
     "tvgCountry": "ZM",
     "tvgLanguage": "English",
-    "tvgLogo": "https://www.znbc.co.zm/wp-content/uploads/2018/10/cropped-ZNBC-logo-192x192.png",
+    "tvgLogo":
+        "https://www.znbc.co.zm/wp-content/uploads/2018/10/cropped-ZNBC-logo-192x192.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://dcunilive159-lh.akamaihd.net/i/dclive1@1013574/master.m3u8"]
+    "tvgUrl": [
+      "https://dcunilive159-lh.akamaihd.net/i/dclive1@1013574/master.m3u8"
+    ]
   },
   "TV4": {
     "tvgId": "TV4.zm",
     "tvgCountry": "ZM",
     "tvgLanguage": "English",
-    "tvgLogo": "https://www.znbc.co.zm/wp-content/uploads/2018/10/cropped-ZNBC-logo-192x192.png",
+    "tvgLogo":
+        "https://www.znbc.co.zm/wp-content/uploads/2018/10/cropped-ZNBC-logo-192x192.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://dcunilive258-lh.akamaihd.net/i/dclive1@348579/master.m3u8"]
+    "tvgUrl": [
+      "https://dcunilive258-lh.akamaihd.net/i/dclive1@348579/master.m3u8"
+    ]
   },
   "TV": {
     "tvgId": "TV16Toronto.ca",
@@ -10478,7 +7598,8 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "TV47.ke",
     "tvgCountry": "KE",
     "tvgLanguage": "English",
-    "tvgLogo": "https://tv47.co.ke/wp-content/uploads/2020/10/tv-47-logo-600-e1617870103726.png",
+    "tvgLogo":
+        "https://tv47.co.ke/wp-content/uploads/2020/10/tv-47-logo-600-e1617870103726.png",
     "groupTitle": "General",
     "tvgUrl": [
       "http://free.fullspeed.tv/iptv-query?streaming-ip=https://www.twitch.tv/tv47kenya/",
@@ -10501,23 +7622,30 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "TVOKids.ca",
     "tvgCountry": "CA",
     "tvgLanguage": "English",
-    "tvgLogo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tvokids-logo.svg/512px-Tvokids-logo.svg.png",
+    "tvgLogo":
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tvokids-logo.svg/512px-Tvokids-logo.svg.png",
     "groupTitle": "Kids",
-    "tvgUrl": ["https://bcsecurelivehls-i.akamaihd.net/hls/live/623607/15364602001/tvokids/master.m3u8"]
+    "tvgUrl": [
+      "https://bcsecurelivehls-i.akamaihd.net/hls/live/623607/15364602001/tvokids/master.m3u8"
+    ]
   },
   "TVRI": {
     "tvgId": "TVRISportHD.id",
     "tvgCountry": "ID",
     "tvgLanguage": "English;Indonesian",
-    "tvgLogo": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/TVRILogo2019.svg/320px-TVRILogo2019.svg.png",
+    "tvgLogo":
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/TVRILogo2019.svg/320px-TVRILogo2019.svg.png",
     "groupTitle": "Sports",
-    "tvgUrl": ["http://118.97.50.107/Content/HLS/Live/Channel(TVRI4)/index.m3u8"]
+    "tvgUrl": [
+      "http://118.97.50.107/Content/HLS/Live/Channel(TVRI4)/index.m3u8"
+    ]
   },
   "TVS": {
     "tvgId": "TVS.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://paraguaype.com/wp-content/uploads/2016/07/tvs-encarnacion-televisora-del-sur-en-vivo-online.jpg",
+    "tvgLogo":
+        "https://paraguaype.com/wp-content/uploads/2016/07/tvs-encarnacion-televisora-del-sur-en-vivo-online.jpg",
     "groupTitle": "Undefined",
     "tvgUrl": [
       "https://rds3.desdeparaguay.net/tvs/tvs/playlist.m3u8",
@@ -10561,7 +7689,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/ehMz9T5.png",
     "groupTitle": "Education",
-    "tvgUrl": ["https://59e8e1c60a2b2.streamlock.net/509/509.stream/playlist.m3u8"]
+    "tvgUrl": [
+      "https://59e8e1c60a2b2.streamlock.net/509/509.stream/playlist.m3u8"
+    ]
   },
   "UN": {
     "tvgId": "UNWebTV.us",
@@ -10569,7 +7699,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/lPyJhBN.png",
     "groupTitle": "News",
-    "tvgUrl": ["https://cdnapi.kaltura.com/p/2503451/sp/250345100/playManifest/entryId/1gb6tjmle/protocol/https/format/applehttp/a.m3u8"]
+    "tvgUrl": [
+      "https://cdnapi.kaltura.com/p/2503451/sp/250345100/playManifest/entryId/1gb6tjmle/protocol/https/format/applehttp/a.m3u8"
+    ]
   },
   "Unbeaten": {
     "tvgId": "Unbeaten.us",
@@ -10588,7 +7720,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://www.lyngsat.com/logo/tv/kk/kdtvsanfrancisco.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://dai.google.com/linear/hls/event/lTSACKfkQNSrCSBMhE-mg/master.m3u8"]
+    "tvgUrl": [
+      "https://dai.google.com/linear/hls/event/lTSACKfkQNSrCSBMhE-mg/master.m3u8"
+    ]
   },
   "UNTV": {
     "tvgId": "UNTV.ph",
@@ -10596,23 +7730,32 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://cdn.untvweb.com/live-stream/untvweb.m3u8", "https://cdn.untvweb.com/live-stream/playlist.m3u8"]
+    "tvgUrl": [
+      "https://cdn.untvweb.com/live-stream/untvweb.m3u8",
+      "https://cdn.untvweb.com/live-stream/playlist.m3u8"
+    ]
   },
   "US": {
     "tvgId": "USSPORTTennisPlus1.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://play-lh.googleusercontent.com/0O5uwlXTVxj5bG-D6CKE0pXASiTj5CQ2maDRTKJUseFmaj3RNEnKbRCFUuxjFHO03s",
+    "tvgLogo":
+        "https://play-lh.googleusercontent.com/0O5uwlXTVxj5bG-D6CKE0pXASiTj5CQ2maDRTKJUseFmaj3RNEnKbRCFUuxjFHO03s",
     "groupTitle": "Sports",
-    "tvgUrl": ["https://playoutengine.sinclairstoryline.com/playout/f2f8b269-dd85-4434-bdd3-b3a64ca9cd60/g.m3u8"]
+    "tvgUrl": [
+      "https://playoutengine.sinclairstoryline.com/playout/f2f8b269-dd85-4434-bdd3-b3a64ca9cd60/g.m3u8"
+    ]
   },
   "USA": {
     "tvgId": "USAToday.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://cdn.freelogovectors.net/wp-content/uploads/2020/11/usa-today-logo-768x768.png",
+    "tvgLogo":
+        "https://cdn.freelogovectors.net/wp-content/uploads/2020/11/usa-today-logo-768x768.png",
     "groupTitle": "News",
-    "tvgUrl": ["https://dai.google.com/linear/hls/event/gJJhuFTCRo-HAHYsffb3Xg/master.m3u8"]
+    "tvgUrl": [
+      "https://dai.google.com/linear/hls/event/gJJhuFTCRo-HAHYsffb3Xg/master.m3u8"
+    ]
   },
   "UTV": {
     "tvgId": "UTV.ke",
@@ -10644,7 +7787,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/KMUYfnz.jpg",
     "groupTitle": "Lifestyle",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-redboxvanityfair/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-redboxvanityfair/CDN/playlist.m3u8"
+    ]
   },
   "Vasantham": {
     "tvgId": "Vasantham.sg",
@@ -10652,7 +7797,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English;Tamil",
     "tvgLogo": "",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://d39v9xz8f7n8tk.cloudfront.net/hls/clr4ctvvsnthm/master.m3u8"]
+    "tvgUrl": [
+      "https://d39v9xz8f7n8tk.cloudfront.net/hls/clr4ctvvsnthm/master.m3u8"
+    ]
   },
   "VENN": {
     "tvgId": "VENN.au",
@@ -10660,7 +7807,10 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/H8ucPJd.jpg",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://venntv-samsungau.amagi.tv/playlist.m3u8", "https://d80z5qf1qyhbf.cloudfront.net/playlist.m3u8"]
+    "tvgUrl": [
+      "https://venntv-samsungau.amagi.tv/playlist.m3u8",
+      "https://d80z5qf1qyhbf.cloudfront.net/playlist.m3u8"
+    ]
   },
   "Very": {
     "tvgId": "VeryAlabama.us",
@@ -10668,7 +7818,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://csm-e-eb.csm.tubi.video/csm/extlive/tubiprd01,Cloudfront-WVTM.m3u8"]
+    "tvgUrl": [
+      "https://csm-e-eb.csm.tubi.video/csm/extlive/tubiprd01,Cloudfront-WVTM.m3u8"
+    ]
   },
   "Vevo": {
     "tvgId": "VevoHipHop.us",
@@ -10686,9 +7838,12 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "VictorValleyMovies.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://github.com/geonsey/Free2ViewTV/blob/master/images/logos/VictorValleyMovies229x229.png?raw",
+    "tvgLogo":
+        "https://github.com/geonsey/Free2ViewTV/blob/master/images/logos/VictorValleyMovies229x229.png?raw",
     "groupTitle": "Movies",
-    "tvgUrl": ["https://2-fss-1.streamhoster.com/pl122/201794-1414514-1/playlist.m3u8"]
+    "tvgUrl": [
+      "https://2-fss-1.streamhoster.com/pl122/201794-1414514-1/playlist.m3u8"
+    ]
   },
   "Victory": {
     "tvgId": "VictoryTelevisionNetwork.us",
@@ -10696,7 +7851,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/yqA2PJj.jpg",
     "groupTitle": "Religious",
-    "tvgUrl": ["http://184.173.179.163:1935/victorytelevisionnetwork/victorytelevisionnetwork/playlist.m3u8"]
+    "tvgUrl": [
+      "http://184.173.179.163:1935/victorytelevisionnetwork/victorytelevisionnetwork/playlist.m3u8"
+    ]
   },
   "Vision": {
     "tvgId": "Vision4.cm",
@@ -10704,7 +7861,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English;French",
     "tvgLogo": "https://i.imgur.com/FekWmTu.jpg",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://cdnamd-hls-globecast.akamaized.net/live/ramdisk/vision4/hlsvideo/index.m3u8"]
+    "tvgUrl": [
+      "https://cdnamd-hls-globecast.akamaized.net/live/ramdisk/vision4/hlsvideo/index.m3u8"
+    ]
   },
   "VoA": {
     "tvgId": "VoATV.us",
@@ -10720,21 +7879,27 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/2i333B9.jpg",
     "groupTitle": "Lifestyle",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-rokuvogue/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-rokuvogue/CDN/playlist.m3u8"
+    ]
   },
   "Voyager": {
     "tvgId": "VoyagerDocumentaries.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://images.pluto.tv/channels/589aa03df9ba56a84197a560/colorLogoPNG.png",
+    "tvgLogo":
+        "https://images.pluto.tv/channels/589aa03df9ba56a84197a560/colorLogoPNG.png",
     "groupTitle": "Documentary",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-redboxvoyager/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-redboxvoyager/CDN/playlist.m3u8"
+    ]
   },
   "VSiN": {
     "tvgId": "VSiN.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://github.com/geonsey/Free2ViewTV/blob/master/images/logos/VSiN400x400.png?raw",
+    "tvgLogo":
+        "https://github.com/geonsey/Free2ViewTV/blob/master/images/logos/VSiN400x400.png?raw",
     "groupTitle": "Undefined",
     "tvgUrl": [
       "https://stream.rcncdn.com/live/vsinproxy.m3u8",
@@ -10753,7 +7918,8 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "WairarapaTV.nz",
     "tvgCountry": "NZ",
     "tvgLanguage": "English",
-    "tvgLogo": "https://www.freeviewnz.tv/nonumbracoimages/ChannelsOpg/LogoforFreeviewWebsite.png",
+    "tvgLogo":
+        "https://www.freeviewnz.tv/nonumbracoimages/ChannelsOpg/LogoforFreeviewWebsite.png",
     "groupTitle": "Undefined",
     "tvgUrl": ["https://stream.wairarapatv.co.nz/BroadbandHigh/playlist.m3u8"]
   },
@@ -10799,9 +7965,12 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "WeatherNation.us",
     "tvgCountry": "US",
     "tvgLanguage": "English",
-    "tvgLogo": "https://cdn.tvpassport.com/image/station/100x100/weathernation.png",
+    "tvgLogo":
+        "https://cdn.tvpassport.com/image/station/100x100/weathernation.png",
     "groupTitle": "Weather",
-    "tvgUrl": ["https://live-news-manifest.tubi.video/live-news-manifest/csm/extlive/tubiprd01,Cloudfront-Weather-Nation.m3u8"]
+    "tvgUrl": [
+      "https://live-news-manifest.tubi.video/live-news-manifest/csm/extlive/tubiprd01,Cloudfront-Weather-Nation.m3u8"
+    ]
   },
   "Weatherspy": {
     "tvgId": "Weatherspy.ca",
@@ -10809,7 +7978,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/8oJYi1z.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://jukin-weatherspy-2-ca.samsung.wurl.com/manifest/playlist.m3u8"]
+    "tvgUrl": [
+      "https://jukin-weatherspy-2-ca.samsung.wurl.com/manifest/playlist.m3u8"
+    ]
   },
   "WeatherSpy": {
     "tvgId": "WeatherSpy.us",
@@ -10875,7 +8046,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://od.lk/s/MF8yMzE5OTIyMjBf/Redbox512x512.png",
     "groupTitle": "Undefined",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-redboxwired/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-redboxwired/CDN/playlist.m3u8"
+    ]
   },
   "WJCL-TV": {
     "tvgId": "WJCL.us",
@@ -11014,7 +8187,10 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://f9q4g5j6.ssl.hwcdn.net/602ab939db63ed4c92785303",
     "groupTitle": "Business",
-    "tvgUrl": ["https://d1ewctnvcwvvvu.cloudfront.net/playlist.m3u8", "https://content.uplynk.com/channel/411ba7ca8cb6403a9e73509e49c3a77b.m3u8"]
+    "tvgUrl": [
+      "https://d1ewctnvcwvvvu.cloudfront.net/playlist.m3u8",
+      "https://content.uplynk.com/channel/411ba7ca8cb6403a9e73509e49c3a77b.m3u8"
+    ]
   },
   "Yo": {
     "tvgId": "YoGabbaGabba.us",
@@ -11022,7 +8198,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://i.imgur.com/RwxgFfb.jpg",
     "groupTitle": "Kids",
-    "tvgUrl": ["https://dai2.xumo.com/amagihlsdataxumo1212A-rokuyogabagaba/CDN/playlist.m3u8"]
+    "tvgUrl": [
+      "https://dai2.xumo.com/amagihlsdataxumo1212A-rokuyogabagaba/CDN/playlist.m3u8"
+    ]
   },
   "Young": {
     "tvgId": "YoungHollywood.us",
@@ -11046,7 +8224,9 @@ final foreignTvLis = <String, dynamic>{
     "tvgLanguage": "English",
     "tvgLogo": "https://znsbahamas.com/wp-content/uploads/2017/12/ZNS-PL-1.png",
     "groupTitle": "General",
-    "tvgUrl": ["https://cloud.streamcomedia.com/znstv/smil:znstvstreams.smil/playlist.m3u8"]
+    "tvgUrl": [
+      "https://cloud.streamcomedia.com/znstv/smil:znstvstreams.smil/playlist.m3u8"
+    ]
   },
   "Zoo": {
     "tvgId": "ZooMooAustralia.nz",
@@ -11060,7 +8240,8 @@ final foreignTvLis = <String, dynamic>{
     "tvgId": "TBN.ru",
     "tvgCountry": "RU",
     "tvgLanguage": "English",
-    "tvgLogo": "https://avatars.mds.yandex.net/get-tv-channel-logos/55846/2a0000015b7c08ddc046356044f9e6278ee0/160x120",
+    "tvgLogo":
+        "https://avatars.mds.yandex.net/get-tv-channel-logos/55846/2a0000015b7c08ddc046356044f9e6278ee0/160x120",
     "groupTitle": "Undefined",
     "tvgUrl": ["http://62.32.67.187:1935/WEBTBN/TBN.stream/playlist.m3u8"]
   }

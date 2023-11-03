@@ -6,14 +6,14 @@ part 'user.g.dart';
 ///这个标注是告诉生成器，这个类是需要生成Model类的
 @JsonSerializable()
 class User {
-  User(this.tvgId, this.tvgCountry, this.tvgLanguage, this.tvgLogo, this.groupTitle, this.tvgUrl);
+  User(this.tvgId, this.tvgLogo, this.groupTitle, this.tvgUrl);
 
-  String tvgId;
-  String tvgCountry;
-  String tvgLanguage;
-  String tvgLogo;
-  String groupTitle;
-  Set<String> tvgUrl;
+  String? tvgId = "";
+  // String tvgCountry = "";
+  // String tvgLanguage = "";
+  String? tvgLogo = "";
+  String? groupTitle = "";
+  Set<String> tvgUrl = {};
 
   //不同的类使用不同的mixin即可
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
