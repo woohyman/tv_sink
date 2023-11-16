@@ -6,52 +6,60 @@ import 'package:path_provider/path_provider.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  readContent().then((value) => {print("解析成功！")}).onError((error, stackTrace) => {print("$error : $stackTrace")});
+  readContent()
+      .then((value) => {print("解析成功！")})
+      .onError((error, stackTrace) => {print("$error : $stackTrace")});
 }
 
 //从文件读出字符串
 Future<String> readContent() async {
-  String stringValue = await rootBundle.loadString("file/global.m3u");
+  String stringValue = await rootBundle.loadString("file/radio.m3u");
   var out = {};
 
   var arrays = stringValue.split("\n");
+
+  var name = "";
+  var result = {};
 
   for (String value in arrays) {
     if (value.contains("#EXTM3U ")) {
       continue;
     }
-    // value.replaceAll("tvg-name", "tvgName");
-    // value.replaceAll("tvg-logo", "tvgLogo");
-    // value.replaceAll("group-title", "groupTitle");
-    // value.replaceAll("tvg-url", "tvgUrl");
-    // value.replaceAll("tvg-id", "tvgId");
 
     print("*************************");
-    var result = {};
     if (value.contains("#EXTINF:-1")) {
-      var arrays = value.split(" ");
+      result = {};
+      final content = value.split(",")[0];
+      name = value.split(",")[1];
+
+      var arrays = content.split(" ");
       for (var element in arrays) {
-        var arrays1 = element.split("=");
-        if (arrays1.length > 1) {
-          if (arrays1[0].contains("group-title") || arrays1[0].contains("user-agent")) {
-            var arrays2 = arrays1[1].split(",");
-            result["\"${arrays1[0]}\""] = arrays2[0];
-            if (arrays2.length > 1 && out["\"${arrays2[1]}\""] == null) {
-              out["\"${arrays2[1]}\""] = result;
-            }
-          } else {
-            result["\"${arrays1[0]}\""] = arrays1[1].endsWith("\"") ? arrays1[1] : arrays1[1] + "\"";
-          }
+        if (!element.contains("=")) {
+          continue;
         }
+        var segmentsKey = element.split("=")[0];
+        segmentsKey = segmentsKey.replaceAll("tvg-name", "tvgName");
+        segmentsKey = segmentsKey.replaceAll("tvg-logo", "tvgLogo");
+        segmentsKey = segmentsKey.replaceAll("group-title", "groupTitle");
+        segmentsKey = segmentsKey.replaceAll("tvg-id", "tvgId");
+
+        var segmentsValue = element.split("=")[1];
+        result["\"$segmentsKey\""] =
+            segmentsValue.endsWith("\"") ? segmentsValue : segmentsValue + "\"";
       }
-    } else if (value.contains("http")) {
-      if (out.values.last["\"tvg-url\""] == null) {
-        out.values.last["\"tvg-url\""] = ["\"$value\""];
+    } else if (value.contains("http") || value.contains("https")) {
+      if (!result.containsKey("tvgUrl")) {
+        result["\"tvgUrl\""] = ["\"$value\""];
       } else {
-        out.values.last["\"tvg-url\""].add("\"$value\"");
+        result["\"tvgUrl\""].add("\"$value\"");
       }
+      print("tvgUrl ===> " + result["\"tvgUrl\""].toString());
+      print("result ===> " + result.toString());
+      out["\"$name\""] = result;
     }
   }
+
+  print("out ===> " + out.toString());
 
   File file = await writeCounter(out);
   print("result => ${file.path}");
