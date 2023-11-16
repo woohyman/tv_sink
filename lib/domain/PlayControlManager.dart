@@ -20,15 +20,7 @@ class PlayControlManager {
   Map<String, bool> get intervalTime => _intervalTime;
 
   PlayControlManager._() {
-    controller.addListener(() {
-      // if (FijkState.initialized == _player.state && _preSnapTime<0) {
-      //   _preSnapTime = DateTime.now().millisecondsSinceEpoch;
-      // } else if (FijkState.started == _player.state && _preSnapTime > 0) {
-      //   int _interval = DateTime.now().millisecondsSinceEpoch - _preSnapTime;
-      //   _intervalTime[controller.dataSource ?? ""] = _interval < 2000;
-      //   _preSnapTime = -1;
-      // }
-    });
+
   }
 
   //第一种方式调用
@@ -61,9 +53,6 @@ class PlayControlManager {
 
     await controller.initialize();
     await controller.play();
-    print("== controller.play() =="+controller.value.toString());
-    // }
-
     _listener?.call();
   }
 

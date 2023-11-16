@@ -21,7 +21,7 @@ class TvNameList extends StatefulWidget {
 }
 
 class _TvNameListState extends State<TvNameList> {
-  final ItemScrollController _controller = ItemScrollController();
+  final ScrollController _controller = ScrollController();
 
   @override
   void initState() {
@@ -44,7 +44,7 @@ class _TvNameListState extends State<TvNameList> {
           List<String> _list = event.value as List<String>;
           if (_list.contains(scrollToItemSelect)) {
             if (PlaylistStateManager.instance.position.tabIndex == widget._tabIndex) {
-              _controller.jumpTo(index: PlaylistStateManager.instance.position.listIndex);
+              // _controller.jumpTo(value: PlaylistStateManager.instance.position.listIndex);
             }
           }
           break;
@@ -63,136 +63,163 @@ class _TvNameListState extends State<TvNameList> {
             style: TextStyle(fontSize: 20.0),
           ));
     }
-    return ScrollablePositionedList.builder(
-      addAutomaticKeepAlives: true,
-      itemScrollController: _controller,
-      initialScrollIndex: PlaylistStateManager.instance.position.listIndex,
-      itemCount: length,
-      itemBuilder: (BuildContext context, int innerIndex) {
-        bool _isCurIndex = PlayControlManager().afterFirstPress &&
-            PlaylistStateManager.instance.position.tabIndex == widget._tabIndex &&
-            PlaylistStateManager.instance.position.listIndex == innerIndex;
-        ValueNotifier<bool> isCurIndex = ValueNotifier<bool>(_isCurIndex);
+    return LayoutBuilder(builder: (context, constraints) {
+      return GridView.builder(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: constraints.maxWidth~/300, //每行三列
+          childAspectRatio: 5,
+        ),
+        addAutomaticKeepAlives: true,
+        controller: _controller,
+        itemCount: length,
+        itemBuilder: (BuildContext context, int innerIndex) {
+          bool _isCurIndex = PlayControlManager().afterFirstPress &&
+              PlaylistStateManager.instance.position.tabIndex ==
+                  widget._tabIndex &&
+              PlaylistStateManager.instance.position.listIndex == innerIndex;
+          ValueNotifier<bool> isCurIndex = ValueNotifier<bool>(_isCurIndex);
 
-        eventBus.on<MapEntry<String, dynamic>>().listen((event) {
-          switch (event.key) {
-            case keySelectState:
-              List<String> _list = event.value as List<String>;
-              if (_list.contains(listItemSelect)) {
-                if (PlaylistStateManager.instance.position.listIndex == innerIndex &&
-                    PlaylistStateManager.instance.position.tabIndex == widget._tabIndex) {
-                  isCurIndex.value = true;
-                } else if (isCurIndex.value) {
-                  isCurIndex.value = false;
+          eventBus.on<MapEntry<String, dynamic>>().listen((event) {
+            switch (event.key) {
+              case keySelectState:
+                List<String> _list = event.value as List<String>;
+                if (_list.contains(listItemSelect)) {
+                  if (PlaylistStateManager.instance.position.listIndex ==
+                      innerIndex &&
+                      PlaylistStateManager.instance.position.tabIndex ==
+                          widget._tabIndex) {
+                    isCurIndex.value = true;
+                  } else if (isCurIndex.value) {
+                    isCurIndex.value = false;
+                  }
                 }
-              }
-              break;
-          }
-        });
+                break;
+            }
+          });
 
-        User user = PlaylistStateManager.instance.getUserByPosition(widget._tabIndex, innerIndex);
+          User user = PlaylistStateManager.instance.getUserByPosition(
+              widget._tabIndex, innerIndex);
 
-        List<DropdownMenuItem<String>>? myItems = [];
-        user.tvgUrl.toList().asMap().forEach((key, value) {
-          myItems.add(DropdownMenuItem<String>(
-            value: value,
-            child: Text("直播源${key + 1}"),
-          ));
-        });
+          List<DropdownMenuItem<String>>? myItems = [];
+          user.tvgUrl.toList().asMap().forEach((key, value) {
+            myItems.add(DropdownMenuItem<String>(
+              value: value,
+              child: Text("直播源${key + 1}"),
+            ));
+          });
 
-        String tvName = tvData[widget._tabIndex]?.keys.elementAt(innerIndex) ?? "";
+          String tvName = tvData[widget._tabIndex]?.keys.elementAt(
+              innerIndex) ?? "";
 
-        return Column(
-          children: [
-            ValueListenableBuilder<bool>(
-                valueListenable: isCurIndex,
-                builder: (BuildContext context, bool value, Widget? child) {
-                  return Card(
-                    color: isCurIndex.value ? Colors.lightBlue.shade200 : Colors.lightBlue.shade100,
-                    //z轴的高度，设置card的阴影
-                    elevation: isCurIndex.value ? 20.0 : 0.0,
-                    //设置shape，这里设置成了R角
-                    shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                    ),
-                    //对Widget截取的行为，比如这里 Clip.antiAlias 指抗锯齿
-                    clipBehavior: Clip.antiAlias,
-                    semanticContainer: false,
-                    child: InkWell(
-                        onTap: () async {
-                          eventBus.fire(const MapEntry(keySelectState, [listItemSelect]));
+          return ValueListenableBuilder<bool>(
+              valueListenable: isCurIndex,
+              builder: (BuildContext context, bool value, Widget? child) {
+                return Card(
+                  color: isCurIndex.value ? Colors.lightBlue.shade200 : Colors
+                      .lightBlue.shade100,
+                  //z轴的高度，设置card的阴影
+                  elevation: isCurIndex.value ? 20.0 : 0.0,
+                  //设置shape，这里设置成了R角
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                  ),
+                  //对Widget截取的行为，比如这里 Clip.antiAlias 指抗锯齿
+                  clipBehavior: Clip.antiAlias,
+                  semanticContainer: false,
+                  child: InkWell(
+                      onTap: () async {
+                        eventBus.fire(const MapEntry(
+                            keySelectState, [listItemSelect]));
 
-                          if (WifiManager.instance.isNeedConnectWithWifi()) {
-                            logger.i("====> 发送 keyWifiCompulsion");
-                            eventBus.fire(const MapEntry(keyWifiCompulsion, null));
-                            PlayControlManager.instance.pause();
-                            return;
-                          }
+                        if (WifiManager.instance.isNeedConnectWithWifi()) {
+                          logger.i("====> 发送 keyWifiCompulsion");
+                          eventBus.fire(
+                              const MapEntry(keyWifiCompulsion, null));
+                          PlayControlManager.instance.pause();
+                          return;
+                        }
 
-                          PlaylistStateManager.instance.position.tabIndex = widget._tabIndex;
-                          PlaylistStateManager.instance.position.listIndex = innerIndex;
-                          logger.i("====> 发送 keySelectState");
-                          eventBus.fire(const MapEntry(keySelectState, [listItemSelect]));
-                          PlayControlManager.instance.setResourceAndPlay(tvName, PlaylistStateManager.instance.getSourceByKey(tvName));
-                          saveHistorySharedPreferences(MapEntry(tvName, user));
-                        },
-                        child: Row(
-                          children: <Widget>[
-                            Container(
-                              child: getImageProviderByUrl(user.tvgLogo??""),
-                              height: 50,
-                              width: 50,
-                              margin: const EdgeInsets.only(left: 12, right: 10, top: 5, bottom: 5),
+                        PlaylistStateManager.instance.position.tabIndex =
+                            widget._tabIndex;
+                        PlaylistStateManager.instance.position.listIndex =
+                            innerIndex;
+                        logger.i("====> 发送 keySelectState");
+                        eventBus.fire(const MapEntry(
+                            keySelectState, [listItemSelect]));
+                        PlayControlManager.instance.setResourceAndPlay(
+                            tvName, PlaylistStateManager.instance
+                            .getSourceByKey(tvName));
+                        saveHistorySharedPreferences(MapEntry(tvName, user));
+                      },
+                      child: Row(
+                        children: <Widget>[
+                          Container(
+                            child: getImageProviderByUrl(user.tvgLogo ?? ""),
+                            height: 50,
+                            width: 50,
+                            margin: const EdgeInsets.only(
+                                left: 12, right: 10, top: 5, bottom: 5),
+                          ),
+                          Expanded(
+                            flex: 4,
+                            child: Text(
+                              tvName,
+                              style: isCurIndex.value
+                                  ? const TextStyle(
+                                  color: Colors.red, fontSize: 18)
+                                  : const TextStyle(
+                                  color: Colors.black, fontSize: 14),
                             ),
-                            Expanded(
-                              flex: 4,
-                              child: Text(
-                                tvName,
-                                style: isCurIndex.value
-                                    ? const TextStyle(color: Colors.red, fontSize: 18)
-                                    : const TextStyle(color: Colors.black, fontSize: 14),
-                              ),
-                            ),
-                            Expanded(
-                              flex: 3,
-                              child: Visibility(
-                                visible: user.tvgUrl.length > 1,
-                                child: DropdownButton<String>(
-                                  value: PlaylistStateManager.instance.getSourceByKey(tvName),
-                                  onChanged: (value) {
-                                    setState(() {
-                                      PlaylistStateManager.instance.setLiveSource(tvName, value);
-                                    });
-                                  },
-                                  items: myItems,
-                                ),
-                              ),
-                            ),
-                            Container(
-                              margin: const EdgeInsets.only(left: 5, right: 10, top: 0, bottom: 0),
-                              child: InkWell(
-                                onTap: () => {
+                          ),
+                          Expanded(
+                            flex: 3,
+                            child: Visibility(
+                              visible: user.tvgUrl.length > 1,
+                              child: DropdownButton<String>(
+                                value: PlaylistStateManager.instance
+                                    .getSourceByKey(tvName),
+                                onChanged: (value) {
                                   setState(() {
-                                    if (PlaylistStateManager.instance.isContain(tvName)) {
-                                      PlaylistStateManager.instance.removeUrl(tvName);
-                                    } else {
-                                      PlaylistStateManager.instance.addCollect(tvName, user.toJson());
-                                    }
-                                    eventBus.fire(const MapEntry(keyNotifyFavoriteList, null));
-                                  })
+                                    PlaylistStateManager.instance.setLiveSource(
+                                        tvName, value);
+                                  });
                                 },
-                                child:
-                                    PlaylistStateManager.instance.isContain(tvName) ? const Icon(Icons.favorite) : const Icon(Icons.favorite_border),
+                                items: myItems,
                               ),
                             ),
-                          ],
-                        )),
-                  );
-                })
-          ],
-        );
-      },
-    );
+                          ),
+                          Container(
+                            margin: const EdgeInsets.only(
+                                left: 5, right: 10, top: 0, bottom: 0),
+                            child: InkWell(
+                              onTap: () =>
+                              {
+                                setState(() {
+                                  if (PlaylistStateManager.instance.isContain(
+                                      tvName)) {
+                                    PlaylistStateManager.instance.removeUrl(
+                                        tvName);
+                                  } else {
+                                    PlaylistStateManager.instance.addCollect(
+                                        tvName, user.toJson());
+                                  }
+                                  eventBus.fire(const MapEntry(
+                                      keyNotifyFavoriteList, null));
+                                })
+                              },
+                              child:
+                              PlaylistStateManager.instance.isContain(tvName)
+                                  ? const Icon(Icons.favorite)
+                                  : const Icon(Icons.favorite_border),
+                            ),
+                          ),
+                        ],
+                      )),
+                );
+              });
+        },
+      );
+    });
   }
 }
 

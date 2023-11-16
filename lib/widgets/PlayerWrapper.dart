@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 import '../domain/PlayControlManager.dart';
-import '../domain/WifiManager.dart';
 import '../util/const.dart';
 
 class PlayerWrapper extends StatefulWidget {
@@ -30,7 +29,7 @@ class _PlayerWrapperState extends State<PlayerWrapper> {
 
     PlayControlManager.instance.controller.initialize();
     PlayControlManager.instance.addListener(() {
-      print("====================********************=====>");
+      print("5555555555555555555 --===> addListener");
       setState(() {});
     });
 
@@ -45,8 +44,29 @@ class _PlayerWrapperState extends State<PlayerWrapper> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final width = size.width;
+    final height = size.height;
+
+    var realWidth = width;
+    var realHeight =
+        width / PlayControlManager.instance.controller.value.aspectRatio;
+    if(PlayControlManager.instance.controller.value.aspectRatio == 1){
+      realWidth = width;
+      realHeight = height / 2;
+    }else if (realHeight > height / 2) {
+      realHeight = height / 2;
+      realWidth =
+          PlayControlManager.instance.controller.value.aspectRatio * realHeight;
+    }
+
+    print("aspectRatio --===> "+PlayControlManager.instance.controller.value.aspectRatio.toString());
+    print("isInitialized --===> "+PlayControlManager.instance.controller.value.isInitialized.toString());
+    print("size --===> "+PlayControlManager.instance.controller.value.size.toString());
+
     return SizedBox(
-      height: 500,
+      height: realHeight,
+      width: realWidth,
       child: Stack(
         alignment: Alignment.center,
         children: <Widget>[
@@ -54,21 +74,17 @@ class _PlayerWrapperState extends State<PlayerWrapper> {
             builder: (BuildContext context, bool value, Widget? child) {
               return Container(
                 padding: const EdgeInsets.all(20),
-                child: AspectRatio(
-                  aspectRatio:
-                      PlayControlManager.instance.controller.value.aspectRatio,
-                  child: Stack(
-                    alignment: Alignment.bottomCenter,
-                    children: <Widget>[
-                      VideoPlayer(PlayControlManager.instance.controller),
-                      ClosedCaption(
-                          text: PlayControlManager
-                              .instance.controller.value.caption.text),
-                      VideoProgressIndicator(
-                          PlayControlManager.instance.controller,
-                          allowScrubbing: true),
-                    ],
-                  ),
+                child: Stack(
+                  alignment: Alignment.bottomCenter,
+                  children: <Widget>[
+                    VideoPlayer(PlayControlManager.instance.controller),
+                    ClosedCaption(
+                        text: PlayControlManager
+                            .instance.controller.value.caption.text),
+                    VideoProgressIndicator(
+                        PlayControlManager.instance.controller,
+                        allowScrubbing: true),
+                  ],
                 ),
               );
             },
