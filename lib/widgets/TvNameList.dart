@@ -1,14 +1,12 @@
-import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
-import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
-import 'package:tvSink/domain/model/user.dart';
 import 'package:tvSink/datastore/sharePreference.dart';
+import 'package:tvSink/domain/model/user.dart';
 import 'package:tvSink/util/log.dart';
 
+import '../data/mock/data.dart';
 import '../domain/PlayControlManager.dart';
 import '../domain/PlaylistStateManager.dart';
 import '../domain/WifiManager.dart';
-import '../mock/data.dart';
 import '../util/const.dart';
 
 class TvNameList extends StatefulWidget {
@@ -37,13 +35,15 @@ class _TvNameListState extends State<TvNameList> {
       switch (event.key) {
         case keyNotifyFavoriteList:
           if (widget._tabIndex == 2) {
-            saveFavoriteSharedPreferences(featuredTvLis).then((value) => {setState(() => {})});
+            saveFavoriteSharedPreferences(featuredTvLis)
+                .then((value) => {setState(() => {})});
           }
           break;
         case keySelectState:
           List<String> _list = event.value as List<String>;
           if (_list.contains(scrollToItemSelect)) {
-            if (PlaylistStateManager.instance.position.tabIndex == widget._tabIndex) {
+            if (PlaylistStateManager.instance.position.tabIndex ==
+                widget._tabIndex) {
               // _controller.jumpTo(value: PlaylistStateManager.instance.position.listIndex);
             }
           }
@@ -66,7 +66,7 @@ class _TvNameListState extends State<TvNameList> {
     return LayoutBuilder(builder: (context, constraints) {
       return GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: constraints.maxWidth~/300, //每行三列
+          crossAxisCount: constraints.maxWidth ~/ 300, //每行三列
           childAspectRatio: 5,
         ),
         addAutomaticKeepAlives: true,
@@ -85,7 +85,7 @@ class _TvNameListState extends State<TvNameList> {
                 List<String> _list = event.value as List<String>;
                 if (_list.contains(listItemSelect)) {
                   if (PlaylistStateManager.instance.position.listIndex ==
-                      innerIndex &&
+                          innerIndex &&
                       PlaylistStateManager.instance.position.tabIndex ==
                           widget._tabIndex) {
                     isCurIndex.value = true;
@@ -97,8 +97,8 @@ class _TvNameListState extends State<TvNameList> {
             }
           });
 
-          User user = PlaylistStateManager.instance.getUserByPosition(
-              widget._tabIndex, innerIndex);
+          User user = PlaylistStateManager.instance
+              .getUserByPosition(widget._tabIndex, innerIndex);
 
           List<DropdownMenuItem<String>>? myItems = [];
           user.tvgUrl.toList().asMap().forEach((key, value) {
@@ -108,15 +108,16 @@ class _TvNameListState extends State<TvNameList> {
             ));
           });
 
-          String tvName = tvData[widget._tabIndex]?.keys.elementAt(
-              innerIndex) ?? "";
+          String tvName =
+              tvData[widget._tabIndex]?.keys.elementAt(innerIndex) ?? "";
 
           return ValueListenableBuilder<bool>(
               valueListenable: isCurIndex,
               builder: (BuildContext context, bool value, Widget? child) {
                 return Card(
-                  color: isCurIndex.value ? Colors.lightBlue.shade200 : Colors
-                      .lightBlue.shade100,
+                  color: isCurIndex.value
+                      ? Colors.lightBlue.shade200
+                      : Colors.lightBlue.shade100,
                   //z轴的高度，设置card的阴影
                   elevation: isCurIndex.value ? 20.0 : 0.0,
                   //设置shape，这里设置成了R角
@@ -128,13 +129,13 @@ class _TvNameListState extends State<TvNameList> {
                   semanticContainer: false,
                   child: InkWell(
                       onTap: () async {
-                        eventBus.fire(const MapEntry(
-                            keySelectState, [listItemSelect]));
+                        eventBus.fire(
+                            const MapEntry(keySelectState, [listItemSelect]));
 
                         if (WifiManager.instance.isNeedConnectWithWifi()) {
                           logger.i("====> 发送 keyWifiCompulsion");
-                          eventBus.fire(
-                              const MapEntry(keyWifiCompulsion, null));
+                          eventBus
+                              .fire(const MapEntry(keyWifiCompulsion, null));
                           PlayControlManager.instance.pause();
                           return;
                         }
@@ -144,11 +145,12 @@ class _TvNameListState extends State<TvNameList> {
                         PlaylistStateManager.instance.position.listIndex =
                             innerIndex;
                         logger.i("====> 发送 keySelectState");
-                        eventBus.fire(const MapEntry(
-                            keySelectState, [listItemSelect]));
+                        eventBus.fire(
+                            const MapEntry(keySelectState, [listItemSelect]));
                         PlayControlManager.instance.setResourceAndPlay(
-                            tvName, PlaylistStateManager.instance
-                            .getSourceByKey(tvName));
+                            tvName,
+                            PlaylistStateManager.instance
+                                .getSourceByKey(tvName));
                         saveHistorySharedPreferences(MapEntry(tvName, user));
                       },
                       child: Row(
@@ -166,9 +168,9 @@ class _TvNameListState extends State<TvNameList> {
                               tvName,
                               style: isCurIndex.value
                                   ? const TextStyle(
-                                  color: Colors.red, fontSize: 18)
+                                      color: Colors.red, fontSize: 18)
                                   : const TextStyle(
-                                  color: Colors.black, fontSize: 14),
+                                      color: Colors.black, fontSize: 14),
                             ),
                           ),
                           Expanded(
@@ -180,8 +182,8 @@ class _TvNameListState extends State<TvNameList> {
                                     .getSourceByKey(tvName),
                                 onChanged: (value) {
                                   setState(() {
-                                    PlaylistStateManager.instance.setLiveSource(
-                                        tvName, value);
+                                    PlaylistStateManager.instance
+                                        .setLiveSource(tvName, value);
                                   });
                                 },
                                 items: myItems,
@@ -192,23 +194,22 @@ class _TvNameListState extends State<TvNameList> {
                             margin: const EdgeInsets.only(
                                 left: 5, right: 10, top: 0, bottom: 0),
                             child: InkWell(
-                              onTap: () =>
-                              {
+                              onTap: () => {
                                 setState(() {
-                                  if (PlaylistStateManager.instance.isContain(
-                                      tvName)) {
-                                    PlaylistStateManager.instance.removeUrl(
-                                        tvName);
+                                  if (PlaylistStateManager.instance
+                                      .isContain(tvName)) {
+                                    PlaylistStateManager.instance
+                                        .removeUrl(tvName);
                                   } else {
-                                    PlaylistStateManager.instance.addCollect(
-                                        tvName, user.toJson());
+                                    PlaylistStateManager.instance
+                                        .addCollect(tvName, user.toJson());
                                   }
                                   eventBus.fire(const MapEntry(
                                       keyNotifyFavoriteList, null));
                                 })
                               },
-                              child:
-                              PlaylistStateManager.instance.isContain(tvName)
+                              child: PlaylistStateManager.instance
+                                      .isContain(tvName)
                                   ? const Icon(Icons.favorite)
                                   : const Icon(Icons.favorite_border),
                             ),

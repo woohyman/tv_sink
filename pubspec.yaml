@@ -25,15 +25,19 @@ dependencies:
   m3u_nullsafe: ^1.0.4
 
   # 开源播放器
-  video_player_web_hls: ^1.1.0
+  video_player_web_hls: ^1.0.0+3
   video_player: ^2.8.1
-  video_player_media_kit: ^1.0.3
+#  video_player_media_kit: ^1.0.5
 
-  media_kit_libs_android_video: any
-  media_kit_libs_ios_video: any
-  media_kit_libs_macos_video: any
-  media_kit_libs_windows_video: any
-  media_kit_libs_linux: any
+#  media_kit_libs_android_video: any
+#  media_kit_libs_ios_video: any
+#  media_kit_libs_macos_video: any
+#  media_kit_libs_windows_video: any
+#  media_kit_libs_linux: any
+
+  # youtube资源获取
+  youtube_api: ^1.0.4
+  youtube_player_iframe: ^4.0.4
 
   flutter_bugly: ^0.4.4
   logger: ^1.1.0

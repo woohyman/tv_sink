@@ -4,13 +4,13 @@ import 'package:flutter_bugly/flutter_bugly.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:tvSink/routes/RouterTable.dart';
-import 'package:video_player_media_kit/video_player_media_kit.dart';
 
+import 'data/youtube/LiveSourceManager.dart';
 import 'domain/WifiManager.dart';
 import 'pages/ScaffoldRoute.dart';
 
 Future<void> main() async {
-
+  LiveSourceManager.instance.initData();
   if(kIsWeb){
     // 如果需要 ensureInitialized，请在这里运行。
     WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -19,13 +19,13 @@ Future<void> main() async {
     WifiManager.instance.init();
     // MobileAds.instance.initialize();
 
-    VideoPlayerMediaKit.ensureInitialized(
-      android: true,
-      iOS: true,
-      macOS: true,
-      windows: true,
-      linux: true,
-    );
+    // VideoPlayerMediaKit.ensureInitialized(
+    //   android: true,
+    //   iOS: true,
+    //   macOS: true,
+    //   windows: true,
+    //   linux: true,
+    // );
 
     runApp(const MyApp());
   }else{
@@ -36,13 +36,13 @@ Future<void> main() async {
 
       WifiManager.instance.init();
 
-      VideoPlayerMediaKit.ensureInitialized(
-        android: true,
-        iOS: true,
-        macOS: true,
-        windows: true,
-        linux: true,
-      );
+      // VideoPlayerMediaKit.ensureInitialized(
+      //   android: true,
+      //   iOS: true,
+      //   macOS: true,
+      //   windows: true,
+      //   linux: true,
+      // );
 
       runApp(const MyApp());
     });

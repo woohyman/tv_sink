@@ -11,6 +11,7 @@ import '../widgets/KeepAliveTest.dart';
 import '../widgets/PlayerWrapper.dart';
 import '../widgets/SliderLeft.dart';
 import '../widgets/TvNameList.dart';
+import '../widgets/youtube/YoutubePlayerWrapper.dart';
 
 class ScaffoldRoute extends StatefulWidget {
   const ScaffoldRoute({Key? key}) : super(key: key);
@@ -69,22 +70,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
         body: Flex(
           direction: Axis.vertical,
           children: <Widget>[
-            const PlayerWrapper(),
-            // Container(
-            //   height: 250,
-            //   padding: const EdgeInsets.all(20),
-            //   child: AspectRatio(
-            //     aspectRatio: PlayControlManager.instance.controller.value.aspectRatio,
-            //     child: Stack(
-            //       alignment: Alignment.bottomCenter,
-            //       children: <Widget>[
-            //         VideoPlayer(PlayControlManager.instance.controller),
-            //         ClosedCaption(text: PlayControlManager.instance.controller.value.caption.text),
-            //         VideoProgressIndicator(PlayControlManager.instance.controller, allowScrubbing: true),
-            //       ],
-            //     ),
-            //   ),
-            // ),
+            const YoutubePlayerWrapper(),
             Expanded(
               flex: 1,
               child: PageView(
@@ -114,9 +100,12 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
           builder: (BuildContext context, int value, Widget? child) {
             return BottomNavigationBar(
               items: const <BottomNavigationBarItem>[
-                BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '中文频道'),
-                BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '英文频道'),
-                BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '收藏频道'),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.airplay), label: '中文频道'),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.airplay), label: '英文频道'),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.airplay), label: '收藏频道'),
               ],
               currentIndex: value,
               fixedColor: Colors.blue,

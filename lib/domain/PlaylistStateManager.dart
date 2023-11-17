@@ -1,4 +1,5 @@
-import '../mock/data.dart';
+import 'package:tvSink/data/mock/data.dart';
+
 import 'model/user.dart';
 
 class PlaylistStateManager {
