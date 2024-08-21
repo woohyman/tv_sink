@@ -22,7 +22,7 @@ class UpdateDialogState extends State<UpdateDialog> {
   @override
   Widget build(BuildContext context) {
     var _textStyle = TextStyle(
-      color: Theme.of(context).textTheme.bodyText1?.color,
+      color: Theme.of(context).textTheme.bodyLarge?.color,
     );
 
     return AlertDialog(
