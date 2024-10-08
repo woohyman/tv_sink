@@ -6,7 +6,9 @@ import 'package:path_provider/path_provider.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  readContent().then((value) => {print("解析成功！")}).onError((error, stackTrace) => {print("$error : $stackTrace")});
+  readContent()
+      .then((value) => {print("解析成功！")})
+      .onError((error, stackTrace) => {print("$error : $stackTrace")});
 }
 
 //从文件读出字符串
@@ -15,35 +17,31 @@ Future<String> readContent() async {
   var out = {};
 
   var arrays = stringValue.split("\n");
+  // print("************************* total ==> "+arrays.toString());
 
   for (String value in arrays) {
     if (value.contains("#EXTM3U ")) {
       continue;
     }
-    print("*************************");
-    var result = {};
+
+    print("************************* value ==> " + value.toString());
     if (value.contains("#EXTINF:-1")) {
-      var arrays = value.split(" ");
-      for (var element in arrays) {
-        var arrays1 = element.split("=");
-        if (arrays1.length > 1) {
-          if (arrays1[0].contains("group-title") || arrays1[0].contains("user-agent")) {
-            var arrays2 = arrays1[1].split(",");
-            result["\"${arrays1[0]}\""] = arrays2[0];
-            if (arrays2.length > 1 && out["\"${arrays2[1]}\""] == null) {
-              out["\"${arrays2[1]}\""] = result;
-            }
-          } else {
-            result["\"${arrays1[0]}\""] = arrays1[1].endsWith("\"") ? arrays1[1] : arrays1[1] + "\"";
-          }
-        }
-      }
+      var arrays = value.split(",");
+      out["\"${arrays[1]}\""] = {};
     } else if (value.contains("http")) {
-      if (out.values.last["\"tvg-url\""] == null) {
-        out.values.last["\"tvg-url\""] = {"\"$value\""};
+      out.values.last["\"tvgId\""] = "\"\"";
+      out.values.last["\"tvgCountry\""] = "\"\"";
+      out.values.last["\"tvgLanguage\""] = "\"\"";
+      out.values.last["\"tvgLogo\""] = "\"\"";
+      out.values.last["\"groupTitle\""] = "\"\"";
+
+      if (out.values.last["\"tvgUrl\""] == null) {
+        out.values.last["\"tvgUrl\""] = ["\"$value\""];
       } else {
-        out.values.last["\"tvg-url\""].add("\"$value\"");
+        out.values.last["\"tvgUrl\""].add("\"$value\"");
       }
+
+      print("************************* value ==> " + out.values.last.toString());
     }
   }
 
