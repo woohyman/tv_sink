@@ -91,3 +91,5 @@ lint/tmp/
 /windows/flutter/generated_plugin_registrant.cc
 /windows/flutter/generated_plugin_registrant.h
 /android/.idea/
+/macos/Flutter/GeneratedPluginRegistrant.swift
+/pubspec.lock
