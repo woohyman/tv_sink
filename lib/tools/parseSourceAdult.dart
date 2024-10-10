@@ -13,7 +13,7 @@ void main() {
 
 //从文件读出字符串
 Future<String> readContent() async {
-  String stringValue = await rootBundle.loadString("file/adult.m3u");
+  String stringValue = await rootBundle.loadString("file/asian_adult.m3u");
   var out = {};
 
   var arrays = stringValue.split("\n");
@@ -28,7 +28,7 @@ Future<String> readContent() async {
     if (value.contains("#EXTINF:-1")) {
       var arrays = value.split(",");
       out["\"${arrays[1]}\""] = {};
-    } else if (value.contains("http")) {
+    } else if (value.contains("http") || value.contains("rtmp")) {
       out.values.last["\"tvgId\""] = "\"\"";
       out.values.last["\"tvgCountry\""] = "\"\"";
       out.values.last["\"tvgLanguage\""] = "\"\"";

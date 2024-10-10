@@ -104,8 +104,8 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
           builder: (BuildContext context, int value, Widget? child) {
             return BottomNavigationBar(
               items: const <BottomNavigationBarItem>[
-                BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '中文频道'),
-                BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '英文频道'),
+                BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '欧美频道'),
+                BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '亚洲频道'),
                 BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '收藏频道'),
               ],
               currentIndex: value,
