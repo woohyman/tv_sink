@@ -80,7 +80,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
                 },
                 children: const <Widget>[
                   KeepAliveWrapper(
-                    child: TvNameList(0),
+                    child: TvNameList(0,),
                     keepAlive: true,
                   ),
                   KeepAliveWrapper(
@@ -100,8 +100,8 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
           builder: (BuildContext context, int value, Widget? child) {
             return BottomNavigationBar(
               items: const <BottomNavigationBarItem>[
-                BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '台湾频道'),
-                BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '香港频道'),
+                BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '精选频道'),
+                BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '自选频道'),
                 BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '收藏频道'),
               ],
               currentIndex: value,

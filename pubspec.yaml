@@ -23,6 +23,7 @@ dependencies:
   google_mobile_ads: ^1.2.0
   connectivity_plus: ^5.0.2
   fijkplayer: ^0.11.0
+  flutter_easyloading: ^3.0.5
   parse_server_sdk_flutter: ^8.0.0
   logger: ^1.1.0
   retry: ^3.1.2
@@ -30,7 +31,6 @@ dependencies:
   open_file: ^3.2.1
   dio: ^5.7.0
   shared_preferences: ^2.0.13
-  flutter_easyloading: ^3.0.3
   #状态管理
   provider: ^6.0.1
   # 消息中心（事件发送和监听）

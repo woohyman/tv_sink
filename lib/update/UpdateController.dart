@@ -27,9 +27,8 @@ class UpdateController {
   }
 
   Future<PostgrestList> _fetchApkVersion() async {
-    final supabase = Supabase.instance.client;
     print('开始======> ');
-    // Select data with filters
+    final supabase = Supabase.instance.client;
     final data = supabase
         .from("upgrade")
         .select()

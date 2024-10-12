@@ -5,6 +5,7 @@ const String scrollToItemSelect = "ScrollToItemSelect";//通知列表滚动到�
 const String tabSelect = "TabSelect";//通知Tab变化
 
 const String keySelectState = "keySelectState";//通知Tab变化
+const String keyImportState = "keyImportListState";//导入数据变化
 
 const String startPlayTv = "StartPlayTv";//用户开始播放电视
 const String keyNotifyFavoriteList = "KeyNotifyFavoriteList";//用于通知收藏列表更新

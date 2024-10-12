@@ -34,6 +34,7 @@ class PlayControlManager {
   static PlayControlManager instance = PlayControlManager._();
 
   void setResourceAndPlay(String tvName, String source) async {
+    print("..................... $source");
     bool _autoPlay = _intervalTime[source] ?? true;
     eventBus.fire(const MapEntry(startPlayTv, true));
     _afterFirstPress = true;

@@ -1,3 +1,4 @@
+import '../datastore/RemoteUrlControl.dart';
 import '../mock/data.dart';
 import 'model/user.dart';
 
@@ -13,23 +14,26 @@ class PlaylistStateManager {
   static PlaylistStateManager instance = PlaylistStateManager._();
 
   Position position = Position(0, 0);
-  final liveSource = {};
+  final Map<String, String?> liveSource = {};
 
   //通过位置来获取User对象
   User getUserByPosition(int tabIndex, int listIndex) {
-    return User.fromJson(tvData[tabIndex]?.values.elementAt(listIndex));
+    final data = tvData[tabIndex]?.values;
+    final item = Map<String, dynamic>.from(data?.elementAt(listIndex));
+    print("object ************************* ${item}");
+    print("object ************************* ${item.runtimeType}");
+    print("object ************************* ${item["tvgUrl"]}");
+    return User.fromJson(item);
   }
 
   void setPositionByName(String tvName) {
-    if (chineseTvLis.containsKey(tvName)) {
+    if (defaultTvList.containsKey(tvName)) {
       position.tabIndex = 0;
-      position.listIndex = chineseTvLis.keys.toList().indexOf(tvName);
-
+      position.listIndex = defaultTvList.keys.toList().indexOf(tvName);
     } else if (foreignTvLis.containsKey(tvName)) {
       position.tabIndex = 1;
       position.listIndex = foreignTvLis.keys.toList().indexOf(tvName);
-
-    }else{
+    } else {
       position.tabIndex = 0;
       position.listIndex = 0;
     }
@@ -56,17 +60,17 @@ class PlaylistStateManager {
 
   String getSourceByKey(String tvName) {
     if (liveSource.containsKey(tvName)) {
-      return liveSource[tvName];
+      return liveSource[tvName] ?? "";
     }
 
-    if (chineseTvLis.containsKey(tvName)) {
-      liveSource[tvName] = User.fromJson(chineseTvLis[tvName]).tvgUrl.first;
-      return liveSource[tvName];
+    if (defaultTvList.containsKey(tvName)) {
+      liveSource[tvName] = User.fromJson(Map<String, dynamic>.from(defaultTvList[tvName])).tvgUrl.first;
+      return liveSource[tvName] ?? "";
     }
 
     if (foreignTvLis.containsKey(tvName)) {
-      liveSource[tvName] = User.fromJson(foreignTvLis[tvName]).tvgUrl.first;
-      return liveSource[tvName];
+      liveSource[tvName] = User.fromJson(Map<String, dynamic>.from(foreignTvLis[tvName])).tvgUrl.first;
+      return liveSource[tvName] ?? "";
     }
 
     return "";
@@ -74,7 +78,7 @@ class PlaylistStateManager {
 }
 
 Map<int, Map<String, dynamic>> tvData = {
-  0: chineseTvLis,
+  0: defaultTvList,
   1: foreignTvLis,
   2: featuredTvLis,
 };
