@@ -1,12 +1,24 @@
+import 'dart:async';
+import 'dart:io';
+
+import 'package:dio/dio.dart';
 import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
+import 'package:open_file/open_file.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:retry/retry.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:tvSink/domain/WifiManager.dart';
 import 'package:tvSink/datastore/sharePreference.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../domain/PlayControlManager.dart';
-import '../update/FlutterBuglyManager.dart';
+import '../update/ApkVersionController.dart';
+import '../update/UpdateController.dart';
 import '../util/const.dart';
+import '../util/log.dart';
 
 class AppSettingRoute extends StatefulWidget {
   const AppSettingRoute({Key? key}) : super(key: key);
@@ -17,14 +29,17 @@ class AppSettingRoute extends StatefulWidget {
 
 class _SettingRouteState extends State<AppSettingRoute> {
   bool _switchSelected = true; //维护单选开关状态
-  PackageInfo? _packageInfo;
+  final ApkVersionController apkVersionController = ApkVersionController();
+  final UpdateController updateController = UpdateController();
 
   @override
   void initState() {
-    PackageInfo.fromPlatform().then((value) => {
-          setState(() => {_packageInfo = value})
-        });
-
+    updateController
+        .fetchApkVersion()
+        .then((value) => {setState(() => {})});
+    apkVersionController
+        .fetchApkVersion()
+        .then((value) => {setState(() => {})});
     fetchAppSettingWifiCompulsion().then((value) => {
           setState(() => {_switchSelected = value})
         });
@@ -52,29 +67,26 @@ class _SettingRouteState extends State<AppSettingRoute> {
                   setState(() {
                     _switchSelected = value;
                     WifiManager.instance.setIsNeedWifi(value);
-                    if (WifiManager.instance.isNeedConnectWithWifi()) {
-                      PlayControlManager.instance.pause();
-                    }
-                    eventBus.fire(const MapEntry(keyWifiCompulsion, null));
-                    saveAppSettingWifiCompulsion(value);
                   });
                 },
               ),
             ),
             ListTile(
               onTap: () {
-                FlutterBuglyManager.instance.checkUpgrade();
+                updateController.launchUpdateUrl();
               },
               title: Row(
                 children: [
                   const Text(
                     '当前版本号',
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
                   ),
                   Visibility(
-                    visible: FlutterBuglyManager.instance.versionCode > int.parse(_packageInfo?.buildNumber ?? "0"),
+                    visible: updateController.versionCode >
+                        apkVersionController.versionCode,
                     child: Text(
-                      ' 最新版本：${FlutterBuglyManager.instance.versionName} ',
+                      ' 最新版本：${updateController.versionName} ',
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 12.0,
@@ -83,7 +95,8 @@ class _SettingRouteState extends State<AppSettingRoute> {
                     ),
                   ),
                   Visibility(
-                    visible: FlutterBuglyManager.instance.versionCode > int.parse(_packageInfo?.buildNumber ?? "0"),
+                    visible: updateController.versionCode >
+                        apkVersionController.versionCode,
                     child: const Icon(
                       Icons.ads_click,
                       size: 16.0,
@@ -93,8 +106,9 @@ class _SettingRouteState extends State<AppSettingRoute> {
                 ],
               ),
               trailing: Text(
-                '${_packageInfo?.version}',
-                style: const TextStyle(fontWeight: FontWeight.normal, fontSize: 18.0),
+                '${apkVersionController.versionName}',
+                style: const TextStyle(
+                    fontWeight: FontWeight.normal, fontSize: 18.0),
               ),
             ),
           ],

@@ -6,7 +6,7 @@ import '../ad/AppLifecycleReactor.dart';
 import '../ad/AppOpenAdManager.dart';
 import '../ad/banner/AnchorAdapter.dart';
 import '../domain/PlaylistStateManager.dart';
-import '../update/FlutterBuglyManager.dart';
+import '../update/UpdateController.dart';
 import '../util/const.dart';
 import '../widgets/KeepAliveTest.dart';
 import '../widgets/PlayerWrapper.dart';
@@ -23,7 +23,6 @@ class ScaffoldRoute extends StatefulWidget {
 class _ScaffoldRouteState extends State<ScaffoldRoute> {
   final ValueNotifier<int> _selectedIndex = ValueNotifier<int>(0);
   PageController? _pageController;
-  late FlutterBuglyManager _flutterBuglyManager;
   final AnchorAdapter _anchorAdapter = AnchorAdapter();
 
   @override
@@ -50,9 +49,6 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
 
     AppOpenAdManager appOpenAdManager = AppOpenAdManager()..loadAd();
     WidgetsBinding.instance!.addObserver(AppLifecycleReactor(appOpenAdManager: appOpenAdManager));
-
-    _flutterBuglyManager = FlutterBuglyManager();
-    _flutterBuglyManager.init(context).then((value) => setState(() => {}));
 
     _pageController = PageController();
   }
@@ -104,8 +100,8 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
           builder: (BuildContext context, int value, Widget? child) {
             return BottomNavigationBar(
               items: const <BottomNavigationBarItem>[
-                BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '欧美频道'),
-                BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '亚洲频道'),
+                BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '台湾频道'),
+                BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '香港频道'),
                 BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '收藏频道'),
               ],
               currentIndex: value,

@@ -55,7 +55,7 @@ class _HistoryRouteState extends State<HistoryRoute> {
               semanticContainer: false,
               child: InkWell(
                 onTap: () async {
-                  if (WifiManager.instance.isNeedConnectWithWifi()) {
+                  if (WifiManager.instance.isNeedConnectWithWifi) {
                     Navigator.popUntil(context, ModalRoute.withName('/'));
                     eventBus.fire(const MapEntry(keyWifiCompulsion, null));
                     PlayControlManager.instance.pause();

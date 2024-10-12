@@ -66,7 +66,7 @@ class _PlayerWrapperState extends State<PlayerWrapper> {
           valueListenable: showBannerBg,
         ),
         Visibility(
-          visible: WifiManager.instance.isNeedConnectWithWifi(),
+          visible: WifiManager.instance.isNeedConnectWithWifi,
           child: Container(
             padding: const EdgeInsets.only(left: 0, right: 0, top: 12, bottom: 12),
             color: Colors.black,

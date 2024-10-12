@@ -123,7 +123,7 @@ class _TvNameListState extends State<TvNameList> {
                         onTap: () async {
                           eventBus.fire(const MapEntry(keySelectState, [listItemSelect]));
 
-                          if (WifiManager.instance.isNeedConnectWithWifi()) {
+                          if (WifiManager.instance.isNeedConnectWithWifi) {
                             logger.i("====> 发送 keyWifiCompulsion");
                             eventBus.fire(const MapEntry(keyWifiCompulsion, null));
                             PlayControlManager.instance.pause();

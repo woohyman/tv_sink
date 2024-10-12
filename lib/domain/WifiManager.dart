@@ -19,7 +19,9 @@ class WifiManager {
 
   void init() async {
     _isNeedWifi = await fetchAppSettingWifiCompulsion();
-    Connectivity().onConnectivityChanged.listen((ConnectivityResult result) async {
+    Connectivity()
+        .onConnectivityChanged
+        .listen((ConnectivityResult result) async {
       _result = result;
       _isNeedWifi = await fetchAppSettingWifiCompulsion();
       eventBus.fire(const MapEntry(keyWifiCompulsion, null));
@@ -31,9 +33,17 @@ class WifiManager {
 
   void setIsNeedWifi(bool isNeedWifi) {
     _isNeedWifi = isNeedWifi;
+
+    if (WifiManager.instance.isNeedConnectWithWifi) {
+      PlayControlManager.instance.pause();
+    }
+    eventBus.fire(const MapEntry(keyWifiCompulsion, null));
+    saveAppSettingWifiCompulsion(isNeedWifi);
   }
 
-  bool isNeedConnectWithWifi() {
+  bool get isNeedConnectWithWifi {
     return _result == ConnectivityResult.mobile && _isNeedWifi;
   }
+
+
 }

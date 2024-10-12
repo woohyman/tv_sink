@@ -1,7 +1,7 @@
 name: tvSink
 description: A new Flutter project.
 
-version: 1.0.14+14
+version: 1.0.15+15
 
 environment:
   sdk: ">=2.16.0-134.5.beta <4.0.0"
@@ -14,92 +14,30 @@ dependencies:
   scrollable_positioned_list: ^0.2.3
   cached_network_image: ^3.2.0
   transparent_image: ^2.0.0
-  package_info_plus: ^8.0.2
+  package_info_plus: ^4.0.2
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   flutter_native_splash: ^2.1.2+1
   share_plus: ^4.0.3
   google_mobile_ads: ^1.2.0
-  connectivity_plus: ^2.2.1
-  # 开源播放器
+  connectivity_plus: ^5.0.2
   fijkplayer: ^0.11.0
-  flutter_bugly: ^0.4.4
+  parse_server_sdk_flutter: ^8.0.0
   logger: ^1.1.0
-  #  # 路由
-  #  fluro: ^1.7.8
+  retry: ^3.1.2
+  supabase_flutter: ^2.8.0
   open_file: ^3.2.1
-  #网络请求
-  dio: ^4.0.6
-  #  #请求缓存
-  #  dio_http_cache: ^0.2.7
-  #  #图片缓存
-  #  cached_network_image: ^2.1.0+1
-  #  #轮播图 - 插件暂未升级2.0
-  #  flutter_swiper: ^1.1.6
-  #  #数据存储
-  #  shared_preferences: ^0.5.12+4
-  #  #加载html标签
-  #  flutter_html: ^0.11.1
-  #  # 消息提示框
-  #  flutter_svprogresshud: ^0.0.6
-  #  fluttertoast: ^7.1.5
+  dio: ^5.7.0
   shared_preferences: ^2.0.13
   flutter_easyloading: ^3.0.3
-  #  #响应式编程
-  #  rxdart: ^0.23.0
   #状态管理
   provider: ^6.0.1
   # 消息中心（事件发送和监听）
   event_bus: ^2.0.0
-  #  #webView
-  #  webview_flutter: ^1.0.7
-  #  #调用底层的拨打电话、发送邮件、发送信息以及打开网址和打开第三方应用等等
-  #  url_launcher: ^5.4.11
-  #  #图片选择
-  #  image_picker: ^0.6.7+4
-  #  #音频播放
-  #  # audioplayers: ^0.15.1
-  #  build_runner: ^1.9.0
-  #  json_serializable: ^3.3.0
-  #  #屏幕适配工具
-  #  flutter_screenutil: ^0.5.3
-  #  #日期选择
-  #  flutter_rounded_date_picker: ^1.0.5
-  #  #格式化时间
-  #  date_format: ^1.0.8
-  #获取手机上的文件，清除缓存使用的
+  permission_handler: 11.3.1
+  url_launcher: ^6.3.1
   path_provider: ^2.0.9
-#  #获取app版本号
-#  package_info: ^0.4.1
-#  # 前往app设置
-#  app_settings: ^4.0.2
-#  #地区选择 - 插件暂未升级2.0
-#  city_pickers: ^0.1.30
-#  #工具类库
-#  flustars: ^0.3.2
-#  #权限申请
-#  permission_handler: ^4.2.0
-#  #安卓安卓插件 - 插件暂未升级2.0
-#  install_plugin: ^2.0.1
-#  #侧滑组件
-#  flutter_slidable: ^0.5.7
-#  #画图表
-#  fl_chart: ^0.12.1
-#  charts_flutter: ^0.10.0
-#  syncfusion_flutter_charts: ^18.4.47
-#  #扫描二维码
-#  flutter_qr_reader: ^1.0.3
-#  #图片压缩
-#  flutter_native_image: ^0.0.5
-#  #图片视图，放大缩小等
-#  photo_view: ^0.10.3
-#  #上下拉刷新
-#  flutter_easyrefresh: ^2.1.8
-#  #保存图片到相册
-#  image_gallery_saver: ^1.6.8
-#  #二维码生成
-#  qr_flutter: ^3.1.0
 
 dev_dependencies:
   flutter_test:
