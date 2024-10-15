@@ -1,52 +1,36 @@
-import java.text.SimpleDateFormat
-
-def localProperties = new Properties()
-def localPropertiesFile = rootProject.file('local.properties')
-if (localPropertiesFile.exists()) {
-    localPropertiesFile.withReader('UTF-8') { reader ->
-        localProperties.load(reader)
-    }
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
+    id "dev.flutter.flutter-gradle-plugin"
 }
 
-def keystoreProperties = new Properties()
-def keystorePropertiesFile = rootProject.file('key.properties')
-if (keystorePropertiesFile.exists()) {
-    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
-}
-
-def flutterRoot = localProperties.getProperty('flutter.sdk')
-if (flutterRoot == null) {
-    throw new FileNotFoundException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
-}
-
-def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
-if (flutterVersionCode == null) {
-    flutterVersionCode = '2'
-}
-
-def flutterVersionName = localProperties.getProperty('flutter.versionName')
-if (flutterVersionName == null) {
-    flutterVersionName = '1.1'
-}
-
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-    compileSdkVersion 34
+    namespace = "com.techflow.tv_sink"
+    compileSdk = 34
+    ndkVersion = flutter.ndkVersion
 
-//    compileOptions {
-//        sourceCompatibility JavaVersion.VERSION_1_8
-//        targetCompatibility JavaVersion.VERSION_1_8
-//    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    ndkVersion = "25.1.8937393"
 
     defaultConfig {
-        applicationId "com.techflow.tvSink"
-        minSdkVersion 23
-        targetSdkVersion 34
-        versionCode flutterVersionCode.toInteger()
-        versionName flutterVersionName
+        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+        applicationId = "com.techflow.tv_sink"
+        // You can update the following values to match your application needs.
+        // For more information, see: https://flutter.dev/to/review-gradle-config.
+        minSdk = flutter.minSdkVersion
+        targetSdk = 34
+        versionCode 17
+        versionName "1.0.17"
 
         multiDexEnabled true
 
@@ -58,20 +42,13 @@ android {
     }
 
     signingConfigs {
-        release {
-            keyAlias keystoreProperties['keyAlias']
-            keyPassword keystoreProperties['keyPassword']
-            storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
-            storePassword keystoreProperties['storePassword']
-        }
+
     }
 
     buildTypes {
         release {
-            signingConfig signingConfigs.release
             minifyEnabled true
 //            useProguard true
-
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
 
@@ -86,16 +63,10 @@ android {
     //重命名
     applicationVariants.all { variant ->
         variant.outputs.all {
-            outputFileName = "${variant.applicationId}_${variant.flavorName}_${buildType.name}_${variant.versionName}_${buildTime()}.apk"
+            outputFileName = "${variant.applicationId}_${variant.flavorName}_${buildType.name}_${variant.versionName}}.apk"
         }
     }
 
-}
-
-static def buildTime() {
-    def df = new SimpleDateFormat("yyyy-MM-dd-HH-mm")
-    df.setTimeZone(TimeZone.getTimeZone("GMT+8:00"))
-    return df.format(new Date())
 }
 
 dependencies {
@@ -103,5 +74,5 @@ dependencies {
 }
 
 flutter {
-    source '../..'
+    source = "../.."
 }
