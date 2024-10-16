@@ -16,17 +16,18 @@ class DefaultUrlListRoute extends StatefulWidget {
   State<StatefulWidget> createState() => _SettingRouteState();
 }
 
+int tabCounts = 0;
+
 class _SettingRouteState extends State<DefaultUrlListRoute> {
   final Map<String, Map<String, String>> defaultList =
       <String, Map<String, String>>{};
   OptionalDbControl control = OptionalDbControl();
+  int nowTime = 0;
 
   @override
   void initState() {
     control.initDatabase().then((value) {
-      print("//////////// --> DefaultUrlListRoute");
       control.dogs().then((tvList) {
-        print("//////////// --> $tvList");
         setState(() {
           for (var value in tvList) {
             defaultList[value.name] = {
@@ -46,9 +47,10 @@ class _SettingRouteState extends State<DefaultUrlListRoute> {
               };
               control.insertDog(
                 TvList(
-                    id: values.indexOf(value),
-                    name: value["name"],
-                    url: value["url"]),
+                  id: values.indexOf(value),
+                  name: value["name"],
+                  url: value["url"],
+                ),
               );
             }
           });
@@ -62,50 +64,66 @@ class _SettingRouteState extends State<DefaultUrlListRoute> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("精选列表资源")),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: ListView.builder(
-            itemCount: defaultList.length,
-            itemExtent: 50.0, //强制高度为50.0
-            itemBuilder: (BuildContext context, int index) {
-              final value = defaultList.values.elementAt(index);
-              return InkWell(
-                onTap: () async {
-                  setState(() {
-                    value["status"] = "开始下载数据...";
-                  });
-
-                  final file = await _localFile;
-
-                  Dio().download(value["url"] ?? "", file.path,
-                      onReceiveProgress: (int count, int total) {
+      body: GestureDetector(
+        onTap: () {
+          if (tabCounts == 0) {
+            nowTime = DateTime.now().millisecondsSinceEpoch;
+            tabCounts++;
+          } else if (tabCounts > 10) {
+            if (DateTime.now().millisecondsSinceEpoch - nowTime < 3000) {
+              setState(() {});
+            } else {
+              tabCounts = 0;
+            }
+          } else {
+            tabCounts++;
+          }
+        },
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: ListView.builder(
+              itemCount: defaultList.length,
+              itemExtent: 50.0, //强制高度为50.0
+              itemBuilder: (BuildContext context, int index) {
+                final value = defaultList.values.elementAt(index);
+                return InkWell(
+                  onTap: () async {
                     setState(() {
-                      value["status"] = "进度:$count/$total";
+                      value["status"] = "开始下载数据...";
                     });
-                  }).then((item) {
-                    if (item.statusCode == 200) {
+
+                    final file = await _localFile;
+
+                    Dio().download(value["url"] ?? "", file.path,
+                        onReceiveProgress: (int count, int total) {
                       setState(() {
-                        value["status"] = "下载数据成功,开始解析数据";
-                        parse(file.path);
-                        value["status"] = "已读取至列表";
+                        value["status"] = "进度:$count/$total";
                       });
-                    }
-                  }).catchError((e) {
-                    setState(() {
-                      value["status"] = "加载失败";
+                    }).then((item) {
+                      if (item.statusCode == 200) {
+                        setState(() {
+                          value["status"] = "下载数据成功,开始解析数据";
+                          parse(file.path);
+                          value["status"] = "已读取至列表";
+                        });
+                      }
+                    }).catchError((e) {
+                      setState(() {
+                        value["status"] = "加载失败";
+                      });
                     });
-                  });
-                },
-                child: ListTile(
-                    title: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(defaultList.keys.elementAt(index)),
-                    Text(value["status"] ?? ""),
-                  ],
-                )),
-              );
-            }),
+                  },
+                  child: ListTile(
+                      title: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(defaultList.keys.elementAt(index)),
+                      Text(value["status"] ?? ""),
+                    ],
+                  )),
+                );
+              }),
+        ),
       ),
     );
   }
