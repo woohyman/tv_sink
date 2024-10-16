@@ -28,17 +28,17 @@ class _SettingRouteState extends State<DefaultUrlListRoute> {
   void initState() {
     control.initDatabase().then((value) {
       control.dogs().then((tvList) {
-        setState(() {
-          for (var value in tvList) {
-            defaultList[value.name] = {
-              "url": value.url,
-              "status": "",
-            };
-          }
-        });
+        // setState(() {
+        //   for (var value in tvList) {
+        //     defaultList[value.name] = {
+        //       "url": value.url,
+        //       "status": "",
+        //     };
+        //   }
+        // });
 
         final supabase = Supabase.instance.client;
-        supabase.from("default_m3u_list").select().then((values) {
+        supabase.from("default_m3u_list").select().eq('level', 0).then((values) {
           setState(() {
             for (var value in values) {
               defaultList[value["name"]] = {
@@ -71,7 +71,28 @@ class _SettingRouteState extends State<DefaultUrlListRoute> {
             tabCounts++;
           } else if (tabCounts > 10) {
             if (DateTime.now().millisecondsSinceEpoch - nowTime < 3000) {
-              setState(() {});
+              setState(() {
+                Supabase.instance.client
+                    .from("default_m3u_list")
+                    .select()
+                    .then((values) {
+                  setState(() {
+                    for (var value in values) {
+                      defaultList[value["name"]] = {
+                        "url": value["url"],
+                        "status": "",
+                      };
+                      control.insertDog(
+                        TvList(
+                          id: values.indexOf(value),
+                          name: value["name"],
+                          url: value["url"],
+                        ),
+                      );
+                    }
+                  });
+                });
+              });
             } else {
               tabCounts = 0;
             }
