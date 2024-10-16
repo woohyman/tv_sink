@@ -1,17 +1,18 @@
 import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:tv_sink/widgets/list/FavoriteChannelsList.dart';
+import 'package:tv_sink/widgets/list/FeaturedChannelsList.dart';
+import 'package:tv_sink/widgets/list/OptionalChannelsList.dart';
 
 import '../ad/AppLifecycleReactor.dart';
 import '../ad/AppOpenAdManager.dart';
 import '../ad/banner/AnchorAdapter.dart';
 import '../domain/PlaylistStateManager.dart';
-import '../update/UpdateController.dart';
 import '../util/const.dart';
 import '../widgets/KeepAliveTest.dart';
 import '../widgets/PlayerWrapper.dart';
 import '../widgets/SliderLeft.dart';
-import '../widgets/TvNameList.dart';
 
 class ScaffoldRoute extends StatefulWidget {
   const ScaffoldRoute({Key? key}) : super(key: key);
@@ -48,7 +49,8 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
     });
 
     AppOpenAdManager appOpenAdManager = AppOpenAdManager()..loadAd();
-    WidgetsBinding.instance!.addObserver(AppLifecycleReactor(appOpenAdManager: appOpenAdManager));
+    WidgetsBinding.instance
+        .addObserver(AppLifecycleReactor(appOpenAdManager: appOpenAdManager));
 
     _pageController = PageController();
   }
@@ -80,15 +82,15 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
                 },
                 children: const <Widget>[
                   KeepAliveWrapper(
-                    child: TvNameList(0,),
+                    child: FeaturedChannelsList(0),
                     keepAlive: true,
                   ),
                   KeepAliveWrapper(
-                    child: TvNameList(1),
+                    child: OptionalChannelsList(1),
                     keepAlive: true,
                   ),
                   KeepAliveWrapper(
-                    child: TvNameList(2),
+                    child: FavoriteChannelsList(2),
                     keepAlive: true,
                   ),
                 ],
@@ -100,9 +102,12 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
           builder: (BuildContext context, int value, Widget? child) {
             return BottomNavigationBar(
               items: const <BottomNavigationBarItem>[
-                BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '精选频道'),
-                BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '自选频道'),
-                BottomNavigationBarItem(icon: Icon(Icons.airplay), label: '收藏频道'),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.airplay), label: '精选频道'),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.airplay), label: '自选频道'),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.airplay), label: '收藏频道'),
               ],
               currentIndex: value,
               fixedColor: Colors.blue,

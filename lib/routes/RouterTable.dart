@@ -1,9 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:tvSink/pages/DefaultUrlListRoute.dart';
-import 'package:tvSink/pages/HistoryRoute.dart';
 
 import '../pages/AppSettingRoute.dart';
+import '../pages/DefaultUrlListRoute.dart';
+import '../pages/HistoryRoute.dart';
 import '../pages/ParseUrlListRoute.dart';
 import '../pages/ScaffoldRoute.dart';
 import '../pages/SettingRoute.dart';

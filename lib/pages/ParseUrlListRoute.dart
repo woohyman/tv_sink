@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:tvSink/tools/ParseTxtSourceToList.dart';
+
+import '../tools/ParseTxtSourceToList.dart';
 
 class ParseUrlListRoute extends StatefulWidget {
   const ParseUrlListRoute({Key? key}) : super(key: key);

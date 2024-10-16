@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-
-// import 'package:flutter_bugly/flutter_bugly.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:tvSink/routes/RouterTable.dart';
+import 'package:tv_sink/provider/watch_lists_controller.dart';
+import 'package:tv_sink/routes/RouterTable.dart';
 
 import 'domain/WifiManager.dart';
 import 'pages/ScaffoldRoute.dart';
@@ -32,9 +31,11 @@ Future<void> main() async {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    Get.put(WatchListsController());
+    Get.put(CollectionListsController());
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       onGenerateRoute: RouterTable.onGenerateRoute,

@@ -4,10 +4,10 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:tvSink/domain/model/TvList.dart';
-import 'package:tvSink/tools/ParseTxtSourceToList.dart';
 
 import '../datastore/OptionalDbControl.dart';
+import '../domain/model/TvList.dart';
+import '../tools/ParseTxtSourceToList.dart';
 
 class DefaultUrlListRoute extends StatefulWidget {
   const DefaultUrlListRoute({Key? key}) : super(key: key);
@@ -26,35 +26,36 @@ class _SettingRouteState extends State<DefaultUrlListRoute> {
 
   @override
   void initState() {
-    control.initDatabase().then((value) {
-      control.dogs().then((tvList) {
-        // setState(() {
-        //   for (var value in tvList) {
-        //     defaultList[value.name] = {
-        //       "url": value.url,
-        //       "status": "",
-        //     };
-        //   }
-        // });
 
-        final supabase = Supabase.instance.client;
-        supabase.from("default_m3u_list").select().eq('level', 0).then((values) {
-          setState(() {
-            for (var value in values) {
-              defaultList[value["name"]] = {
-                "url": value["url"],
-                "status": "",
-              };
-              control.insertDog(
-                TvList(
-                  id: values.indexOf(value),
-                  name: value["name"],
-                  url: value["url"],
-                ),
-              );
-            }
-          });
-        });
+    //从数据库中读取数据,预刷新界面
+    control.dogs().then((tvList) {
+      setState(() {
+        for (var value in tvList) {
+          defaultList[value.name] = {
+            "url": value.url,
+            "status": "",
+          };
+        }
+      });
+    });
+
+    //从后台读取数据并写入数据库
+    final supabase = Supabase.instance.client;
+    supabase.from("default_m3u_list").select().eq('level', 0).then((values) {
+      setState(() {
+        for (var value in values) {
+          defaultList[value["name"]] = {
+            "url": value["url"],
+            "status": "",
+          };
+          control.insertDog(
+            TvList(
+              id: values.indexOf(value),
+              name: value["name"],
+              url: value["url"],
+            ),
+          );
+        }
       });
     });
     super.initState();

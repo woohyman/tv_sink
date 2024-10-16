@@ -1,5 +1,8 @@
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+
 import '../datastore/RemoteUrlControl.dart';
-import '../mock/data.dart';
+import '../provider/watch_lists_controller.dart';
 import 'model/user.dart';
 
 class PlaylistStateManager {
@@ -27,6 +30,7 @@ class PlaylistStateManager {
   }
 
   void setPositionByName(String tvName) {
+    final foreignTvLis = Get.find<WatchListsController>().list;
     if (defaultTvList.containsKey(tvName)) {
       position.tabIndex = 0;
       position.listIndex = defaultTvList.keys.toList().indexOf(tvName);
@@ -41,14 +45,17 @@ class PlaylistStateManager {
 
   /*管理收藏列表*/
   bool isContain(tvName) {
+    final featuredTvLis = Get.find<CollectionListsController>().list;
     return featuredTvLis.keys.contains(tvName);
   }
 
   void addCollect(String tvName, dynamic _user) {
+    final featuredTvLis = Get.find<CollectionListsController>().list;
     featuredTvLis[tvName] = _user;
   }
 
   void removeUrl(String tvName) {
+    final featuredTvLis = Get.find<CollectionListsController>().list;
     featuredTvLis.remove(tvName);
   }
 
@@ -64,12 +71,19 @@ class PlaylistStateManager {
     }
 
     if (defaultTvList.containsKey(tvName)) {
-      liveSource[tvName] = User.fromJson(Map<String, dynamic>.from(defaultTvList[tvName])).tvgUrl.first;
+      liveSource[tvName] =
+          User.fromJson(Map<String, dynamic>.from(defaultTvList[tvName]))
+              .tvgUrl
+              .first;
       return liveSource[tvName] ?? "";
     }
 
+    final foreignTvLis = Get.find<WatchListsController>().list;
     if (foreignTvLis.containsKey(tvName)) {
-      liveSource[tvName] = User.fromJson(Map<String, dynamic>.from(foreignTvLis[tvName])).tvgUrl.first;
+      liveSource[tvName] =
+          User.fromJson(Map<String, dynamic>.from(foreignTvLis[tvName]))
+              .tvgUrl
+              .first;
       return liveSource[tvName] ?? "";
     }
 
@@ -77,11 +91,13 @@ class PlaylistStateManager {
   }
 }
 
-Map<int, Map<String, dynamic>> tvData = {
-  0: defaultTvList,
-  1: foreignTvLis,
-  2: featuredTvLis,
-};
+Map<int, Map<String, dynamic>> get tvData {
+  return {
+    0: defaultTvList,
+    1: Get.find<WatchListsController>().list,
+    2: Get.find<CollectionListsController>().list,
+  };
+}
 
 class Position {
   int tabIndex = 0;

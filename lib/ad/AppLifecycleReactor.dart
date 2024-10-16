@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:tvSink/domain/PlayControlManager.dart';
 
+import '../domain/PlayControlManager.dart';
 import 'AppOpenAdManager.dart';
 
 class AppLifecycleReactor extends WidgetsBindingObserver {

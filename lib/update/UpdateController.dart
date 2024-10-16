@@ -1,9 +1,10 @@
 import 'dart:async';
 import 'dart:io';
-
+import 'package:dio/dio.dart';
+import 'package:open_file/open_file.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:retry/retry.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class UpdateController {
   PostgrestMap? data;
@@ -43,11 +44,32 @@ class UpdateController {
   }
 
   Future<void> launchUpdateUrl() async {
-    print('获取升级数据======> ' + downloadUrl);
-    final Uri _url = Uri.parse(downloadUrl);
+    print('test002 下载路径 ======> ' + downloadUrl);
 
-    if (!await launchUrl(_url)) {
-      throw Exception('Could not launch $_url');
-    }
+    final file = await _localFile;
+    Dio().download(
+      downloadUrl,
+      file.path,
+      onReceiveProgress: (int count, int total) {
+        print("test002 下载进度 ==> $count/$total");
+      },
+    ).then((value) {
+      if (value.statusCode == 200) {
+        OpenFile.open(file.path, type: "application/vnd.android.package-archive");
+        print("test002 下载成功 ==>");
+      }
+    }).catchError((e) {
+      print("test002 下载失败 ==> $e");
+    });
   }
+}
+
+Future<String> get _localPath async {
+  final _path = await getTemporaryDirectory();
+  return _path.path;
+}
+
+Future<File> get _localFile async {
+  final path = await _localPath;
+  return File('$path/apk');
 }

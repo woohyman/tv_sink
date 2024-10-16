@@ -6,10 +6,8 @@ import 'package:sqflite/sqflite.dart';
 import '../domain/model/TvUrlList.dart';
 
 class OptionalUrlDbControl {
-  late Database database;
-
-  Future<void> initDatabase() async {
-    database = await openDatabase(
+  Future<Database> get _database async {
+    return await openDatabase(
       join(await getDatabasesPath(), 'tv_list_1.db'),
       onCreate: (db, version) {
         return db.execute(
@@ -21,7 +19,7 @@ class OptionalUrlDbControl {
   }
 
   Future<void> insertDog(TvUrlList dog) async {
-    final db = await database;
+    final db = await _database;
 
     await db.insert(
       'dogsUrl',
@@ -31,7 +29,7 @@ class OptionalUrlDbControl {
   }
 
   Future<List<TvUrlList>> dogs() async {
-    final db = await database;
+    final db = await _database;
 
     final List<Map<String, Object?>> dogMaps = await db.query('dogsUrl');
 
@@ -51,7 +49,7 @@ class OptionalUrlDbControl {
   }
 
   Future<void> updateDog(TvUrlList dog) async {
-    final db = await database;
+    final db = await _database;
 
     await db.update(
       'dogsUrl',
@@ -61,12 +59,12 @@ class OptionalUrlDbControl {
   }
 
   Future<void> deleteAll() async {
-    final db = await database;
+    final db = await _database;
     await db.delete('dogsUrl');
   }
 
   Future<void> deleteDog(int id) async {
-    final db = await database;
+    final db = await _database;
 
     await db.delete(
       'dogsUrl',

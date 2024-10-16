@@ -8,7 +8,7 @@ import '../domain/WifiManager.dart';
 import '../domain/model/user.dart';
 import '../datastore/sharePreference.dart';
 import '../util/const.dart';
-import '../widgets/TvNameList.dart';
+import '../widgets/list/FavoriteChannelsList.dart';
 
 class HistoryRoute extends StatefulWidget {
   const HistoryRoute({Key? key}) : super(key: key);

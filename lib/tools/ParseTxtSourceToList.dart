@@ -1,7 +1,8 @@
 import 'dart:io';
 
-import 'package:tvSink/mock/data.dart';
-
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import '../provider/watch_lists_controller.dart';
 import '../util/const.dart';
 
 void parse(String url) async {
@@ -78,8 +79,8 @@ Future<String> _readM3uContent(String stringValue) async {
     }
   }
 
-  foreignTvLis.clear();
-  foreignTvLis.addAll(_foreignTvList);
+  final controller = Get.find<WatchListsController>();
+  controller.setWatchLists(_foreignTvList);
 
   eventBus.fire(keyImportState);
   return stringValue;
@@ -103,8 +104,8 @@ Future<String> _readXmlContent(String stringValue) async {
     }
   }
 
-  foreignTvLis.clear();
-  foreignTvLis.addAll(_foreignTvList);
+  final controller = Get.find<WatchListsController>();
+  controller.setWatchLists(_foreignTvList);
   eventBus.fire(keyImportState);
   return stringValue;
 }

@@ -1,24 +1,9 @@
-import 'dart:async';
-import 'dart:io';
-
-import 'package:dio/dio.dart';
-import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
-import 'package:open_file/open_file.dart';
-import 'package:package_info_plus/package_info_plus.dart';
-import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:retry/retry.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:tvSink/domain/WifiManager.dart';
-import 'package:tvSink/datastore/sharePreference.dart';
-import 'package:url_launcher/url_launcher.dart';
 
-import '../domain/PlayControlManager.dart';
+import '../datastore/sharePreference.dart';
+import '../domain/WifiManager.dart';
 import '../update/ApkVersionController.dart';
 import '../update/UpdateController.dart';
-import '../util/const.dart';
-import '../util/log.dart';
 
 class AppSettingRoute extends StatefulWidget {
   const AppSettingRoute({Key? key}) : super(key: key);
