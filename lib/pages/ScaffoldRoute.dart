@@ -1,14 +1,13 @@
-import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:tv_sink/widgets/list/FavoriteChannelsList.dart';
 import 'package:tv_sink/widgets/list/FeaturedChannelsList.dart';
 import 'package:tv_sink/widgets/list/OptionalChannelsList.dart';
 
-import '../ad/AppLifecycleReactor.dart';
-import '../ad/AppOpenAdManager.dart';
-import '../ad/banner/AnchorAdapter.dart';
 import '../domain/PlaylistStateManager.dart';
+import '../domain/ad/AppLifecycleReactor.dart';
+import '../domain/ad/AppOpenAdManager.dart';
+import '../domain/ad/banner/AnchorAdapter.dart';
 import '../util/const.dart';
 import '../widgets/KeepAliveTest.dart';
 import '../widgets/PlayerWrapper.dart';
@@ -82,15 +81,15 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
                 },
                 children: const <Widget>[
                   KeepAliveWrapper(
-                    child: FeaturedChannelsList(0),
+                    child: FeaturedChannelsList(),
                     keepAlive: true,
                   ),
                   KeepAliveWrapper(
-                    child: OptionalChannelsList(1),
+                    child: OptionalChannelsList(),
                     keepAlive: true,
                   ),
                   KeepAliveWrapper(
-                    child: FavoriteChannelsList(2),
+                    child: FavoriteChannelsList(),
                     keepAlive: true,
                   ),
                 ],

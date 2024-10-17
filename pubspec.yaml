@@ -10,7 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  json_annotation: ^4.5.0
+  json_annotation: ^4.9.0
   scrollable_positioned_list: ^0.2.3
   cached_network_image: ^3.2.0
   transparent_image: ^2.0.0
@@ -36,7 +36,6 @@ dependencies:
   # 消息中心（事件发送和监听）
   event_bus: ^2.0.0
   permission_handler: 11.3.1
-  url_launcher: ^6.3.1
   path_provider: ^2.0.9
 
 dev_dependencies:

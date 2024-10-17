@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
-import '../ad/banner/InlineAdapter.dart';
+import '../domain/ad/banner/InlineAdapter.dart';
 import '../routes/RouterTable.dart';
 
 class SliderLeft extends StatefulWidget {
@@ -59,8 +59,8 @@ class _SliderLeftState extends State<SliderLeft> {
                       ListTile(
                         onTap: () => {
                           Share.share(
-                              'check out my website https://example.com',
-                              subject: 'Look what I made!')
+                              'https://iozcbyxqcgvqiosrabsw.supabase.co/storage/v1/object/public/apks/1.0.18.apk?t=2024-10-16T11%3A18%3A24.596Z',
+                              subject: '请下载!')
                         },
                         leading: const Icon(Icons.share),
                         title: const Text('分享App'),

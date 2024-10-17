@@ -33,8 +33,10 @@ class PlayControlManager {
   //第二种方式调用
   static PlayControlManager instance = PlayControlManager._();
 
-  void setResourceAndPlay(String tvName, String source) async {
-    print("..................... $source");
+  void setResourceAndPlay(String tvName, String? source) async {
+    if(source == null){
+      return;
+    }
     bool _autoPlay = _intervalTime[source] ?? true;
     eventBus.fire(const MapEntry(startPlayTv, true));
     _afterFirstPress = true;
@@ -44,7 +46,6 @@ class PlayControlManager {
     if(_autoPlay){
       _player.start();
     }
-
   }
 
   void pause() async {

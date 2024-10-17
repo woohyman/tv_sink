@@ -4,7 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 
-import '../tools/ParseTxtSourceToList.dart';
+import '../domain/parse/ParseTxtSourceToList.dart';
 
 class ParseUrlListRoute extends StatefulWidget {
   const ParseUrlListRoute({Key? key}) : super(key: key);
@@ -55,27 +55,35 @@ class _SettingRouteState extends State<ParseUrlListRoute> {
                       });
 
                       final file = await _localFile;
-                      print("test001 开始下载 $file");
-                      print("test001 地址 ${_urlController.text}");
 
                       Dio().download(_urlController.text, file.path,
                           onReceiveProgress: (int count, int total) {
-                        print("test001 value ==> $count/$total");
                         setState(() {
-                          downloadInfo = downloadInfo + "\n进度:$count/$total";
+                          if(total>0){
+                            downloadInfo =
+                            "下载进度:${(count.toDouble() * 100 / total.toDouble()).truncate()}%";
+                          }else{
+                            downloadInfo =
+                            "下载进度:$count字节";
+                          }
                         });
                       }).then((value) {
-                        print("test001 value ==> ${value.statusCode}");
                         if (value.statusCode == 200) {
                           setState(() {
-                            downloadInfo = downloadInfo + "\n下载数据成功,开始解析数据";
-                            parse(file.path);
-                            downloadInfo =
-                                downloadInfo + "\n解析数据成功,列表已经填充到自选频道";
+                            downloadInfo = "下载数据成功,开始解析数据";
+                          });
+                          parse(file.path).then((value) {
+                            setState(() {
+                              downloadInfo = "已解析完成:"+value;
+                            });
+                          }).catchError((error, stackTrace){
+                            setState(() {
+                              downloadInfo = "解析失败: $error : $stackTrace";
+                            });
                           });
                         }
                       }).catchError((e) {
-                        downloadInfo = downloadInfo + "\n加载失败";
+                        downloadInfo = "加载失败";
                       });
                     },
                   ),

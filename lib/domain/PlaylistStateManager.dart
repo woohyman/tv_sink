@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
-import '../datastore/RemoteUrlControl.dart';
-import '../provider/watch_lists_controller.dart';
+import '../control/WatchListsController.dart';
+import '../data/RemoteUrlControl.dart';
 import 'model/user.dart';
 
 class PlaylistStateManager {
@@ -23,18 +23,12 @@ class PlaylistStateManager {
   User getUserByPosition(int tabIndex, int listIndex) {
     final data = tvData[tabIndex]?.values;
     final item = Map<String, dynamic>.from(data?.elementAt(listIndex));
-    print("object ************************* ${item}");
-    print("object ************************* ${item.runtimeType}");
-    print("object ************************* ${item["tvgUrl"]}");
     return User.fromJson(item);
   }
 
   void setPositionByName(String tvName) {
     final foreignTvLis = Get.find<WatchListsController>().list;
-    if (defaultTvList.containsKey(tvName)) {
-      position.tabIndex = 0;
-      position.listIndex = defaultTvList.keys.toList().indexOf(tvName);
-    } else if (foreignTvLis.containsKey(tvName)) {
+    if (foreignTvLis.containsKey(tvName)) {
       position.tabIndex = 1;
       position.listIndex = foreignTvLis.keys.toList().indexOf(tvName);
     } else {
@@ -65,16 +59,16 @@ class PlaylistStateManager {
     liveSource[key] = value;
   }
 
+  String? getSelectKey(String tvName) {
+    if (getSourceByKey(tvName).isEmpty) {
+      return null;
+    } else {
+      return getSourceByKey(tvName);
+    }
+  }
+
   String getSourceByKey(String tvName) {
     if (liveSource.containsKey(tvName)) {
-      return liveSource[tvName] ?? "";
-    }
-
-    if (defaultTvList.containsKey(tvName)) {
-      liveSource[tvName] =
-          User.fromJson(Map<String, dynamic>.from(defaultTvList[tvName]))
-              .tvgUrl
-              .first;
       return liveSource[tvName] ?? "";
     }
 
@@ -93,7 +87,6 @@ class PlaylistStateManager {
 
 Map<int, Map<String, dynamic>> get tvData {
   return {
-    0: defaultTvList,
     1: Get.find<WatchListsController>().list,
     2: Get.find<CollectionListsController>().list,
   };

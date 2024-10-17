@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
-import '../../util/log.dart';
+import '../../../util/log.dart';
 
 class InlineAdapter {
   bool _isLoaded = false;
@@ -36,7 +36,7 @@ class InlineAdapter {
           logger.i('Inline adaptive banner loaded: ${ad.responseInfo}');
 
           // After the ad is loaded, get the platform ad size and use it to
-          // update the height of the container. This is necessary because the
+          // upgrade the height of the container. This is necessary because the
           // height can change after the ad is loaded.
           BannerAd bannerAd = (ad as BannerAd);
           final AdSize? size = await bannerAd.getPlatformAdSize();

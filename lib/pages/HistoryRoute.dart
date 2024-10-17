@@ -1,14 +1,13 @@
-import 'package:event_bus/event_bus.dart';
 import 'package:flutter/material.dart';
 
-import '../ad/TvInterstitialAd.dart';
 import '../domain/PlayControlManager.dart';
 import '../domain/PlaylistStateManager.dart';
 import '../domain/WifiManager.dart';
+import '../domain/ad/TvInterstitialAd.dart';
 import '../domain/model/user.dart';
-import '../datastore/sharePreference.dart';
+import '../data/SharePreference.dart';
 import '../util/const.dart';
-import '../widgets/list/FavoriteChannelsList.dart';
+import '../widgets/list/ItemView.dart';
 
 class HistoryRoute extends StatefulWidget {
   const HistoryRoute({Key? key}) : super(key: key);
@@ -23,7 +22,7 @@ class _HistoryRouteState extends State<HistoryRoute> {
   @override
   void initState() {
     fetchHistorySharedPreferences().then((value) => {
-          setState(() => {_list.addAll(value),})
+          setState(() {_list.addAll(value);})
         });
     super.initState();
   }

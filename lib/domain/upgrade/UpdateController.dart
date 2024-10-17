@@ -1,10 +1,13 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:dio/dio.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:retry/retry.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+
+import '../../pages/UpdateDialog.dart';
 
 class UpdateController {
   PostgrestMap? data;
@@ -52,11 +55,16 @@ class UpdateController {
       file.path,
       onReceiveProgress: (int count, int total) {
         print("test002 下载进度 ==> $count/$total");
+        EasyLoading.showProgress(count.toDouble()/total.toDouble(), status: '下载中,请稍后');
       },
     ).then((value) {
+      EasyLoading.dismiss();
       if (value.statusCode == 200) {
-        OpenFile.open(file.path, type: "application/vnd.android.package-archive");
-        print("test002 下载成功 ==>");
+        checkPermission().then((value) {
+          OpenFile.open(file.path,
+              type: "application/vnd.android.package-archive");
+          print("test002 下载成功 ==> $value");
+        });
       }
     }).catchError((e) {
       print("test002 下载失败 ==> $e");

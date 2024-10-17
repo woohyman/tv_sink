@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../datastore/sharePreference.dart';
+import '../data/SharePreference.dart';
 import '../domain/WifiManager.dart';
-import '../update/ApkVersionController.dart';
-import '../update/UpdateController.dart';
+import '../domain/upgrade/ApkVersionController.dart';
+import '../domain/upgrade/UpdateController.dart';
 
 class AppSettingRoute extends StatefulWidget {
   const AppSettingRoute({Key? key}) : super(key: key);

@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-import '../datastore/OptionalDbControl.dart';
+import '../data/OptionalDbControl.dart';
 import '../domain/model/TvList.dart';
-import '../tools/ParseTxtSourceToList.dart';
+import '../domain/parse/ParseTxtSourceToList.dart';
 
 class DefaultUrlListRoute extends StatefulWidget {
   const DefaultUrlListRoute({Key? key}) : super(key: key);

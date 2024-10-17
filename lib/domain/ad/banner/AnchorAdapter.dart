@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
-import '../../util/log.dart';
+import '../../../util/log.dart';
 
 class AnchorAdapter {
   BannerAd? _anchoredAdaptiveAd;

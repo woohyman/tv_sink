@@ -5,9 +5,9 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
-import 'package:tv_sink/provider/watch_lists_controller.dart';
 import 'package:tv_sink/routes/RouterTable.dart';
 
+import 'control/WatchListsController.dart';
 import 'domain/WifiManager.dart';
 import 'pages/ScaffoldRoute.dart';
 
@@ -35,6 +35,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(WatchListsController());
     Get.put(CollectionListsController());
+    Get.put(PlayPositionController());
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,

@@ -1,14 +1,15 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-Map<String, dynamic> defaultTvList = <String, dynamic>{};
+
 
 class RemoteUrlControl {
 
-  Future<void> fetchDefaultUrlList() async {
+  Future<Map<String, dynamic>> fetchDefaultUrlList() async {
     final supabase = Supabase.instance.client;
     final list = await supabase.from("default_tv_list").select();
-    print("******************** $list");
-    list.forEach((item) {
+    Map<String, dynamic> defaultTvList = <String, dynamic>{};
+
+    for (var item in list) {
       defaultTvList[item["name"]] = {
         "tvgId": "",
         "tvgCountry": "",
@@ -17,7 +18,9 @@ class RemoteUrlControl {
         "groupTitle": "",
         "tvgUrl": [item["url"]],
       };
-    });
+    }
+
+    return defaultTvList;
   }
 
 }

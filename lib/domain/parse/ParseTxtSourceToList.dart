@@ -1,21 +1,18 @@
 import 'dart:io';
 
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import '../provider/watch_lists_controller.dart';
-import '../util/const.dart';
 
-void parse(String url) async {
+import '../../control/WatchListsController.dart';
+import '../../control/usecase/SetOptionalTvList.dart';
+import '../../util/const.dart';
+
+Future<String> parse(String url) async {
   String stringValue = await File(url).readAsString();
 
   if (stringValue.contains("#EXTM3U")) {
-    _readM3uContent(stringValue)
-        .then((value) => {print("解析成功！")})
-        .onError((error, stackTrace) => {print("$error : $stackTrace")});
+    return _readM3uContent(stringValue);
   } else {
-    _readXmlContent(stringValue)
-        .then((value) => {print("解析成功！")})
-        .onError((error, stackTrace) => {print("$error : $stackTrace")});
+    return _readXmlContent(stringValue);
   }
 }
 
@@ -47,8 +44,6 @@ Future<String> _readM3uContent(String stringValue) async {
       }
 
       for (var value in detailParamArray) {
-        print("xxxxxxxx> $value");
-
         if (value.contains("tvg-id")) {
           _foreignTvList[curTvName]["tvgId"] =
               value.substring(8, value.length - 1);
@@ -74,8 +69,21 @@ Future<String> _readM3uContent(String stringValue) async {
               value.substring(13, value.length - 1);
         }
       }
-    } else if (value.contains("http") || value.contains("rtmp")) {
-      _foreignTvList[curTvName]["tvgUrl"].add(value);
+    } else if (value.startsWith("#http") ||
+        value.startsWith("http") ||
+        value.startsWith("rtmp")) {
+      if (value.startsWith("#http")) {
+        value = value.substring(2);
+      }
+      final urlList = _foreignTvList[curTvName]["tvgUrl"] as List<dynamic>;
+
+      bool contain = false;
+      for (var item in urlList) {
+        if (item == value) contain = true;
+      }
+      if (!contain) {
+        _foreignTvList[curTvName]["tvgUrl"].add(value);
+      }
     }
   }
 
@@ -83,17 +91,25 @@ Future<String> _readM3uContent(String stringValue) async {
   controller.setWatchLists(_foreignTvList);
 
   eventBus.fire(keyImportState);
-  return stringValue;
+  return "解析成功,总共有 ${_foreignTvList.length}个节目";
 }
 
 Future<String> _readXmlContent(String stringValue) async {
   var arrays = stringValue.split("\n");
-  Map<String, dynamic> _foreignTvList = <String, dynamic>{};
+  Map<String, dynamic> _tvList = <String, dynamic>{};
 
   for (var value in arrays) {
     if (value.contains("http") || value.contains("rtmp")) {
       final bigParamArray = value.split(",");
-      _foreignTvList[bigParamArray[0]] ??= <String, dynamic>{
+      if (bigParamArray.length < 2) {
+        continue;
+      }
+
+      if (!bigParamArray[1].startsWith("http") &&
+          !bigParamArray[1].startsWith("rtmp")) {
+        continue;
+      }
+      _tvList[bigParamArray[0]] ??= <String, dynamic>{
         "tvgId": "",
         "tvgCountry": "",
         "tvgLanguage": "",
@@ -104,8 +120,8 @@ Future<String> _readXmlContent(String stringValue) async {
     }
   }
 
-  final controller = Get.find<WatchListsController>();
-  controller.setWatchLists(_foreignTvList);
-  eventBus.fire(keyImportState);
-  return stringValue;
+  final _setOptionalTvList = SetOptionalTvList();
+  _setOptionalTvList.invoke(_tvList);
+
+  return "解析成功,总共有 ${_tvList.length}个节目";
 }

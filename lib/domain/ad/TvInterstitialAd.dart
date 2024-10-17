@@ -1,7 +1,6 @@
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
-import '../domain/PlayControlManager.dart';
-import '../domain/PlaylistStateManager.dart';
+import '../PlayControlManager.dart';
 
 class TvInterstitialAd {
   InterstitialAd? _ad;
@@ -33,7 +32,7 @@ class TvInterstitialAd {
   }
 
   void showAd(String _dataSource, Function aaa) async {
-    if (PlayControlManager.instance.intervalTime[PlaylistStateManager.instance.getSourceByKey(_dataSource)] ?? true) {
+    if (PlayControlManager.instance.intervalTime[_dataSource] ?? true) {
       aaa();
       return;
     }
