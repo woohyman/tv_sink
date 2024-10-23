@@ -2,11 +2,14 @@ import 'dart:async';
 import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:retry/retry.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:supabase/supabase.dart';
 
+import '../../control/WatchListsController.dart';
 import '../../pages/UpdateDialog.dart';
 
 class UpdateController {
@@ -32,7 +35,7 @@ class UpdateController {
 
   Future<PostgrestList> _fetchApkVersion() async {
     print('开始======> ');
-    final supabase = Supabase.instance.client;
+    final supabase = Get.find<SupabaseClient>();
     final data = supabase
         .from("upgrade")
         .select()

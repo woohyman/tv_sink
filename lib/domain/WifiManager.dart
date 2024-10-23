@@ -21,8 +21,8 @@ class WifiManager {
     _isNeedWifi = await fetchAppSettingWifiCompulsion();
     Connectivity()
         .onConnectivityChanged
-        .listen((ConnectivityResult result) async {
-      _result = result;
+        .listen((List<ConnectivityResult> results) async {
+      _result = results.first;
       _isNeedWifi = await fetchAppSettingWifiCompulsion();
       eventBus.fire(const MapEntry(keyWifiCompulsion, null));
       if (_result == ConnectivityResult.mobile && _isNeedWifi) {
@@ -44,6 +44,4 @@ class WifiManager {
   bool get isNeedConnectWithWifi {
     return _result == ConnectivityResult.mobile && _isNeedWifi;
   }
-
-
 }

@@ -2,9 +2,12 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:supabase/supabase.dart';
 
+import '../control/WatchListsController.dart';
 import '../data/OptionalDbControl.dart';
 import '../domain/model/TvList.dart';
 import '../domain/parse/ParseTxtSourceToList.dart';
@@ -26,7 +29,6 @@ class _SettingRouteState extends State<DefaultUrlListRoute> {
 
   @override
   void initState() {
-
     //从数据库中读取数据,预刷新界面
     control.dogs().then((tvList) {
       setState(() {
@@ -40,7 +42,7 @@ class _SettingRouteState extends State<DefaultUrlListRoute> {
     });
 
     //从后台读取数据并写入数据库
-    final supabase = Supabase.instance.client;
+    final supabase = Get.find<SupabaseClient>();
     supabase.from("default_m3u_list").select().eq('level', 0).then((values) {
       setState(() {
         for (var value in values) {
@@ -73,7 +75,7 @@ class _SettingRouteState extends State<DefaultUrlListRoute> {
           } else if (tabCounts > 10) {
             if (DateTime.now().millisecondsSinceEpoch - nowTime < 3000) {
               setState(() {
-                Supabase.instance.client
+                Get.find<SupabaseClient>()
                     .from("default_m3u_list")
                     .select()
                     .then((values) {

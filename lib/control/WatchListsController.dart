@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:supabase/supabase.dart' hide User;
 
 import '../data/OptionalUrlDbControl.dart';
 import '../data/RemoteUrlControl.dart';
