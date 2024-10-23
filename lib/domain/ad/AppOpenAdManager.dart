@@ -1,8 +1,10 @@
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'dart:io' show Platform;
 
+import 'package:universal_platform/universal_platform.dart';
+
 class AppOpenAdManager {
-  String adUnitId = Platform.isAndroid ? 'ca-app-pub-3940256099942544/3419835294' : 'ca-app-pub-3940256099942544/5662855259';
+  String adUnitId = UniversalPlatform.isAndroid ? 'ca-app-pub-3940256099942544/3419835294' : 'ca-app-pub-3940256099942544/5662855259';
 
   AppOpenAd? _appOpenAd;
   bool _isShowingAd = false;

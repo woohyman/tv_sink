@@ -51,7 +51,7 @@ class _SettingRouteState extends State<ParseUrlListRoute> {
                     ),
                     onPressed: () async {
                       setState(() {
-                        downloadInfo = "开始下载数据...";
+                        downloadInfo = "开始下载数据...${DateTime.now()}";
                       });
 
                       final file = await _localFile;
@@ -81,9 +81,17 @@ class _SettingRouteState extends State<ParseUrlListRoute> {
                               downloadInfo = "解析失败: $error : $stackTrace";
                             });
                           });
+                        }else{
+                          setState(() {
+                            downloadInfo = "加载失败 $value";
+                          });
                         }
                       }).catchError((e) {
-                        downloadInfo = "加载失败";
+                        setState(() {
+                          print("加载失败 $e");
+                          downloadInfo = "加载失败 $e";
+                        });
+
                       });
                     },
                   ),

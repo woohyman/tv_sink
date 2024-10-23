@@ -57,7 +57,7 @@ class WatchListsController {
       item.value["tvgLogo"],
       item.value["groupTitle"],
       urlList,
-      urlList.first,
+      urlList.firstOrNull??"",
     );
   }
 }

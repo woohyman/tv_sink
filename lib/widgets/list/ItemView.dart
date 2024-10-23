@@ -82,7 +82,7 @@ class _ItemViewState extends State<ItemView> {
                       child: Visibility(
                         visible: user.tvgUrl.length > 1,
                         child: DropdownButton<String>(
-                          value: myItems.first.value,
+                          value: myItems.firstOrNull?.value??"",
                           onChanged: (value) {
                             setState(() {
                               _playPosController.setUrl(value??"");

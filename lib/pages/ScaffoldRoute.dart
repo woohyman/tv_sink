@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:flutter_update_dialog/update_dialog.dart';
 import 'package:tv_sink/widgets/list/FavoriteChannelsList.dart';
 import 'package:tv_sink/widgets/list/FeaturedChannelsList.dart';
 import 'package:tv_sink/widgets/list/OptionalChannelsList.dart';
@@ -8,6 +11,8 @@ import '../domain/PlaylistStateManager.dart';
 import '../domain/ad/AppLifecycleReactor.dart';
 import '../domain/ad/AppOpenAdManager.dart';
 import '../domain/ad/banner/AnchorAdapter.dart';
+import '../domain/upgrade/ApkVersionController.dart';
+import '../domain/upgrade/UpdateController.dart';
 import '../util/const.dart';
 import '../widgets/KeepAliveTest.dart';
 import '../widgets/PlayerWrapper.dart';
@@ -24,6 +29,8 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
   final ValueNotifier<int> _selectedIndex = ValueNotifier<int>(0);
   PageController? _pageController;
   final AnchorAdapter _anchorAdapter = AnchorAdapter();
+  final _updateController = UpdateController();
+  final _apkVersionController = ApkVersionController();
 
   @override
   void didChangeDependencies() {
@@ -34,6 +41,16 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
   @override
   void initState() {
     super.initState();
+
+    _updateController.fetchApkVersion().then((value) {
+      _apkVersionController.fetchApkVersion().then((value){
+        if(_updateController.versionCode >
+            _apkVersionController.versionCode){
+          defaultStyle();
+        }
+      });
+    });
+
     FlutterNativeSplash.remove();
 
     eventBus.on<MapEntry<String, dynamic>>().listen((event) {
@@ -122,5 +139,19 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
   void _onItemTapped(int index) {
     _pageController?.jumpToPage(index);
     _selectedIndex.value = index;
+  }
+
+  UpdateDialog? dialog;
+  double progress = 0.0;
+
+  void defaultStyle() {
+    if (dialog != null && dialog!.isShowing()) {
+      return;
+    }
+    dialog = UpdateDialog.showUpdate(context,
+        isForce: false,
+        title: '是否升级到版本${_updateController.versionName}?',
+        updateContent: '',
+        onUpdate: () => _updateController.launchUpdateUrlDialog(dialog));
   }
 }

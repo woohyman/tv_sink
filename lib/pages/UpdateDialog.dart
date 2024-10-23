@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-class UpdateDialog extends StatefulWidget {
+class UpdateDialog1 extends StatefulWidget {
   final String version;
   final Function? onClickWhenDownload;
   final Function? onClickWhenNotDownload;
 
-  const UpdateDialog({
+  const UpdateDialog1({
     Key? key,
     required this.version,
     this.onClickWhenDownload,
@@ -17,7 +17,7 @@ class UpdateDialog extends StatefulWidget {
   State<StatefulWidget> createState() => UpdateDialogState();
 }
 
-class UpdateDialogState extends State<UpdateDialog> {
+class UpdateDialogState extends State<UpdateDialog1> {
   var _downloadProgress = 0.0;
 
   @override

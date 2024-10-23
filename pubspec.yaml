@@ -4,7 +4,7 @@ description: A new Flutter project.
 version: 1.0.15+15
 
 environment:
-  sdk: ">=2.16.0-134.5.beta <4.0.0"
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   flutter:
@@ -21,7 +21,11 @@ dependencies:
   flutter_native_splash: ^2.1.2+1
   share_plus: ^10.0.3
   google_mobile_ads: ^4.0.0
+
   fijkplayer: ^0.11.0
+  video_player_media_kit: ^1.0.5
+  media_kit_libs_macos_video: any
+
   flutter_easyloading: ^3.0.5
   logger: ^1.1.0
   retry: ^3.1.2
@@ -34,6 +38,8 @@ dependencies:
   event_bus: ^2.0.0
   permission_handler: 11.3.1
   path_provider: ^2.0.9
+  flutter_update_dialog: ^2.0.0
+  universal_platform: ^1.1.0
 
 dev_dependencies:
   flutter_test:

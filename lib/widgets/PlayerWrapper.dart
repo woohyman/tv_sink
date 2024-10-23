@@ -1,7 +1,4 @@
-import 'package:event_bus/event_bus.dart';
-import 'package:fijkplayer/fijkplayer.dart';
 import 'package:flutter/material.dart';
-
 import '../domain/PlayControlManager.dart';
 import '../domain/WifiManager.dart';
 import '../util/const.dart';
@@ -31,11 +28,11 @@ class _PlayerWrapperState extends State<PlayerWrapper> {
     super.initState();
   }
 
-  static const FijkFit fill = FijkFit(
-    sizeFactor: 1.0,
-    aspectRatio: -1,
-    alignment: Alignment.center,
-  );
+  @override
+  void dispose() {
+    super.dispose();
+    PlayControlManager.instance.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,15 +47,7 @@ class _PlayerWrapperState extends State<PlayerWrapper> {
                   child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  FijkView(
-                    color: Colors.black,
-                    height: 250,
-                    fit: fill,
-                    player: PlayControlManager.instance.getPlayer(),
-                    fs: true,
-                    cover: const NetworkImage(
-                        "https://ss0.baidu.com/-Po3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b3b7d0a20cf431ad7831c9504b36acaf2fdd98fc.jpg"),
-                  ),
+                  PlayControlManager.instance.getPlayerWidget(),
                 ],
               )),
             );
@@ -68,7 +57,8 @@ class _PlayerWrapperState extends State<PlayerWrapper> {
         Visibility(
           visible: WifiManager.instance.isNeedConnectWithWifi,
           child: Container(
-            padding: const EdgeInsets.only(left: 0, right: 0, top: 12, bottom: 12),
+            padding:
+                const EdgeInsets.only(left: 0, right: 0, top: 12, bottom: 12),
             color: Colors.black,
             child: const Align(
               child: Text(

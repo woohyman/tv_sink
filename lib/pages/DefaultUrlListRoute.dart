@@ -113,7 +113,7 @@ class _SettingRouteState extends State<DefaultUrlListRoute> {
                 return InkWell(
                   onTap: () async {
                     setState(() {
-                      value["status"] = "开始下载数据...";
+                      value["status"] = "开始下载数据...${DateTime.now()}";
                     });
 
                     final file = await _localFile;
