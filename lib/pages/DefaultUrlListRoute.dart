@@ -132,7 +132,7 @@ class _SettingRouteState extends State<DefaultUrlListRoute> {
                       }
                     }).catchError((e) {
                       setState(() {
-                        value["status"] = "加载失败";
+                        value["status"] = "4加载失败";
                       });
                     });
                   },

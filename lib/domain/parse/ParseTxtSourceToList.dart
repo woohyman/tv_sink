@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:get/get.dart';
+import 'package:tv_sink/util/log.dart';
 
 import '../../control/WatchListsController.dart';
 import '../../control/usecase/SetOptionalTvList.dart';
@@ -9,7 +10,7 @@ import '../../util/const.dart';
 Future<String> parse(String url) async {
   String stringValue = await File(url).readAsString();
 
-  if (stringValue.contains("#EXTM3U")) {
+  if (stringValue.contains("#EXTM3U") || stringValue.contains("#EXTINF")) {
     return _readM3uContent(stringValue);
   } else {
     return _readXmlContent(stringValue);
@@ -17,7 +18,7 @@ Future<String> parse(String url) async {
 }
 
 Future<String> parseData(String stringValue) async {
-  if (stringValue.contains("#EXTM3U")) {
+  if (stringValue.contains("#EXTM3U") || stringValue.contains("#EXTINF")) {
     return _readM3uContent(stringValue);
   } else {
     return _readXmlContent(stringValue);
@@ -34,7 +35,7 @@ Future<String> _readM3uContent(String stringValue) async {
       continue;
     }
 
-    if (value.contains("#EXTINF:-1")) {
+    if (value.contains("#EXTINF")) {
       final bigParamArray = value.split(",");
       curTvName = bigParamArray.last;
       _foreignTvList[curTvName] ??= <String, dynamic>{

@@ -76,23 +76,24 @@ class _SettingRouteState extends State<ParseUrlListRoute> {
                             setState(() {
                               downloadInfo = "已解析完成:"+value;
                             });
-                          }).catchError((error, stackTrace){
-                            setState(() {
-                              downloadInfo = "解析失败: $error : $stackTrace";
-                            });
                           });
+                          //     .catchError((error, stackTrace){
+                          //   setState(() {
+                          //     downloadInfo = "解析失败: $error : $stackTrace";
+                          //   });
+                          // });
                         }else{
                           setState(() {
-                            downloadInfo = "加载失败 $value";
+                            downloadInfo = "1加载失败 $value";
                           });
                         }
-                      }).catchError((e) {
-                        setState(() {
-                          print("加载失败 $e");
-                          downloadInfo = "加载失败 $e";
-                        });
-
                       });
+                        //   .catchError((e) {
+                        // setState(() {
+                        //   downloadInfo = "2加载失败 $e";
+                        // });
+
+                      // });
                     },
                   ),
                   Text(
