@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:supabase/supabase.dart';
+import 'package:tv_sink/util/log.dart';
 
 import '../control/WatchListsController.dart';
 import '../data/OptionalDbControl.dart';
@@ -116,9 +117,7 @@ class _SettingRouteState extends State<DefaultUrlListRoute> {
                       value["status"] = "开始下载数据...${DateTime.now()}";
                     });
 
-                    final file = await _localFile;
-
-                    Dio().download(value["url"] ?? "", file.path,
+                    Dio().request(value["url"] ?? "",
                         onReceiveProgress: (int count, int total) {
                       setState(() {
                         value["status"] = "进度:$count/$total";
@@ -127,7 +126,7 @@ class _SettingRouteState extends State<DefaultUrlListRoute> {
                       if (item.statusCode == 200) {
                         setState(() {
                           value["status"] = "下载数据成功,开始解析数据";
-                          parse(file.path);
+                          parseData(item.data);
                           value["status"] = "已读取至列表";
                         });
                       }
@@ -151,14 +150,4 @@ class _SettingRouteState extends State<DefaultUrlListRoute> {
       ),
     );
   }
-}
-
-Future<String> get _localPath async {
-  final _path = await getTemporaryDirectory();
-  return _path.path;
-}
-
-Future<File> get _localFile async {
-  final path = await _localPath;
-  return File('$path/playList');
 }

@@ -16,6 +16,14 @@ Future<String> parse(String url) async {
   }
 }
 
+Future<String> parseData(String stringValue) async {
+  if (stringValue.contains("#EXTM3U")) {
+    return _readM3uContent(stringValue);
+  } else {
+    return _readXmlContent(stringValue);
+  }
+}
+
 Future<String> _readM3uContent(String stringValue) async {
   var arrays = stringValue.split("\n");
   var curTvName = "";
