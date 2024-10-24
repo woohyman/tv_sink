@@ -3,3 +3,6 @@ keytool -genkey -v -keystore /Users/wujianwu/Desktop/workspace/tvsink/android/ap
 
 //
 base存放模块 model存放数据相关
+
+//web编译的时候添加参数
+flutter build web --base-href /TvsinkFlutter/ --output ./docs/
