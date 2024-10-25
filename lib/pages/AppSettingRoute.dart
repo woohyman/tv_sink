@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../data/SharePreference.dart';
+import '../data/share_preference/SharePreference.dart';
 import '../domain/WifiManager.dart';
 import '../domain/upgrade/ApkVersionController.dart';
 import '../domain/upgrade/UpdateController.dart';

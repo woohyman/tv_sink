@@ -1,10 +1,8 @@
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:supabase/supabase.dart';
-import 'package:tv_sink/util/log.dart';
-import '../data/OptionalDbControl.dart';
-import '../domain/model/TvList.dart';
 import '../domain/parse/ParseTxtSourceToList.dart';
 
 class DefaultUrlListRoute extends StatefulWidget {
@@ -18,42 +16,21 @@ int tabCounts = 0;
 
 class _SettingRouteState extends State<DefaultUrlListRoute> {
   final defaultList = <String, Map<String, String>>{};
-  final _dbControl = OptionalDbControl();
   int nowTime = 0;
 
   @override
   void initState() {
-    //从数据库中读取数据,预刷新界面
-    _dbControl.dogs().then((tvList) {
+
+    Get.find<SupabaseClient>().from("default_m3u_list").select()
+        .eq('level', 0)
+        .then((values) {
       setState(() {
-        for (var value in tvList) {
-          defaultList[value.name] = {
-            "url": value.url,
+        for (var value in values) {
+          defaultList[value["name"]] = {
+            "url": value["url"],
             "status": "",
           };
         }
-      });
-    });
-
-    //从后台读取数据并写入数据库
-    final supabase = Get.find<SupabaseClient>();
-    supabase.from("default_m3u_list").select().eq('level', 0).then((values) {
-      _dbControl.deleteAll().then((value){
-        setState(() {
-          for (var value in values) {
-            defaultList[value["name"]] = {
-              "url": value["url"],
-              "status": "",
-            };
-            _dbControl.insertDog(
-              TvList(
-                id: values.indexOf(value),
-                name: value["name"],
-                url: value["url"],
-              ),
-            );
-          }
-        });
       });
     });
     super.initState();
@@ -66,10 +43,14 @@ class _SettingRouteState extends State<DefaultUrlListRoute> {
       body: GestureDetector(
         onTap: () {
           if (tabCounts == 0) {
-            nowTime = DateTime.now().millisecondsSinceEpoch;
+            nowTime = DateTime
+                .now()
+                .millisecondsSinceEpoch;
             tabCounts++;
           } else if (tabCounts > 10) {
-            if (DateTime.now().millisecondsSinceEpoch - nowTime < 3000) {
+            if (DateTime
+                .now()
+                .millisecondsSinceEpoch - nowTime < 3000) {
               setState(() {
                 Get.find<SupabaseClient>()
                     .from("default_m3u_list")
@@ -81,13 +62,6 @@ class _SettingRouteState extends State<DefaultUrlListRoute> {
                         "url": value["url"],
                         "status": "",
                       };
-                      _dbControl.insertDog(
-                        TvList(
-                          id: values.indexOf(value),
-                          name: value["name"],
-                          url: value["url"],
-                        ),
-                      );
                     }
                   });
                 });
@@ -114,10 +88,10 @@ class _SettingRouteState extends State<DefaultUrlListRoute> {
 
                     Dio().request(value["url"] ?? "",
                         onReceiveProgress: (int count, int total) {
-                      setState(() {
-                        value["status"] = "进度:$count/$total";
-                      });
-                    }).then((item) {
+                          setState(() {
+                            value["status"] = "进度:$count/$total";
+                          });
+                        }).then((item) {
                       if (item.statusCode == 200) {
                         setState(() {
                           value["status"] = "下载数据成功,开始解析数据";
@@ -133,12 +107,12 @@ class _SettingRouteState extends State<DefaultUrlListRoute> {
                   },
                   child: ListTile(
                       title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(defaultList.keys.elementAt(index)),
-                      Text(value["status"] ?? ""),
-                    ],
-                  )),
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(defaultList.keys.elementAt(index)),
+                          Text(value["status"] ?? ""),
+                        ],
+                      )),
                 );
               }),
         ),

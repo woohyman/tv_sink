@@ -1,5 +1,5 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
-import '../data/SharePreference.dart';
+import '../data/share_preference/SharePreference.dart';
 import '../util/const.dart';
 import 'PlayControlManager.dart';
 

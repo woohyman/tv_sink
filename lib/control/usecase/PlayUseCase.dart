@@ -1,16 +1,18 @@
+
 import 'package:get/get.dart';
-import '../../data/SharePreference.dart';
+import 'package:tv_sink/domain/model/TvInfo.dart';
+import '../../data/db/CollectionDbControl.dart';
+import '../../data/db/HistoryDbControl.dart';
 import '../../domain/PlayControlManager.dart';
 import '../../domain/WifiManager.dart';
 import '../../domain/ad/TvInterstitialAd.dart';
-import '../../domain/model/user.dart';
 import '../../util/const.dart';
 import '../../control/WatchListsController.dart';
 
 class PlayUseCase {
-  void invoke(User user) {
+  void invoke(MapEntry<String,TvInfo> entry) {
     final _playPosController = Get.find<PlayPositionController>();
-    _playPosController.setUser(user);
+    _playPosController.setUser(entry);
 
     if (WifiManager.instance.isNeedConnectWithWifi) {
       eventBus.fire(const MapEntry(keyWifiCompulsion, null));
@@ -20,11 +22,11 @@ class PlayUseCase {
 
     //开始加载广告
     TvInterstitialAd.instance.load();
-    TvInterstitialAd.instance.showAd(user.selectUrl??"", () {
+    TvInterstitialAd.instance.showAd(entry.value.tvgUrl, () {
       eventBus.fire(const MapEntry(keySelectState, [listItemSelect]));
       PlayControlManager.instance
-          .setResourceAndPlay(_playPosController.selectUrl?.value);
-      saveHistorySharedPreferences(MapEntry(user.name, user));
+          .setResourceAndPlay(_playPosController.selectUrl.value.value);
+      HistoryDbControl().insertDog(entry);
     });
   }
 }

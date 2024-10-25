@@ -1,111 +1,81 @@
 import 'package:get/get.dart';
-import 'package:supabase/supabase.dart' hide User;
-
-import '../data/OptionalUrlDbControl.dart';
-import '../data/RemoteUrlControl.dart';
-import '../domain/model/TvUrlList.dart';
-import '../domain/model/user.dart';
-import '../util/log.dart';
+import 'package:tv_sink/control/usecase/SetOptionalTvList.dart';
+import '../data/db/CollectionDbControl.dart';
+import '../domain/model/TvInfo.dart';
 
 class FeatureListsController {
-  final Map<String, dynamic> _list = <String, dynamic>{};
+  final list = <String, TvInfo>{}.obs;
 
-  Map<String, dynamic> get list => _list.obs;
-
-  void setWatchLists(Map<String, dynamic> watchLists) {
-    _list.clear();
-    _list.addAll(watchLists);
+  void setWatchLists(Map<String, TvInfo> watchLists) {
+    list.clear();
+    list.addAll(watchLists);
   }
 
-  User getItemByIndex(int index) {
-    final item = _list.entries.elementAt(index);
-    final urlList = (item.value['tvgUrl'] as List<dynamic>)
-        .map((e) => e as String)
-        .toList();
-    return User(
-      item.key,
-      item.value["tvgId"],
-      item.value["tvgCountry"],
-      item.value["tvgLanguage"],
-      item.value["tvgLogo"],
-      item.value["groupTitle"],
-      urlList,
-      urlList.first,
-    );
+  MapEntry<String, TvInfo> getItemByIndex(int index) {
+    final item = list.entries.elementAt(index);
+    return item;
   }
 }
 
 class WatchListsController {
-  RxMap<String, dynamic> list = <String, dynamic>{}.obs;
+  final list = <String, TvInfo>{}.obs;
 
-  void setWatchLists(Map<String, dynamic> watchLists) {
+  void setWatchLists(Map<String, TvInfo> watchLists) {
     //再往列表填充数据
     list.clear();
     list.addAll(watchLists);
   }
 
-  User getItemByIndex(int index) {
+  MapEntry<String, TvInfo> getItemByIndex(int index) {
     final item = list.entries.elementAt(index);
-    final urlList = (item.value['tvgUrl'] as List<dynamic>)
-        .map((e) => e as String)
-        .toList();
-    return User(
-      item.key,
-      item.value["tvgId"],
-      item.value["tvgCountry"],
-      item.value["tvgLanguage"],
-      item.value["tvgLogo"],
-      item.value["groupTitle"],
-      urlList,
-      urlList.firstOrNull??"",
-    );
+    return item;
   }
 }
 
 class CollectionListsController extends GetxController {
-  RxMap<String, dynamic> list = <String, dynamic>{}.obs;
+  final list = <String, TvInfo>{}.obs;
+  final _collectionDbControl = CollectionDbControl();
 
-  User getItemByIndex(int index) {
-    final item = list.entries.elementAt(index);
-    final urlList = (item.value['tvgUrl'] as List<dynamic>)
-        .map((e) => e as String)
-        .toList();
-    return User(
-      item.key,
-      item.value["tvgId"],
-      item.value["tvgCountry"],
-      item.value["tvgLanguage"],
-      item.value["tvgLogo"],
-      item.value["groupTitle"],
-      urlList,
-      urlList.first,
-    );
+  CollectionListsController() {
+    _collectionDbControl.dogs().then((value) {
+      list.clear();
+      list.addAll(value);
+    });
   }
 
-  void selectOrNot(String tvName, dynamic data) {
-    if (list.containsKey(tvName)) {
-      list.remove(tvName);
+  MapEntry<String, TvInfo> getItemByIndex(int index) {
+    final MapEntry<String, TvInfo> item = list.entries.elementAt(index);
+    return item;
+  }
+
+  void selectOrNot(MapEntry<String, TvInfo> data) {
+    if (list.keys.contains(data.key)) {
+      list.remove(data.key);
+      _collectionDbControl.deleteDog(data.key);
     } else {
-      list[tvName] = data;
+      list[data.key] = data.value;
+      _collectionDbControl.insertDog(data);
     }
   }
 
-  void setWatchLists(Map<String, dynamic> watchLists) {
+  void setWatchLists(Map<String, TvInfo> watchLists) {
     list.clear();
     list.addAll(watchLists);
   }
 }
 
 class PlayPositionController {
-  Rxn<User> user = Rxn<User>();
+  final user = Rxn<MapEntry<String, TvInfo>>(null);
 
-  RxString? get selectUrl => user.value?.selectUrl.obs;
+  final selectUrl = RxnString().obs;
 
-  void setUser(User _user) {
+  void setUser(MapEntry<String, TvInfo> _user) {
     user.value = _user;
+    selectUrl.value.value = _user.value.tvgUrl;
   }
 
   void setUrl(String url) {
-    user.value?.selectUrl = url;
+    user.value?.value.tvgUrl = url;
+    selectUrl.value.value = url;
   }
 }

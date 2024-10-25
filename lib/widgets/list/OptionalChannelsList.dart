@@ -1,16 +1,13 @@
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
 import '../../control/WatchListsController.dart';
 import '../../control/usecase/GetOptionalTvList.dart';
-import '../../data/OptionalUrlDbControl.dart';
-import '../../data/RemoteUrlControl.dart';
+import '../../data/net/RemoteUrlControl.dart';
 import '../../domain/PlaylistStateManager.dart';
-import '../../domain/model/TvUrlList.dart';
 import '../../routes/RouterTable.dart';
-import '../../util/const.dart';
-import '../../util/log.dart';
 import 'ItemView.dart';
 
 class OptionalChannelsList extends StatefulWidget {

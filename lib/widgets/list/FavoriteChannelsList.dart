@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
+import 'package:tv_sink/data/db/CollectionDbControl.dart';
 import 'package:tv_sink/util/log.dart';
 import 'package:tv_sink/widgets/list/ItemView.dart';
 
 import '../../control/WatchListsController.dart';
-import '../../data/SharePreference.dart';
+import '../../data/share_preference/SharePreference.dart';
 import '../../domain/PlaylistStateManager.dart';
 
 class FavoriteChannelsList extends StatefulWidget {
@@ -18,24 +19,26 @@ class FavoriteChannelsList extends StatefulWidget {
 
 class _TvNameListState extends State<FavoriteChannelsList> {
   final _scrollController = ItemScrollController();
-  final _favorListController = Get.find<CollectionListsController>();
+  final _collectionListsController = Get.find<CollectionListsController>();
+  final _collectionDbControl = CollectionDbControl();
 
   @override
   void initState() {
     super.initState();
     //读取本地的列表数据
-    fetchFavoriteSharedPreferences().then((value) {
-      _favorListController.setWatchLists(value);
+    _collectionDbControl.dogs().then((value){
+      _collectionListsController.setWatchLists(value);
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    logger.i("------》 build");
     return Obx(() {
       return Stack(
         children: [
           Visibility(
-            visible: _favorListController.list.isEmpty,
+            visible: _collectionListsController.list.isEmpty,
             child: Container(
                 alignment: Alignment.center,
                 child: const Text(
@@ -49,9 +52,9 @@ class _TvNameListState extends State<FavoriteChannelsList> {
             itemScrollController: _scrollController,
             initialScrollIndex:
                 PlaylistStateManager.instance.position.listIndex,
-            itemCount: _favorListController.list.length,
+            itemCount: _collectionListsController.list.length,
             itemBuilder: (BuildContext context, int innerIndex) {
-              final user = _favorListController.getItemByIndex(innerIndex);
+              final user = _collectionListsController.getItemByIndex(innerIndex);
               return ItemView(user);
             },
           )

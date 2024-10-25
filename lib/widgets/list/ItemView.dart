@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tv_sink/data/db/CollectionDbControl.dart';
+import 'package:tv_sink/domain/model/TvInfo.dart';
+import 'package:tv_sink/util/log.dart';
 
 import '../../control/usecase/PlayUseCase.dart';
 import '../../control/WatchListsController.dart';
-import '../../domain/model/user.dart';
 
 class ItemView extends StatefulWidget {
-  final User _user;
+  final MapEntry<String, TvInfo> _user;
 
   const ItemView(this._user, {Key? key}) : super(key: key);
 
@@ -21,10 +23,10 @@ class _ItemViewState extends State<ItemView> {
   @override
   Widget build(BuildContext context) {
     final user = widget._user;
-    final tvName = user.name;
+    final tvName = user.key;
 
     final myItems = <DropdownMenuItem<String>>[];
-    user.tvgUrl.toList().asMap().forEach((key, value) {
+    user.value.tvgUrlList.asMap().forEach((key, value) {
       myItems.add(DropdownMenuItem<String>(
         value: value,
         child: Text("直播源${key + 1}"),
@@ -35,12 +37,12 @@ class _ItemViewState extends State<ItemView> {
       return Column(
         children: [
           Card(
-            color: _playPosController.user.value?.name == user.name
+            color: _playPosController.user.value?.key == user.key
                 ? Colors.lightBlue.shade200
                 : Colors.lightBlue.shade100,
             //z轴的高度，设置card的阴影
             elevation:
-                _playPosController.user.value?.name == user.name ? 20.0 : 0.0,
+                _playPosController.user.value?.key == user.key ? 20.0 : 0.0,
             //设置shape，这里设置成了R角
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(10.0)),
@@ -49,66 +51,69 @@ class _ItemViewState extends State<ItemView> {
             clipBehavior: Clip.antiAlias,
             semanticContainer: false,
             child: InkWell(
-                onTap: () {
-                  setState(() {
-                    PlayUseCase().invoke(user);
-                  });
-                },
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      child: getImageProviderByUrl(user.tvgLogo),
-                      height: 50,
-                      width: 50,
-                      margin: const EdgeInsets.only(
-                        left: 12,
-                        right: 10,
-                        top: 5,
-                        bottom: 5,
-                      ),
+              onTap: () {
+                setState(() {
+                  PlayUseCase().invoke(user);
+                });
+              },
+              child: Row(
+                children: <Widget>[
+                  Container(
+                    child: getImageProviderByUrl(user.value.tvgLogo),
+                    height: 50,
+                    width: 50,
+                    margin: const EdgeInsets.only(
+                      left: 12,
+                      right: 10,
+                      top: 5,
+                      bottom: 5,
                     ),
-                    Expanded(
-                      flex: 4,
-                      child: Text(
-                        tvName,
-                        style: _playPosController.user.value?.name == user.name
-                            ? const TextStyle(color: Colors.red, fontSize: 18)
-                            : const TextStyle(
-                                color: Colors.black, fontSize: 14),
-                      ),
+                  ),
+                  Expanded(
+                    flex: 4,
+                    child: Text(
+                      tvName,
+                      style: _playPosController.user.value?.key == user.key
+                          ? const TextStyle(color: Colors.red, fontSize: 18)
+                          : const TextStyle(color: Colors.black, fontSize: 14),
                     ),
-                    Expanded(
-                      flex: 3,
-                      child: Visibility(
-                        visible: user.tvgUrl.length > 1,
-                        child: DropdownButton<String>(
-                          value: myItems.firstOrNull?.value??"",
-                          onChanged: (value) {
-                            setState(() {
-                              _playPosController.setUrl(value??"");
-                            });
-                          },
-                          items: myItems,
-                        ),
-                      ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(
-                          left: 5, right: 10, top: 0, bottom: 0),
-                      child: InkWell(
-                        onTap: () => {
+                  ),
+                  Expanded(
+                    flex: 3,
+                    child: Visibility(
+                      visible: user.value.tvgUrlList.length > 1,
+                      child: DropdownButton<String>(
+                        value: myItems.firstOrNull?.value ?? "",
+                        onChanged: (value) {
                           setState(() {
-                            _favorListController.selectOrNot(
-                                tvName, user.toJson());
-                          })
+                            _playPosController.setUrl(value ?? "");
+                          });
                         },
-                        child: _favorListController.list.containsKey(tvName)
-                            ? const Icon(Icons.favorite)
-                            : const Icon(Icons.favorite_border),
+                        items: myItems,
                       ),
                     ),
-                  ],
-                )),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(
+                      left: 5,
+                      right: 10,
+                      top: 0,
+                      bottom: 0,
+                    ),
+                    child: InkWell(
+                      onTap: () => _favorListController.selectOrNot(user),
+                      child: Obx(
+                        () {
+                          return _favorListController.list.keys.contains(tvName)
+                              ? const Icon(Icons.favorite)
+                              : const Icon(Icons.favorite_border);
+                        },
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           )
         ],
       );
