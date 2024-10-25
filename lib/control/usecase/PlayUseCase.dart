@@ -23,7 +23,7 @@ class PlayUseCase {
     TvInterstitialAd.instance.showAd(user.selectUrl??"", () {
       eventBus.fire(const MapEntry(keySelectState, [listItemSelect]));
       PlayControlManager.instance
-          .setResourceAndPlay(user.name, _playPosController.selectUrl?.value);
+          .setResourceAndPlay(_playPosController.selectUrl?.value);
       saveHistorySharedPreferences(MapEntry(user.name, user));
     });
   }

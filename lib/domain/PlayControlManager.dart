@@ -39,7 +39,7 @@ class PlayControlManager {
   //第二种方式调用
   static PlayControlManager instance = PlayControlManager._();
 
-  void setResourceAndPlay(String tvName, String? source) async {
+  void setResourceAndPlay(String? source) async {
     if (source == null) {
       return;
     }

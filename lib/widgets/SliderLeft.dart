@@ -68,15 +68,22 @@ class _SliderLeftState extends State<SliderLeft> {
                       ListTile(
                         onTap: () => Navigator.of(context)
                             .popAndPushNamed(RouterTable.parseUrlListRoute),
-                        leading: const Icon(Icons.local_hospital),
+                        leading: const Icon(Icons.add_circle_outline),
                         title: const Text('解析M3U'),
                       ),
                       ListTile(
                         onTap: () => Navigator.of(context)
                             .popAndPushNamed(
                                 RouterTable.defaultUrlListRoute),
-                        leading: const Icon(Icons.local_play),
+                        leading: const Icon(Icons.featured_play_list),
                         title: const Text('默认列表'),
+                      ),
+                      ListTile(
+                        onTap: () => Navigator.of(context)
+                            .popAndPushNamed(
+                            RouterTable.playOnlineVideoRoute),
+                        leading: const Icon(Icons.play_circle),
+                        title: const Text('播放在线视频'),
                       ),
                     ],
                   ),

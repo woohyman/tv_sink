@@ -26,7 +26,7 @@ class _SettingRouteState extends State<AppSettingRoute> {
         .fetchApkVersion()
         .then((value) => {setState(() => {})});
     fetchAppSettingWifiCompulsion().then((value) => {
-          setState(() => {_switchSelected = value})
+          setState(() {_switchSelected = value;})
         });
     super.initState();
   }

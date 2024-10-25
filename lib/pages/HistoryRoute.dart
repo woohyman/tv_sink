@@ -66,7 +66,7 @@ class _HistoryRouteState extends State<HistoryRoute> {
                     Navigator.popUntil(context, ModalRoute.withName('/'));
                     saveHistorySharedPreferences(_list.entries.elementAt(innerIndex));
                     PlaylistStateManager.instance.setPositionByName(tvName);
-                    PlayControlManager.instance.setResourceAndPlay(tvName, PlaylistStateManager.instance.getSourceByKey(tvName));
+                    PlayControlManager.instance.setResourceAndPlay(PlaylistStateManager.instance.getSourceByKey(tvName));
                     eventBus.fire(const MapEntry(keySelectState, [tabSelect, scrollToItemSelect]));
                   });
                 },

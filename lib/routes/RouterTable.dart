@@ -4,6 +4,7 @@ import '../pages/AppSettingRoute.dart';
 import '../pages/DefaultUrlListRoute.dart';
 import '../pages/HistoryRoute.dart';
 import '../pages/ParseUrlListRoute.dart';
+import '../pages/PlayOnlineVideoRoute.dart';
 import '../pages/ScaffoldRoute.dart';
 import '../pages/SettingRoute.dart';
 
@@ -14,6 +15,7 @@ class RouterTable {
   static const String appSettingPath = 'setting_setting';
   static const String parseUrlListRoute = 'parseUrl_list_route';
   static const String defaultUrlListRoute = 'default_url_listRoute';
+  static const String playOnlineVideoRoute = 'play_online_videoRoute';
 
   static Map<String, WidgetBuilder> routeTables = {
     settingPath: (context) => const SettingRoute(),
@@ -22,6 +24,7 @@ class RouterTable {
     appSettingPath: (context) => const AppSettingRoute(),
     parseUrlListRoute: (context) => const ParseUrlListRoute(),
     defaultUrlListRoute: (context) => const DefaultUrlListRoute(),
+    playOnlineVideoRoute: (context) => const PlayOnlineVideoRoute(),
   };
 
   //路由拦截
