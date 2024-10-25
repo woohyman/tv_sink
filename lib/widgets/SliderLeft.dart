@@ -59,8 +59,8 @@ class _SliderLeftState extends State<SliderLeft> {
                       ListTile(
                         onTap: () => {
                           Share.share(
-                              'https://woohyman.github.io/TvsinkFlutter/',
-                              subject: '精彩尽在Tvsink!')
+                              'https://woohyman.github.io/tv_sink/',
+                              subject: '精彩尽在TvSink!')
                         },
                         leading: const Icon(Icons.share),
                         title: const Text('分享App'),
