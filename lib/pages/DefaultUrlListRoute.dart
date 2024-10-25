@@ -1,14 +1,8 @@
-import 'dart:io';
-
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:supabase/supabase.dart';
 import 'package:tv_sink/util/log.dart';
-
-import '../control/WatchListsController.dart';
 import '../data/OptionalDbControl.dart';
 import '../domain/model/TvList.dart';
 import '../domain/parse/ParseTxtSourceToList.dart';
@@ -23,15 +17,14 @@ class DefaultUrlListRoute extends StatefulWidget {
 int tabCounts = 0;
 
 class _SettingRouteState extends State<DefaultUrlListRoute> {
-  final Map<String, Map<String, String>> defaultList =
-      <String, Map<String, String>>{};
-  OptionalDbControl control = OptionalDbControl();
+  final defaultList = <String, Map<String, String>>{};
+  final _dbControl = OptionalDbControl();
   int nowTime = 0;
 
   @override
   void initState() {
     //从数据库中读取数据,预刷新界面
-    control.dogs().then((tvList) {
+    _dbControl.dogs().then((tvList) {
       setState(() {
         for (var value in tvList) {
           defaultList[value.name] = {
@@ -45,20 +38,22 @@ class _SettingRouteState extends State<DefaultUrlListRoute> {
     //从后台读取数据并写入数据库
     final supabase = Get.find<SupabaseClient>();
     supabase.from("default_m3u_list").select().eq('level', 0).then((values) {
-      setState(() {
-        for (var value in values) {
-          defaultList[value["name"]] = {
-            "url": value["url"],
-            "status": "",
-          };
-          control.insertDog(
-            TvList(
-              id: values.indexOf(value),
-              name: value["name"],
-              url: value["url"],
-            ),
-          );
-        }
+      _dbControl.deleteAll().then((value){
+        setState(() {
+          for (var value in values) {
+            defaultList[value["name"]] = {
+              "url": value["url"],
+              "status": "",
+            };
+            _dbControl.insertDog(
+              TvList(
+                id: values.indexOf(value),
+                name: value["name"],
+                url: value["url"],
+              ),
+            );
+          }
+        });
       });
     });
     super.initState();
@@ -86,7 +81,7 @@ class _SettingRouteState extends State<DefaultUrlListRoute> {
                         "url": value["url"],
                         "status": "",
                       };
-                      control.insertDog(
+                      _dbControl.insertDog(
                         TvList(
                           id: values.indexOf(value),
                           name: value["name"],

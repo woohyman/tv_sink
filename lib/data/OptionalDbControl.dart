@@ -63,4 +63,9 @@ class OptionalDbControl {
       whereArgs: [id],
     );
   }
+
+  Future<void> deleteAll() async {
+    final db = await _database;
+    await db.delete('dogs');
+  }
 }
