@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 
-import '../../control/WatchListsController.dart';
-import '../../control/usecase/GetOptionalTvList.dart';
-import '../../data/net/RemoteUrlControl.dart';
+import '../../data/net/RemoteUrlRepository.dart';
 import '../../domain/PlaylistStateManager.dart';
+import '../../domain/data_provider/GetOptionalTvList.dart';
+import '../../domain/data_provider/WatchListsController.dart';
 import '../../routes/RouterTable.dart';
 import 'ItemView.dart';
 
@@ -22,7 +22,7 @@ class _TvNameListState extends State<OptionalChannelsList> {
   final featuredTvLisController = Get.find<CollectionListsController>();
   final _watchListsController = Get.find<WatchListsController>();
 
-  final _remoteUrlControl = RemoteUrlControl();
+  final _remoteUrlControl = RemoteUrlRepository();
   final _scrollController = ItemScrollController();
   final _getOptionalTvList = GetOptionalTvList();
 

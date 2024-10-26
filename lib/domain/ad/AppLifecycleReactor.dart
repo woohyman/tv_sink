@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../PlayControlManager.dart';
+import '../PlayController.dart';
 import 'AppOpenAdManager.dart';
 
 class AppLifecycleReactor extends WidgetsBindingObserver {
@@ -17,7 +17,7 @@ class AppLifecycleReactor extends WidgetsBindingObserver {
       appOpenAdManager.showAdIfAvailable();
     }
     if(state == AppLifecycleState.paused){
-      PlayControlManager.instance.pause();
+      PlayController.instance.pause();
     }
     _preState = state;
   }

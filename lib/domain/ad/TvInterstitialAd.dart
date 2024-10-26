@@ -1,9 +1,11 @@
+import 'dart:async';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:tv_sink/util/log.dart';
 
-import '../PlayControlManager.dart';
+import '../PlayController.dart';
 
 class TvInterstitialAd {
-  InterstitialAd? _ad;
+  InterstitialAd? interstitialAd;
 
   TvInterstitialAd._();
 
@@ -16,61 +18,46 @@ class TvInterstitialAd {
   static TvInterstitialAd instance = TvInterstitialAd._();
 
   Future<void> load() async {
+    if(interstitialAd != null ){
+      return;
+    }
+    logger.i("++++++++++ 开始加载广告");
+    Completer<void> completer = Completer();
+
     InterstitialAd.load(
         adUnitId: 'ca-app-pub-3940256099942544/8691691433',
         request: const AdRequest(),
         adLoadCallback: InterstitialAdLoadCallback(
           onAdLoaded: (InterstitialAd ad) {
-            _ad = ad;
-            return;
+            completer.complete();
+            interstitialAd = ad;
+            logger.i("++++++++++ 加载成功");
           },
           onAdFailedToLoad: (LoadAdError error) {
-            _ad = null;
-            PlayControlManager.instance.play();
+            completer.completeError(error);
+            PlayController.instance.play();
           },
         ));
+    return completer.future;
   }
 
-  void showAd(String _dataSource, Function aaa) async {
-    if (PlayControlManager.instance.intervalTime[_dataSource] ?? true) {
-      aaa();
-      return;
-    }
-    try {
-      _ad!.fullScreenContentCallback = TvFullScreenContentCallback(aaa);
-      _ad!.show();
-    } catch (err) {
-      await load();
-      _ad?.fullScreenContentCallback = TvFullScreenContentCallback(aaa);
-      _ad?.show();
-    }
+  Future<bool> show() async {
+    Completer<bool> completer = Completer();
+
+    interstitialAd?.fullScreenContentCallback = FullScreenContentCallback(
+      onAdDismissedFullScreenContent: (ad){
+        completer.complete(true);
+      },
+      onAdShowedFullScreenContent: (ad){
+        PlayController.instance.pause();
+      },
+      onAdFailedToShowFullScreenContent: (ad, error){
+        completer.completeError(error);
+      },
+    );
+    interstitialAd?.show();
+    interstitialAd = null;
+    load();
+    return completer.future;
   }
-}
-
-class TvFullScreenContentCallback extends FullScreenContentCallback<InterstitialAd> {
-  final Function _callback;
-
-  TvFullScreenContentCallback(this._callback);
-
-  @override
-  GenericAdEventCallback? get onAdShowedFullScreenContent => (ad) {
-        PlayControlManager.instance.pause();
-        _callback();
-      };
-
-  @override
-  GenericAdEventCallback? get onAdDismissedFullScreenContent => (ad) async {
-        PlayControlManager.instance.play();
-        await ad.dispose();
-        await TvInterstitialAd.instance.load();
-        // _callback();
-      };
-
-  @override
-  void Function(dynamic ad, AdError error)? get onAdFailedToShowFullScreenContent => (ad, error) async {
-        PlayControlManager.instance.play();
-        ad.dispose();
-        await TvInterstitialAd.instance.load();
-        _callback();
-      };
 }

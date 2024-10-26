@@ -9,14 +9,14 @@ class TvInfo {
   List<String> tvgUrlList;
   String tvgUrl;
 
-  TvInfo({
-    required this.tvgId,
-    required this.tvgCountry,
-    required this.tvgLanguage,
-    required this.tvgLogo,
-    required this.groupTitle,
-    required this.tvgUrl,
-    required this.tvgUrlList,
+  TvInfo(
+    this.tvgUrl,
+    this.tvgUrlList, {
+    this.tvgId = "",
+    this.tvgCountry = "",
+    this.tvgLanguage = "",
+    this.tvgLogo = "",
+    this.groupTitle = "",
   });
 }
 

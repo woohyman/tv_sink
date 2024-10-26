@@ -3,16 +3,18 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_update_dialog/update_dialog.dart';
+import 'package:get/get.dart';
 import 'package:tv_sink/widgets/list/FavoriteChannelsList.dart';
 import 'package:tv_sink/widgets/list/FeaturedChannelsList.dart';
 import 'package:tv_sink/widgets/list/OptionalChannelsList.dart';
-
 import '../domain/PlaylistStateManager.dart';
 import '../domain/ad/AppLifecycleReactor.dart';
 import '../domain/ad/AppOpenAdManager.dart';
 import '../domain/ad/banner/AnchorAdapter.dart';
-import '../domain/upgrade/ApkVersionController.dart';
-import '../domain/upgrade/UpdateController.dart';
+import '../domain/data_provider/PlayDataProvider.dart';
+import '../domain/upgrade/UpgradeController.dart';
+import '../domain/upgrade/ApkVersionDataProvider.dart';
+import '../data/net/UpgradeRepository.dart';
 import '../util/const.dart';
 import '../widgets/KeepAliveTest.dart';
 import '../widgets/PlayerWrapper.dart';
@@ -26,11 +28,10 @@ class ScaffoldRoute extends StatefulWidget {
 }
 
 class _ScaffoldRouteState extends State<ScaffoldRoute> {
-  final ValueNotifier<int> _selectedIndex = ValueNotifier<int>(0);
-  PageController? _pageController;
-  final AnchorAdapter _anchorAdapter = AnchorAdapter();
-  final _updateController = UpdateController();
-  final _apkVersionController = ApkVersionController();
+  final _selectedIndex = ValueNotifier<int>(0);
+  final _pageController = PageController();
+  final _anchorAdapter = AnchorAdapter();
+  final _upgradeController = UpgradeController();
 
   @override
   void didChangeDependencies() {
@@ -41,34 +42,13 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
   @override
   void initState() {
     super.initState();
-
-    _updateController.fetchApkVersion().then((value) {
-      _apkVersionController.fetchApkVersion().then((value){
-        if(_updateController.versionCode >
-            _apkVersionController.versionCode){
-          defaultStyle();
-        }
-      });
-    });
-
     FlutterNativeSplash.remove();
 
-    eventBus.on<MapEntry<String, dynamic>>().listen((event) {
-      switch (event.key) {
-        case keySelectState:
-          List<String> _list = event.value as List<String>;
-          if (_list.contains(tabSelect)) {
-            _onItemTapped(PlaylistStateManager.instance.position.tabIndex);
-          }
-          break;
-      }
-    });
+    _upgradeController.showDialog(context);
 
     AppOpenAdManager appOpenAdManager = AppOpenAdManager()..loadAd();
     WidgetsBinding.instance
         .addObserver(AppLifecycleReactor(appOpenAdManager: appOpenAdManager));
-
-    _pageController = PageController();
   }
 
   @override
@@ -81,6 +61,18 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          actions: [
+            Obx(() {
+              final tvName = PlayDataProvider.fromGet().tvInfo.value?.key;
+              return Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Visibility(
+                  visible: tvName != null,
+                  child: Text("正在播放:$tvName"),
+                ),
+              );
+            })
+          ],
           title: const Text("电视汇"),
         ),
         drawer: const SliderLeft(),
@@ -137,21 +129,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
   }
 
   void _onItemTapped(int index) {
-    _pageController?.jumpToPage(index);
+    _pageController.jumpToPage(index);
     _selectedIndex.value = index;
-  }
-
-  UpdateDialog? dialog;
-  double progress = 0.0;
-
-  void defaultStyle() {
-    if (dialog != null && dialog!.isShowing()) {
-      return;
-    }
-    dialog = UpdateDialog.showUpdate(context,
-        isForce: false,
-        title: '是否升级到版本${_updateController.versionName}?',
-        updateContent: '',
-        onUpdate: () => _updateController.launchUpdateUrlDialog(dialog));
   }
 }

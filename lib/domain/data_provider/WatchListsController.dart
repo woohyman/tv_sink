@@ -1,7 +1,8 @@
 import 'package:get/get.dart';
-import 'package:tv_sink/control/usecase/SetOptionalTvList.dart';
-import '../data/db/CollectionDbControl.dart';
-import '../domain/model/TvInfo.dart';
+
+import '../../data/db/CollectionDbRepository.dart';
+import '../model/RemoteListUrl.dart';
+import '../model/TvInfo.dart';
 
 class FeatureListsController {
   final list = <String, TvInfo>{}.obs;
@@ -34,7 +35,7 @@ class WatchListsController {
 
 class CollectionListsController extends GetxController {
   final list = <String, TvInfo>{}.obs;
-  final _collectionDbControl = CollectionDbControl();
+  final _collectionDbControl = CollectionDbRepository();
 
   CollectionListsController() {
     _collectionDbControl.dogs().then((value) {
@@ -64,18 +65,18 @@ class CollectionListsController extends GetxController {
   }
 }
 
-class PlayPositionController {
-  final user = Rxn<MapEntry<String, TvInfo>>(null);
+class RemoteM3uListController {
+  final list = <RemoteListUrl>[];
 
-  final selectUrl = RxnString().obs;
-
-  void setUser(MapEntry<String, TvInfo> _user) {
-    user.value = _user;
-    selectUrl.value.value = _user.value.tvgUrl;
+  void setList(List<RemoteListUrl> watchLists) {
+    //再往列表填充数据
+    list.clear();
+    list.addAll(watchLists);
   }
 
-  void setUrl(String url) {
-    user.value?.value.tvgUrl = url;
-    selectUrl.value.value = url;
+  factory RemoteM3uListController.fromGet() {
+    return Get.find<RemoteM3uListController>();
   }
+
+  RemoteM3uListController();
 }

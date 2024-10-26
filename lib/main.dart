@@ -6,11 +6,15 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:supabase/supabase.dart';
+import 'package:tv_sink/domain/upgrade/UpgradeDataProvider.dart';
 import 'package:tv_sink/routes/RouterTable.dart';
+import 'package:tv_sink/util/const.dart';
 import 'package:video_player_media_kit/video_player_media_kit.dart';
-
-import 'control/WatchListsController.dart';
 import 'domain/WifiManager.dart';
+import 'domain/ad/TvInterstitialAd.dart';
+import 'domain/data_provider/PlayDataProvider.dart';
+import 'domain/upgrade/UpgradeController.dart';
+import 'domain/data_provider/WatchListsController.dart';
 import 'pages/ScaffoldRoute.dart';
 
 Future<void> main() async {
@@ -20,15 +24,13 @@ Future<void> main() async {
 
   WifiManager.instance.init();
   MobileAds.instance.initialize();
+  TvInterstitialAd.instance.load();
 
   VideoPlayerMediaKit.ensureInitialized(
     macOS: true,
     web: true,
   );
 
-  const supabaseUrl = 'https://iozcbyxqcgvqiosrabsw.supabase.co';
-  const supabaseKey =
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlvemNieXhxY2d2cWlvc3JhYnN3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjg1ODMxMjEsImV4cCI6MjA0NDE1OTEyMX0.i-1uXxnpgkK1-x8iKUphr02d3PErWah4Sx93vlpwSl8';
   final supabase = SupabaseClient(supabaseUrl, supabaseKey);
   Get.put(supabase);
 
@@ -42,7 +44,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     Get.put(WatchListsController());
     Get.put(CollectionListsController());
-    Get.put(PlayPositionController());
+    Get.put(PlayDataProvider());
+    Get.put(UpgradeDataProvider.preFetchData());
+    Get.put(RemoteM3uListController());
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,

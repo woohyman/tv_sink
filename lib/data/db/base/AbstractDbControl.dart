@@ -3,13 +3,14 @@ import 'dart:async';
 import 'package:json_string/json_string.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
+import 'package:tv_sink/data/db/HistoryDbRepository.dart';
 
-import '../../domain/model/TvInfo.dart';
-import '../../util/log.dart';
-import 'AbstractDbParam.dart';
+import '../../../domain/model/TvInfo.dart';
+import '../../../util/log.dart';
+import 'DbParam.dart';
 
 //自选数据库
-abstract class AbstractDbControl implements AbstractDbParam {
+abstract class AbstractDbRepository implements DbParam {
   Future<Database> get _database async {
     return await openDatabase(
       join(await getDatabasesPath(), dbName),
@@ -42,16 +43,19 @@ abstract class AbstractDbControl implements AbstractDbParam {
     final List<Map<String, dynamic>> dogMaps = await db.query(tableName);
 
     final result = <String, TvInfo>{};
-    for (final item in dogMaps) {
-      final tvgUrlList = JsonString(item['tvgUrlList'] as String).decodeAsPrimitiveList<String>();
+
+    final map = runtimeType == HistoryDbRepository ? dogMaps.reversed : dogMaps;
+    for (final item in map) {
+      final tvgUrlList = JsonString(item['tvgUrlList'] as String)
+          .decodeAsPrimitiveList<String>();
       result[item['name'] as String] = TvInfo(
+        item['tvgUrl'] as String,
+        tvgUrlList,
         tvgId: item['tvgId'] as String,
         tvgCountry: item['tvgCountry'] as String,
         tvgLanguage: item['tvgLanguage'] as String,
         tvgLogo: item['tvgLogo'] as String,
         groupTitle: item['groupTitle'] as String,
-        tvgUrl: item['tvgUrl'] as String,
-        tvgUrlList: tvgUrlList,
       );
     }
     return result;

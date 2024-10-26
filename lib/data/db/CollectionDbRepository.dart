@@ -1,8 +1,8 @@
 
-import 'AbstractDbControl.dart';
+import 'base/AbstractDbControl.dart';
 
 //收藏列表数据库
-class CollectionDbControl extends AbstractDbControl {
+class CollectionDbRepository extends AbstractDbRepository {
   @override
   String dbName = "collection2.db";
 

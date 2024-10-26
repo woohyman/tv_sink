@@ -1,7 +1,7 @@
 name: tv_sink
 description: A new Flutter project.
 
-version: 1.0.15+15
+version: 1.0.27+27
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -34,8 +34,6 @@ dependencies:
   shared_preferences: ^2.0.13
   #状态管理
   get: ^4.6.6
-  # 消息中心（事件发送和监听）
-  event_bus: ^2.0.0
   permission_handler: 11.3.1
   path_provider: ^2.0.9
   flutter_update_dialog: ^2.0.0

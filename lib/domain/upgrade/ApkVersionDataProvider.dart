@@ -1,6 +1,6 @@
 import 'package:package_info_plus/package_info_plus.dart';
 
-class ApkVersionController {
+class ApkVersionDataProvider {
   PackageInfo? _packageInfo;
 
   Future<void> fetchApkVersion() async {

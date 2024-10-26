@@ -1,8 +1,8 @@
 
-import 'AbstractDbControl.dart';
+import 'base/AbstractDbControl.dart';
 
 //自选列表数据库
-class OptionalDbControl extends AbstractDbControl {
+class OptionalDbRepository extends AbstractDbRepository {
   @override
   String dbName = "optional2.db";
 

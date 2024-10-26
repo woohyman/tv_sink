@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:supabase/supabase.dart';
 import 'package:tv_sink/domain/model/TvInfo.dart';
 
-class RemoteUrlControl {
+class RemoteUrlRepository {
   Future<Map<String, TvInfo>> fetchDefaultUrlList() async {
     final supabase = Get.find<SupabaseClient>();
     final list = await supabase.from("default_tv_list").select();
@@ -10,13 +10,14 @@ class RemoteUrlControl {
 
     for (var item in list) {
       defaultTvList[item["name"]] = TvInfo(
-          tvgId: "",
-          tvgCountry: "",
-          tvgLanguage: "",
-          tvgLogo: "",
-          groupTitle: "",
-          tvgUrl: item["url"],
-          tvgUrlList: [item["url"]]);
+        item["url"],
+        [item["url"]],
+        tvgId: "",
+        tvgCountry: "",
+        tvgLanguage: "",
+        tvgLogo: "",
+        groupTitle: "",
+      );
     }
     return defaultTvList;
   }

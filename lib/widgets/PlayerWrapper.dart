@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
-import '../domain/PlayControlManager.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+import 'package:get/utils.dart';
+import '../domain/PlayController.dart';
 import '../domain/WifiManager.dart';
+import '../domain/data_provider/PlayDataProvider.dart';
 import '../util/const.dart';
 
 class PlayerWrapper extends StatefulWidget {
@@ -11,27 +14,17 @@ class PlayerWrapper extends StatefulWidget {
 }
 
 class _PlayerWrapperState extends State<PlayerWrapper> {
-  final ValueNotifier<bool> showBannerBg = ValueNotifier<bool>(false);
+  final _playController = PlayDataProvider.fromGet();
 
   @override
   void initState() {
-    eventBus.on<MapEntry<String, dynamic>>().listen((event) {
-      switch (event.key) {
-        case keyWifiCompulsion:
-          setState(() {});
-          break;
-        case startPlayTv:
-          showBannerBg.value = event.value;
-          break;
-      }
-    });
     super.initState();
   }
 
   @override
   void dispose() {
     super.dispose();
-    PlayControlManager.instance.dispose();
+    PlayController.instance.dispose();
   }
 
   @override
@@ -39,26 +32,27 @@ class _PlayerWrapperState extends State<PlayerWrapper> {
     return Stack(
       alignment: Alignment.center,
       children: <Widget>[
-        ValueListenableBuilder<bool>(
-          builder: (BuildContext context, bool value, Widget? child) {
-            return Visibility(
-              visible: showBannerBg.value,
-              child: InkWell(
-                  child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  PlayControlManager.instance.getPlayerWidget(),
-                ],
-              )),
-            );
-          },
-          valueListenable: showBannerBg,
-        ),
+        Obx(() {
+          return Visibility(
+            visible: _playController.selectUrl.value.value != null,
+            child: InkWell(
+                child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                PlayController.instance.getPlayerWidget(),
+              ],
+            )),
+          );
+        }),
         Visibility(
           visible: WifiManager.instance.isNeedConnectWithWifi,
           child: Container(
-            padding:
-                const EdgeInsets.only(left: 0, right: 0, top: 12, bottom: 12),
+            padding: const EdgeInsets.only(
+              left: 0,
+              right: 0,
+              top: 12,
+              bottom: 12,
+            ),
             color: Colors.black,
             child: const Align(
               child: Text(

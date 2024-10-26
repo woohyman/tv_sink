@@ -1,8 +1,8 @@
 
-import 'AbstractDbControl.dart';
+import 'base/AbstractDbControl.dart';
 
 //历史列表数据库
-class HistoryDbControl  extends AbstractDbControl{
+class HistoryDbRepository  extends AbstractDbRepository{
   @override
   String dbName = "history2.db";
 

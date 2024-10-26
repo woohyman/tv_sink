@@ -3,8 +3,8 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
-
-import '../domain/PlayControlManager.dart';
+import '../domain/PlayController.dart';
+import '../domain/model/TvInfo.dart';
 import '../domain/parse/ParseTxtSourceToList.dart';
 import '../routes/RouterTable.dart';
 
@@ -40,7 +40,7 @@ class _SettingRouteState extends State<PlayOnlineVideoRoute> {
                 hintText: "输入视频文件地址",
               ),
               validator: (v) {
-                return v == null || v.trim().isNotEmpty ? null : "请输入正确的下载地址";
+                return v?.isEmpty ?? true ? null : "请输入正确的下载地址";
               },
             ),
             TextFormField(
@@ -63,8 +63,12 @@ class _SettingRouteState extends State<PlayOnlineVideoRoute> {
                       child: Text("开始播放"),
                     ),
                     onPressed: () async {
-                      PlayControlManager.instance
-                          .setResourceAndPlay(_urlController.text);
+                      PlayController.instance.playSource(MapEntry(
+                          _tvNameController.text,
+                          TvInfo(
+                            _urlController.text,
+                            [_urlController.text],
+                          )));
                       Navigator.pop(context);
                     },
                   ),

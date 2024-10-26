@@ -1,9 +1,6 @@
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:tv_sink/domain/model/TvInfo.dart';
 
-import '../control/WatchListsController.dart';
-import '../data/net/RemoteUrlControl.dart';
+import 'data_provider/WatchListsController.dart';
 
 class PlaylistStateManager {
   PlaylistStateManager._();

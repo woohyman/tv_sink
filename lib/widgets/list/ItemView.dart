@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tv_sink/data/db/CollectionDbControl.dart';
+import 'package:tv_sink/data/db/CollectionDbRepository.dart';
 import 'package:tv_sink/domain/model/TvInfo.dart';
 import 'package:tv_sink/util/log.dart';
 
-import '../../control/usecase/PlayUseCase.dart';
-import '../../control/WatchListsController.dart';
+import '../../domain/PlayController.dart';
+import '../../domain/data_provider/PlayDataProvider.dart';
+import '../../domain/data_provider/WatchListsController.dart';
 
 class ItemView extends StatefulWidget {
   final MapEntry<String, TvInfo> _user;
@@ -18,7 +19,7 @@ class ItemView extends StatefulWidget {
 
 class _ItemViewState extends State<ItemView> {
   final _favorListController = Get.find<CollectionListsController>();
-  final _playPosController = Get.find<PlayPositionController>();
+  final _playController = Get.find<PlayDataProvider>();
 
   @override
   Widget build(BuildContext context) {
@@ -37,12 +38,11 @@ class _ItemViewState extends State<ItemView> {
       return Column(
         children: [
           Card(
-            color: _playPosController.user.value?.key == user.key
+            color: _playController.tvInfo.value?.key == user.key
                 ? Colors.lightBlue.shade200
                 : Colors.lightBlue.shade100,
             //z轴的高度，设置card的阴影
-            elevation:
-                _playPosController.user.value?.key == user.key ? 20.0 : 0.0,
+            elevation: _playController.tvInfo.value?.key == user.key ? 20.0 : 0.0,
             //设置shape，这里设置成了R角
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(10.0)),
@@ -53,7 +53,7 @@ class _ItemViewState extends State<ItemView> {
             child: InkWell(
               onTap: () {
                 setState(() {
-                  PlayUseCase().invoke(user);
+                  PlayController.instance.playSource(user);
                 });
               },
               child: Row(
@@ -73,7 +73,7 @@ class _ItemViewState extends State<ItemView> {
                     flex: 4,
                     child: Text(
                       tvName,
-                      style: _playPosController.user.value?.key == user.key
+                      style: _playController.tvInfo.value?.key == user.key
                           ? const TextStyle(color: Colors.red, fontSize: 18)
                           : const TextStyle(color: Colors.black, fontSize: 14),
                     ),
@@ -86,7 +86,7 @@ class _ItemViewState extends State<ItemView> {
                         value: myItems.firstOrNull?.value ?? "",
                         onChanged: (value) {
                           setState(() {
-                            _playPosController.setUrl(value ?? "");
+                            _playController.setUrl(value ?? "");
                           });
                         },
                         items: myItems,

@@ -3,10 +3,9 @@ import 'dart:io';
 import 'package:get/get.dart';
 import 'package:tv_sink/domain/model/TvInfo.dart';
 import 'package:tv_sink/util/log.dart';
-
-import '../../control/WatchListsController.dart';
-import '../../control/usecase/SetOptionalTvList.dart';
 import '../../util/const.dart';
+import '../data_provider/SetOptionalTvList.dart';
+import '../data_provider/WatchListsController.dart';
 
 Future<String> parse(String url) async {
   String stringValue = await File(url).readAsString();
@@ -45,13 +44,14 @@ Future<String> _readM3uContent(String stringValue) async {
       }
 
       final _tvInfo = TvInfo(
-          tvgId: "",
-          tvgCountry: "",
-          tvgLanguage: "",
-          tvgLogo: "",
-          groupTitle: "",
-          tvgUrl: "",
-          tvgUrlList: []);
+        "",
+        [],
+        tvgId: "",
+        tvgCountry: "",
+        tvgLanguage: "",
+        tvgLogo: "",
+        groupTitle: "",
+      );
 
       var detailParamArray = [];
       for (var value in bigParamArray) {
@@ -121,13 +121,14 @@ Future<String> _readXmlContent(String stringValue) async {
         continue;
       }
       _tvList[bigParamArray[0]] = TvInfo(
-          tvgId: "",
-          tvgCountry: "",
-          tvgLanguage: "",
-          tvgLogo: "",
-          groupTitle: "",
-          tvgUrl: bigParamArray[1],
-          tvgUrlList: [bigParamArray[1]]);
+        bigParamArray[1],
+        [bigParamArray[1]],
+        tvgId: "",
+        tvgCountry: "",
+        tvgLanguage: "",
+        tvgLogo: "",
+        groupTitle: "",
+      );
     }
   }
 

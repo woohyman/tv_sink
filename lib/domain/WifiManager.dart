@@ -1,7 +1,7 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
 import '../data/share_preference/SharePreference.dart';
 import '../util/const.dart';
-import 'PlayControlManager.dart';
+import 'PlayController.dart';
 
 class WifiManager {
   ConnectivityResult _result = ConnectivityResult.none;
@@ -24,9 +24,8 @@ class WifiManager {
         .listen((List<ConnectivityResult> results) async {
       _result = results.first;
       _isNeedWifi = await fetchAppSettingWifiCompulsion();
-      eventBus.fire(const MapEntry(keyWifiCompulsion, null));
       if (_result == ConnectivityResult.mobile && _isNeedWifi) {
-        PlayControlManager.instance.pause();
+        PlayController.instance.pause();
       }
     });
   }
@@ -35,9 +34,8 @@ class WifiManager {
     _isNeedWifi = isNeedWifi;
 
     if (WifiManager.instance.isNeedConnectWithWifi) {
-      PlayControlManager.instance.pause();
+      PlayController.instance.pause();
     }
-    eventBus.fire(const MapEntry(keyWifiCompulsion, null));
     saveAppSettingWifiCompulsion(isNeedWifi);
   }
 

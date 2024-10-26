@@ -1,26 +1,25 @@
 import 'dart:io';
+import 'dart:math';
 import 'package:fijkplayer/fijkplayer.dart';
 import 'package:media_kit/media_kit.dart';
 import 'package:media_kit_video/media_kit_video.dart';
 import 'package:flutter/material.dart';
+import 'package:tv_sink/util/log.dart';
 import 'package:universal_platform/universal_platform.dart';
-import '../util/const.dart';
+import '../data/db/HistoryDbRepository.dart';
+import 'WifiManager.dart';
+import 'ad/TvInterstitialAd.dart';
+import 'data_provider/PlayDataProvider.dart';
+import 'model/TvInfo.dart';
 
-class PlayControlManager {
+class PlayController {
   final _ijkPlayer = FijkPlayer();
   late Player player;
   late VideoController controller;
 
   String curDataSource = "";
-  bool _afterFirstPress = false;
 
-  bool get afterFirstPress => _afterFirstPress;
-
-  final Map<String, bool> _intervalTime = {};
-
-  Map<String, bool> get intervalTime => _intervalTime;
-
-  PlayControlManager._() {
+  PlayController._() {
     if (UniversalPlatform.isMacOS || UniversalPlatform.isWeb) {
       player = Player();
       controller = VideoController(player);
@@ -32,41 +31,58 @@ class PlayControlManager {
   }
 
   //第一种方式调用
-  factory PlayControlManager() {
+  factory PlayController() {
     return instance;
   }
 
   //第二种方式调用
-  static PlayControlManager instance = PlayControlManager._();
+  static PlayController instance = PlayController._();
 
-  void setResourceAndPlay(String? source) async {
+  Future<void> playSource(MapEntry<String, TvInfo> entry) async {
+    PlayDataProvider.fromGet().setUser(entry);
+
+    if (!UniversalPlatform.isAndroid) {
+      _setResourceAndPlay(entry.value.tvgUrl);
+      HistoryDbRepository().insertDog(entry);
+      return;
+    }
+
+    if (WifiManager.instance.isNeedConnectWithWifi) {
+      pause();
+      return;
+    }
+
+    //开始加载广告
+    if (TvInterstitialAd.instance.interstitialAd != null &&
+        Random().nextInt(50) == 3) {
+      await TvInterstitialAd.instance.show();
+    }
+
+    _setResourceAndPlay(entry.value.tvgUrl);
+    HistoryDbRepository().insertDog(entry);
+  }
+
+  void _setResourceAndPlay(String? source) async {
     if (source == null) {
       return;
     }
-    bool _autoPlay = _intervalTime[source] ?? true;
-    eventBus.fire(const MapEntry(startPlayTv, true));
-    _afterFirstPress = true;
 
     if (UniversalPlatform.isAndroid) {
       await _ijkPlayer.reset();
       await _ijkPlayer.setDataSource(source, autoPlay: false);
       await _ijkPlayer.prepareAsync();
-      if (_autoPlay) {
-        _ijkPlayer.start();
-      }
+      _ijkPlayer.start();
     } else if (UniversalPlatform.isMacOS || UniversalPlatform.isWeb) {
       await player.stop();
       await player.open(Media(source), play: false);
-      if (_autoPlay) {
-        player.play();
-      }
+      player.play();
     }
   }
 
   void pause() async {
     if (UniversalPlatform.isAndroid) {
       await _ijkPlayer.pause();
-    } else if (UniversalPlatform.isMacOS  || UniversalPlatform.isWeb) {
+    } else if (UniversalPlatform.isMacOS || UniversalPlatform.isWeb) {
       await player.pause();
     }
   }

@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
-import 'package:tv_sink/data/db/CollectionDbControl.dart';
+import 'package:tv_sink/data/db/CollectionDbRepository.dart';
 import 'package:tv_sink/util/log.dart';
 import 'package:tv_sink/widgets/list/ItemView.dart';
-
-import '../../control/WatchListsController.dart';
-import '../../data/share_preference/SharePreference.dart';
 import '../../domain/PlaylistStateManager.dart';
+import '../../domain/data_provider/WatchListsController.dart';
 
 class FavoriteChannelsList extends StatefulWidget {
   const FavoriteChannelsList({Key? key}) : super(key: key);
@@ -20,7 +17,7 @@ class FavoriteChannelsList extends StatefulWidget {
 class _TvNameListState extends State<FavoriteChannelsList> {
   final _scrollController = ItemScrollController();
   final _collectionListsController = Get.find<CollectionListsController>();
-  final _collectionDbControl = CollectionDbControl();
+  final _collectionDbControl = CollectionDbRepository();
 
   @override
   void initState() {
