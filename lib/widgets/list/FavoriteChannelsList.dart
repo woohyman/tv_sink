@@ -4,8 +4,8 @@ import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import 'package:tv_sink/data/db/CollectionDbRepository.dart';
 import 'package:tv_sink/util/log.dart';
 import 'package:tv_sink/widgets/list/ItemView.dart';
-import '../../domain/PlaylistStateManager.dart';
-import '../../domain/data_provider/WatchListsController.dart';
+
+import '../../domain/data_provider/WatchListsDataProvider.dart';
 
 class FavoriteChannelsList extends StatefulWidget {
   const FavoriteChannelsList({Key? key}) : super(key: key);
@@ -16,14 +16,14 @@ class FavoriteChannelsList extends StatefulWidget {
 
 class _TvNameListState extends State<FavoriteChannelsList> {
   final _scrollController = ItemScrollController();
-  final _collectionListsController = Get.find<CollectionListsController>();
+  final _collectionListsController = Get.find<CollectionListsDataProvider>();
   final _collectionDbControl = CollectionDbRepository();
 
   @override
   void initState() {
     super.initState();
     //读取本地的列表数据
-    _collectionDbControl.dogs().then((value){
+    _collectionDbControl.dogs().then((value) {
       _collectionListsController.setWatchLists(value);
     });
   }
@@ -47,11 +47,11 @@ class _TvNameListState extends State<FavoriteChannelsList> {
             physics: const AlwaysScrollableScrollPhysics(),
             addAutomaticKeepAlives: true,
             itemScrollController: _scrollController,
-            initialScrollIndex:
-                PlaylistStateManager.instance.position.listIndex,
+            initialScrollIndex: 0,
             itemCount: _collectionListsController.list.length,
             itemBuilder: (BuildContext context, int innerIndex) {
-              final user = _collectionListsController.getItemByIndex(innerIndex);
+              final user =
+                  _collectionListsController.getItemByIndex(innerIndex);
               return ItemView(user);
             },
           )

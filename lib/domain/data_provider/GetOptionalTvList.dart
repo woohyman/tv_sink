@@ -1,10 +1,10 @@
 import 'package:get/get.dart';
 import '../../data/db/OptionalDbRepository.dart';
-import 'WatchListsController.dart';
+import 'WatchListsDataProvider.dart';
 
 class GetOptionalTvList {
   final _optionalUrlDbControl = OptionalDbRepository();
-  final _watchListsController = Get.find<WatchListsController>();
+  final _watchListsController = Get.find<WatchListsDataProvider>();
 
   void invoke() {
     //先从数据库中查询

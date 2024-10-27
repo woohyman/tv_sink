@@ -1,12 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
-
 import '../../data/net/RemoteUrlRepository.dart';
-import '../../domain/PlaylistStateManager.dart';
 import '../../domain/data_provider/GetOptionalTvList.dart';
-import '../../domain/data_provider/WatchListsController.dart';
+import '../../domain/data_provider/WatchListsDataProvider.dart';
 import '../../routes/RouterTable.dart';
 import 'ItemView.dart';
 
@@ -18,9 +15,9 @@ class OptionalChannelsList extends StatefulWidget {
 }
 
 class _TvNameListState extends State<OptionalChannelsList> {
-  final foreignTvLisController = Get.find<WatchListsController>();
-  final featuredTvLisController = Get.find<CollectionListsController>();
-  final _watchListsController = Get.find<WatchListsController>();
+  final foreignTvLisController = Get.find<WatchListsDataProvider>();
+  final featuredTvLisController = Get.find<CollectionListsDataProvider>();
+  final _watchListsController = Get.find<WatchListsDataProvider>();
 
   final _remoteUrlControl = RemoteUrlRepository();
   final _scrollController = ItemScrollController();
@@ -61,8 +58,7 @@ class _TvNameListState extends State<OptionalChannelsList> {
               physics: const AlwaysScrollableScrollPhysics(),
               addAutomaticKeepAlives: true,
               itemScrollController: _scrollController,
-              initialScrollIndex:
-                  PlaylistStateManager.instance.position.listIndex,
+              initialScrollIndex: 0,
               itemCount: _watchListsController.list.length,
               itemBuilder: (BuildContext context, int innerIndex) {
                 final user = _watchListsController.getItemByIndex(innerIndex);

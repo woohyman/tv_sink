@@ -10,19 +10,26 @@ import 'package:tv_sink/domain/upgrade/UpgradeDataProvider.dart';
 import 'package:tv_sink/routes/RouterTable.dart';
 import 'package:tv_sink/util/const.dart';
 import 'package:video_player_media_kit/video_player_media_kit.dart';
-import 'domain/WifiManager.dart';
+import 'domain/AppSetController.dart';
 import 'domain/ad/TvInterstitialAd.dart';
+import 'domain/data_provider/AppSetDataProvider.dart';
 import 'domain/data_provider/PlayDataProvider.dart';
-import 'domain/upgrade/UpgradeController.dart';
-import 'domain/data_provider/WatchListsController.dart';
+import 'domain/data_provider/WatchListsDataProvider.dart';
 import 'pages/ScaffoldRoute.dart';
 
 Future<void> main() async {
+  Get.put(WatchListsDataProvider());
+  Get.put(CollectionListsDataProvider());
+  Get.put(PlayDataProvider());
+  Get.put(UpgradeDataProvider.preFetchData());
+  Get.put(RemoteM3uListDataProvider());
+  Get.put(AppSetDataProvider.preFetchData());
+
   // 如果需要 ensureInitialized，请在这里运行。
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
-  WifiManager.instance.init();
+  AppSetController.instance.init();
   MobileAds.instance.initialize();
   TvInterstitialAd.instance.load();
 
@@ -42,12 +49,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(WatchListsController());
-    Get.put(CollectionListsController());
-    Get.put(PlayDataProvider());
-    Get.put(UpgradeDataProvider.preFetchData());
-    Get.put(RemoteM3uListController());
-
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       onGenerateRoute: RouterTable.onGenerateRoute,

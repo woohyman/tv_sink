@@ -18,9 +18,9 @@ class UpgradeDataProvider {
   }
 
   factory UpgradeDataProvider.preFetchData() {
-    final _upgradeController = UpgradeDataProvider._();
-    _upgradeController.fetchVersion();
-    return _upgradeController;
+    final _provider = UpgradeDataProvider._();
+    _provider.fetchVersion();
+    return _provider;
   }
 
   UpgradeDataProvider._();

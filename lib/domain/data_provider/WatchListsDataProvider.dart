@@ -4,7 +4,7 @@ import '../../data/db/CollectionDbRepository.dart';
 import '../model/RemoteListUrl.dart';
 import '../model/TvInfo.dart';
 
-class FeatureListsController {
+class FeatureListsDataProvider {
   final list = <String, TvInfo>{}.obs;
 
   void setWatchLists(Map<String, TvInfo> watchLists) {
@@ -18,7 +18,7 @@ class FeatureListsController {
   }
 }
 
-class WatchListsController {
+class WatchListsDataProvider {
   final list = <String, TvInfo>{}.obs;
 
   void setWatchLists(Map<String, TvInfo> watchLists) {
@@ -33,11 +33,11 @@ class WatchListsController {
   }
 }
 
-class CollectionListsController extends GetxController {
+class CollectionListsDataProvider extends GetxController {
   final list = <String, TvInfo>{}.obs;
   final _collectionDbControl = CollectionDbRepository();
 
-  CollectionListsController() {
+  CollectionListsDataProvider() {
     _collectionDbControl.dogs().then((value) {
       list.clear();
       list.addAll(value);
@@ -65,7 +65,7 @@ class CollectionListsController extends GetxController {
   }
 }
 
-class RemoteM3uListController {
+class RemoteM3uListDataProvider {
   final list = <RemoteListUrl>[];
 
   void setList(List<RemoteListUrl> watchLists) {
@@ -74,9 +74,9 @@ class RemoteM3uListController {
     list.addAll(watchLists);
   }
 
-  factory RemoteM3uListController.fromGet() {
-    return Get.find<RemoteM3uListController>();
+  factory RemoteM3uListDataProvider.fromGet() {
+    return Get.find<RemoteM3uListDataProvider>();
   }
 
-  RemoteM3uListController();
+  RemoteM3uListDataProvider();
 }

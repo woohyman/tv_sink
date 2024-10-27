@@ -1,13 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
-import 'package:tv_sink/domain/model/TvInfo.dart';
-import '../data/db/HistoryDbRepository.dart';
 import '../domain/PlayController.dart';
-import '../domain/PlaylistStateManager.dart';
-import '../domain/WifiManager.dart';
-import '../domain/ad/TvInterstitialAd.dart';
-import '../domain/data_provider/HistoryListController.dart';
-import '../util/const.dart';
+import '../domain/data_provider/HistoryListDataProvider.dart';
 import '../widgets/list/ItemView.dart';
 
 class HistoryRoute extends StatefulWidget {
@@ -18,7 +12,7 @@ class HistoryRoute extends StatefulWidget {
 }
 
 class _HistoryRouteState extends State<HistoryRoute> {
-  final _historyController = HistoryListController.preFetchData();
+  final _historyDataProvider = HistoryListDataProvider.preFetchData();
 
   @override
   void initState() {
@@ -32,7 +26,7 @@ class _HistoryRouteState extends State<HistoryRoute> {
       body: Stack(
         children: [
           Visibility(
-            visible: _historyController.list.isEmpty,
+            visible: _historyDataProvider.list.isEmpty,
             child: Container(
                 alignment: Alignment.center,
                 child: const Text(
@@ -44,7 +38,7 @@ class _HistoryRouteState extends State<HistoryRoute> {
             return ListView.builder(
                 itemBuilder: (BuildContext context, int innerIndex) {
                   final tvItem =
-                      _historyController.list.entries.elementAt(innerIndex);
+                  _historyDataProvider.list.entries.elementAt(innerIndex);
                   final tvName = tvItem.key;
                   return Card(
                       color: Colors.lightBlue.shade100,
@@ -95,7 +89,7 @@ class _HistoryRouteState extends State<HistoryRoute> {
                         ),
                       ));
                 },
-                itemCount: _historyController.list.length);
+                itemCount: _historyDataProvider.list.length);
           })
         ],
       ),

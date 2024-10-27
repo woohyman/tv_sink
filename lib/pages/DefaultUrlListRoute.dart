@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:supabase/supabase.dart';
-import '../domain/data_provider/WatchListsController.dart';
+import '../domain/data_provider/WatchListsDataProvider.dart';
 import '../domain/model/RemoteListUrl.dart';
 import '../domain/parse/ParseTxtSourceToList.dart';
 
@@ -18,7 +18,7 @@ int tabCounts = 0;
 class _SettingRouteState extends State<DefaultUrlListRoute> {
   int nowTime = 0;
   RxBool isAuth = false.obs;
-  final _remoteM3uListController = RemoteM3uListController.fromGet();
+  final _remoteM3uListController = RemoteM3uListDataProvider.fromGet();
 
   Future<PostgrestList> get _listFuture {
     if (isAuth.value) {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tv_sink/domain/upgrade/UpgradeDataProvider.dart';
-import '../domain/WifiManager.dart';
-import '../domain/data_provider/AppSettingController.dart';
+import '../domain/AppSetController.dart';
+import '../domain/data_provider/AppSetDataProvider.dart';
 import '../domain/upgrade/UpgradeController.dart';
 
 class AppSettingRoute extends StatefulWidget {
@@ -15,7 +15,7 @@ class AppSettingRoute extends StatefulWidget {
 class _SettingRouteState extends State<AppSettingRoute> {
   final _upgradeDataProvider = UpgradeDataProvider.fromGet();
   final _upgradeController = UpgradeController();
-  final _appSettingController = AppSettingController();
+  final _appSetDataProvider = AppSetDataProvider.fromGet();
 
   @override
   Widget build(BuildContext context) {
@@ -35,16 +35,31 @@ class _SettingRouteState extends State<AppSettingRoute> {
                     fontSize: 20.0,
                   ),
                 ),
-                trailing: Switch(
-                  value: _appSettingController.switchSelected.value,
-                  onChanged: (value) {
-                    //重新构建页面
-                    setState(() {
-                      _appSettingController.switchSelected.value = value;
-                      WifiManager.instance.setIsNeedWifi(value);
-                    });
-                  },
+                trailing: Obx(() {
+                  return Switch(
+                    value: _appSetDataProvider.onlyPlayOnWifi,
+                    onChanged: (value) {
+                      AppSetController.instance.setOnlyPlayOnWifi(value);
+                    },
+                  );
+                }),
+              ),
+              ListTile(
+                title: const Text(
+                  '是否允许在后台播放',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20.0,
+                  ),
                 ),
+                trailing: Obx(() {
+                  return Switch(
+                    value: _appSetDataProvider.enableBackgroundPlay,
+                    onChanged: (value) {
+                      AppSetController.instance.enableBackgroundPlay = value;
+                    },
+                  );
+                }),
               ),
               ListTile(
                 onTap: () {

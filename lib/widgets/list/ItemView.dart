@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tv_sink/data/db/CollectionDbRepository.dart';
 import 'package:tv_sink/domain/model/TvInfo.dart';
-import 'package:tv_sink/util/log.dart';
-
 import '../../domain/PlayController.dart';
 import '../../domain/data_provider/PlayDataProvider.dart';
-import '../../domain/data_provider/WatchListsController.dart';
+import '../../domain/data_provider/WatchListsDataProvider.dart';
 
 class ItemView extends StatefulWidget {
   final MapEntry<String, TvInfo> _user;
@@ -18,7 +15,7 @@ class ItemView extends StatefulWidget {
 }
 
 class _ItemViewState extends State<ItemView> {
-  final _favorListController = Get.find<CollectionListsController>();
+  final _favorListController = Get.find<CollectionListsDataProvider>();
   final _playController = Get.find<PlayDataProvider>();
 
   @override

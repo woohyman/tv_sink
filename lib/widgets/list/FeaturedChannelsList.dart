@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:scrollable_positioned_list/scrollable_positioned_list.dart';
 import '../../data/net/RemoteUrlRepository.dart';
-import '../../domain/PlaylistStateManager.dart';
-import '../../domain/data_provider/WatchListsController.dart';
+import '../../domain/data_provider/WatchListsDataProvider.dart';
 import 'ItemView.dart';
 
 class FeaturedChannelsList extends StatefulWidget {
@@ -16,7 +15,7 @@ class FeaturedChannelsList extends StatefulWidget {
 class _TvNameListState extends State<FeaturedChannelsList> {
   final ItemScrollController _scrollController = ItemScrollController();
   final _remoteUrlControl = RemoteUrlRepository();
-  final _featuredTvLisController = FeatureListsController();
+  final _featuredTvLisController = FeatureListsDataProvider();
 
   @override
   void initState() {
@@ -54,8 +53,7 @@ class _TvNameListState extends State<FeaturedChannelsList> {
               physics: const AlwaysScrollableScrollPhysics(),
               addAutomaticKeepAlives: true,
               itemScrollController: _scrollController,
-              initialScrollIndex:
-                  PlaylistStateManager.instance.position.listIndex,
+              initialScrollIndex: 0,
               itemCount: _featuredTvLisController.list.length,
               itemBuilder: (BuildContext context, int innerIndex) {
                 final user =

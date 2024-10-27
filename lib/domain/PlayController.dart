@@ -1,14 +1,12 @@
-import 'dart:io';
 import 'dart:math';
 import 'package:fijkplayer/fijkplayer.dart';
 import 'package:media_kit/media_kit.dart';
 import 'package:media_kit_video/media_kit_video.dart';
 import 'package:flutter/material.dart';
-import 'package:tv_sink/util/log.dart';
 import 'package:universal_platform/universal_platform.dart';
 import '../data/db/HistoryDbRepository.dart';
-import 'WifiManager.dart';
 import 'ad/TvInterstitialAd.dart';
+import 'data_provider/AppSetDataProvider.dart';
 import 'data_provider/PlayDataProvider.dart';
 import 'model/TvInfo.dart';
 
@@ -39,16 +37,16 @@ class PlayController {
   static PlayController instance = PlayController._();
 
   Future<void> playSource(MapEntry<String, TvInfo> entry) async {
+    if (!AppSetDataProvider.fromGet().allowPlayback) {
+      pause();
+      return;
+    }
+
     PlayDataProvider.fromGet().setUser(entry);
 
     if (!UniversalPlatform.isAndroid) {
       _setResourceAndPlay(entry.value.tvgUrl);
       HistoryDbRepository().insertDog(entry);
-      return;
-    }
-
-    if (WifiManager.instance.isNeedConnectWithWifi) {
-      pause();
       return;
     }
 
