@@ -4,13 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_update_dialog/update_dialog.dart';
 import 'package:get/get.dart';
+import 'package:tv_sink/domain/data_provider/AppSetDataProvider.dart';
 import 'package:tv_sink/widgets/list/FavoriteChannelsList.dart';
 import 'package:tv_sink/widgets/list/FeaturedChannelsList.dart';
 import 'package:tv_sink/widgets/list/OptionalChannelsList.dart';
+import '../domain/PlayController.dart';
 import '../domain/ad/AppLifecycleReactor.dart';
 import '../domain/ad/AppOpenAdManager.dart';
 import '../domain/ad/banner/AnchorAdapter.dart';
 import '../domain/data_provider/PlayDataProvider.dart';
+import '../domain/data_provider/WatchListsDataProvider.dart';
 import '../domain/upgrade/UpgradeController.dart';
 import '../widgets/KeepAliveTest.dart';
 import '../widgets/PlayerWrapper.dart';
@@ -60,14 +63,77 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
           actions: [
             Obx(() {
               final tvName = PlayDataProvider.fromGet().tvInfo.value?.key;
-              return Padding(
-                padding: const EdgeInsets.all(16.0),
+              return Container(
+                margin: const EdgeInsets.only(
+                  left: 5,
+                  right: 10,
+                  top: 0,
+                  bottom: 0,
+                ),
                 child: Visibility(
                   visible: tvName != null,
-                  child: Text("正在播放:$tvName"),
+                  child: Text("$tvName"),
                 ),
               );
-            })
+            }),
+            Obx(
+              () {
+                final myItems = <DropdownMenuItem<String>>[];
+                final playProvider = PlayDataProvider.fromGet();
+                final appSettingProvider = AppSetDataProvider.fromGet();
+                final urlList = playProvider.tvInfo.value?.value.tvgUrlList;
+                final showDropDoan = !appSettingProvider.autoSourceSwitch &&
+                    urlList != null &&
+                    urlList.length > 1;
+
+                urlList?.asMap().forEach((key, value) {
+                  myItems.add(DropdownMenuItem<String>(
+                    value: value,
+                    child: Text("直播源${key + 1}"),
+                  ));
+                });
+
+                final index = urlList
+                        ?.indexOf(playProvider.selectUrl.value.value ?? "") ??
+                    0;
+                return Visibility(
+                  visible: urlList == null ? false : urlList.length > 1,
+                  child: showDropDoan
+                      ? DropdownButton<String>(
+                          onChanged: (value) {
+                            PlayController.instance.playSource(
+                                playProvider.tvInfo.value!,
+                                tvgUrl: value);
+                          },
+                          value: playProvider.selectUrl.value.value,
+                          items: myItems,
+                        )
+                      : Text("直播源${index + 1}"),
+                );
+              },
+            ),
+            Container(
+              margin: const EdgeInsets.only(
+                left: 5,
+                right: 10,
+                top: 0,
+                bottom: 0,
+              ),
+              child: Obx(() {
+                final _favorListController =
+                    Get.find<CollectionListsDataProvider>();
+                final tvInfo = PlayDataProvider.fromGet().tvInfo.value;
+                return Visibility(
+                  visible: tvInfo != null,
+                  child: InkWell(
+                    onTap: () => _favorListController.selectOrNot(tvInfo),
+                    child: _favorListController.list.keys.contains(tvInfo?.key)
+                        ? const Icon(Icons.favorite)
+                        : const Icon(Icons.favorite_border),
+                  ),
+                );
+              }),
+            ),
           ],
           title: const Text("电视汇"),
         ),

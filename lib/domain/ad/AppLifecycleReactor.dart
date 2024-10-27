@@ -22,7 +22,6 @@ class AppLifecycleReactor extends WidgetsBindingObserver {
     }
 
     if (state == AppLifecycleState.paused) {
-      logger.i("是否允许后台播放 ====》 ${_appSetDataProvider.enableBackgroundPlay}");
       if (!_appSetDataProvider.enableBackgroundPlay) {
         PlayController.instance.pause();
       }

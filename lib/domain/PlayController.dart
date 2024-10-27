@@ -3,6 +3,8 @@ import 'package:fijkplayer/fijkplayer.dart';
 import 'package:media_kit/media_kit.dart';
 import 'package:media_kit_video/media_kit_video.dart';
 import 'package:flutter/material.dart';
+import 'package:tv_sink/pages/model/data.dart';
+import 'package:tv_sink/util/log.dart';
 import 'package:universal_platform/universal_platform.dart';
 import '../data/db/HistoryDbRepository.dart';
 import 'ad/TvInterstitialAd.dart';
@@ -22,6 +24,32 @@ class PlayController {
       player = Player();
       controller = VideoController(player);
     }
+
+    if (UniversalPlatform.isAndroid) {
+      _ijkPlayer.addListener(() {
+        if (_ijkPlayer.state == FijkState.error) {
+          final provider = PlayDataProvider.fromGet();
+          try {
+            final entry = provider.playUrlMap.entries.firstWhere((value) {
+              return !value.value.isConnected;
+            });
+            _setResourceAndPlay(entry.key);
+          } catch (error) {}
+        }
+      });
+    } else if (UniversalPlatform.isMacOS || UniversalPlatform.isWeb) {
+      player.stream.error.listen(
+        (event) {
+          final provider = PlayDataProvider.fromGet();
+          try {
+            final entry = provider.playUrlMap.entries.firstWhere((value) {
+              return !value.value.isConnected;
+            });
+            _setResourceAndPlay(entry.key);
+          } catch (error) {}
+        },
+      );
+    }
   }
 
   void dispose() {
@@ -36,7 +64,17 @@ class PlayController {
   //第二种方式调用
   static PlayController instance = PlayController._();
 
-  Future<void> playSource(MapEntry<String, TvInfo> entry) async {
+  Future<void> playSource(MapEntry<String, TvInfo> entry,
+      {String? tvgUrl}) async {
+    if (tvgUrl != null) {
+      entry.value.tvgUrl = tvgUrl;
+      PlayDataProvider.fromGet().selectUrl.value.value = tvgUrl;
+    } else {
+      entry.value.tvgUrl = entry.value.tvgUrlList.first;
+      PlayDataProvider.fromGet().selectUrl.value.value =
+          entry.value.tvgUrlList.first;
+    }
+
     if (!AppSetDataProvider.fromGet().allowPlayback) {
       pause();
       return;
@@ -64,6 +102,8 @@ class PlayController {
     if (source == null) {
       return;
     }
+
+    PlayDataProvider.fromGet().setUrl(source);
 
     if (UniversalPlatform.isAndroid) {
       await _ijkPlayer.reset();

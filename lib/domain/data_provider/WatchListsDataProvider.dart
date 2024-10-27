@@ -49,7 +49,10 @@ class CollectionListsDataProvider extends GetxController {
     return item;
   }
 
-  void selectOrNot(MapEntry<String, TvInfo> data) {
+  void selectOrNot(MapEntry<String, TvInfo>? data) {
+    if(data == null){
+      return;
+    }
     if (list.keys.contains(data.key)) {
       list.remove(data.key);
       _collectionDbControl.deleteDog(data.key);

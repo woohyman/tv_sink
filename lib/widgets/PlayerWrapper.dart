@@ -49,6 +49,26 @@ class _PlayerWrapperState extends State<PlayerWrapper> {
         Obx(() {
           return Visibility(
             visible: !AppSetDataProvider.fromGet().allowPlayback,
+            child: Container(
+              padding: const EdgeInsets.only(
+                left: 0,
+                right: 0,
+                top: 12,
+                bottom: 12,
+              ),
+              color: Colors.black,
+              child: const Align(
+                child: Text(
+                  "数据流量下不能播放！\n点击前往设置界面修改！",
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
+              ),
+            ),
+          );
+        }),
+        Obx(() {
+          return Visibility(
+            visible: !AppSetDataProvider.fromGet().allowPlayback,
             child: InkWell(
               onTap: () =>
                   Navigator.of(context).pushNamed(RouterTable.appSettingPath),

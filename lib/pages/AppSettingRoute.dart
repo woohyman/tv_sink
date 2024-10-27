@@ -46,6 +46,23 @@ class _SettingRouteState extends State<AppSettingRoute> {
               ),
               ListTile(
                 title: const Text(
+                  '是否自动切换播放源',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20.0,
+                  ),
+                ),
+                trailing: Obx(() {
+                  return Switch(
+                    value: _appSetDataProvider.autoSourceSwitch,
+                    onChanged: (value) {
+                      AppSetController.instance.setAutoSourceSwitch(value);
+                    },
+                  );
+                }),
+              ),
+              ListTile(
+                title: const Text(
                   '是否允许在后台播放',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,

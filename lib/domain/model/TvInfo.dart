@@ -1,5 +1,7 @@
 import 'package:json_string/json_string.dart';
 
+import '../../pages/model/data.dart';
+
 class TvInfo {
   String tvgId;
   String tvgCountry;
@@ -20,7 +22,8 @@ class TvInfo {
   });
 }
 
-extension MapOpt on MapEntry<String, TvInfo> {
+extension Transform on MapEntry<String, TvInfo> {
+
   Map<String, Object?> toMap() {
     return {
       'name': key,

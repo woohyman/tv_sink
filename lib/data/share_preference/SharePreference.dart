@@ -2,6 +2,9 @@ import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
+//是否自动切换播放源
+const String keyAutoSourceSwitch = "autoSourceSwitch";
+
 //是否强制Wifi下才能播放
 const String keyWifiSetting = "keyWifiSetting";
 

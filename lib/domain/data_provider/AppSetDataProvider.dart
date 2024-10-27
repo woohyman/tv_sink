@@ -9,8 +9,15 @@ class AppSetDataProvider {
   //是否允许后台播放
   final RxBool _enableBackgroundPlay = true.obs;
 
+  //是否自动切换播放源
+  final RxBool _autoSourceSwitch = true.obs;
+
   //是否允许视频播放
   final RxBool _allowPlayback = true.obs;
+
+  bool get autoSourceSwitch {
+    return _autoSourceSwitch.value;
+  }
 
   bool get onlyPlayOnWifi {
     return _onlyPlayOnWifi.value;
@@ -22,6 +29,10 @@ class AppSetDataProvider {
 
   bool get allowPlayback {
     return _allowPlayback.value;
+  }
+
+  set autoSourceSwitch(value) {
+    _autoSourceSwitch.value = value;
   }
 
   set onlyPlayOnWifi(value) {
@@ -47,6 +58,11 @@ class AppSetDataProvider {
   }
 
   void fetchAppData() {
+    fetchAppSetting(keyAutoSourceSwitch).then(
+          (value) {
+        _autoSourceSwitch.value = value;
+      },
+    );
     fetchAppSetting(keyWifiSetting).then(
       (value) {
         _onlyPlayOnWifi.value = value;

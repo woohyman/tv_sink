@@ -32,6 +32,11 @@ class AppSetController {
     });
   }
 
+  void setAutoSourceSwitch(bool value){
+    saveAppSetting(keyAutoSourceSwitch, value);
+    _appSetDataProvider.autoSourceSwitch = value;
+  }
+
   void setOnlyPlayOnWifi(bool value) {
     saveAppSetting(keyWifiSetting, value);
     _appSetDataProvider.onlyPlayOnWifi = value;

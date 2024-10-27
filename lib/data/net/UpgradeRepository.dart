@@ -34,7 +34,7 @@ class UpgradeRepository {
     final response = await r.retry(
       () => data.timeout(const Duration(seconds: 5)),
       retryIf: (e) => e is SocketException || e is TimeoutException,
-      onRetry: (e) => logger.e(e),
+      onRetry: (e) => {},
     );
     return response;
   }
