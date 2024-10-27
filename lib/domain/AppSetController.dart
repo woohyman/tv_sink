@@ -23,8 +23,9 @@ class AppSetController {
         .listen((List<ConnectivityResult> results) async {
       _result = results.first;
       _appSetDataProvider.allowPlayback =
-          _result == ConnectivityResult.mobile &&
-              _appSetDataProvider.onlyPlayOnWifi;
+          _result != ConnectivityResult.mobile ||
+              (_result == ConnectivityResult.mobile &&
+                  _appSetDataProvider.onlyPlayOnWifi);
       if (!_appSetDataProvider.allowPlayback) {
         PlayController.instance.pause();
       }
@@ -34,8 +35,8 @@ class AppSetController {
   void setOnlyPlayOnWifi(bool value) {
     saveAppSetting(keyWifiSetting, value);
     _appSetDataProvider.onlyPlayOnWifi = value;
-    _appSetDataProvider.allowPlayback =
-        _result == ConnectivityResult.mobile && value;
+    _appSetDataProvider.allowPlayback = _result != ConnectivityResult.mobile ||
+        (_result == ConnectivityResult.mobile && value);
     if (!_appSetDataProvider.allowPlayback) {
       PlayController.instance.pause();
     }
