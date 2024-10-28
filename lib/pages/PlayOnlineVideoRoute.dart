@@ -1,12 +1,6 @@
-import 'dart:io';
-
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart';
 import '../domain/PlayController.dart';
 import '../domain/model/TvInfo.dart';
-import '../domain/parse/ParseTxtSourceToList.dart';
-import '../routes/RouterTable.dart';
 
 class PlayOnlineVideoRoute extends StatefulWidget {
   const PlayOnlineVideoRoute({Key? key}) : super(key: key);
@@ -65,10 +59,7 @@ class _SettingRouteState extends State<PlayOnlineVideoRoute> {
                     onPressed: () async {
                       PlayController.instance.playSource(MapEntry(
                           _tvNameController.text,
-                          TvInfo(
-                            _urlController.text,
-                            [_urlController.text],
-                          )));
+                          TvInfo([_urlController.text])));
                       Navigator.pop(context);
                     },
                   ),
@@ -86,12 +77,3 @@ class _SettingRouteState extends State<PlayOnlineVideoRoute> {
   }
 }
 
-Future<String> get _localPath async {
-  final _path = await getTemporaryDirectory();
-  return _path.path;
-}
-
-Future<File> get _localFile async {
-  final path = await _localPath;
-  return File('$path/playList');
-}

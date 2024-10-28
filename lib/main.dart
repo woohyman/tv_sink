@@ -6,6 +6,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:supabase/supabase.dart';
+import 'package:tv_sink/domain/data_provider/UserDataProvider.dart';
 import 'package:tv_sink/domain/upgrade/UpgradeDataProvider.dart';
 import 'package:tv_sink/routes/RouterTable.dart';
 import 'package:tv_sink/util/const.dart';
@@ -22,8 +23,8 @@ Future<void> main() async {
   Get.put(CollectionListsDataProvider());
   Get.put(PlayDataProvider());
   Get.put(UpgradeDataProvider.preFetchData());
-  Get.put(RemoteM3uListDataProvider());
   Get.put(AppSetDataProvider.preFetchData());
+  Get.put(UserDataProvider());
 
   // 如果需要 ensureInitialized，请在这里运行。
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();

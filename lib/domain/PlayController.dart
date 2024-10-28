@@ -26,29 +26,33 @@ class PlayController {
     }
 
     if (UniversalPlatform.isAndroid) {
-      _ijkPlayer.addListener(() {
-        if (_ijkPlayer.state == FijkState.error) {
-          final provider = PlayDataProvider.fromGet();
-          try {
-            final entry = provider.playUrlMap.entries.firstWhere((value) {
-              return !value.value.isConnected;
-            });
-            _setResourceAndPlay(entry.key);
-          } catch (error) {}
-        }
-      });
+      if (AppSetDataProvider.fromGet().autoSourceSwitch == false) {
+        _ijkPlayer.addListener(() {
+          if (_ijkPlayer.state == FijkState.error) {
+            final provider = PlayDataProvider.fromGet();
+            try {
+              final entry = provider.playUrlMap.entries.firstWhere((value) {
+                return !value.value.isConnected;
+              });
+              _setResourceAndPlay(entry.key);
+            } catch (error) {}
+          }
+        });
+      }
     } else if (UniversalPlatform.isMacOS || UniversalPlatform.isWeb) {
-      player.stream.error.listen(
-        (event) {
-          final provider = PlayDataProvider.fromGet();
-          try {
-            final entry = provider.playUrlMap.entries.firstWhere((value) {
-              return !value.value.isConnected;
-            });
-            _setResourceAndPlay(entry.key);
-          } catch (error) {}
-        },
-      );
+      if (AppSetDataProvider.fromGet().autoSourceSwitch == false) {
+        player.stream.error.listen(
+          (event) {
+            final provider = PlayDataProvider.fromGet();
+            try {
+              final entry = provider.playUrlMap.entries.firstWhere((value) {
+                return !value.value.isConnected;
+              });
+              _setResourceAndPlay(entry.key);
+            } catch (error) {}
+          },
+        );
+      }
     }
   }
 
@@ -67,10 +71,8 @@ class PlayController {
   Future<void> playSource(MapEntry<String, TvInfo> entry,
       {String? tvgUrl}) async {
     if (tvgUrl != null) {
-      entry.value.tvgUrl = tvgUrl;
       PlayDataProvider.fromGet().selectUrl.value.value = tvgUrl;
     } else {
-      entry.value.tvgUrl = entry.value.tvgUrlList.first;
       PlayDataProvider.fromGet().selectUrl.value.value =
           entry.value.tvgUrlList.first;
     }
@@ -83,7 +85,7 @@ class PlayController {
     PlayDataProvider.fromGet().setUser(entry);
 
     if (!UniversalPlatform.isAndroid) {
-      _setResourceAndPlay(entry.value.tvgUrl);
+      _setResourceAndPlay(PlayDataProvider.fromGet().selectUrl.value.value);
       HistoryDbRepository().insertDog(entry);
       return;
     }
@@ -94,7 +96,7 @@ class PlayController {
       await TvInterstitialAd.instance.show();
     }
 
-    _setResourceAndPlay(entry.value.tvgUrl);
+    _setResourceAndPlay(PlayDataProvider.fromGet().selectUrl.value.value);
     HistoryDbRepository().insertDog(entry);
   }
 

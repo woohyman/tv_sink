@@ -67,19 +67,3 @@ class CollectionListsDataProvider extends GetxController {
     list.addAll(watchLists);
   }
 }
-
-class RemoteM3uListDataProvider {
-  final list = <RemoteListUrl>[];
-
-  void setList(List<RemoteListUrl> watchLists) {
-    //再往列表填充数据
-    list.clear();
-    list.addAll(watchLists);
-  }
-
-  factory RemoteM3uListDataProvider.fromGet() {
-    return Get.find<RemoteM3uListDataProvider>();
-  }
-
-  RemoteM3uListDataProvider();
-}

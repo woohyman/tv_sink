@@ -42,7 +42,6 @@ Future<String> _readM3uContent(String stringValue) async {
       }
 
       final _tvInfo = TvInfo(
-        "",
         [],
         tvgId: "",
         tvgCountry: "",
@@ -58,7 +57,7 @@ Future<String> _readM3uContent(String stringValue) async {
 
       for (var value in detailParamArray) {
         if (value.contains("tvg-id")) {
-          _tvInfo.tvgUrl = value.substring(8, value.length - 1);
+          _tvInfo.tvgId = value.substring(8, value.length - 1);
         }
 
         if (value.contains("tvg-country")) {
@@ -89,7 +88,6 @@ Future<String> _readM3uContent(String stringValue) async {
       final _tvInfo = _tvList.values.last;
       if (!_tvInfo.tvgUrlList.contains(value)) {
         _tvInfo.tvgUrlList.add(value);
-        _tvInfo.tvgUrl = _tvInfo.tvgUrlList.first;
       }
     }
   }
@@ -119,7 +117,6 @@ Future<String> _readXmlContent(String stringValue) async {
         continue;
       }
       _tvList[bigParamArray[0]] = TvInfo(
-        bigParamArray[1],
         [bigParamArray[1]],
         tvgId: "",
         tvgCountry: "",

@@ -1,8 +1,8 @@
 import 'dart:async';
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:flutter_update_dialog/update_dialog.dart';
 import 'package:get/get.dart';
 import 'package:tv_sink/domain/data_provider/AppSetDataProvider.dart';
 import 'package:tv_sink/widgets/list/FavoriteChannelsList.dart';
@@ -64,6 +64,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
             Obx(() {
               final tvName = PlayDataProvider.fromGet().tvInfo.value?.key;
               return Container(
+                width: 200,
                 margin: const EdgeInsets.only(
                   left: 5,
                   right: 10,
@@ -72,7 +73,11 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
                 ),
                 child: Visibility(
                   visible: tvName != null,
-                  child: Text("$tvName"),
+                  child: AutoSizeText(
+                    "$tvName",
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
                 ),
               );
             }),
@@ -135,7 +140,6 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
               }),
             ),
           ],
-          title: const Text("电视汇"),
         ),
         drawer: const SliderLeft(),
         body: Flex(

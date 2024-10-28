@@ -19,14 +19,13 @@ class PlayDataProvider {
     }
 
     tvInfo.value = _tvInfo;
-    selectUrl.value.value = _tvInfo.value.tvgUrl;
+    selectUrl.value.value = _tvInfo.value.tvgUrlList.first;
   }
 
   void setUrl(String? url) {
     if (url == null) {
       return;
     }
-    tvInfo.value?.value.tvgUrl = url;
     selectUrl.value.value = url;
 
     playUrlMap.update(url, (value) {
@@ -35,7 +34,6 @@ class PlayDataProvider {
   }
 
   void resetUrlStatus() {
-    tvInfo.value?.value.tvgUrl = tvInfo.value?.value.tvgUrlList.first ?? "";
     selectUrl.value.value = tvInfo.value?.value.tvgUrlList.first ?? "";
 
     playUrlMap.updateAll((value, info) {

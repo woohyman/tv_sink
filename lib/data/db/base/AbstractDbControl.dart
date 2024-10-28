@@ -4,9 +4,8 @@ import 'package:json_string/json_string.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:tv_sink/data/db/HistoryDbRepository.dart';
-
+import 'package:tv_sink/data/model/transform.dart';
 import '../../../domain/model/TvInfo.dart';
-import '../../../util/log.dart';
 import 'DbParam.dart';
 
 //自选数据库
@@ -49,7 +48,6 @@ abstract class AbstractDbRepository implements DbParam {
       final tvgUrlList = JsonString(item['tvgUrlList'] as String)
           .decodeAsPrimitiveList<String>();
       result[item['name'] as String] = TvInfo(
-        item['tvgUrl'] as String,
         tvgUrlList,
         tvgId: item['tvgId'] as String,
         tvgCountry: item['tvgCountry'] as String,

@@ -10,7 +10,6 @@ class RemoteUrlRepository {
 
     for (var item in list) {
       defaultTvList[item["name"]] = TvInfo(
-        item["url"],
         [item["url"]],
         tvgId: "",
         tvgCountry: "",

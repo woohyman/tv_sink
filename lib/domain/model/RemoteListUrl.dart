@@ -10,4 +10,20 @@ class RemoteListUrl {
     required this.name,
     required this.status,
   });
+
+  factory RemoteListUrl.fromMap(value) {
+    return RemoteListUrl(
+      url: value["url"],
+      name: value["name"],
+      status: "",
+    );
+  }
+}
+
+extension Extension on List<dynamic> {
+  List<RemoteListUrl> toUrlList() {
+    return map((value) {
+      return RemoteListUrl.fromMap(value);
+    }).toList();
+  }
 }

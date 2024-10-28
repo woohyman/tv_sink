@@ -2,6 +2,9 @@ import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
 
+//是否是Vip
+const String keyIsVip = "isVip";
+
 //是否自动切换播放源
 const String keyAutoSourceSwitch = "autoSourceSwitch";
 
