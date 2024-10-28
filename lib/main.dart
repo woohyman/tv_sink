@@ -16,6 +16,7 @@ import 'domain/ad/TvInterstitialAd.dart';
 import 'domain/data_provider/AppSetDataProvider.dart';
 import 'domain/data_provider/PlayDataProvider.dart';
 import 'domain/data_provider/WatchListsDataProvider.dart';
+import 'domain/upgrade/UpgradeController.dart';
 import 'pages/ScaffoldRoute.dart';
 
 Future<void> main() async {
@@ -25,6 +26,7 @@ Future<void> main() async {
   Get.put(UpgradeDataProvider.preFetchData());
   Get.put(AppSetDataProvider.preFetchData());
   Get.put(UserDataProvider());
+  Get.put(UpgradeController());
 
   // 如果需要 ensureInitialized，请在这里运行。
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();

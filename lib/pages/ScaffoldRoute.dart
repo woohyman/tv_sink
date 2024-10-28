@@ -30,7 +30,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
   final _selectedIndex = ValueNotifier<int>(0);
   final _pageController = PageController();
   final _anchorAdapter = AnchorAdapter();
-  final _upgradeController = UpgradeController();
+  final _upgradeController = UpgradeController.fromGet();
 
   @override
   void didChangeDependencies() {
@@ -58,6 +58,8 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
 
   @override
   Widget build(BuildContext context) {
+    UpgradeController.fromGet().init(context);
+
     return Scaffold(
         appBar: AppBar(
           actions: [

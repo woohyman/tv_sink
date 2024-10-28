@@ -14,7 +14,7 @@ class AppSettingRoute extends StatefulWidget {
 
 class _SettingRouteState extends State<AppSettingRoute> {
   final _upgradeDataProvider = UpgradeDataProvider.fromGet();
-  final _upgradeController = UpgradeController();
+  final _upgradeController = UpgradeController.fromGet();
   final _appSetDataProvider = AppSetDataProvider.fromGet();
 
   @override

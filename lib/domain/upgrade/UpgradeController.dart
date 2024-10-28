@@ -1,5 +1,7 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_update_dialog/update_dialog.dart';
+import 'package:get/get.dart';
 import 'package:open_file/open_file.dart';
 import '../../util/file_util.dart';
 import 'UpgradeDataProvider.dart';
@@ -9,22 +11,37 @@ class UpgradeController {
   UpdateDialog? _dialog;
   final _upgradeRepository = UpgradeRepository();
 
+  factory UpgradeController.fromGet() {
+    return Get.find<UpgradeController>();
+  }
+
+  void init(BuildContext context) {
+    Connectivity()
+        .onConnectivityChanged
+        .listen((List<ConnectivityResult> results) async {
+      showDialog(context);
+    });
+  }
+
+  UpgradeController();
+
   Future<bool> showDialog(BuildContext context) async {
     final _upgradeDataProvider = UpgradeDataProvider.fromGet();
-    final needUpgrade = _upgradeDataProvider.needUpgrade.value;
-    if (needUpgrade == null) {
+    if (_upgradeDataProvider.needUpgrade.value == null) {
       await _upgradeDataProvider.fetchVersion();
     }
+
 
     if (_dialog != null && _dialog!.isShowing()) {
       return false;
     }
 
-    if (needUpgrade == true) {
+    if (_upgradeDataProvider.needUpgrade.value == true) {
+
       final apkUpgradeInfo = _upgradeDataProvider.apkVersion.value;
       _dialog = UpdateDialog.showUpdate(
         context,
-        isForce: false,
+        isForce: true,
         title: '是否升级到版本${apkUpgradeInfo?.versionName}?',
         updateContent: apkUpgradeInfo!.content,
         onUpdate: () async {
