@@ -4,6 +4,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
+import 'package:tv_sink/domain/ad/AdController.dart';
 import 'package:tv_sink/domain/data_provider/AppSetDataProvider.dart';
 import 'package:tv_sink/widgets/list/FavoriteChannelsList.dart';
 import 'package:tv_sink/widgets/list/FeaturedChannelsList.dart';
@@ -11,13 +12,13 @@ import 'package:tv_sink/widgets/list/OptionalChannelsList.dart';
 import '../domain/PlayController.dart';
 import '../domain/ad/AppLifecycleReactor.dart';
 import '../domain/ad/AppOpenAdManager.dart';
-import '../domain/ad/banner/AnchorAdapter.dart';
 import '../domain/data_provider/PlayDataProvider.dart';
 import '../domain/data_provider/WatchListsDataProvider.dart';
 import '../domain/upgrade/UpgradeController.dart';
 import '../widgets/KeepAliveTest.dart';
 import '../widgets/PlayerWrapper.dart';
 import '../widgets/SliderLeft.dart';
+import '../widgets/banner/AnchorWidget.dart';
 
 class ScaffoldRoute extends StatefulWidget {
   const ScaffoldRoute({Key? key}) : super(key: key);
@@ -29,30 +30,27 @@ class ScaffoldRoute extends StatefulWidget {
 class _ScaffoldRouteState extends State<ScaffoldRoute> {
   final _selectedIndex = ValueNotifier<int>(0);
   final _pageController = PageController();
-  final _anchorAdapter = AnchorAdapter();
   final _upgradeController = UpgradeController.fromGet();
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    _anchorAdapter.loadAd(context, () => setState(() => {}));
   }
 
   @override
   void initState() {
     super.initState();
+    Get.put(AdController.preInit());
+
+    final reactor = AppLifecycleReactor(controller: AdController.fromGet());
+    WidgetsBinding.instance.addObserver(reactor);
+
     FlutterNativeSplash.remove();
-
     _upgradeController.showDialog(context);
-
-    AppOpenAdManager appOpenAdManager = AppOpenAdManager()..loadAd();
-    WidgetsBinding.instance
-        .addObserver(AppLifecycleReactor(appOpenAdManager: appOpenAdManager));
   }
 
   @override
   void dispose() {
-    _anchorAdapter.dispose();
     super.dispose();
   }
 
@@ -148,7 +146,7 @@ class _ScaffoldRouteState extends State<ScaffoldRoute> {
           direction: Axis.vertical,
           children: <Widget>[
             PlayerWrapper(),
-            _anchorAdapter.getWidget(),
+            const AnchorWidget(),
             Expanded(
               flex: 1,
               child: PageView(

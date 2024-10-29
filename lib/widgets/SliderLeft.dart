@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:share_plus/share_plus.dart';
-import '../domain/ad/banner/InlineAdapter.dart';
 import '../routes/RouterTable.dart';
+import 'banner/InlineWidget.dart';
 
 class SliderLeft extends StatefulWidget {
   const SliderLeft({
@@ -13,18 +13,15 @@ class SliderLeft extends StatefulWidget {
 }
 
 class _SliderLeftState extends State<SliderLeft> {
-  final InlineAdapter _inlineAdapter = InlineAdapter();
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    _inlineAdapter.loadAd(context, () => setState(() => {}));
   }
 
   @override
   void dispose() {
     super.dispose();
-    _inlineAdapter.dispose();
   }
 
   @override
@@ -91,7 +88,7 @@ class _SliderLeftState extends State<SliderLeft> {
               ),
               Container(
                 alignment: Alignment.center,
-                child: _inlineAdapter.getAdWidget(() => setState(() => {})),
+                child: const InlineWidget(),
               ),
             ],
           ),

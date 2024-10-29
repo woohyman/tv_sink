@@ -3,11 +3,12 @@ import 'package:fijkplayer/fijkplayer.dart';
 import 'package:media_kit/media_kit.dart';
 import 'package:media_kit_video/media_kit_video.dart';
 import 'package:flutter/material.dart';
+import 'package:tv_sink/domain/ad/AdController.dart';
 import 'package:tv_sink/pages/model/data.dart';
 import 'package:tv_sink/util/log.dart';
 import 'package:universal_platform/universal_platform.dart';
 import '../data/db/HistoryDbRepository.dart';
-import 'ad/TvInterstitialAd.dart';
+import 'ad/TvInterstitialAdManager.dart';
 import 'data_provider/AppSetDataProvider.dart';
 import 'data_provider/PlayDataProvider.dart';
 import 'model/TvInfo.dart';
@@ -26,7 +27,7 @@ class PlayController {
     }
 
     if (UniversalPlatform.isAndroid) {
-      if (AppSetDataProvider.fromGet().autoSourceSwitch == false) {
+      if (AppSetDataProvider.fromGet().autoSourceSwitch == true) {
         _ijkPlayer.addListener(() {
           if (_ijkPlayer.state == FijkState.error) {
             final provider = PlayDataProvider.fromGet();
@@ -40,7 +41,7 @@ class PlayController {
         });
       }
     } else if (UniversalPlatform.isMacOS || UniversalPlatform.isWeb) {
-      if (AppSetDataProvider.fromGet().autoSourceSwitch == false) {
+      if (AppSetDataProvider.fromGet().autoSourceSwitch == true) {
         player.stream.error.listen(
           (event) {
             final provider = PlayDataProvider.fromGet();
@@ -91,9 +92,8 @@ class PlayController {
     }
 
     //开始加载广告
-    if (TvInterstitialAd.instance.interstitialAd != null &&
-        Random().nextInt(50) == 3) {
-      await TvInterstitialAd.instance.show();
+    if (Random().nextInt(50) == 3) {
+      await AdController.fromGet().showInterstitialAd();
     }
 
     _setResourceAndPlay(PlayDataProvider.fromGet().selectUrl.value.value);

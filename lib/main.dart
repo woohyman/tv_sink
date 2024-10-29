@@ -6,13 +6,16 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:supabase/supabase.dart';
+import 'package:tv_sink/domain/ad/AdController.dart';
 import 'package:tv_sink/domain/data_provider/UserDataProvider.dart';
 import 'package:tv_sink/domain/upgrade/UpgradeDataProvider.dart';
 import 'package:tv_sink/routes/RouterTable.dart';
 import 'package:tv_sink/util/const.dart';
 import 'package:video_player_media_kit/video_player_media_kit.dart';
 import 'domain/AppSetController.dart';
-import 'domain/ad/TvInterstitialAd.dart';
+import 'domain/ad/AppLifecycleReactor.dart';
+import 'domain/ad/AppOpenAdManager.dart';
+import 'domain/ad/TvInterstitialAdManager.dart';
 import 'domain/data_provider/AppSetDataProvider.dart';
 import 'domain/data_provider/PlayDataProvider.dart';
 import 'domain/data_provider/WatchListsDataProvider.dart';
@@ -34,7 +37,6 @@ Future<void> main() async {
 
   AppSetController.instance.init();
   MobileAds.instance.initialize();
-  TvInterstitialAd.instance.load();
 
   VideoPlayerMediaKit.ensureInitialized(
     macOS: true,
