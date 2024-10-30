@@ -7,7 +7,6 @@ import 'package:universal_platform/universal_platform.dart';
 import '../../data/net/DownloadRepository.dart';
 import '../../util/file_util.dart';
 import 'UpgradeDataProvider.dart';
-import '../../data/net/UpgradeRepository.dart';
 
 class UpgradeController {
   UpdateDialog? _dialog;
