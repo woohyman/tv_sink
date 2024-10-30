@@ -11,6 +11,8 @@ dependencies:
     sdk: flutter
 
   json_string: ^3.0.1
+  json_serializable: ^6.8.0
+  json_annotation: ^4.9.0
   scrollable_positioned_list: ^0.2.3
   cached_network_image: ^3.2.0
   transparent_image: ^2.0.0

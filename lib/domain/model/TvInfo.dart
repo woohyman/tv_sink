@@ -1,3 +1,5 @@
+import '../../data/db/model/tv_info_with_name.dart';
+
 class TvInfo {
   String tvgId;
   String tvgCountry;
@@ -15,3 +17,5 @@ class TvInfo {
     this.groupTitle = "",
   });
 }
+
+

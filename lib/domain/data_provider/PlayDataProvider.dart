@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 
-import '../../pages/model/data.dart';
-import '../../util/log.dart';
+import '../model/data.dart';
 import '../model/TvInfo.dart';
 
 //用于管理播放数据
@@ -11,8 +10,6 @@ class PlayDataProvider {
   final selectUrl = RxnString().obs;
 
   void setUser(MapEntry<String, TvInfo> _tvInfo) {
-    logger.i("重新开始播放");
-
     playUrlMap.clear();
     for (var value in _tvInfo.value.tvgUrlList) {
       playUrlMap[value] = PlayUrlInfo(false, 0);

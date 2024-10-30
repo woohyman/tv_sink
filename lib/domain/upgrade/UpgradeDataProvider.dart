@@ -8,7 +8,7 @@ class UpgradeDataProvider {
   final _updateManager = UpgradeRepository();
   final _apkVersionManager = ApkVersionDataProvider();
 
-  RxnBool needUpgrade = RxnBool(null);
+  RxBool needUpgrade = RxBool(false);
   RxString remoteVersion = "".obs;
   RxString localVersion = "".obs;
   Rxn<ApkUpgradeInfo> apkVersion = Rxn<ApkUpgradeInfo>();
@@ -17,13 +17,9 @@ class UpgradeDataProvider {
     return Get.find<UpgradeDataProvider>();
   }
 
-  factory UpgradeDataProvider.preFetchData() {
-    final _provider = UpgradeDataProvider._();
-    _provider.fetchVersion();
-    return _provider;
+  UpgradeDataProvider() {
+    fetchVersion();
   }
-
-  UpgradeDataProvider._();
 
   Future<void> fetchVersion() async {
     await _apkVersionManager.fetchApkVersion();

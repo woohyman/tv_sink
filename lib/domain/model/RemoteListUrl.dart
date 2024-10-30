@@ -1,5 +1,3 @@
-import 'package:json_string/json_string.dart';
-
 class RemoteListUrl {
   String url;
   String name;

@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import '../../data/db/OptionalDbRepository.dart';
 import '../model/TvInfo.dart';
-import 'WatchListsDataProvider.dart';
+import 'play_list_data_provider.dart';
 
 class SetOptionalTvList {
   final _optionalUrlControl = OptionalDbRepository();

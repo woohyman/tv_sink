@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:get/get.dart';
 import 'package:tv_sink/domain/model/TvInfo.dart';
 import '../data_provider/SetOptionalTvList.dart';
-import '../data_provider/WatchListsDataProvider.dart';
+import '../data_provider/play_list_data_provider.dart';
 
 Future<String> parse(String url) async {
   String stringValue = await File(url).readAsString();
@@ -92,7 +92,7 @@ Future<String> _readM3uContent(String stringValue) async {
     }
   }
 
-  final controller = Get.find<WatchListsDataProvider>();
+  final controller = OptionalPlayListDataProvider.fromGet();
   controller.setWatchLists(_tvList);
 
   final _setOptionalTvList = SetOptionalTvList();
@@ -127,7 +127,7 @@ Future<String> _readXmlContent(String stringValue) async {
     }
   }
 
-  final controller = Get.find<WatchListsDataProvider>();
+  final controller = OptionalPlayListDataProvider.fromGet();
   controller.setWatchLists(_tvList);
 
   final _setOptionalTvList = SetOptionalTvList();

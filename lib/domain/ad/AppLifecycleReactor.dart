@@ -1,17 +1,14 @@
+
 import 'package:flutter/material.dart';
-import 'package:tv_sink/util/log.dart';
-import '../PlayController.dart';
+import '../play/play_manager.dart';
 import '../data_provider/AppSetDataProvider.dart';
-import 'AdController.dart';
-import 'AppOpenAdManager.dart';
+import 'ad_manager.dart';
 
 //开屏广告
 class AppLifecycleReactor extends WidgetsBindingObserver {
-  final AdController controller;
-  final _appSetDataProvider = AppSetDataProvider.fromGet();
   bool _isPaused = false;
 
-  AppLifecycleReactor({required this.controller});
+  AppLifecycleReactor();
 
   @override
   Future<void> didChangeAppLifecycleState(AppLifecycleState state) async {
@@ -22,12 +19,12 @@ class AppLifecycleReactor extends WidgetsBindingObserver {
 
     if (state == AppLifecycleState.resumed && _isPaused) {
       _isPaused = false;
-      controller.showOpenAd();
+      AdManager().showOpenAd();
     }
 
     if (state == AppLifecycleState.paused) {
-      if (!_appSetDataProvider.enableBackgroundPlay) {
-        PlayController.instance.pause();
+      if (!AppSetDataProvider.fromGet().enableBackgroundPlay) {
+        PlayManager.instant.pause();
       }
     }
   }

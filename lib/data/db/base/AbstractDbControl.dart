@@ -1,11 +1,11 @@
 import 'dart:async';
 
-import 'package:json_string/json_string.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:tv_sink/data/db/HistoryDbRepository.dart';
 import 'package:tv_sink/data/model/transform.dart';
 import '../../../domain/model/TvInfo.dart';
+import '../model/tv_info_with_name.dart';
 import 'DbParam.dart';
 
 //自选数据库
@@ -45,16 +45,8 @@ abstract class AbstractDbRepository implements DbParam {
 
     final map = runtimeType == HistoryDbRepository ? dogMaps.reversed : dogMaps;
     for (final item in map) {
-      final tvgUrlList = JsonString(item['tvgUrlList'] as String)
-          .decodeAsPrimitiveList<String>();
-      result[item['name'] as String] = TvInfo(
-        tvgUrlList,
-        tvgId: item['tvgId'] as String,
-        tvgCountry: item['tvgCountry'] as String,
-        tvgLanguage: item['tvgLanguage'] as String,
-        tvgLogo: item['tvgLogo'] as String,
-        groupTitle: item['groupTitle'] as String,
-      );
+      final tvInfoWithName = TvInfoWithName.fromJson(item);
+      result[tvInfoWithName.name] = tvInfoWithName.toTvInfo();
     }
     return result;
   }

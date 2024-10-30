@@ -12,7 +12,7 @@ const String keyAutoSourceSwitch = "autoSourceSwitch";
 const String keyWifiSetting = "keyWifiSetting";
 
 //是否允许后台播放
-const String keyBackgroundPlaySetting = "keyBackgroundPlaySetting";
+const String keyAllowBkgPlay = "keyAllowBkgPlay";
 
 Future<void> saveAppSetting(String key, bool _state) async {
   SharedPreferences _preferences = await SharedPreferences.getInstance();

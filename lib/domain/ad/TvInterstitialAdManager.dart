@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:tv_sink/util/log.dart';
 
-import '../PlayController.dart';
+import '../play/play_manager.dart';
 
 class TvInterstitialAdManager {
   InterstitialAd? _interstitialAd;
@@ -27,7 +27,7 @@ class TvInterstitialAdManager {
             _interstitialAd = ad;
           },
           onAdFailedToLoad: (LoadAdError error) {
-            PlayController.instance.play();
+            PlayManager.instant.play();
           },
         ));
   }
@@ -45,7 +45,7 @@ class TvInterstitialAdManager {
         onAdShowedFullScreenContent: (ad) {
           ad.dispose();
           _interstitialAd = null;
-          PlayController.instance.pause();
+          PlayManager.instant.pause();
           _load();
         },
         onAdFailedToShowFullScreenContent: (ad, error) {

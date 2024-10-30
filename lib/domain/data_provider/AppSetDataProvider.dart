@@ -1,8 +1,9 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:get/get.dart';
 import '../../data/share_preference/SharePreference.dart';
+import '../play/play_manager.dart';
 
 class AppSetDataProvider {
-
   //是否只允许wifi状态下播放
   final RxBool _onlyPlayOnWifi = true.obs;
 
@@ -12,8 +13,8 @@ class AppSetDataProvider {
   //是否自动切换播放源
   final RxBool _autoSourceSwitch = true.obs;
 
-  //是否允许视频播放
-  final RxBool _allowPlayback = true.obs;
+  //当前的连接状态
+  final _connectivityResult = Rx<ConnectivityResult>(ConnectivityResult.none);
 
   bool get autoSourceSwitch {
     return _autoSourceSwitch.value;
@@ -28,7 +29,9 @@ class AppSetDataProvider {
   }
 
   bool get allowPlayback {
-    return _allowPlayback.value;
+    return (_connectivityResult.value == ConnectivityResult.mobile &&
+            _onlyPlayOnWifi.value) ||
+        _connectivityResult.value != ConnectivityResult.mobile;
   }
 
   set autoSourceSwitch(value) {
@@ -43,37 +46,26 @@ class AppSetDataProvider {
     _enableBackgroundPlay.value = value;
   }
 
-  set allowPlayback(value) {
-    _allowPlayback.value = value;
-  }
-
   factory AppSetDataProvider.fromGet() {
     return Get.find<AppSetDataProvider>();
   }
 
-  factory AppSetDataProvider.preFetchData() {
-    final _provider = AppSetDataProvider._();
-    _provider.fetchAppData();
-    return _provider;
+  AppSetDataProvider() {
+    fetchData();
   }
 
-  void fetchAppData() {
-    fetchAppSetting(keyAutoSourceSwitch).then(
-          (value) {
-        _autoSourceSwitch.value = value;
-      },
-    );
-    fetchAppSetting(keyWifiSetting).then(
-      (value) {
-        _onlyPlayOnWifi.value = value;
-      },
-    );
-    fetchAppSetting(keyBackgroundPlaySetting).then(
-      (value) {
-        _enableBackgroundPlay.value = value;
+  Future<void> fetchData() async {
+    _autoSourceSwitch.value = await fetchAppSetting(keyAutoSourceSwitch);
+    _onlyPlayOnWifi.value = await fetchAppSetting(keyWifiSetting);
+    _enableBackgroundPlay.value = await fetchAppSetting(keyAllowBkgPlay);
+
+    Connectivity().onConnectivityChanged.listen(
+      (List<ConnectivityResult> results) async {
+        _connectivityResult.value = results.first;
+        if (!allowPlayback) {
+          PlayManager.instant.pause();
+        }
       },
     );
   }
-
-  AppSetDataProvider._();
 }
