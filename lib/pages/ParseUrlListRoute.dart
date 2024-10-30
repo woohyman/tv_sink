@@ -1,10 +1,6 @@
-import 'dart:io';
-
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart';
-
-import '../domain/parse/ParseTxtSourceToList.dart';
+import 'package:get/get.dart';
+import '../domain/DowloadController.dart';
 
 class ParseUrlListRoute extends StatefulWidget {
   const ParseUrlListRoute({Key? key}) : super(key: key);
@@ -14,8 +10,9 @@ class ParseUrlListRoute extends StatefulWidget {
 }
 
 class _SettingRouteState extends State<ParseUrlListRoute> {
-  final TextEditingController _urlController = TextEditingController();
-  var downloadInfo = "";
+  final _urlController = TextEditingController();
+  final _downloadController = DownloadController();
+  var downloadInfo = "".obs;
 
   @override
   void initState() {
@@ -50,56 +47,24 @@ class _SettingRouteState extends State<ParseUrlListRoute> {
                       child: Text("开始解析"),
                     ),
                     onPressed: () async {
-                      setState(() {
-                        downloadInfo = "开始下载数据...${DateTime.now()}";
-                      });
-
-                      final file = await _localFile;
-
-                      Dio().download(_urlController.text, file.path,
-                          onReceiveProgress: (int count, int total) {
-                        setState(() {
-                          if(total>0){
-                            downloadInfo =
-                            "下载进度:${(count.toDouble() * 100 / total.toDouble()).truncate()}%";
-                          }else{
-                            downloadInfo =
-                            "下载进度:$count字节";
-                          }
-                        });
-                      }).then((value) {
-                        if (value.statusCode == 200) {
-                          setState(() {
-                            downloadInfo = "下载数据成功,开始解析数据";
-                          });
-                          parse(file.path).then((value) {
-                            setState(() {
-                              downloadInfo = "已解析完成:"+value;
-                            });
-                          });
-                          //     .catchError((error, stackTrace){
-                          //   setState(() {
-                          //     downloadInfo = "解析失败: $error : $stackTrace";
-                          //   });
-                          // });
-                        }else{
-                          setState(() {
-                            downloadInfo = "1加载失败 $value";
-                          });
-                        }
-                      });
-                        //   .catchError((e) {
-                        // setState(() {
-                        //   downloadInfo = "2加载失败 $e";
-                        // });
-
-                      // });
+                      _downloadController
+                          .fetchRemoteData(_urlController.text)
+                          .listen(
+                        (data) {
+                          downloadInfo.value = data;
+                        },
+                      );
                     },
                   ),
-                  Text(
-                    downloadInfo,
-                    textAlign: TextAlign.left,
-                  ),
+                  Obx(() {
+                    return Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text(
+                        downloadInfo.value,
+                        textAlign: TextAlign.left,
+                      ),
+                    );
+                  }),
                 ],
               ),
             )
@@ -108,14 +73,4 @@ class _SettingRouteState extends State<ParseUrlListRoute> {
       ),
     );
   }
-}
-
-Future<String> get _localPath async {
-  final _path = await getTemporaryDirectory();
-  return _path.path;
-}
-
-Future<File> get _localFile async {
-  final path = await _localPath;
-  return File('$path/playList');
 }

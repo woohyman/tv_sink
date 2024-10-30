@@ -2,6 +2,8 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:supabase/supabase.dart';
+import '../data/net/DownloadRepository.dart';
+import '../domain/DowloadController.dart';
 import '../domain/UserController.dart';
 import '../domain/data_provider/UserDataProvider.dart';
 import '../domain/data_provider/WatchListsDataProvider.dart';
@@ -28,6 +30,8 @@ class _SettingRouteState extends State<DefaultUrlListRoute> {
           .eq('level', 0);
     }
   }
+
+  final _downloadController = DownloadController();
 
   @override
   void initState() {
@@ -57,7 +61,6 @@ class _SettingRouteState extends State<DefaultUrlListRoute> {
             }
 
             RxnInt curSelect = RxnInt();
-            Dio dio = Dio();
 
             return GestureDetector(
               onLongPress: () {
@@ -76,19 +79,11 @@ class _SettingRouteState extends State<DefaultUrlListRoute> {
                       return InkWell(
                         onTap: () async {
                           curSelect.value = index;
-                          status.value = "开始下载数据...";
-                          dio.close();
-                          dio = Dio();
-                          dio.request(value.url,
-                              onReceiveProgress: (int count, int total) {
-                            status.value = "进度:$count/$total";
-                          }).then((item) {
-                            if (item.statusCode == 200) {
-                              status.value = "下载数据成功,开始解析数据";
-                              parseData(item.data);
-                              status.value = "已读取至列表";
-                            }
-                          });
+                          _downloadController.fetchRemoteData(value.url).listen(
+                            (data) {
+                              status.value = data;
+                            },
+                          );
                         },
                         child: ListTile(
                           title: Row(

@@ -57,7 +57,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       onGenerateRoute: RouterTable.onGenerateRoute,
-      title: 'Flutter Demo',
+      title: '电视汇',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
