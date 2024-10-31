@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tv_sink/domain/model/TvInfo.dart';
-import '../../../../../domain/data_provider/PlayDataProvider.dart';
+import 'package:tv_sink/domain/model/tv_info.dart';
+import '../../../../../domain/data_provider/play_data_provider.dart';
 import '../../../../../domain/play/play_manager.dart';
 
 class ItemView extends GetView<PlayDataProvider> {

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
-import '../../domain/upgrade/UpgradeController.dart';
+import '../../domain/upgrade/upgrade_manager.dart';
 import 'state.dart';
 
 class ScaffoldLogic extends GetxController {
@@ -16,12 +16,9 @@ class ScaffoldLogic extends GetxController {
     _selectedIndex.value = index;
   }
 
-  void init(BuildContext context){
-    UpgradeController.fromGet().showDialog(context);
-    UpgradeController.fromGet().init(context);
-
-
-
+  void init(BuildContext context) {
+    UpgradeManager.fromGet().showDialog(context);
+    UpgradeManager.fromGet().init(context);
     FlutterNativeSplash.remove();
   }
 }

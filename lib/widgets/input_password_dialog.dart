@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../domain/UserController.dart';
+import '../domain/data_provider/user_data_provider.dart';
 
 double btnHeight = 60;
 double borderWidth = 2;
@@ -66,7 +66,7 @@ class InputPasswordDialog extends StatelessWidget {
                             onPressed: () {
                               Navigator.of(context).pop();
                               if (_textEditingController.text == "1747") {
-                                UserController().setVip();
+                                UserDataProvider.fromGet().isVip = true;
                               }
                             },
                             child: Text(okBtnTitle)),

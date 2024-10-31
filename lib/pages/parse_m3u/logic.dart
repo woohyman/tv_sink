@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
-import 'package:tv_sink/util/log.dart';
+import 'package:tv_sink/util/log_util.dart';
 
-import '../../domain/DowloadController.dart';
+import '../../domain/download_manager.dart';
 
 class ParseM3uLogic extends GetxController {
   final _downloadController = DownloadController();

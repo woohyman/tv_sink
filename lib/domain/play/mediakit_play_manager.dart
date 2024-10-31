@@ -2,12 +2,11 @@ import 'dart:math';
 import 'package:media_kit/media_kit.dart';
 import 'package:media_kit_video/media_kit_video.dart';
 import 'package:flutter/material.dart';
-import 'package:tv_sink/domain/ad/ad_manager.dart';
 import 'package:tv_sink/domain/play/play_manager.dart';
-import 'package:tv_sink/util/log.dart';
-import '../../data/db/HistoryDbRepository.dart';
-import '../data_provider/PlayDataProvider.dart';
-import '../model/TvInfo.dart';
+import '../../data/db/channel_type_enum.dart';
+import '../../data/db/tv_channels_repository.dart';
+import '../data_provider/play_data_provider.dart';
+import '../model/tv_info.dart';
 
 class MediakitPlayManager extends PlayManager {
   late Player player;
@@ -53,7 +52,7 @@ class MediakitPlayManager extends PlayManager {
     }
 
     _setResourceAndPlay(PlayDataProvider.fromGet().selectUrl.value.value);
-    HistoryDbRepository().insertDog(entry);
+    TvChannelsRepository.fromType(ChannelType.historyChannel).insert(entry);
   }
 
   void _setResourceAndPlay(String? source) async {

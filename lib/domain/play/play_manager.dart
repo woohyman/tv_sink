@@ -2,8 +2,8 @@ import 'package:get/get.dart';
 import 'package:media_kit_video/media_kit_video.dart';
 import 'package:flutter/material.dart';
 import '../ad/ad_manager.dart';
-import '../data_provider/AppSetDataProvider.dart';
-import '../model/TvInfo.dart';
+import '../data_provider/app_set_data_provider.dart';
+import '../model/tv_info.dart';
 
 abstract class PlayManager {
   static get instant {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:share_plus/share_plus.dart';
-import '../../../routes/RouterTable.dart';
-import 'ad/InlineWidget.dart';
+import '../../../routes/router_table.dart';
+import 'ad/inline_widget.dart';
 
 class SliderLeft extends StatelessWidget {
   const SliderLeft({Key? key}) : super(key: key);

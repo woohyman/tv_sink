@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../domain/play/play_manager.dart';
-import '../domain/data_provider/AppSetDataProvider.dart';
-import '../domain/data_provider/PlayDataProvider.dart';
-import '../routes/RouterTable.dart';
+import '../domain/data_provider/app_set_data_provider.dart';
+import '../domain/data_provider/play_data_provider.dart';
+import '../routes/router_table.dart';
 
 class PlayerWrapper extends StatelessWidget {
   const PlayerWrapper({Key? key}) : super(key: key);

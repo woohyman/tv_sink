@@ -1,20 +1,19 @@
 import 'package:get/get.dart';
 import 'package:supabase/supabase.dart';
 
-import '../../domain/DowloadController.dart';
-import '../../domain/data_provider/UserDataProvider.dart';
+import '../../data/net/m3u_file_repository.dart';
+import '../../domain/download_manager.dart';
+import '../../domain/data_provider/user_data_provider.dart';
 
 class DefaultUrlListLogic extends GetxController {
   final _downloadController = DownloadController();
+  final _m3uFileRepository = M3uFileRepository();
 
   Future<PostgrestList> get listFuture {
-    if (UserDataProvider.fromGet().isVip.value) {
-      return Get.find<SupabaseClient>().from("default_m3u_list").select();
+    if (UserDataProvider.fromGet().isVip) {
+      return _m3uFileRepository.fetchFileList();
     } else {
-      return Get.find<SupabaseClient>()
-          .from("default_m3u_list")
-          .select()
-          .eq('level', 0);
+      return _m3uFileRepository.fetchFileList(level: 0);
     }
   }
 

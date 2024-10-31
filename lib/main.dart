@@ -5,13 +5,10 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:tv_sink/pages/init_binding.dart';
-import 'package:tv_sink/pages/scaffold/logic.dart';
 import 'package:tv_sink/pages/scaffold/view.dart';
-import 'package:tv_sink/routes/RouterTable.dart';
+import 'package:tv_sink/routes/router_table.dart';
 import 'package:video_player_media_kit/video_player_media_kit.dart';
-
-import 'domain/ad/AppLifecycleReactor.dart';
-import 'domain/ad/ad_manager.dart';
+import 'domain/app_lifecycle_reactor.dart';
 
 Future<void> main() async {
   // 如果需要 ensureInitialized，请在这里运行。

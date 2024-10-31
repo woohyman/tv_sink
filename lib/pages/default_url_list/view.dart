@@ -1,14 +1,7 @@
-import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:supabase/supabase.dart';
-import '../../data/net/DownloadRepository.dart';
-import '../../domain/DowloadController.dart';
-import '../../domain/UserController.dart';
-import '../../domain/data_provider/UserDataProvider.dart';
-import '../../domain/data_provider/play_list_data_provider.dart';
-import '../../domain/model/RemoteListUrl.dart';
-import '../../domain/parse/ParseTxtSourceToList.dart';
+import '../../domain/model/remote_list_url.dart';
+import '../../util/view_util.dart';
 import 'logic.dart';
 
 class DefaultUrlListRoute extends GetView<DefaultUrlListLogic> {
@@ -40,7 +33,7 @@ class DefaultUrlListRoute extends GetView<DefaultUrlListLogic> {
 
             return GestureDetector(
               onLongPress: () {
-                UserController().showAlertDialog(context);
+                showAlertDialog(context);
               },
               child: Padding(
                 padding: const EdgeInsets.all(16.0),

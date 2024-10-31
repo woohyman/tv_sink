@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../domain/play/play_manager.dart';
-import '../../domain/model/TvInfo.dart';
+import '../../domain/model/tv_info.dart';
 
 class PlayOnlineVideoRoute extends StatelessWidget {
   const PlayOnlineVideoRoute({Key? key}) : super(key: key);

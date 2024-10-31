@@ -1,13 +1,14 @@
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:tv_sink/data/db/channel_type_enum.dart';
+import 'package:tv_sink/data/db/tv_channels_repository.dart';
+import '../../data/net/remote_url_repository.dart';
+import '../model/tv_info.dart';
 
-import '../../data/db/CollectionDbRepository.dart';
-import '../../data/db/OptionalDbRepository.dart';
-import '../../data/net/RemoteUrlRepository.dart';
-import '../model/TvInfo.dart';
-
-sealed class PlayListDataProvider {
+abstract class PlayListDataProvider {
   final list = <String, TvInfo>{}.obs;
 
+  @mustCallSuper
   void setWatchLists(Map<String, TvInfo> watchLists) {
     //再往列表填充数据
     list.clear();
@@ -32,6 +33,9 @@ class FeaturePlayListDataProvider extends PlayListDataProvider {
 }
 
 class OptionalPlayListDataProvider extends PlayListDataProvider {
+  final _customChannelsRepository =
+      TvChannelsRepository.fromType(ChannelType.customChannel);
+
   factory OptionalPlayListDataProvider.fromGet() {
     return Get.find<OptionalPlayListDataProvider>();
   }
@@ -42,13 +46,23 @@ class OptionalPlayListDataProvider extends PlayListDataProvider {
 
   @override
   Future<void> fetchData() async {
-    final value = await OptionalDbRepository().dogs();
+    final value = await _customChannelsRepository.query();
     setWatchLists(value);
+  }
+
+  @override
+  void setWatchLists(Map<String, TvInfo> watchLists) {
+    super.setWatchLists(watchLists);
+    final _optionalDbRepository =
+        TvChannelsRepository.fromType(ChannelType.customChannel);
+    _optionalDbRepository.deleteAll();
+    _optionalDbRepository.insertAll(watchLists);
   }
 }
 
 class CollectPlayListDataProvider extends PlayListDataProvider {
-  final _collectionDbControl = CollectionDbRepository();
+  final _collectionDbControl =
+      TvChannelsRepository.fromType(ChannelType.collectChannel);
 
   factory CollectPlayListDataProvider.fromGet() {
     return Get.find<CollectPlayListDataProvider>();
@@ -60,8 +74,17 @@ class CollectPlayListDataProvider extends PlayListDataProvider {
 
   @override
   Future<void> fetchData() async {
-    final value = await _collectionDbControl.dogs();
+    final value = await _collectionDbControl.query();
     setWatchLists(value);
+  }
+
+  @override
+  void setWatchLists(Map<String, TvInfo> watchLists) {
+    super.setWatchLists(watchLists);
+    final _collectionDbRepository =
+        TvChannelsRepository.fromType(ChannelType.collectChannel);
+    _collectionDbRepository.deleteAll();
+    _collectionDbRepository.insertAll(watchLists);
   }
 
   void selectOrNot(MapEntry<String, TvInfo>? data) {
@@ -73,7 +96,7 @@ class CollectPlayListDataProvider extends PlayListDataProvider {
       _collectionDbControl.deleteDog(data.key);
     } else {
       list[data.key] = data.value;
-      _collectionDbControl.insertDog(data);
+      _collectionDbControl.insert(data);
     }
   }
 }
