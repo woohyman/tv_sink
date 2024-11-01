@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import '../../data/model/upgrade_apk_version.dart';
+import '../../data/model/upgrade_apk_info.dart';
 import 'apk_info_data_provider.dart';
 import '../../data/net/upgrade_repository.dart';
 
@@ -10,7 +10,7 @@ class UpgradeDataProvider {
   RxBool needUpgrade = RxBool(false);
   RxString remoteVersion = "".obs;
   RxString localVersion = "".obs;
-  Rxn<UpgradeApkVersion> apkVersion = Rxn<UpgradeApkVersion>();
+  Rxn<UpgradeApkInfo> apkVersion = Rxn<UpgradeApkInfo>();
 
   factory UpgradeDataProvider.fromGet() {
     return Get.find<UpgradeDataProvider>();

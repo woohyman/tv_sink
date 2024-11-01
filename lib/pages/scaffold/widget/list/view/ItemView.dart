@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tv_sink/domain/model/tv_info.dart';
 import '../../../../../domain/data_provider/play_data_provider.dart';
+import '../../../../../domain/model/tv_channel_info_model.dart';
 import '../../../../../domain/play/play_manager.dart';
 
 class ItemView extends GetView<PlayDataProvider> {
-  final MapEntry<String, TvInfo> _user;
+  final MapEntry<String, TvChannelInfoModel> _user;
 
   const ItemView(this._user, {super.key});
 

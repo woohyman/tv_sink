@@ -1,8 +1,6 @@
 import 'dart:async';
 import 'package:sqflite/sqflite.dart';
-import 'package:tv_sink/data/model/transform.dart';
-import '../../domain/model/tv_info.dart';
-import '../model/tv_info_with_name.dart';
+import '../model/tv_channel_info.dart';
 import 'base/base_channels_repository.dart';
 import 'channel_type_enum.dart';
 
@@ -17,42 +15,42 @@ class TvChannelsRepository extends BaseChannelsRepository {
     dbVersion = channelType.dbVersion;
   }
 
-  Future<void> insertAll(Map<String, TvInfo> data) async {
-    for (var value in data.entries) {
+  Future<void> insertAll(List<TvChannelInfo> list) async {
+    for (var value in list) {
       insert(value);
     }
   }
 
-  Future<void> insert(MapEntry<String, TvInfo> dog) async {
+  Future<void> insert(TvChannelInfo info) async {
     final _database = await database;
     await _database.insert(
       tableName,
-      dog.toMap(),
+      info.toJson(),
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
   }
 
-  Future<Map<String, TvInfo>> query() async {
+  Future<List<TvChannelInfo>> query() async {
     final _database = await database;
     final List<Map<String, dynamic>> dogMaps = await _database.query(tableName);
 
-    final result = <String, TvInfo>{};
+    final result = <TvChannelInfo>[];
 
     final map = tableName == ChannelType.historyChannel.tableName
         ? dogMaps.reversed
         : dogMaps;
     for (final item in map) {
-      final tvInfoWithName = TvInfoWithName.fromJson(item);
-      result[tvInfoWithName.name] = tvInfoWithName.toTvInfo();
+      final tvChannelInfo = TvChannelInfo.fromJson(item);
+      result.add(tvChannelInfo);
     }
     return result;
   }
 
-  Future<void> update(MapEntry<String, TvInfo> entry) async {
+  Future<void> update(TvChannelInfo info) async {
     final _database = await database;
     await _database.update(
       tableName,
-      entry.toMap(),
+      info.toJson(),
       where: 'id = ?',
     );
   }

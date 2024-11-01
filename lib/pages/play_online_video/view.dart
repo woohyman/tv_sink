@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import '../../domain/model/tv_channel_info_model.dart';
 import '../../domain/play/play_manager.dart';
-import '../../domain/model/tv_info.dart';
 
 class PlayOnlineVideoRoute extends StatelessWidget {
   const PlayOnlineVideoRoute({Key? key}) : super(key: key);
@@ -48,7 +48,7 @@ class PlayOnlineVideoRoute extends StatelessWidget {
                     onPressed: () async {
                       PlayManager.instant.playSource(MapEntry(
                           _tvNameController.text,
-                          TvInfo([_urlController.text])));
+                          TvChannelInfoModel([_urlController.text])));
                       Navigator.pop(context);
                     },
                   ),

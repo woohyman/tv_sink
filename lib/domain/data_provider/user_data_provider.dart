@@ -1,10 +1,10 @@
 import 'package:get/get.dart';
 import '../../data/local/share_preference.dart';
-import '../model/user.dart';
+import '../model/user_model.dart';
 
 //用于管理用户数据
 class UserDataProvider {
-  final user = Rx<TvUser>(TvUser());
+  final user = Rx<UserModel>(UserModel());
   final _isVip = false.obs;
 
   set isVip(bool isVip) {

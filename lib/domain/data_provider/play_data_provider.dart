@@ -1,15 +1,14 @@
 import 'package:get/get.dart';
-
-import '../model/data.dart';
-import '../model/tv_info.dart';
+import '../model/tv_channel_info_model.dart';
+import '../model/play_url_info.dart';
 
 //用于管理播放数据
 class PlayDataProvider {
-  final tvInfo = Rxn<MapEntry<String, TvInfo>>(null);
+  final tvInfo = Rxn<MapEntry<String, TvChannelInfoModel>>(null);
   final playUrlMap = <String, PlayUrlInfo>{};
   final selectUrl = RxnString().obs;
 
-  void setUser(MapEntry<String, TvInfo> _tvInfo) {
+  void setUser(MapEntry<String, TvChannelInfoModel> _tvInfo) {
     playUrlMap.clear();
     for (var value in _tvInfo.value.tvgUrlList) {
       playUrlMap[value] = PlayUrlInfo(false, 0);

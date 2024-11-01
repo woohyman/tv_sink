@@ -1,16 +1,16 @@
-import 'package:tv_sink/data/model/default_tv.dart';
-import 'package:tv_sink/domain/model/tv_info.dart';
-
+import 'package:tv_sink/data/model/default_tv_channel_info.dart';
+import 'package:tv_sink/data/model/tv_channel_info.dart';
 import 'base/base_supabase.dart';
 
+//精选频道列表
 class RemoteUrlRepository extends BaseSupabase {
-  Future<Map<String, TvInfo>> fetchDefaultUrlList() async {
+  Future<List<TvChannelInfo>> fetchDefaultUrlList() async {
     final list = await defaultTvListBuilder.select();
-    final defaultTvList = <String, TvInfo>{};
+    final defaultTvList = <TvChannelInfo>[];
 
     for (var item in list) {
-      final defaultTv = DefaultTv.fromJson(item);
-      defaultTvList[defaultTv.name] = defaultTv.toTvInfo();
+      final defaultTv = DefaultTvChannelInfo.fromJson(item).toTvChannelInfo();
+      defaultTvList.add(defaultTv);
     }
     return defaultTvList;
   }

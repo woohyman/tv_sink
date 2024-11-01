@@ -1,4 +1,6 @@
-class TvInfo {
+import '../../data/model/tv_channel_info.dart';
+
+class TvChannelInfoModel {
   String tvgId;
   String tvgCountry;
   String tvgLanguage;
@@ -6,7 +8,7 @@ class TvInfo {
   String groupTitle;
   List<String> tvgUrlList;
 
-  TvInfo(
+  TvChannelInfoModel(
     this.tvgUrlList, {
     this.tvgId = "",
     this.tvgCountry = "",
@@ -15,5 +17,3 @@ class TvInfo {
     this.groupTitle = "",
   });
 }
-
-

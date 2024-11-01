@@ -1,8 +1,9 @@
 import 'dart:async';
-import '../data/local/parse_m3u.dart';
+import 'package:tv_sink/domain/parse_m3u.dart';
+
 import '../data/net/download_repository.dart';
 
-class DownloadController {
+class DownloadManager {
   final _downloadRepository = DownloadRepository();
 
   Stream<String> fetchRemoteData(String url) {

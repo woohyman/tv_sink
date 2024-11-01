@@ -1,9 +1,9 @@
 import 'package:get/get.dart';
 import 'package:media_kit_video/media_kit_video.dart';
 import 'package:flutter/material.dart';
+import '../model/tv_channel_info_model.dart';
 import '../ad/ad_manager.dart';
 import '../data_provider/app_set_data_provider.dart';
-import '../model/tv_info.dart';
 
 abstract class PlayManager {
   static get instant {
@@ -16,7 +16,7 @@ abstract class PlayManager {
   String curDataSource = "";
 
   Future<void> playSource(
-    MapEntry<String, TvInfo> entry, {
+    MapEntry<String, TvChannelInfoModel> entry, {
     String? tvgUrl,
   });
 

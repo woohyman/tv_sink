@@ -1,3 +1,3 @@
-class BaseController<T> {
+class BaseDataProvider<T> {
 
 }

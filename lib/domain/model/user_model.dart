@@ -1,8 +1,8 @@
-class TvUser {
+class UserModel {
   String name;
   bool isVip;
 
-  TvUser({
+  UserModel({
     this.name = "gust",
     this.isVip = false,
   });

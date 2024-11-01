@@ -1,20 +1,20 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'upgrade_apk_version.dart';
+part of 'upgrade_apk_info.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-UpgradeApkVersion _$UpgradeApkVersionFromJson(Map<String, dynamic> json) =>
-    UpgradeApkVersion(
+UpgradeApkInfo _$UpgradeApkInfoFromJson(Map<String, dynamic> json) =>
+    UpgradeApkInfo(
       json['version_name'] as String,
       json['content'] as String,
       json['url'] as String,
       (json['version_code'] as num).toInt(),
     );
 
-Map<String, dynamic> _$UpgradeApkVersionToJson(UpgradeApkVersion instance) =>
+Map<String, dynamic> _$UpgradeApkInfoToJson(UpgradeApkInfo instance) =>
     <String, dynamic>{
       'version_name': instance.version_name,
       'content': instance.content,

@@ -2,20 +2,21 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:tv_sink/data/db/channel_type_enum.dart';
 import 'package:tv_sink/data/db/tv_channels_repository.dart';
+import 'package:tv_sink/domain/model/transform.dart';
 import '../../data/net/remote_url_repository.dart';
-import '../model/tv_info.dart';
+import '../model/tv_channel_info_model.dart';
 
 abstract class PlayListDataProvider {
-  final list = <String, TvInfo>{}.obs;
+  final list = <String, TvChannelInfoModel>{}.obs;
 
   @mustCallSuper
-  void setWatchLists(Map<String, TvInfo> watchLists) {
+  void setWatchLists(Map<String, TvChannelInfoModel> watchLists) {
     //再往列表填充数据
     list.clear();
     list.addAll(watchLists);
   }
 
-  MapEntry<String, TvInfo> getItemByIndex(int index) {
+  MapEntry<String, TvChannelInfoModel> getItemByIndex(int index) {
     return list.entries.elementAt(index);
   }
 
@@ -28,7 +29,7 @@ class FeaturePlayListDataProvider extends PlayListDataProvider {
   @override
   Future<void> fetchData() async {
     final value = await _remoteUrlControl.fetchDefaultUrlList();
-    setWatchLists(value);
+    setWatchLists(value.toMap());
   }
 }
 
@@ -47,16 +48,16 @@ class OptionalPlayListDataProvider extends PlayListDataProvider {
   @override
   Future<void> fetchData() async {
     final value = await _customChannelsRepository.query();
-    setWatchLists(value);
+    setWatchLists(value.toMap());
   }
 
   @override
-  void setWatchLists(Map<String, TvInfo> watchLists) {
+  void setWatchLists(Map<String, TvChannelInfoModel> watchLists) {
     super.setWatchLists(watchLists);
     final _optionalDbRepository =
         TvChannelsRepository.fromType(ChannelType.customChannel);
     _optionalDbRepository.deleteAll();
-    _optionalDbRepository.insertAll(watchLists);
+    _optionalDbRepository.insertAll(watchLists.toList());
   }
 }
 
@@ -75,19 +76,19 @@ class CollectPlayListDataProvider extends PlayListDataProvider {
   @override
   Future<void> fetchData() async {
     final value = await _collectionDbControl.query();
-    setWatchLists(value);
+    setWatchLists(value.toMap());
   }
 
   @override
-  void setWatchLists(Map<String, TvInfo> watchLists) {
+  void setWatchLists(Map<String, TvChannelInfoModel> watchLists) {
     super.setWatchLists(watchLists);
     final _collectionDbRepository =
         TvChannelsRepository.fromType(ChannelType.collectChannel);
     _collectionDbRepository.deleteAll();
-    _collectionDbRepository.insertAll(watchLists);
+    _collectionDbRepository.insertAll(watchLists.toList());
   }
 
-  void selectOrNot(MapEntry<String, TvInfo>? data) {
+  void selectOrNot(MapEntry<String, TvChannelInfoModel>? data) {
     if (data == null) {
       return;
     }
@@ -96,7 +97,7 @@ class CollectPlayListDataProvider extends PlayListDataProvider {
       _collectionDbControl.deleteDog(data.key);
     } else {
       list[data.key] = data.value;
-      _collectionDbControl.insert(data);
+      _collectionDbControl.insert(data.toInfo());
     }
   }
 }

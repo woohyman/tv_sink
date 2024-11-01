@@ -1,19 +1,16 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:retry/retry.dart';
-import 'package:supabase/supabase.dart';
-import '../model/upgrade_apk_version.dart';
+import '../model/upgrade_apk_info.dart';
 import 'base/base_supabase.dart';
 
 class UpgradeRepository extends BaseSupabase {
-  Future<UpgradeApkVersion> fetchApkVersion() async {
+  Future<UpgradeApkInfo> fetchApkVersion() async {
     final response = await _fetchApkVersion();
-    final data = response.last;
-
-    return UpgradeApkVersion.fromJson(data);
+    return response.last;
   }
 
-  Future<PostgrestList> _fetchApkVersion() async {
+  Future<List<UpgradeApkInfo>> _fetchApkVersion() async {
     final data = upgradeBuilder.select().order('version_code', ascending: true);
     const r = RetryOptions(maxAttempts: 10000);
     final response = await r.retry(

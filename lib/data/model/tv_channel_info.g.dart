@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'tv_info_with_name.dart';
+part of 'tv_channel_info.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-TvInfoWithName _$TvInfoWithNameFromJson(Map<String, dynamic> json) =>
-    TvInfoWithName(
+TvChannelInfo _$TvChannelInfoFromJson(Map<String, dynamic> json) =>
+    TvChannelInfo(
       json['name'] as String,
       json['tvgUrlList'] as String,
       tvgId: json['tvgId'] as String? ?? "",
@@ -17,7 +17,7 @@ TvInfoWithName _$TvInfoWithNameFromJson(Map<String, dynamic> json) =>
       groupTitle: json['groupTitle'] as String? ?? "",
     );
 
-Map<String, dynamic> _$TvInfoWithNameToJson(TvInfoWithName instance) =>
+Map<String, dynamic> _$TvChannelInfoToJson(TvChannelInfo instance) =>
     <String, dynamic>{
       'name': instance.name,
       'tvgId': instance.tvgId,

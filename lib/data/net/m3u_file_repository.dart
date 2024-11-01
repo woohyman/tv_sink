@@ -1,12 +1,18 @@
-import 'package:supabase/supabase.dart';
 import 'package:tv_sink/data/net/base/base_supabase.dart';
 
+import '../model/file_m3u_info.dart';
+
+//精选m3u列表
 class M3uFileRepository extends BaseSupabase {
-  Future<PostgrestList> fetchFileList({int? level}) {
+  Future<List<FileM3uInfo>> fetchFileList({int? level}) async {
+    List<dynamic> data = [];
     if (level == null) {
-      return defaultM3uListBuilder.select();
+      data = await defaultM3uListBuilder.select();
     } else {
-      return defaultM3uListBuilder.select().eq('level', level);
+      data = await defaultM3uListBuilder.select().eq('level', level);
     }
+    return data.map((value) {
+      return FileM3uInfo.fromJson(value);
+    }).toList();
   }
 }

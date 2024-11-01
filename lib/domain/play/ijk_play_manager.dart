@@ -1,12 +1,13 @@
 import 'dart:math';
 import 'package:fijkplayer/fijkplayer.dart';
 import 'package:flutter/material.dart';
+import 'package:tv_sink/domain/model/transform.dart';
 import 'package:tv_sink/domain/play/play_manager.dart';
 import 'package:universal_platform/universal_platform.dart';
 import '../../data/db/channel_type_enum.dart';
 import '../../data/db/tv_channels_repository.dart';
+import '../model/tv_channel_info_model.dart';
 import '../data_provider/play_data_provider.dart';
-import '../model/tv_info.dart';
 
 class IjkPlayManager extends PlayManager {
   final _ijkPlayer = FijkPlayer();
@@ -28,7 +29,7 @@ class IjkPlayManager extends PlayManager {
   }
 
   @override
-  Future<void> playSource(MapEntry<String, TvInfo> entry,
+  Future<void> playSource(MapEntry<String, TvChannelInfoModel> entry,
       {String? tvgUrl}) async {
     if (tvgUrl != null) {
       PlayDataProvider.fromGet().selectUrl.value.value = tvgUrl;
@@ -46,7 +47,7 @@ class IjkPlayManager extends PlayManager {
 
     if (!UniversalPlatform.isAndroid) {
       _setResourceAndPlay(PlayDataProvider.fromGet().selectUrl.value.value);
-      TvChannelsRepository.fromType(ChannelType.historyChannel).insert(entry);
+      TvChannelsRepository.fromType(ChannelType.historyChannel).insert(entry.toInfo());
       return;
     }
 
@@ -56,7 +57,7 @@ class IjkPlayManager extends PlayManager {
     }
 
     _setResourceAndPlay(PlayDataProvider.fromGet().selectUrl.value.value);
-    TvChannelsRepository.fromType(ChannelType.historyChannel).insert(entry);
+    TvChannelsRepository.fromType(ChannelType.historyChannel).insert(entry.toInfo());
   }
 
   void _setResourceAndPlay(String? source) async {
