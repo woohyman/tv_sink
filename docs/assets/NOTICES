@@ -1812,6 +1812,7 @@ POSSIBILITY OF SUCH DAMAGE.
 --------------------------------------------------------------------------------
 ansicolor
 google_mobile_ads
+source_helper
 
 
                                  Apache License
@@ -5264,6 +5265,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 --------------------------------------------------------------------------------
 convert
 crypto
+source_gen
 vm_service
 
 Copyright 2015, the Dart project authors.
@@ -30588,6 +30590,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 --------------------------------------------------------------------------------
 json_annotation
+json_serializable
 platform
 
 Copyright 2017, the Dart project authors. All rights reserved.
