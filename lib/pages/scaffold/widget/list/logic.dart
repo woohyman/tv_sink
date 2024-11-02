@@ -1,19 +1,13 @@
 import 'package:get/get.dart';
 import 'package:tv_sink/domain/data_provider/play_list_data_provider.dart';
 
+import '../../../../domain/model/tv_channel_info_model.dart';
+
 class PlayListLogic<T extends PlayListDataProvider> extends GetxController {
   late PlayListDataProvider dataProvider;
 
-  get list {
-    return dataProvider.list;
-  }
-
-  getItemByIndex(int index) {
-    return dataProvider.getItemByIndex(index);
-  }
-
-  fetchData() {
-    dataProvider.fetchData();
+  Future<Map<String, TvChannelInfoModel>> fetchData() {
+    return dataProvider.fetchData();
   }
 
   @override

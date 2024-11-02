@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:tv_sink/base/base_future_builder.dart';
 import '../../../../domain/data_provider/user_data_provider.dart';
 import 'logic.dart';
 
@@ -11,33 +12,23 @@ class InlineWidget extends GetView<AdLogic> {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
+    return BaseFutureBuilder(
+      hideWhenLoadError: true,
       future: controller.loadInlineAd(context),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.done) {
-          if (snapshot.hasError) {
-            return Container();
-          }
-        } else {
-          return Container();
-        }
-
-        final _bannerAd = snapshot.data!;
+      builder: (data, update) {
         return FutureBuilder(
-          future: _bannerAd.getPlatformAdSize(),
+          future: data.getPlatformAdSize(),
           builder: (context, snapshot) {
-            return Obx(() {
-              return Visibility(
-                visible: !UserDataProvider.fromGet().isVip,
-                child: Align(
-                  child: SizedBox(
-                    width: MediaQuery.of(context).size.width - (2 * _insets),
-                    height: snapshot.data?.height.toDouble(),
-                    child: AdWidget(ad: _bannerAd),
-                  ),
+            return Visibility(
+              visible: !UserDataProvider.fromGet().isVip,
+              child: Align(
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width - (2 * _insets),
+                  height: snapshot.data?.height.toDouble(),
+                  child: AdWidget(ad: data),
                 ),
-              );
-            });
+              ),
+            );
           },
         );
       },

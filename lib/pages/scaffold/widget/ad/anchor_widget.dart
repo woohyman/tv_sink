@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
-import 'package:tv_sink/domain/data_provider/user_data_provider.dart';
 
+import '../../../../base/base_future_builder.dart';
+import '../../../../domain/data_provider/user_data_provider.dart';
 import 'logic.dart';
 
 class AnchorWidget extends GetView<AdLogic> {
@@ -10,29 +11,19 @@ class AnchorWidget extends GetView<AdLogic> {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
+    return BaseFutureBuilder(
+      hideWhenLoadError: true,
       future: controller.loadAnchorAd(context),
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.done) {
-          if (snapshot.hasError) {
-            return Container();
-          }
-        } else {
-          return Container();
-        }
-
-        final _bannerAd = snapshot.data!;
-        return Obx(() {
-          return Visibility(
-            visible: !UserDataProvider.fromGet().isVip,
-            child: Container(
-              color: Colors.green,
-              width: _bannerAd.size.width.toDouble(),
-              height: _bannerAd.size.height.toDouble(),
-              child: AdWidget(ad: _bannerAd),
-            ),
-          );
-        });
+      builder: (data, update) {
+        return Visibility(
+          visible: !UserDataProvider.fromGet().isVip,
+          child: Container(
+            color: Colors.green,
+            width: data.size.width.toDouble(),
+            height: data.size.height.toDouble(),
+            child: AdWidget(ad: data),
+          ),
+        );
       },
     );
   }

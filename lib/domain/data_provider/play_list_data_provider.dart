@@ -7,11 +7,10 @@ import '../../data/net/remote_url_repository.dart';
 import '../model/tv_channel_info_model.dart';
 
 abstract class PlayListDataProvider {
-  final list = <String, TvChannelInfoModel>{}.obs;
+  final list = RxMap<String, TvChannelInfoModel>();
 
   @mustCallSuper
-  void setWatchLists(Map<String, TvChannelInfoModel> watchLists) {
-    //再往列表填充数据
+  setWatchLists(Map<String, TvChannelInfoModel> watchLists) {
     list.clear();
     list.addAll(watchLists);
   }
@@ -20,16 +19,17 @@ abstract class PlayListDataProvider {
     return list.entries.elementAt(index);
   }
 
-  void fetchData();
+  Future<Map<String, TvChannelInfoModel>> fetchData();
 }
 
 class FeaturePlayListDataProvider extends PlayListDataProvider {
   final _remoteUrlControl = RemoteUrlRepository();
 
   @override
-  Future<void> fetchData() async {
+  Future<Map<String, TvChannelInfoModel>> fetchData() async {
     final value = await _remoteUrlControl.fetchDefaultUrlList();
     setWatchLists(value.toMap());
+    return value.toMap();
   }
 }
 
@@ -46,9 +46,10 @@ class OptionalPlayListDataProvider extends PlayListDataProvider {
   }
 
   @override
-  Future<void> fetchData() async {
+  Future<Map<String, TvChannelInfoModel>> fetchData() async {
     final value = await _customChannelsRepository.query();
     setWatchLists(value.toMap());
+    return value.toMap();
   }
 
   @override
@@ -74,9 +75,10 @@ class CollectPlayListDataProvider extends PlayListDataProvider {
   }
 
   @override
-  Future<void> fetchData() async {
+  Future<Map<String, TvChannelInfoModel>> fetchData() async {
     final value = await _collectionDbControl.query();
     setWatchLists(value.toMap());
+    return value.toMap();
   }
 
   @override

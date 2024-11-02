@@ -90,14 +90,13 @@ class ScaffoldRoute extends GetView<ScaffoldLogic> {
               bottom: 0,
             ),
             child: Obx(() {
-              final _favorListController =
-                  CollectPlayListDataProvider.fromGet();
-              final tvInfo = PlayDataProvider.fromGet().tvInfo.value;
+              final _collectProvider = CollectPlayListDataProvider.fromGet();
+              final _tvInfo = PlayDataProvider.fromGet().tvInfo;
               return Visibility(
-                visible: tvInfo != null,
+                visible: _tvInfo.value != null,
                 child: InkWell(
-                  onTap: () => _favorListController.selectOrNot(tvInfo),
-                  child: _favorListController.list.keys.contains(tvInfo?.key)
+                  onTap: () => _collectProvider.selectOrNot(_tvInfo.value),
+                  child: _collectProvider.list.keys.contains(_tvInfo.value?.key)
                       ? const Icon(Icons.favorite)
                       : const Icon(Icons.favorite_border),
                 ),

@@ -1,18 +1,18 @@
 enum ChannelType {
   collectChannel(
-    "collectedChannels.db",
-    "channelsTable",
-    1,
+    "collectedChannels1.db",
+    "channelsTable1",
+    2,
   ),
   customChannel(
-    "customChannels.db",
-    "channelsTable",
-    1,
+    "customChannels1.db",
+    "channelsTable1",
+    2,
   ),
   historyChannel(
-    "historyChannels.db",
-    "channelsTable",
-    1,
+    "historyChannels1.db",
+    "channelsTable1",
+    2,
   );
 
   const ChannelType(
