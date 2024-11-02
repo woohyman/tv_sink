@@ -11,10 +11,10 @@ class UpgradeApkInfo {
 
   UpgradeApkInfo(
     this.version_name,
-    this.content,
     this.url,
-    this.version_code,
-  );
+    this.version_code, {
+    this.content = "",
+  });
 
   factory UpgradeApkInfo.fromJson(Map<String, dynamic> json) =>
       _$UpgradeApkInfoFromJson(json);

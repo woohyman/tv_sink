@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:tv_sink/domain/ad/app_open_ad_manager.dart';
 import '../../util/const.dart';
@@ -28,6 +29,10 @@ class AdManager {
       return;
     }
     await interstitialAd.show();
+  }
+
+  factory AdManager.fromGet() {
+    return Get.find<AdManager>();
   }
 
   AdManager() {

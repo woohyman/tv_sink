@@ -16,14 +16,14 @@ class TvInterstitialAdManager {
     if (_interstitialAd != null) {
       return;
     }
-    logger.i("------------------> 开始加载插屏广告");
+    logger.i("TvInterstitialAdManager------------------> 开始加载插屏广告");
 
     InterstitialAd.load(
         adUnitId: 'ca-app-pub-3940256099942544/8691691433',
         request: const AdRequest(),
         adLoadCallback: InterstitialAdLoadCallback(
           onAdLoaded: (InterstitialAd ad) {
-            logger.i("------------------> 插屏广告加载完成");
+            logger.i("TvInterstitialAdManager------------------> 插屏广告加载完成");
             _interstitialAd = ad;
           },
           onAdFailedToLoad: (LoadAdError error) {
@@ -35,25 +35,28 @@ class TvInterstitialAdManager {
   Future<bool> show() async {
     Completer<bool> completer = Completer();
     if (_interstitialAd != null) {
-      logger.i("------------------> 显示插屏广告");
+      logger.i("TvInterstitialAdManager------------------> 显示插屏广告");
       _interstitialAd?.fullScreenContentCallback = FullScreenContentCallback(
         onAdDismissedFullScreenContent: (ad) {
           ad.dispose();
           _interstitialAd = null;
           _load();
+          logger.i("TvInterstitialAdManager------------------> 插屏广告消失");
+          completer.complete(true);
         },
         onAdShowedFullScreenContent: (ad) {
           ad.dispose();
           _interstitialAd = null;
           PlayManager.instant.pause();
           _load();
+          logger.i("TvInterstitialAdManager------------------> 插屏广告显示");
         },
         onAdFailedToShowFullScreenContent: (ad, error) {
-          logger.i("------------------> 插屏广告失败");
+          logger.i("TvInterstitialAdManager------------------> 插屏广告失败");
+          completer.complete(true);
         },
       );
       _interstitialAd?.show();
-      completer.complete(true);
     }else{
       _load();
       completer.complete(false);

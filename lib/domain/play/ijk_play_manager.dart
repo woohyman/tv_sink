@@ -3,9 +3,9 @@ import 'package:fijkplayer/fijkplayer.dart';
 import 'package:flutter/material.dart';
 import 'package:tv_sink/domain/model/transform.dart';
 import 'package:tv_sink/domain/play/play_manager.dart';
-import 'package:universal_platform/universal_platform.dart';
 import '../../data/db/channel_type_enum.dart';
 import '../../data/db/tv_channels_repository.dart';
+import '../../util/log_util.dart';
 import '../model/tv_channel_info_model.dart';
 import '../data_provider/play_data_provider.dart';
 
@@ -43,21 +43,9 @@ class IjkPlayManager extends PlayManager {
       return;
     }
 
-    PlayDataProvider.fromGet().setUser(entry);
-
-    if (!UniversalPlatform.isAndroid) {
-      _setResourceAndPlay(PlayDataProvider.fromGet().selectUrl.value.value);
-      TvChannelsRepository.fromType(ChannelType.historyChannel).insert(entry.toInfo());
-      return;
-    }
-
-    //开始加载广告
-    if (Random().nextInt(50) == 3) {
-      await adManager.showInterstitialAd();
-    }
-
+    await innerPlaySource(entry);
+    logger.i("TvInterstitialAdManager------------------> 开始播放");
     _setResourceAndPlay(PlayDataProvider.fromGet().selectUrl.value.value);
-    TvChannelsRepository.fromType(ChannelType.historyChannel).insert(entry.toInfo());
   }
 
   void _setResourceAndPlay(String? source) async {

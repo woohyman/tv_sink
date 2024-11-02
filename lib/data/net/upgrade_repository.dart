@@ -18,6 +18,11 @@ class UpgradeRepository extends BaseSupabase {
       retryIf: (e) => e is SocketException || e is TimeoutException,
       onRetry: (e) => {},
     );
-    return response;
+    final defaultTvList = <UpgradeApkInfo>[];
+
+    for (var item in response) {
+      defaultTvList.add(UpgradeApkInfo.fromJson(item));
+    }
+    return defaultTvList;
   }
 }

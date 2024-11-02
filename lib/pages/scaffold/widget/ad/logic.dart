@@ -5,7 +5,7 @@ import 'package:google_mobile_ads/google_mobile_ads.dart';
 import '../../../../domain/ad/ad_manager.dart';
 
 class AdLogic extends GetxController {
-  final _adManager = AdManager();
+  final _adManager = AdManager.fromGet();
 
   Future<BannerAd> loadAnchorAd(BuildContext context) {
     return _adManager.loadAnchorAd(context);

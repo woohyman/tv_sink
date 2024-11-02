@@ -10,12 +10,12 @@ class AppOpenAdManager {
 
   AppOpenAd? _appOpenAd;
 
-  void init(){
+  void init() {
     _loadAd(false);
   }
 
   void _loadAd(bool showAfterLoad) {
-    logger.i("------------------> 开始加载开屏广告 $showAfterLoad");
+    logger.i("AppOpenAdManager ------------------> 开始加载开屏广告 $showAfterLoad");
     AppOpenAd.load(
       adUnitId: adUnitId,
       orientation: AppOpenAd.orientationPortrait,
@@ -23,8 +23,11 @@ class AppOpenAdManager {
       adLoadCallback: AppOpenAdLoadCallback(
         onAdLoaded: (ad) {
           ad.fullScreenContentCallback = FullScreenContentCallback(
-            onAdShowedFullScreenContent: (ad) {},
+            onAdShowedFullScreenContent: (ad) {
+
+            },
             onAdFailedToShowFullScreenContent: (ad, error) {
+
               ad.dispose();
               _appOpenAd = null;
               _loadAd(false);
@@ -36,10 +39,10 @@ class AppOpenAdManager {
             },
           );
 
-          logger.i("------------------> 开屏广告加载完成");
+          logger.i("AppOpenAdManager ------------------> 开屏广告加载完成");
           _appOpenAd = ad;
           if (showAfterLoad) {
-            logger.i("------------------> 加载完成后显示开屏广告");
+            logger.i("AppOpenAdManager ------------------> 加载完成后显示开屏广告");
             _appOpenAd = null;
             ad.show();
           }
@@ -50,9 +53,11 @@ class AppOpenAdManager {
   }
 
   void show() {
-    if(_appOpenAd != null){
+    logger.e(
+        "AppOpenAdManager ------------------> _appOpenAd : ${_appOpenAd != null}");
+    if (_appOpenAd != null) {
       _appOpenAd?.show();
-    }else{
+    } else {
       _loadAd(true);
     }
   }

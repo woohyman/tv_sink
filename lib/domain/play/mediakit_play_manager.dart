@@ -39,22 +39,13 @@ class MediakitPlayManager extends PlayManager {
       PlayDataProvider.fromGet().selectUrl.value.value =
           entry.value.tvgUrlList.first;
     }
-
     if (!appDataProvider.allowPlayback) {
       pause();
       return;
     }
 
-    PlayDataProvider.fromGet().setUser(entry);
-
-    //开始加载广告
-    if (Random().nextInt(50) == 3) {
-      await adManager.showInterstitialAd();
-    }
-
+    await innerPlaySource(entry);
     _setResourceAndPlay(PlayDataProvider.fromGet().selectUrl.value.value);
-    TvChannelsRepository.fromType(ChannelType.historyChannel)
-        .insert(entry.toInfo());
   }
 
   void _setResourceAndPlay(String? source) async {

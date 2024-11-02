@@ -9,9 +9,9 @@ part of 'upgrade_apk_info.dart';
 UpgradeApkInfo _$UpgradeApkInfoFromJson(Map<String, dynamic> json) =>
     UpgradeApkInfo(
       json['version_name'] as String,
-      json['content'] as String,
       json['url'] as String,
       (json['version_code'] as num).toInt(),
+      content: json['content'] as String? ?? "",
     );
 
 Map<String, dynamic> _$UpgradeApkInfoToJson(UpgradeApkInfo instance) =>
