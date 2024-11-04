@@ -14,6 +14,7 @@ class OptionalChannelsList
   Widget build(BuildContext context) {
     final _scrollController = ItemScrollController();
     return BaseFutureBuilder(
+      stream: controller.dataProvider.list.subject,
       future: controller.fetchData(),
       builder: (data, update) {
         return ScrollablePositionedList.builder(

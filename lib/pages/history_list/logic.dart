@@ -9,6 +9,6 @@ class HistoryListLogic extends GetxController {
       TvChannelsRepository.fromType(ChannelType.historyChannel);
 
   Future<Map<String, TvChannelInfoModel>> get fetchData async {
-    return (await _historyDbRepository.query()).toMap();
+    return (await _historyDbRepository.query()).reversed.toList().toMap();
   }
 }

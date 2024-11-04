@@ -46,7 +46,7 @@ class PlayOnlineVideoRoute extends StatelessWidget {
                       child: Text("开始播放"),
                     ),
                     onPressed: () async {
-                      PlayManager.instant.playSource(MapEntry(
+                      PlayManager.fromGet().playSource(MapEntry(
                           _tvNameController.text,
                           TvChannelInfoModel([_urlController.text])));
                       Navigator.pop(context);

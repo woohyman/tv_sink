@@ -6,7 +6,7 @@ import '../model/play_url_info.dart';
 class PlayDataProvider {
   final tvInfo = Rxn<MapEntry<String, TvChannelInfoModel>>(null);
   final playUrlMap = <String, PlayUrlInfo>{};
-  final selectUrl = RxnString().obs;
+  final selectUrl = RxnString();
 
   void setUser(MapEntry<String, TvChannelInfoModel> _tvInfo) {
     playUrlMap.clear();
@@ -15,14 +15,13 @@ class PlayDataProvider {
     }
 
     tvInfo.value = _tvInfo;
-    selectUrl.value.value = _tvInfo.value.tvgUrlList.first;
   }
 
   void setUrl(String? url) {
     if (url == null) {
       return;
     }
-    selectUrl.value.value = url;
+    selectUrl.value = url;
 
     playUrlMap.update(url, (value) {
       return PlayUrlInfo(true, value.successCount + 1);
@@ -30,7 +29,7 @@ class PlayDataProvider {
   }
 
   void resetUrlStatus() {
-    selectUrl.value.value = tvInfo.value?.value.tvgUrlList.first ?? "";
+    selectUrl.value = tvInfo.value?.value.tvgUrlList.first ?? "";
 
     playUrlMap.updateAll((value, info) {
       return PlayUrlInfo(false, 0);

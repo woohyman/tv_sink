@@ -5,7 +5,6 @@ import 'package:tv_sink/pages/scaffold/widget/ad/anchor_widget.dart';
 import 'package:tv_sink/pages/scaffold/widget/list/view/favorite_channels_list.dart';
 import 'package:tv_sink/pages/scaffold/widget/list/view/featured_channels_list.dart';
 import 'package:tv_sink/pages/scaffold/widget/list/view/optional_channels_list.dart';
-import 'package:tv_sink/util/log_util.dart';
 import '../../domain/data_provider/app_set_data_provider.dart';
 import '../../domain/data_provider/play_data_provider.dart';
 import '../../domain/data_provider/play_list_data_provider.dart';
@@ -64,18 +63,17 @@ class ScaffoldRoute extends GetView<ScaffoldLogic> {
               });
 
               final index =
-                  urlList?.indexOf(playProvider.selectUrl.value.value ?? "") ??
-                      0;
+                  urlList?.indexOf(playProvider.selectUrl.value ?? "") ?? 0;
               return Visibility(
                 visible: urlList == null ? false : urlList.length > 1,
                 child: showDropDoan
                     ? DropdownButton<String>(
                         onChanged: (value) {
-                          PlayManager.instant.playSource(
+                          PlayManager.fromGet().playSource(
                               playProvider.tvInfo.value!,
                               tvgUrl: value);
                         },
-                        value: playProvider.selectUrl.value.value,
+                        value: playProvider.selectUrl.value,
                         items: myItems,
                       )
                     : Text("直播源${index + 1}"),
@@ -109,7 +107,7 @@ class ScaffoldRoute extends GetView<ScaffoldLogic> {
       body: Flex(
         direction: Axis.vertical,
         children: <Widget>[
-          PlayerWrapper(),
+          const PlayerWrapper(),
           const AnchorWidget(),
           Expanded(
             flex: 1,

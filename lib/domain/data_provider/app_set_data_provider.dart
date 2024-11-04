@@ -63,7 +63,7 @@ class AppSetDataProvider {
       (List<ConnectivityResult> results) async {
         _connectivityResult.value = results.first;
         if (!allowPlayback) {
-          PlayManager.instant.pause();
+          PlayManager.fromGet().pause();
         }
       },
     );

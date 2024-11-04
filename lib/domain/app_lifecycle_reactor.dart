@@ -23,7 +23,7 @@ class AppLifecycleReactor extends WidgetsBindingObserver {
 
     if (state == AppLifecycleState.paused) {
       if (!AppSetDataProvider.fromGet().enableBackgroundPlay) {
-        PlayManager.instant.pause();
+        PlayManager.fromGet().pause();
       }
     }
   }

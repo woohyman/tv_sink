@@ -21,7 +21,7 @@ class AppSettingLogic extends GetxController {
     saveAppSetting(keyWifiSetting, value);
     _appSetDataProvider.onlyPlayOnWifi = value;
     if (!_appSetDataProvider.allowPlayback) {
-      PlayManager.instant.pause();
+      PlayManager.fromGet().pause();
     }
   }
 

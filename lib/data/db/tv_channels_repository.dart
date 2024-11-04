@@ -36,10 +36,7 @@ class TvChannelsRepository extends BaseChannelsRepository {
 
     final result = <TvChannelInfo>[];
 
-    final map = tableName == ChannelType.historyChannel.tableName
-        ? dogMaps.reversed
-        : dogMaps;
-    for (final item in map) {
+    for (final item in dogMaps) {
       final tvChannelInfo = TvChannelInfo.fromJson(item);
       result.add(tvChannelInfo);
     }

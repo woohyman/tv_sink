@@ -12,23 +12,24 @@ import '../ad/ad_manager.dart';
 import '../data_provider/app_set_data_provider.dart';
 
 abstract class PlayManager {
-  static get instant {
+  factory PlayManager.fromGet() {
     return Get.find<PlayManager>();
   }
+
+  PlayManager();
 
   final appDataProvider = AppSetDataProvider.fromGet();
   late VideoController controller;
   final adManager = AdManager.fromGet();
   String curDataSource = "";
 
-  Future<void> playSource(
-    MapEntry<String, TvChannelInfoModel> entry, {
-    String? tvgUrl,
-  });
+  Future<void> playSource(MapEntry<String, TvChannelInfoModel> entry,
+      {String? tvgUrl});
 
   Future<void> innerPlaySource(
-      MapEntry<String, TvChannelInfoModel> entry) async {
+      MapEntry<String, TvChannelInfoModel> entry, String url) async {
     PlayDataProvider.fromGet().setUser(entry);
+    PlayDataProvider.fromGet().setUrl(url);
     //开始加载广告
     if (Random().nextInt(50) == 3) {
       await adManager.showInterstitialAd();

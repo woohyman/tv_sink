@@ -15,12 +15,12 @@ class PlayerWrapper extends StatelessWidget {
       children: <Widget>[
         Obx(() {
           return Visibility(
-            visible: PlayDataProvider.fromGet().selectUrl.value.value != null,
+            visible: PlayDataProvider.fromGet().selectUrl.value != null,
             child: InkWell(
                 child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                PlayManager.instant.getPlayerWidget(),
+                PlayManager.fromGet().getPlayerWidget(),
               ],
             )),
           );

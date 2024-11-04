@@ -1,11 +1,8 @@
-import 'dart:math';
 import 'package:media_kit/media_kit.dart';
 import 'package:media_kit_video/media_kit_video.dart';
 import 'package:flutter/material.dart';
-import 'package:tv_sink/domain/model/transform.dart';
 import 'package:tv_sink/domain/play/play_manager.dart';
-import '../../data/db/channel_type_enum.dart';
-import '../../data/db/tv_channels_repository.dart';
+import 'package:tv_sink/util/log_util.dart';
 import '../model/tv_channel_info_model.dart';
 import '../data_provider/play_data_provider.dart';
 
@@ -33,28 +30,21 @@ class MediakitPlayManager extends PlayManager {
   @override
   Future<void> playSource(MapEntry<String, TvChannelInfoModel> entry,
       {String? tvgUrl}) async {
+    var sourceUrl = entry.value.tvgUrlList.first;
     if (tvgUrl != null) {
-      PlayDataProvider.fromGet().selectUrl.value.value = tvgUrl;
-    } else {
-      PlayDataProvider.fromGet().selectUrl.value.value =
-          entry.value.tvgUrlList.first;
+      sourceUrl = tvgUrl;
     }
+
     if (!appDataProvider.allowPlayback) {
       pause();
       return;
     }
 
-    await innerPlaySource(entry);
-    _setResourceAndPlay(PlayDataProvider.fromGet().selectUrl.value.value);
+    await innerPlaySource(entry, sourceUrl);
+    _setResourceAndPlay(sourceUrl);
   }
 
-  void _setResourceAndPlay(String? source) async {
-    if (source == null) {
-      return;
-    }
-
-    PlayDataProvider.fromGet().setUrl(source);
-
+  void _setResourceAndPlay(String source) async {
     await player.stop();
     await player.open(Media(source), play: false);
     player.play();

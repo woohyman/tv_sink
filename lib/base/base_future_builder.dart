@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class BaseFutureBuilder<T> extends StatefulWidget {
   final bool hideWhenLoadError;
+  final GetStream<T>? stream;
 
   final Future<T> future;
   final Widget Function(T data, Function() update) builder;
@@ -11,6 +13,7 @@ class BaseFutureBuilder<T> extends StatefulWidget {
     required this.builder,
     this.hideWhenLoadError = false,
     super.key,
+    this.stream,
   });
 
   @override
@@ -18,6 +21,17 @@ class BaseFutureBuilder<T> extends StatefulWidget {
 }
 
 class _BaseFutureBuilderState<T> extends State<BaseFutureBuilder<T>> {
+  final _obsData = Rxn<T>();
+
+  @override
+  void initState() {
+    super.initState();
+    widget.stream?.listen((data) {
+      _obsData.value = data;
+      _obsData.refresh();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -33,14 +47,6 @@ class _BaseFutureBuilderState<T> extends State<BaseFutureBuilder<T>> {
                 child: const Text("加载错误"),
               );
             }
-          }else if(snapshot.data is Map){
-            final data = snapshot.data as Map;
-            if(data.isEmpty){
-              return Container(
-                alignment: Alignment.center,
-                child: const Text("数据为空"),
-              );
-            }
           }
         } else {
           if (widget.hideWhenLoadError) {
@@ -52,8 +58,17 @@ class _BaseFutureBuilderState<T> extends State<BaseFutureBuilder<T>> {
           }
         }
 
-        return widget.builder(snapshot.data!, () {
-          setState(() {});
+        return Obx(() {
+          final data = _obsData.value ?? snapshot.data!;
+          if (data is Map && data.isEmpty) {
+            return Container(
+              alignment: Alignment.center,
+              child: const Text("数据为空"),
+            );
+          }
+          return widget.builder(_obsData.value ?? snapshot.data!, () {
+            setState(() {});
+          });
         });
       },
     );

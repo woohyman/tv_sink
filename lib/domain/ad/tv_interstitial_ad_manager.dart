@@ -27,7 +27,7 @@ class TvInterstitialAdManager {
             _interstitialAd = ad;
           },
           onAdFailedToLoad: (LoadAdError error) {
-            PlayManager.instant.play();
+            PlayManager.fromGet().play();
           },
         ));
   }
@@ -47,7 +47,7 @@ class TvInterstitialAdManager {
         onAdShowedFullScreenContent: (ad) {
           ad.dispose();
           _interstitialAd = null;
-          PlayManager.instant.pause();
+          PlayManager.fromGet().pause();
           _load();
           logger.i("TvInterstitialAdManager------------------> 插屏广告显示");
         },
