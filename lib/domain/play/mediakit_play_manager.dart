@@ -2,7 +2,6 @@ import 'package:media_kit/media_kit.dart';
 import 'package:media_kit_video/media_kit_video.dart';
 import 'package:flutter/material.dart';
 import 'package:tv_sink/domain/play/play_manager.dart';
-import 'package:tv_sink/util/log_util.dart';
 import '../model/tv_channel_info_model.dart';
 import '../data_provider/play_data_provider.dart';
 
@@ -20,7 +19,7 @@ class MediakitPlayManager extends PlayManager {
             final entry = provider.playUrlMap.entries.firstWhere((value) {
               return !value.value.isConnected;
             });
-            _setResourceAndPlay(entry.key);
+            playSource(entry.key);
           } catch (_) {}
         },
       );
@@ -28,20 +27,21 @@ class MediakitPlayManager extends PlayManager {
   }
 
   @override
-  Future<void> playSource(MapEntry<String, TvChannelInfoModel> entry,
-      {String? tvgUrl}) async {
-    var sourceUrl = entry.value.tvgUrlList.first;
-    if (tvgUrl != null) {
-      sourceUrl = tvgUrl;
-    }
+  Future<void> playSource(String tvgUrl) async {
+    super.playSource(tvgUrl);
+    _setResourceAndPlay(tvgUrl);
+  }
 
+  @override
+  Future<void> playEntry(MapEntry<String, TvChannelInfoModel> entry) async {
+    var url = entry.value.tvgUrlList.first;
     if (!appDataProvider.allowPlayback) {
       pause();
       return;
     }
 
-    await innerPlaySource(entry, sourceUrl);
-    _setResourceAndPlay(sourceUrl);
+    await innerPlaySource(entry, url);
+    _setResourceAndPlay(url);
   }
 
   void _setResourceAndPlay(String source) async {

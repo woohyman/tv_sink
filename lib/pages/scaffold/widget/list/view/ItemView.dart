@@ -29,7 +29,7 @@ class ItemView extends GetView<PlayDataProvider> {
               clipBehavior: Clip.antiAlias,
               semanticContainer: false,
               child: InkWell(
-                onTap: () => PlayManager.fromGet().playSource(_user),
+                onTap: () => PlayManager.fromGet().playEntry(_user),
                 child: Row(
                   children: <Widget>[
                     Container(

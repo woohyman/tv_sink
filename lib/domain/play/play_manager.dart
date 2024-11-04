@@ -23,8 +23,12 @@ abstract class PlayManager {
   final adManager = AdManager.fromGet();
   String curDataSource = "";
 
-  Future<void> playSource(MapEntry<String, TvChannelInfoModel> entry,
-      {String? tvgUrl});
+  @mustCallSuper
+  void playSource(String tvgUrl) {
+    PlayDataProvider.fromGet().setUrl(tvgUrl);
+  }
+
+  Future<void> playEntry(MapEntry<String, TvChannelInfoModel> entry);
 
   Future<void> innerPlaySource(
       MapEntry<String, TvChannelInfoModel> entry, String url) async {

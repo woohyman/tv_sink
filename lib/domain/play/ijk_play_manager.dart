@@ -26,12 +26,15 @@ class IjkPlayManager extends PlayManager {
   }
 
   @override
-  Future<void> playSource(MapEntry<String, TvChannelInfoModel> entry,
+  void playSource(String tvgUrl) {
+    super.playSource(tvgUrl);
+    _setResourceAndPlay(tvgUrl);
+  }
+
+  @override
+  Future<void> playEntry(MapEntry<String, TvChannelInfoModel> entry,
       {String? tvgUrl}) async {
     var sourceUrl = entry.value.tvgUrlList.first;
-    if (tvgUrl != null) {
-      sourceUrl = tvgUrl;
-    }
 
     if (!appDataProvider.allowPlayback) {
       pause();

@@ -33,7 +33,7 @@ class HistoryRoute extends GetView<HistoryListLogic> {
                         onTap: () {
                           Navigator.popUntil(context, ModalRoute.withName('/'));
                           final playItem = MapEntry(tvName, tvItem.value);
-                          PlayManager.fromGet().playSource(playItem);
+                          PlayManager.fromGet().playEntry(playItem);
                         },
                         child: Row(
                           children: [

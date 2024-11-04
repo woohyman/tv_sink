@@ -69,9 +69,7 @@ class ScaffoldRoute extends GetView<ScaffoldLogic> {
                 child: showDropDoan
                     ? DropdownButton<String>(
                         onChanged: (value) {
-                          PlayManager.fromGet().playSource(
-                              playProvider.tvInfo.value!,
-                              tvgUrl: value);
+                          PlayManager.fromGet().playSource(value!);
                         },
                         value: playProvider.selectUrl.value,
                         items: myItems,
