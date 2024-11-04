@@ -18,7 +18,7 @@ class IjkPlayManager extends PlayManager {
             final entry = provider.playUrlMap.entries.firstWhere((value) {
               return !value.value.isConnected;
             });
-            _setResourceAndPlay(entry.key);
+            playSource(entry.key);
           } finally {}
         }
       });
