@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tv_sink/domain/upgrade/upgrade_manager.dart';
 import 'play/play_manager.dart';
 import 'data_provider/app_set_data_provider.dart';
 import 'ad/ad_manager.dart';
@@ -25,6 +26,10 @@ class AppLifecycleReactor extends WidgetsBindingObserver {
       if (!AppSetDataProvider.fromGet().enableBackgroundPlay) {
         PlayManager.fromGet().pause();
       }
+    }
+
+    if (state == AppLifecycleState.resumed) {
+      UpgradeManager.fromGet()?.showDialog();
     }
   }
 }
