@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import '../../data/model/upgrade_apk_info.dart';
 import 'apk_info_data_provider.dart';
-import '../../data/net/upgrade_repository.dart';
+import '../../data/net/supabase/upgrade_repository.dart';
 
 class UpgradeDataProvider {
   final _updateManager = UpgradeRepository();

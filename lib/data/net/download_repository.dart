@@ -30,7 +30,7 @@ class DownloadRepository extends BaseDio {
   Future<Stream<Status>> downloadToFile(String url) async {
 
     var _controller = StreamController<Status>();
-    _controller.add(Downloading(0, 0));
+    _controller.add(Downloading(0, 1));
     final file = await localFile;
     newDio.download(
       url,

@@ -1,6 +1,6 @@
 import 'package:tv_sink/data/model/default_tv_channel_info.dart';
 import 'package:tv_sink/data/model/tv_channel_info.dart';
-import 'base/base_supabase.dart';
+import '../base/base_supabase.dart';
 
 //精选频道列表
 class RemoteUrlRepository extends BaseSupabase {

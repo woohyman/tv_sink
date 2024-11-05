@@ -1,13 +1,14 @@
 import 'package:get/get_navigation/src/routes/get_route.dart';
-import 'package:tv_sink/pages/parse_m3u/binding.dart';
+
 import '../pages/app_setting/binding.dart';
 import '../pages/app_setting/view.dart';
-import '../pages/default_url_list/view.dart';
 import '../pages/default_url_list/binding.dart';
+import '../pages/default_url_list/view.dart';
 import '../pages/history_list/binding.dart';
 import '../pages/history_list/view.dart';
-import '../pages/play_online_video/view.dart';
+import '../pages/parse_m3u/binding.dart';
 import '../pages/parse_m3u/view.dart';
+import '../pages/play_online_video/view.dart';
 import '../pages/scaffold/view.dart';
 
 class RouterTable {

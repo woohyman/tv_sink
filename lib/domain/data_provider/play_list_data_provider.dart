@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:tv_sink/data/db/channel_type_enum.dart';
 import 'package:tv_sink/data/db/tv_channels_repository.dart';
 import 'package:tv_sink/domain/model/transform.dart';
-import '../../data/net/remote_url_repository.dart';
+import '../../data/net/supabase/remote_url_repository.dart';
 import '../model/tv_channel_info_model.dart';
 
 abstract class PlayListDataProvider {

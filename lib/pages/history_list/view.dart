@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tv_sink/base/base_future_builder.dart';
-import 'package:tv_sink/pages/history_list/logic.dart';
 import '../../domain/play/play_manager.dart';
 import '../scaffold/widget/list/view/ItemView.dart';
+import 'logic.dart';
 
 class HistoryRoute extends GetView<HistoryListLogic> {
   const HistoryRoute({Key? key}) : super(key: key);

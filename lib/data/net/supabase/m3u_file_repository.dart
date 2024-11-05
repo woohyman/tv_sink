@@ -1,6 +1,6 @@
 import 'package:tv_sink/data/net/base/base_supabase.dart';
 
-import '../model/file_m3u_info.dart';
+import '../../model/file_m3u_info.dart';
 
 //精选m3u列表
 class M3uFileRepository extends BaseSupabase {

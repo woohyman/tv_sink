@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:io';
 import 'package:retry/retry.dart';
-import '../model/upgrade_apk_info.dart';
-import 'base/base_supabase.dart';
+import '../../model/upgrade_apk_info.dart';
+import '../base/base_supabase.dart';
 
 class UpgradeRepository extends BaseSupabase {
   Future<UpgradeApkInfo> fetchApkVersion() async {

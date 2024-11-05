@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:tv_sink/pages/model/transform.dart';
 import '../../data/model/file_m3u_info.dart';
-import '../../data/net/m3u_file_repository.dart';
+import '../../data/net/supabase/m3u_file_repository.dart';
 import '../../domain/download_manager.dart';
 import '../../domain/data_provider/user_data_provider.dart';
 import '../model/file_m3u_info_model.dart';

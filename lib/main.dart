@@ -8,7 +8,6 @@ import 'package:tv_sink/pages/init_binding.dart';
 import 'package:tv_sink/pages/scaffold/view.dart';
 import 'package:tv_sink/routes/router_table.dart';
 import 'package:video_player_media_kit/video_player_media_kit.dart';
-import 'domain/app_lifecycle_reactor.dart';
 
 Future<void> main() async {
   // 如果需要 ensureInitialized，请在这里运行。
