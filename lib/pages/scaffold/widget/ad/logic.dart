@@ -7,11 +7,11 @@ import '../../../../domain/ad/ad_manager.dart';
 class AdLogic extends BaseFutureController {
   final _adManager = AdManager.fromGet();
 
-  Future<BannerAd> loadAnchorAd(BuildContext context) {
-    return _adManager.loadAnchorAd(context);
+  Future<BannerAd>? loadAnchorAd(BuildContext context) {
+    return _adManager?.loadAnchorAd(context);
   }
 
-  Future<BannerAd> loadInlineAd(BuildContext context) {
-    return _adManager.loadInlineAd(context);
+  Future<BannerAd>? loadInlineAd(BuildContext context) {
+    return _adManager?.loadInlineAd(context);
   }
 }

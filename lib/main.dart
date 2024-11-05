@@ -13,7 +13,6 @@ Future<void> main() async {
   // 如果需要 ensureInitialized，请在这里运行。
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-  MobileAds.instance.initialize();
 
   VideoPlayerMediaKit.ensureInitialized(
     macOS: true,

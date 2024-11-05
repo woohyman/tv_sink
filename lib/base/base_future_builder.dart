@@ -5,7 +5,7 @@ class BaseFutureBuilder<T> extends StatefulWidget {
   final bool hideWhenLoadError;
   final GetStream<T>? stream;
 
-  final Future<T> future;
+  final Future<T>? future;
   final Widget Function(T data, Function() update) builder;
 
   const BaseFutureBuilder({
@@ -34,6 +34,10 @@ class _BaseFutureBuilderState<T> extends State<BaseFutureBuilder<T>> {
 
   @override
   Widget build(BuildContext context) {
+    if (widget.future == null) {
+      return Container();
+    }
+
     return FutureBuilder(
       future: widget.future,
       builder: (context, snapshot) {

@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:get/get.dart';
 import 'package:media_kit_video/media_kit_video.dart';
 import 'package:flutter/material.dart';
@@ -34,10 +32,8 @@ abstract class PlayManager {
       MapEntry<String, TvChannelInfoModel> entry, String url) async {
     PlayDataProvider.fromGet().setUser(entry);
     PlayDataProvider.fromGet().setUrl(url);
-    //开始加载广告
-    if (Random().nextInt(50) == 3) {
-      await adManager.showInterstitialAd();
-    }
+
+    await adManager?.showInterstitialAd();
     TvChannelsRepository.fromType(ChannelType.historyChannel)
         .insert(entry.toInfo());
   }

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -11,13 +12,13 @@ class AdManager {
   final interstitialAd = TvInterstitialAdManager();
   final appOpenAd = AppOpenAdManager();
 
-  UserDataProvider get provider{
+  UserDataProvider get provider {
     return UserDataProvider.fromGet();
   }
 
   //展示开机广告
   void showOpenAd() {
-    if(provider.isVip){
+    if (provider.isVip) {
       return;
     }
     appOpenAd.show();
@@ -25,20 +26,27 @@ class AdManager {
 
   //展示插屏广告
   Future<void> showInterstitialAd() async {
-    if(provider.isVip){
+    if (provider.isVip) {
       return;
     }
-    await interstitialAd.show();
+    if (Random().nextInt(50) == 3) {
+      await interstitialAd.show();
+    }
   }
 
-  factory AdManager.fromGet() {
-    return Get.find<AdManager>();
+  static AdManager? fromGet() {
+    try {
+      return Get.find<AdManager>();
+    } catch (_) {
+      return null;
+    }
   }
 
   AdManager() {
-    if(provider.isVip){
+    if (provider.isVip) {
       return;
     }
+    MobileAds.instance.initialize();
     interstitialAd.init();
     appOpenAd.init();
   }
@@ -46,7 +54,7 @@ class AdManager {
   //加载列表的嵌入广告
   Future<BannerAd> loadAnchorAd(BuildContext context) {
     Completer<BannerAd> completer = Completer();
-    if(provider.isVip){
+    if (provider.isVip) {
       completer.completeError("");
       return completer.future;
     }
@@ -71,7 +79,7 @@ class AdManager {
 
   //加载左侧的嵌入广告
   Future<BannerAd> loadInlineAd(BuildContext context) {
-    if(provider.isVip){
+    if (provider.isVip) {
       Completer<BannerAd> completer = Completer();
       completer.completeError("");
       return completer.future;

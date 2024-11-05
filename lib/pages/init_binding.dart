@@ -23,7 +23,10 @@ class InitBinding extends Bindings {
   @override
   void dependencies() {
     Get.put(UserDataProvider());
-    Get.put(AdManager());
+
+    if(Platform.isAndroid){
+      Get.put(AdManager());
+    }
 
     Get.put(SupabaseClient(supabaseUrl, supabaseKey));
     Get.put(OptionalPlayListDataProvider());

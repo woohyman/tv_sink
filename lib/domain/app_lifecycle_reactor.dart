@@ -18,7 +18,7 @@ class AppLifecycleReactor extends WidgetsBindingObserver {
 
     if (state == AppLifecycleState.resumed && _isPaused) {
       _isPaused = false;
-      adManager.showOpenAd();
+      adManager?.showOpenAd();
     }
 
     if (state == AppLifecycleState.paused) {
