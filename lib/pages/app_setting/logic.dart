@@ -31,6 +31,6 @@ class AppSettingLogic extends GetxController {
   }
 
   void showDialog(BuildContext context) {
-    _upgradeController.showDialog(context);
+    _upgradeController?.showDialog();
   }
 }

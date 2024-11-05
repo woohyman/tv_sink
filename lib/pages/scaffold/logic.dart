@@ -16,9 +16,10 @@ class ScaffoldLogic extends GetxController {
     _selectedIndex.value = index;
   }
 
-  void init(BuildContext context) {
-    UpgradeManager.fromGet().showDialog(context);
-    UpgradeManager.fromGet().init(context);
+  @override
+  void onInit() {
+    super.onInit();
+    UpgradeManager.fromGet()?.showDialog();
     FlutterNativeSplash.remove();
   }
 }

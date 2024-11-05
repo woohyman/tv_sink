@@ -20,7 +20,6 @@ class ScaffoldRoute extends GetView<ScaffoldLogic> {
   @override
   Widget build(BuildContext context) {
     final _pageController = PageController();
-    controller.init(context);
 
     return Scaffold(
       appBar: AppBar(

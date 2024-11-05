@@ -12,21 +12,26 @@ class UpgradeManager {
   UpdateDialog? _dialog;
   final _downloadRepository = DownloadRepository();
 
-  factory UpgradeManager.fromGet() {
-    return Get.find<UpgradeManager>();
+  static UpgradeManager? fromGet() {
+    try {
+      return Get.find<UpgradeManager>();
+    } catch (error) {
+      return null;
+    }
   }
 
-  void init(BuildContext context) {
-    Connectivity()
-        .onConnectivityChanged
-        .listen((List<ConnectivityResult> results) async {
-      showDialog(context);
-    });
+  UpgradeManager() {
+    Connectivity().onConnectivityChanged.listen(
+      (List<ConnectivityResult> results) async {
+        showDialog();
+      },
+    );
   }
 
-  UpgradeManager();
-
-  Future<bool> showDialog(BuildContext context) async {
+  Future<bool> showDialog() async {
+    if (Get.context == null) {
+      return false;
+    }
     if (UniversalPlatform.isWeb) {
       return false;
     }
@@ -41,7 +46,7 @@ class UpgradeManager {
     if (_upgradeDataProvider.needUpgrade.value == true) {
       final apkUpgradeInfo = _upgradeDataProvider.apkVersion.value;
       _dialog = UpdateDialog.showUpdate(
-        context,
+        Get.context!,
         isForce: true,
         title: '升级到版本${apkUpgradeInfo?.version_name}',
         updateContent: apkUpgradeInfo!.content,

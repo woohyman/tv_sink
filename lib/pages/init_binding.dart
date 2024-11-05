@@ -26,6 +26,7 @@ class InitBinding extends Bindings {
 
     if(Platform.isAndroid){
       Get.put(AdManager());
+      Get.put(UpgradeManager());
     }
 
     Get.put(SupabaseClient(supabaseUrl, supabaseKey));
@@ -35,7 +36,6 @@ class InitBinding extends Bindings {
     Get.put(UpgradeDataProvider());
     Get.put(AppSetDataProvider());
 
-    Get.put(UpgradeManager());
     Get.put(ScaffoldLogic());
     Get.put(PlayListLogic<FeaturePlayListDataProvider>());
     Get.put(PlayListLogic<OptionalPlayListDataProvider>());
