@@ -32,6 +32,8 @@ class UpgradeManager {
     }
     final _upgradeDataProvider = UpgradeDataProvider.fromGet();
 
+    await _upgradeDataProvider.fetchVersion();
+
     if (_dialog != null && _dialog!.isShowing()) {
       return false;
     }
