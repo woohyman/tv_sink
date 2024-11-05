@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:tv_sink/data/db/channel_type_enum.dart';
 import 'package:tv_sink/data/db/tv_channels_repository.dart';
 import 'package:tv_sink/domain/model/transform.dart';
+import 'package:universal_platform/universal_platform.dart';
 import '../../data/net/supabase/remote_url_repository.dart';
 import '../model/tv_channel_info_model.dart';
 
@@ -47,9 +48,13 @@ class OptionalPlayListDataProvider extends PlayListDataProvider {
 
   @override
   Future<Map<String, TvChannelInfoModel>> fetchData() async {
-    final value = await _customChannelsRepository.query();
-    setWatchLists(value.toMap());
-    return value.toMap();
+    if (UniversalPlatform.isWeb) {
+      return {};
+    } else {
+      final value = await _customChannelsRepository.query();
+      setWatchLists(value.toMap());
+      return value.toMap();
+    }
   }
 
   @override
@@ -76,9 +81,13 @@ class CollectPlayListDataProvider extends PlayListDataProvider {
 
   @override
   Future<Map<String, TvChannelInfoModel>> fetchData() async {
-    final value = await _collectionDbControl.query();
-    setWatchLists(value.toMap());
-    return value.toMap();
+    if (UniversalPlatform.isWeb) {
+      return {};
+    } else {
+      final value = await _collectionDbControl.query();
+      setWatchLists(value.toMap());
+      return value.toMap();
+    }
   }
 
   @override

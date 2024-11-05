@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:tv_sink/domain/model/transform.dart';
 import '../../data/db/channel_type_enum.dart';
 import '../../data/db/tv_channels_repository.dart';
+import '../data_provider/base/histroty_list_data_provider.dart';
 import '../data_provider/play_data_provider.dart';
 import '../model/tv_channel_info_model.dart';
 import '../ad/ad_manager.dart';
@@ -34,8 +35,7 @@ abstract class PlayManager {
     PlayDataProvider.fromGet().setUrl(url);
 
     await adManager?.showInterstitialAd();
-    TvChannelsRepository.fromType(ChannelType.historyChannel)
-        .insert(entry.toInfo());
+    HistoryListDataProvider.fromGet().setList(entry);
   }
 
   void pause();

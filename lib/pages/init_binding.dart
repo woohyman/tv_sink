@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:supabase/supabase.dart';
 import 'package:tv_sink/domain/ad/ad_manager.dart';
+import 'package:tv_sink/domain/data_provider/base/histroty_list_data_provider.dart';
 import 'package:tv_sink/domain/data_provider/play_list_data_provider.dart';
 import 'package:tv_sink/pages/scaffold/logic.dart';
 import 'package:tv_sink/pages/scaffold/widget/ad/logic.dart';
@@ -31,6 +32,7 @@ class InitBinding extends Bindings {
     Get.put(SupabaseClient(supabaseUrl, supabaseKey));
     Get.put(OptionalPlayListDataProvider());
     Get.put(CollectPlayListDataProvider());
+    Get.put(HistoryListDataProvider());
     Get.put(PlayDataProvider());
     Get.put(UpgradeDataProvider());
     Get.put(AppSetDataProvider());
