@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:supabase/supabase.dart';
@@ -8,6 +6,7 @@ import 'package:tv_sink/domain/data_provider/play_list_data_provider.dart';
 import 'package:tv_sink/pages/scaffold/logic.dart';
 import 'package:tv_sink/pages/scaffold/widget/ad/logic.dart';
 import 'package:tv_sink/pages/scaffold/widget/list/logic.dart';
+import 'package:universal_platform/universal_platform.dart';
 import '../domain/app_lifecycle_reactor.dart';
 import '../domain/data_provider/app_set_data_provider.dart';
 import '../domain/data_provider/play_data_provider.dart';
@@ -24,7 +23,7 @@ class InitBinding extends Bindings {
   void dependencies() {
     Get.put(UserDataProvider());
 
-    if(Platform.isAndroid){
+    if(UniversalPlatform.isAndroid){
       Get.put(AdManager());
       Get.put(UpgradeManager());
     }
@@ -42,7 +41,7 @@ class InitBinding extends Bindings {
     Get.put(PlayListLogic<CollectPlayListDataProvider>());
     Get.put(AdLogic());
 
-    if (Platform.isAndroid) {
+    if (UniversalPlatform.isAndroid) {
       Get.put<PlayManager>(IjkPlayManager());
     } else {
       Get.put<PlayManager>(MediakitPlayManager());
